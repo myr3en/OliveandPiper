@@ -1,0 +1,169 @@
+{% include 'sca_freegift_price' with item %}
+{% capture all_output %}
+{% comment %} version: 1.6.3 {% endcomment %}
+{% comment %} PLEASE DO NOT MODIFY THIS FILE, DOING SO MAY BREAK YOUR PRODUCT OPTIONS {% endcomment %}
+
+{% comment %} Hide line item pricing rows {% endcomment %}
+{% if product-customizer-helper == 'hide-pricing-item-row' %}
+  {% if item.properties._pc_pricing_ref and item.properties._pc_pricing_qty == null %}
+    display:none;
+  {% endif %}
+{% endif %}
+
+{% comment %} Add the product pricing ref and pricing product quantity {% endcomment %}
+{% if product-customizer-helper == 'cart-row-data' %}
+  {% if item.properties._pc_pricing_ref != null %}
+    data-product-customizer-pricing-ref="{{ item.properties._pc_pricing_ref }}"
+  {% endif %}
+  {% if item.properties._pc_pricing_qty != null %}
+    data-product-customizer-pricing-qty="{{ item.properties._pc_pricing_qty }}"
+  {% endif %}
+  data-line="{{ forloop.index }}"
+{% endif %}
+
+{% comment %}
+  Display the line item properties (default action).
+  required: item. optional: file_upload_text (defaults to 'Click to see'), file_upload_class (defaults to null) 
+{% endcomment %}
+{% if product-customizer-helper == 'line-item-properties' or product-customizer-helper == null %}
+  {% if file_upload_text == null %}{% assign file_upload_text = 'Click to see' %}{% endif %}
+  {% for p in item.properties %}
+    {% assign hiddenProperty = p.first | first | replace: '_', true %}
+    {% if p.last == blank %}{% continue %}{% endif %}
+    {% if hiddenProperty == 'true' %}
+      <span style="display:none;" class="product-customizer-line-item-prop" data-prop-name="{{ p.first }}">{{ p.first }}: {{ p.last }}</span>
+      {% continue %}
+    {% endif %}
+    <br/>
+    <span class="product-customizer-line-item-prop" data-prop-name="{{ p.first }}">{{ p.first }}:
+    {% if p.last contains '/uploads/' %}
+      <a href="{{ p.last }}" class="{{ file_upload_class }}">{{ file_upload_text }}</a>
+    {% else %}
+      {{ p.last | newline_to_br }}
+    {% endif %}
+    </span>
+  {% endfor %}
+{% endif %}
+
+{% comment %} Fix the line item remove from cart link {% endcomment %}
+{% if product-customizer-helper == 'remove-from-cart-href' %}
+  {% if item.properties._pc_pricing_ref and item.properties._pc_pricing_qty %}
+    #{{ forloop.index }}
+  {% else %}
+    /cart/change?line={{ forloop.index }}&amp;quantity=0
+  {% endif %}
+{% endif %}
+
+{% comment %} Fix the line item remove from cart link {% endcomment %}
+{% if product-customizer-helper == 'remove-from-cart-class' %}
+  {% if item.properties._pc_pricing_ref and item.properties._pc_pricing_qty %}
+    product-customizer-cart-remove
+  {% else %}
+    {{ else_class }}
+  {% endif %}
+{% endif %}
+
+{% comment %} Get the line item price. required: item or _item_line_price, items. optional: raw {% endcomment %}
+{% if product-customizer-helper == 'item-line-price' %}
+  {% if _item_line_price == null %}
+    {% assign _item_line_price = item.line_price %}
+  {% endif %}
+  {% if item.properties._pc_pricing_ref and item.properties._pc_pricing_qty %}
+    {% for other_item in items %}
+      {% if other_item.properties._pc_pricing_qty == null and other_item.properties._pc_pricing_ref == item.properties._pc_pricing_ref %}
+        {% assign _item_line_price = _item_line_price | plus: other_item.line_price %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if raw == true %}
+    {{ _item_line_price }}
+  {% else %}
+    {{ _item_line_price | money }}
+  {% endif %}
+  {% assign _item_line_price = null %}
+{% endif %}
+
+{% comment %} Get the item price. required: item or _item_price, items. optional: raw {% endcomment %}
+{% if product-customizer-helper == 'item-price' %}
+  {% if _item_price == null %}
+    {% assign _item_price = sca_price %}
+  {% endif %}
+  {% if item.properties._pc_pricing_ref and item.properties._pc_pricing_qty %}
+    {% for other_item in items %}
+      {% if other_item.properties._pc_pricing_qty == null and other_item.properties._pc_pricing_ref == item.properties._pc_pricing_ref %}
+        {% assign _item_price = _item_price | plus: item.properties._pc_pricing_qty %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if raw == true %}
+    {{ _item_price }}
+  {% else %}
+    {{ _item_price | money }}
+  {% endif %}
+  {% assign _item_price = null %}
+{% endif %}
+
+{% comment %} Fix the cart bubble count. required: cart. optional: _cart_item_count {% endcomment %}
+{% if product-customizer-helper == 'cart-item-count' %}
+  {% if _cart_item_count == null %}
+    {% assign _cart_item_count = cart.item_count %}
+  {% endif %}
+  {% for cart_item in cart.items %}
+    {% if cart_item.properties._pc_pricing_ref and cart_item.properties._pc_pricing_qty == null %}
+      {% assign _cart_item_count = _cart_item_count | minus: cart_item.quantity %}
+    {% endif %}
+  {% endfor %}
+  {{ _cart_item_count }}
+  {% assign _cart_item_count = null %}
+{% endif %}
+
+{% comment %} Initialize the global javascript objects {% endcomment %}
+{% if product-customizer-helper == 'product-customizer-js-init' %}
+  {% if wrap == true %}
+    <script>
+  {% endif %}
+    if (typeof(shopstorm) === 'undefined') { var shopstorm = {}; }
+    if (typeof(shopstorm.shop) === 'undefined') { shopstorm.shop = {}; }
+    if (typeof(shopstorm.shop.moneyFormat) === 'undefined') { shopstorm.shop.moneyFormat = '{{ shop.money_format }}'; }
+    if (typeof(shopstorm.apps) === 'undefined') { shopstorm.apps = {}; }
+    if (typeof(shopstorm.apps.productCustomizer) === 'undefined') {
+      shopstorm.apps.productCustomizer = {
+        pricingVariantId: '{{ shop.metafields.product_customizer.quantity_pricing_variant_id }}',
+        options: []
+      };
+    }
+  {% if wrap == true %}
+    </script>
+  {% endif %}
+{% endif %}
+
+{% comment %} Include the product customizer javascript {% endcomment %}
+{% if product-customizer-helper == 'product-customizer-script' %}
+  {% unless skip_js_init %}
+    {% if _js_section == null %}{% assign _js_section = 'product-customizer:helper-script-init' %}{% endif %}
+    <script>
+      if (typeof(shopstorm) === 'undefined') { var shopstorm = {}; }
+      if (typeof(shopstorm.shop) === 'undefined') { shopstorm.shop = {}; }
+      if (typeof(shopstorm.shop.moneyFormat) === 'undefined') { shopstorm.shop.moneyFormat = '{{ shop.money_format }}'; }
+      if (typeof(shopstorm.apps) === 'undefined') { shopstorm.apps = {}; }
+      if (typeof(shopstorm.apps.productCustomizer) === 'undefined') {
+        shopstorm.apps.productCustomizer = {
+          pricingVariantId: '{{ shop.metafields.product_customizer.quantity_pricing_variant_id }}',
+          options: []
+        };
+      }
+      shopstorm.jsSection = '{{ _js_section }}';
+    </script>
+    {{ 'shopstorm-apps.js' | asset_url | script_tag }}
+    {% assign _js_section = null %}
+  {% endunless %}
+  {% if script_asset != blank %}
+    {% assign script_src = script_asset | asset_url %}
+  {% elsif script_src == blank %}
+    {% capture script_src %}https://product-customizer-cdn.shopstorm.com/assets/javascripts/app/product-customizer-v1.js?shop={{shop.permanent_domain}}{% endcapture %}
+  {% endif %}
+  <script async src="{{ script_src }}"></script>
+{% endif %}
+
+{% comment %} NOTE: NO TRAILING LINEBREAK! {% endcomment %}
+{% endcapture %}{{ all_output | strip }}

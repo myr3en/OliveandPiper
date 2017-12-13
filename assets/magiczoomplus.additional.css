@@ -1,0 +1,21 @@
+
+/* Contaner with main image and selectors container */
+div.MagicToolboxContainer {
+    text-align: center;
+}
+
+/* Main image styles */
+div.MagicToolboxContainer a {
+    margin: 0 auto;
+}
+
+/* Container with selectors*/
+div.MagicToolboxSelectorsContainer {
+    clear: both;
+}
+
+/* Selectors styles */
+div.MagicToolboxSelectorsContainer a {
+    display: inline-block;
+    margin: 4px 1px;
+}

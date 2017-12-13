@@ -1,0 +1,88 @@
+.MagicScroll.mcs-rounded {
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    overflow: hidden !important;
+}
+.MagicScroll.mcs-rounded.MagicScroll-arrows-inside {
+    overflow: hidden !important;
+}
+.MagicScroll.mcs-rounded.MagicScroll-arrows-outside {
+    overflow: visible !important;
+}
+.MagicScroll.mcs-rounded .mcs-button-arrow {
+    color: rgba(49,51,61,0.6);
+    -webkit-transition: color .15s linear, background-color .15s linear;
+    transition: color .15s linear, background-color .15s linear;
+}
+.MagicScroll.mcs-rounded.MagicScroll-horizontal .mcs-button-arrow {
+    width: 30px;
+    height: 100%;
+}
+.MagicScroll.mcs-rounded.MagicScroll-vertical .mcs-button-arrow {
+    width: 100%;
+    height: 30px;
+}
+.MagicScroll.mcs-rounded.MagicScroll-horizontal .mcs-button-arrow-prev {
+    left: 0;
+    border-radius: 10px 0 0 10px;
+}
+.MagicScroll.mcs-rounded.MagicScroll-horizontal .mcs-button-arrow-next {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.MagicScroll.mcs-rounded.MagicScroll-vertical .mcs-button-arrow-prev {
+    top: 0;
+    border-radius: 10px 10px 0 0;
+}
+.MagicScroll.mcs-rounded.MagicScroll-vertical .mcs-button-arrow-next {
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+}
+.MagicScroll.mcs-rounded .mcs-button-arrow.mcs-disabled {
+    opacity: 1 !important;
+    color: rgba(49,51,61,.1);
+    text-shadow: none !important;
+}
+
+.MagicScroll.mcs-rounded.MagicScroll-arrows-outside .mcs-button-arrow {
+    background: #efefef;
+    opacity: 1;
+    box-shadow: 0 0 1px rgba(153, 153, 153, .5);
+}
+
+.MagicScroll.mcs-rounded.MagicScroll-arrows-inside .mcs-button-arrow:hover:not(.mcs-disabled) {
+    background-color: rgba(255, 255, 255, .96);
+    color: rgba(49,51,61,1);
+}
+.MagicScroll.mcs-rounded.MagicScroll-arrows-inside .mcs-button-arrow {
+    background-color: rgba(255, 255, 255, .75);
+    box-shadow: 0 0 1px rgba(153, 153, 153, .5);
+}
+
+.lt-ie10-magic .mcs-rounded.MagicScroll-horizontal.MagicScroll-arrows-inside .mcs-button-arrow-prev {
+    border-width: 0 1px 0 0;
+}
+.lt-ie10-magic .mcs-rounded.MagicScroll-horizontal.MagicScroll-arrows-inside .mcs-button-arrow-next {
+    border-width: 0 0 0 1px;
+}
+.lt-ie10-magic .mcs-rounded.MagicScroll-vertical.MagicScroll-arrows-inside .mcs-button-arrow-prev {
+    border-width: 0 0 1px 0;
+}
+.lt-ie10-magic .mcs-rounded.MagicScroll-vertical.MagicScroll-arrows-inside .mcs-button-arrow-next {
+    border-width: 1px 0 0 0;
+}
+.lt-ie9-magic .mcs-rounded.MagicScroll .mcs-button-arrow {
+    color: #83858B;
+}
+.lt-ie9-magic .mcs-rounded.MagicScroll.MagicScroll-arrows-inside .mcs-button-arrow {
+    background: #fff;
+    filter: alpha(opacity = 75);
+}
+.lt-ie9-magic .mcs-rounded.MagicScroll.MagicScroll-arrows-inside .mcs-button-arrow:hover {
+    filter: alpha(opacity = 96);
+}
+.lt-ie9-magic .MagicScroll.mcs-rounded .mcs-button-arrow.mcs-disabled {
+    filter: alpha(opacity = 75) !important;
+    color: #ccc;
+}

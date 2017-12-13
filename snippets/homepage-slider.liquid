@@ -1,0 +1,42 @@
+{% if settings.homepage_slideshow %}
+  <section id="slideshow" class="homepage--slideshow">
+    <ul class="slides">
+      {% if settings.homepage_slide_show_1 %}
+      <li data-id="1">
+        <a href="{{ settings.homepage_slide_link_1 }}" class="vac">
+            <img src="{{ 'homepage_slide_image_1.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_1 }}"/>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.homepage_slide_show_2 %}
+      <li data-id="2">
+        <a href="{{ settings.homepage_slide_link_2 }}" class="vac">
+            <img src="{{ 'homepage_slide_image_2.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_2 }}"/>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.homepage_slide_show_3 %}
+      <li data-id="3">
+        <a href="{{ settings.homepage_slide_link_3 }}" class="vac">
+            <img src="{{ 'homepage_slide_image_3.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_3 }}"/>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.homepage_slide_show_4 %}
+      <li data-id="4">
+        <a href="{{ settings.homepage_slide_link_4 }}" class="vac">
+            <img src="{{ 'homepage_slide_image_4.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_4 }}"/>
+        </a>
+      </li>
+      {% endif %}
+      {% if settings.homepage_slide_show_5 %}
+      <li data-id="5">
+        <a href="{{ settings.homepage_slide_link_5 }}" class="vac">
+            <img src="{{ 'homepage_slide_image_5.jpg' | asset_url }}" alt="{{ settings.homepage_slide_title_5 }}"/>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </section><!-- #HomepageSlideshow -->
+{% endif %}
