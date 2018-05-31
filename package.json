@@ -1,0 +1,51 @@
+{
+  "name": "dev-oliveandpiper",
+  "version": "1.0.0",
+  "description": "Olive and Piper Shopify Site",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myr3en/Olive-and-Piper---Dev.git"
+  },
+  "keywords": [
+    "Jewelry"
+  ],
+  "author": "Myreen Lacsamana [contact@myreen.co]",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myr3en/Olive-and-Piper---Dev/issues"
+  },
+  "homepage": "https://www.oliveandpiper.com",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-shopify-upload": "^2.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.0",
+    "jshint": "^2.9.5",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^2.0.0-beta.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}

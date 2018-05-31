@@ -1,0 +1,252 @@
+/* FONTS */
+@import url("https://use.typekit.net/prt0ozm.css");
+
+
+// Colors
+// $teal: #33cccc;
+// $light-teal: #68f0e6;
+// $black: #000000;
+// $white: #ffffff;
+
+
+h2 {
+    text-transform: uppercase !important;
+}
+
+
+/* TEXT ADVERTS */
+.sections-wrapper {
+    border-top: 1px solid #616161;
+    border-bottom: 1px solid #616161 !important;
+}
+
+/* NAVIGATION */
+.notification-bar {
+    position: relative;
+    p {
+        text-transform: uppercase;
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+    .currency-picker--wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        #custom {
+            background-color: transparent;
+            width: 70px;
+            .sod_label {
+                text-transform: uppercase;
+                font-family: open-sans,sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: #000;
+            }
+        }
+    }
+}
+
+
+/* CART DRAWERS */
+.cartSlideoutWrapper {
+    .slide-checkout-buttons {
+        a {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px !important;
+            padding: 10px 20px;
+            border-radius: 0;
+        }
+    }
+}
+/* END CART DRAWERS */
+
+
+
+
+
+.site-header__logo img {
+	width: 10em;
+}
+
+
+#main-navigation-wrapper {
+    a {
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 13px;
+    }
+}
+
+.text-advert-section {
+    .h5 {
+        /* SEMI-BOLD */
+        text-transform: uppercase;
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 13px;
+    }
+    .h6 {
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        opacity: 1 !important;
+    }
+}
+
+
+.btn, .btn-custom {
+    border: 1px solid #000 !important;
+    font-family:  'Open Sans', sans-serif;
+    font-size: 18px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 1px;
+    transition: .5s ease;
+    &:hover {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+}
+
+
+
+
+
+
+
+/* PRODUCT STYLES */
+.indiv-product-title-text {
+    font-family: work-sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+.money-styling {
+    padding: 5px 0;
+}
+
+.money {
+    font-family: work-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+
+
+/* FOOTER */
+footer {
+    background-color: #2b2b2b;
+    color: #fff;
+    h3 {
+        /* SEMI-BOLD */
+        text-transform: uppercase;
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 14px;
+        color: #fff;
+    }
+    .footer-article {
+        p {
+            font-style: italic;
+            letter-spacing: 1px;
+            text-align: center;
+            span {
+                text-decoration: none !important;
+            }
+        }
+    }
+    a {
+        /* SEMI-BOLD */
+        text-transform: uppercase;
+        font-family:  'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 12px;
+        color: #fff;
+    }
+
+    #newsletter-wrapper {
+        display: inline-flex;
+        #newsletter_text {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+        #newsletter_submit {
+            /* SEMI-BOLD */
+            text-transform: lowercase;
+            font-family:  'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 12px !important;
+            background-color: #fff;
+            border-radius: 0;
+            border: 1px solid #fff !important;
+            padding: 10px;
+            height: 37px;
+            margin-bottom: 0;
+            color: #000;
+            line-height: 12px;
+        }
+    }
+
+    #sm-icons {
+        i {
+            color: #8d8683;
+            font-size: 3em;
+        }
+    }
+
+
+    .bottom-footer {
+        a {
+            text-transform: lowercase;
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+
+}
+
+
+
+
+.pagination {
+    .pagination-arrow {
+        a {
+            background-color: #fff;
+            color: #000 !important;
+            font-family:  'Open Sans', sans-serif;
+            font-size: 12px !important;
+             padding: 10px 20px;
+             border-radius: 0;
+
+        }
+    }
+}

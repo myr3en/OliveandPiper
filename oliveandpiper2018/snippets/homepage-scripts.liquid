@@ -1,0 +1,11 @@
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+jQuery(function() {
+  jQuery('nav a').each(function() {
+    if (jQuery(this).attr('href')  ===  window.location.pathname) {
+      jQuery(this).addClass('current');
+    }
+  });
+});  
+//]]>
+</script>

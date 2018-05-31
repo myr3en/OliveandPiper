@@ -1,0 +1,130 @@
+<div class="container">
+	<div class="row">
+		<div class="page-width col-md-12">
+    {% if section.settings.title != blank %}
+      <div class="title-bar custom-font">
+      	<h2>{{ section.settings.title | escape }}</h2>
+      	<div class="clear"></div>
+      </div>
+    {% endif %}
+
+    {%- assign blog = blogs[section.settings.blog] -%}
+    {%- assign post_limit = section.settings.post_limit -%}
+
+    {% unless blog.empty? %}
+      <div class="row grid--blog">
+        {% for article in blog.articles limit: post_limit %}
+
+        {% case post_limit %}
+        	{% when 1 %}
+        		<div class="col-md-6 col-md-offset-3">
+        	{% when 2 %}
+        		<div class="col-md-6 col-sm-6">
+        	{% when 3 %}
+        		<div class="col-md-4">
+        	{% when 4 %}
+        		<div class="col-md-3">
+        {% endcase %}
+            {% if article.image %}
+            <div class="article-image">
+              <a href="{{ article.url }}">
+                {{ article | img_url: '1024x1024' | img_tag: article.title, 'img-responsive' }}
+              </a>
+            </div>
+            {% endif %}
+
+              <div class="blog-title-wrapper homepage-blog-title-wrapper{% if article.image %} article-image-in-header{% endif %}">
+              	<p class="blog-publish-date"><time class="updated" datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: '%B %d, %Y' }}</time></p>
+              	<div class="blog-title--divider"></div>
+              	<h2><a href="{{article.url}}">{{ article.title }}</a></h2>
+              </div>
+
+              <div class="rte home-blog-excerpt">
+                {% if article.excerpt.size > 0 %}
+                  {{ article.excerpt }}
+                {% else %}
+                  {{ article.content | strip_html | truncatewords: 25 }}
+                {% endif %}
+              </div>
+
+
+
+
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="row">
+        {% for i in (1..post_limit) %}
+          {% case post_limit %}
+          	{% when 1 %}
+          		<div class="col-md-6 col-md-offset-3">
+          	{% when 2 %}
+          		<div class="col-md-6 col-sm-6">
+          	{% when 3 %}
+          		<div class="col-md-4">
+          	{% when 4 %}
+          		<div class="col-md-3">
+          {% endcase %}
+
+						<div class="placeholder-article-image">
+							{% capture current %}{% cycle 1, 2, 1 %}{% endcapture %}
+							{{ 'lifestyle-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+      			</div>
+
+            <div class="blog-title-wrapper{% if article.image %} article-image-in-header{% endif %}">
+            	<p class="blog-publish-date"><time class="updated">December 25, 2016</time></p>
+            	<div class="blog-title--divider"></div>
+            	<h2><a href="{{article.url}}">{{ 'general.onboarding.blog_title' | t }}</a></h2>
+            </div>
+
+            <div class="rte home-blog-excerpt">
+              {{ 'general.onboarding.blog_excerpt' | t }}
+            </div>
+
+          </div>
+        {% endfor %}
+        </div>
+    {% endunless %}
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "homepage-section--blog-posts-wrapper wow fadeIn",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "From the blog"
+    },
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+		{
+      "type": "range",
+      "id": "post_limit",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Posts",
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": 3
+      }
+    }
+  ]
+}
+{% endschema %}

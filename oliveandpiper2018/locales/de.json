@@ -1,0 +1,320 @@
+{
+  "general": {
+    "404": {
+      "title": "404 Seite nicht gefunden",
+      "subtext_html": "Die von Ihnen angeforderte Seite existiert nicht. <a href=\"\/collections\/all\">Klicken Sie hier<\/a>"
+    },
+    "meta": {
+      "tags": "Getaggt \"{{ tags }}\"",
+      "page": "Seite {{ page }}"
+    },
+    "breadcrumbs": {
+      "home": "Startseite",
+      "back_home": "Zurück zur Startseite"
+    },
+    "forms": {
+      "post_error": "Entschuldigung, es sieht so aus, als ob etwas schiefgelaufen ist. Bitte korrigieren Sie Folgendes und versuchen Sie es erneut:"
+    },
+    "homepage": {
+      "featured_products": "Ausgewählte Produkte",
+      "no_products_html": "Sie haben keine Artikel in Ihrer Startseiten-Zusammenstellung. Dieser Platzhalter verschwindet, wenn Sie <a href=\"\/admin\/collections?tutorial=Frontpage\">dieser Zusammenstellung einen Artikel hinzufügen<\/a>.",
+      "no_collections_html": "Sie haben hier keine Zusammenstellungen zum Anzeigen. <a href=\"\/admin\/custom_collections\">Fügen Sie ein paar Zusammenstellungen<\/a> zur Standard-Startseite hinzu."
+    },
+    "pagination": {
+      "next": "Weiter",
+      "previous": "Zurück",
+      "current_page": "Seite {{ current }} von {{ total }}"
+    },
+    "newsletter_form": {
+      "header": "Newsletter abonnieren",
+      "header_text": "E-Mail-Adresse:",
+      "newsletter_text": "E-Mail-Adresse eingeben",
+      "submit": "Abonnieren",
+      "thanks": "Danke für die Anmeldung!"
+    },
+    "search": {
+      "no_results_html": "Ihre Suche nach \"{{ terms }}\" brachte keine Ergebnisse.",
+      "first_search": "Bitte verwenden Sie die Suchleiste am oberen Rand der Seite",
+      "search_results": "Suchergebnisse",
+      "search_box_text": "Suche",
+      "title": "Suchen Sie auf unserer Seite"
+    },
+    "social": {
+      "share_on_facebook": "Teilen",
+      "share_on_twitter": "Twittern"
+    },
+    "onboarding": {
+      "modal_title": "Fast fertig...",
+      "no_products_html": "Sie haben keine Artikel in Ihrer Startseiten-Zusammenstellung. Dieser Platzhalter verschwindet, wenn Sie <a href=\"\/admin\/collections?tutorial=Frontpage\">dieser Zusammenstellung einen Artikel hinzufügen<\/a>.",
+      "add_product": "Fügen Sie ein Produkt",
+      "product_title": "Beispielhafter Produkttitel",
+      "product_description": "Diesen Abschnitt können Sie nutzen, um die Details Ihres Produkts zu beschreiben. Erzählen Sie den Kunden, wie Ihr Produkt aussieht, sich anfühlt und designt ist. Fügen Sie Einzelheiten zu Farbe, verwendeten Materialien, Größe und Produktionsort hinzu.",
+      "no_collections_html": "Sie haben hier keine Zusammenstellungen zum Anzeigen. <a href=\"\/admin\/custom_collections\">Fügen Sie ein paar Zusammenstellungen<\/a> zur Standard-Startseite hinzu.",
+      "add_collection": "Fügen Sie eine Sammlung",
+      "collection_title": "Beispielhafter Zusammenstellungstitel",
+      "blog_title": "Der Titel Ihres Posts",
+      "blog_excerpt": "Ihr Laden hat noch keine Blogposts veröffentlicht. Ein Blog kann genutzt werden, um über die Einführung neuer Produkte, Tipps oder andere Neuigkeiten, die Sie mit Ihren Kunden teilen möchten, zu berichten. Für Inspiration und Ratschläge für Ihren eigenen Laden und Blog können Sie den E-Commerce-Blog von Shopify besuchen.",
+      "no_content": "Dieser Bereich hat zur Zeit keinen Inhalt. Füge diesem Bereich über die Seitenleiste Inhalte hinzu."
+    }
+  },
+  "blogs": {
+    "article": {
+      "previous_post": "Vorheriger Beitrag",
+      "next_post": "Nächster Beitrag",
+      "tags": "Schlagwörter",
+      "comment_meta_html": "Veröffentlicht von {{ author }} am {{ date }}",
+      "view_post": "Beitrag anzeigen",
+      "comments_title": "Kommentare",
+      "author_title": "Autor"
+    },
+    "comments": {
+      "title": "Einen Kommentar hinterlassen",
+      "name": "Name",
+      "email": "Email",
+      "comment": "Kommentar",
+      "post": "Kommentar veröffentlichen",
+      "moderated": "Beachten Sie bitte, dass Kommentare erst  genehmigt werden müssen, bevor sie veröffentlicht werden.",
+      "success": "Ihr Kommentar wurde erfolgreich veröffentlicht! Vielen Dank!",
+      "field_error": "Es wurden nicht alle Felder korrekt ausgefüllt!"
+    },
+    "sidebar": {
+      "categories": "Kategorien",
+      "all_categories": "Alle Kategorien",
+      "latest_articles": "Neueste Artikel",
+      "subscribe": "Abonnieren"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Ihr Einkaufswagen",
+      "remove": "Entfernen",
+      "note": "Eine Notiz für den Verkäufer hinzufügen",
+      "total": "Gesamt",
+      "price": "Preis",
+      "quantity": "Menge",
+      "update": "Einkaufswagen aktualisieren",
+      "checkout": "Bestellung aufgeben",
+      "checkout_mobile": "Zur Kasse",
+      "empty": "Ihr Einkauswagen ist leer",
+      "alt_checkout": "Oder bezahlen Sie mit",
+      "continue_browsing_html": "Einkauf fortsetzen!",
+      "terms_text": "Bitte haken Sie diese Box ab, um unseren allgemeinen Geschäftsbedingungen zuzustimmen.",
+      "terms_text_html": "Bitte haken Sie diese Box ab, um unseren <a target=\"_blank\" href=\"#\">allgemeinen Geschäftsbedingungen<\/a>",
+      "terms_agree": "Sie müssen den allgemeinen Geschäftsbedingungen zustimmen, um auszuchecken."
+    }
+  },
+  "collections": {
+    "general": {
+      "view_all": "Alle anzeigen",
+      "no_matches": "Es tut uns Leid, aber es gibt keine Produkte, die mit Ihrer Suche übereinstimmen.",
+      "link_title": "Durchstöbern Sie unsere {{ title }} Kollektion",
+      "product_collections": "Produkt-Kollektionen",
+      "items_with_count": {
+        "one": "{{ count }} Artikel",
+        "other": "{{ count }} Artikel"
+      }
+    },
+    "sorting": {
+      "title": "Sortieren",
+      "featured": "Ausgewählt",
+      "best_selling": "Meistverkauft",
+      "az": "Alphabetisch, A-Z",
+      "za": "Alphabetisch, Z-A",
+      "price_ascending": "Preis, niedrig nach hoch",
+      "price_descending": "Preis, hoch nach niedrig",
+      "date_descending": "Datum, neu nach alt",
+      "date_ascending": "Datum, alt nach neu"
+    },
+    "filters": {
+      "title_tags": "Filtern",
+      "all_tags": "Alle Produkte"
+    },
+    "tags": {
+      "tags_all": "Alle"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "message": "Nachricht",
+      "send": "Senden",
+      "post_success": "Vielen Dank für Ihre Kontaktaufnahme. Wir werden so bald wie möglich mit Ihnen in Verbindung treten."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mein Konto",
+      "details": "Kontodetails",
+      "view_addresses": "Adressen anzeigen",
+      "return": "Zurück zu Kontodetails"
+    },
+    "activate_account": {
+      "title": "Konto aktivieren",
+      "subtext": "Legen Sie ein Passwort fest",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Konto aktivieren",
+      "cancel": "Einladung ablehnen"
+    },
+    "addresses": {
+      "title": "Ihre Adressen",
+      "default": "Standardadresse",
+      "add_new": "Eine neue Adresse hinzufügen",
+      "edit_address": "Adresse bearbeiten",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Firma",
+      "address1": "1. Adresszeile",
+      "address2": "2. Adresszeile",
+      "city": "Stadt",
+      "country": "Land",
+      "province": "Provinz",
+      "zip": "Postal\/Postleitzahl",
+      "phone": "Telefon",
+      "set_default": "Als Standardadresse festlegen",
+      "add": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "login": {
+      "title": "Kundenlogin",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "forgot_password": "Passwort vergessen?",
+      "sign_in": "Anmelden",
+      "cancel": "Zurück zum Shop",
+      "guest_title": "Weiter als Gast",
+      "guest_continue": "Weiter"
+    },
+    "orders": {
+      "title": "Bestellverlauf",
+      "order_number": "Bestellung",
+      "date": "Datum",
+      "payment_status": "Zahlungsstatus",
+      "fulfillment_status": "Ausführungsstatus",
+      "total": "Gesamt",
+      "none": "Sie haben noch keine Bestellungen aufgegeben."
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "cancelled": "Bestellung storniert am {{ date }}",
+      "cancelled_reason": "Grund: {{ reason }}",
+      "billing_address": "Rechnungsadresse",
+      "payment_status": "Zahlungsstatus",
+      "shipping_address": "Versandadresse",
+      "fulfillment_status": "Ausführungsstatus",
+      "discount": "Rabatt",
+      "shipping": "Versand",
+      "tax": "Steuern",
+      "details": {
+        "product": "Produkt",
+        "sku": "Art.Nr.",
+        "price": "Preis",
+        "quantity": "Menge",
+        "total": "Gesamt",
+        "fulfilled_at": "Ausgeführt am {{ date }}",
+        "subtotal": "Zwischensumme"
+      }
+    },
+    "recover_password": {
+      "title": "Passwort zurücksetzen",
+      "email": "E-Mail-Adresse",
+      "submit": "Senden",
+      "cancel": "Abbrechen",
+      "subtext": "Wir werden Ihnen eine E-Mail schicken",
+      "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Aktualisieren Ihres Passworts geschickt."
+    },
+    "reset_password": {
+      "title": "Kontopasswort zurücksetzen",
+      "subtext": "Geben Sie ein neues Passwort für {{ email }} ein.",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Konto erstellen",
+      "cancel": "Zurück zum Shop"
+    }
+  },
+  "layout": {
+    "cart": {
+      "continue_shopping": "Einkauf fortsetzen",
+      "item_count": {
+        "one": "Artikel in Ihrem Einkaufswagen",
+        "other": "Artikel in Ihrem Einkaufswagen"
+      },
+      "total_cart_value": "Totaler Korb Wert",
+      "currency": "Währung"
+    },
+    "customer": {
+      "log_out": "Abmelden",
+      "log_in": "Anmelden",
+      "create_account": "Ein Konto erstellen",
+      "welcome": "Willkommen {{name}}"
+    },
+    "header": {
+      "search_box_text": "Suche",
+      "your_cart": "Ihr Einkaufswagen"
+    },
+    "menu": {
+      "set_linklist": "Sie müssen eine Linkliste auswählen, die hier angezeigt werden soll, Design-Einstellungen > Seitenoptionen"
+    },
+    "footer": {
+      "linklist_title": "Links",
+      "accepted_payments": "Zahlungsmethoden",
+      "social_title": "Soziale Netzwerke",
+      "designed_by": "Entworfen von WeTheme"
+    }
+  },
+  "products": {
+    "general": {
+      "products_title": "Produkte",
+      "from": "von",
+      "sale": "Verkauf"
+    },
+    "product": {
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "add_to_cart": "In den Einkaufswagen legen",
+      "sorry_stock": "Es tut uns Leid, aber der Artikel ist derzeit nicht auf Lager.",
+      "quantity": "Menge",
+      "thanks": "Danke! Wir werden Sie benachrichtigen, wenn das Produkt verfügbar ist!",
+      "out-stock_html": "Klicken Sie <a href=\"#\"><strong>hier<\/strong><\/a> um per Email benachrichtigt zu werden, wenn {{ product }} verfügbar wird.",
+      "wrong-email": "Bitte geben Sie eine gültige Emailadresse an."
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Hier ist Ihre {{ value }} Geschenkkarte für {{ shop }}!",
+      "subtext": "Hier ist Ihre Geschenkkarte!",
+      "disabled": "Deaktiviert",
+      "expired": "Abgelaufen am {{ expiry }}",
+      "active": "Läuft ab am {{ expiry }}",
+      "redeem": "Verwenden Sie diesen Code an der Kasse",
+      "shop_link": "Fangen Sie an",
+      "print": "Drucken"
+    }
+  },
+  "coming_soon": {
+    "general": {
+      "title": "Bitte einloggen",
+      "opening_soon": "Wird bald geöffnet sein...",
+      "thanks_mailing": "Vielen Dank für Ihre Anmeldung!",
+      "find_out": "Finden Sie heraus, wann wir aufmachen",
+      "password": "Shop betreten unter Verwendung des Passworts",
+      "store_owner": "Sind Sie der Shop Inhaber?",
+      "store_owner_html": "<a href=\"\/admin\">Loggen Sie hier ein<\/a> oder <a href=\"\/admin\/online_store\/preferences?tutorial=unlock\">ändern Sie Ihre Passwort Einstellungen<\/a>",
+      "continue": "Weiter",
+      "powered_by_html": "Dieser Shop wird bereitgestellt von <a href=\"http:\/\/www.shopify.com\">Shopify<\/a>"
+    }
+  }
+}

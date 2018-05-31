@@ -1,0 +1,185 @@
+body.template-product {
+
+
+    /* TEXT ADVERTS */
+    .sections-wrapper {
+        background: #fff;
+        color: #353943;
+        border-top: 1px solid #616161;
+        border-bottom: 1px solid #616161;
+
+        .text-advert-section--sub-header {
+            color: #353943;
+        }
+    }
+
+    /* PRODUCT CONTAINER */
+    #main {
+        .container {
+            margin-top: 100px;
+        }
+        .breadcrumb {
+            a, span {
+                letter-spacing: 1px;
+                font-family: work-sans,sans-serif;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 20px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    /* PRODUCT IMAGES SECTION */
+    #product-thumbnails {
+        li {
+            margin-bottom: 0px;
+            padding: 0 0 10px;
+        }
+    }
+
+    /* DESCRIPTION SECTION */
+    .product-description-header {
+        font-family: Georgia, Times, "Times New Roman", serif;
+        font-size: 30px;
+        font-style: italic;
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 40px;
+        letter-spacing: 1.5px;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    #smartwishlist {
+        padding: 5px 10px !important;
+    }
+    .product-pricing {
+        display: flex;
+        align-items: baseline;
+        margin: 0 0 30px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 30px;
+
+        .custom-font {
+            margin: 0 !important;
+            line-height: 20px
+        }
+        .compare-at-price {
+            padding-right: 15px;
+        }
+    }
+
+    .materialize-select {
+        label {
+            text-align: left;
+            text-transform: capitalize;
+            /* Medium */
+            font-family: raleway, sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color:#7f7f7f;
+        }
+    }
+    .selector-wrapper {
+        label {
+            text-align: center;
+            text-transform: capitalize;
+            /* Medium */
+            font-family: raleway, sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color:#7f7f7f;
+        }
+    }
+
+
+    .product-page--submit-action {
+        button#purchase {
+            text-transform: uppercase !important;
+            font-size: 15px !important;
+            background-color: #e5dad2;
+        }
+    }
+
+
+    .product-description-wrapper {
+        font-family: raleway, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 1px;
+        h3 {
+            font-family: work-sans, sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
+        ul {
+            margin-top: 15px;
+            list-style-type: none;
+            padding: 0;
+            li {
+                &:before {
+                    content: "-";
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+
+
+
+
+    /* SHIPPING DETAILS */
+    .shipping-details {
+        background-image: url('shipping-details-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 500px;
+        background-size: contain;
+        .shipping-header {
+            padding-top: 100px;
+            /* mobile */
+            @media only screen and (max-width: 600px) {
+                padding-top: 50px;
+            }
+
+            h2 {
+                font-family: raleway, sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 18px;
+            }
+        }
+        .shipping-content {
+            h3 {
+                font-family: raleway, sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 16px;
+            }
+            p {
+                font-family: raleway, sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                letter-spacing: 1px;
+                font-size: 14px;
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+
+
+
+}

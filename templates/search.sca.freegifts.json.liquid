@@ -1,5 +1,0 @@
-{% layout none %}{% capture results %}{% paginate search.results by 50 %}{% if paginate.next %}"continue":true{%else%}"continue":false{%endif%}{% for product in search.results %}{% for variant in product.variants %}{%if variant.metafields.secomapp.freegifts%},"{{ variant.id }}":{{ variant.available }}{%endif%}{%endfor%}{% endfor %}{% endpaginate %}{% endcapture %}{ {{results}} }
-{% comment %}
-Do not remove or edit this file, this file need for Freegifts Application searching products
-http://www.secomapp.com
-{%endcomment %}

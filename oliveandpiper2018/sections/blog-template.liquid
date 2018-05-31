@@ -1,0 +1,288 @@
+<section id="blog_posts" class="collection">
+	
+	{% paginate blog.articles by section.settings.blog-posts-per-page %}
+
+	<div class="title-bar custom-font">
+		
+		<h2>{{blog.title}}</h2>
+		{% if blog.all_tags != blank %}
+			{% for tag in blog.all_tags %}
+			{% if current_tags contains tag %}
+				<h3 class="title-bar-sub">
+		    		{{ tag }}
+				</h3>
+			{% endif %}
+			{% endfor %}
+		{% endif %}
+		<div class="clear"></div>
+		
+	</div>
+
+	<div class="row">
+
+{% if section.settings.blog-sidebar-image or section.settings.blog_sidebar_title != empty or section.settings.blog_sidebar_desc != empty or section.settings.show_blog_tags or section.settings.show_recent_posts %}
+	<div class="col-md-8 blog-main">
+{% else %}
+	<div class="col-md-10 col-md-offset-1 blog-main">
+{% endif %}
+
+		<ul>
+			{% for article in blog.articles %}
+				<li>
+
+				{% if article.image %}
+					<div class="article-image">
+						<a href="{{article.url}}" title="{{ 'blogs.article.view_post' | t }}">
+							<img src="{{ article.image | img_url: '1024x1024' }}" class="img-responsive" />
+						</a>
+					</div>
+				{% endif %}
+
+				<div class="blog-title-wrapper{% if article.image %} article-image-header{% endif %}">
+					<p class="blog-publish-date"><time class="updated" datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: '%B %d, %Y' }}</time>{% if section.settings.show_author_name %} | {{ article.author }}{% endif %}</p>
+					<div class="blog-title--divider"></div>
+					<h2><a href="{{article.url}}">{{ article.title }}</a></h2>
+				</div>
+
+				<div class="blog--excerpt">
+					{% if article.excerpt.size > 0 %}
+					  {{ article.excerpt }}
+					{% else %}
+					  {{ article.content | strip_html | truncate: 300 }}
+					{% endif %}
+
+					<a href="{{ article.url }}">{{ 'blogs.article.view_post' | t }}</a>
+				</div>
+
+				</li>
+			{% endfor %}
+		</ul>
+
+
+		</div>
+
+		{% if section.settings.blog-sidebar-image or section.settings.blog_sidebar_title != empty or section.settings.blog_sidebar_desc != empty or section.settings.show_blog_tags or section.settings.show_recent_posts %}
+
+		<div class="col-md-4">
+
+			<div id="blog-sidebar">
+				
+				<div class="blog-sidebar--section">
+
+					{% if section.settings.blog-sidebar-image %}
+						{% if section.settings.blog-sidebar-link != empty %}
+							<a href="{{ section.settings.blog-sidebar-link }}" itemprop="url">
+						{% endif %}
+							<img src="{{ section.settings.blog-sidebar-image | img_url: '600x' }}"
+							srcset="{{ section.settings.blog-sidebar-image | img_url: '600x' }} 1x, {{ section.settings.blog-sidebar-image | img_url: '600x', scale: 2 }} 2x"
+							alt="{{ section.settings.blog-sidebar-image.alt | default: shop.name }}"
+							class="img-responsive">
+						{% if section.settings.blog-sidebar-link != empty %}
+							</a>
+						{% endif %}
+					{% endif %}
+
+
+					{% if section.settings.blog_sidebar_title != empty %}
+						<h2>{{ section.settings.blog_sidebar_title | escape }}</h2>
+					{% endif %}
+
+					{% if section.settings.blog_sidebar_desc != empty %}
+						<p class="blog-sidebar--description">{{ section.settings.blog_sidebar_desc }}</p>
+					{% endif %}
+
+				</div>
+
+			{% if section.settings.show_blog_tags %}
+
+				<div class="blog-sidebar--section">
+
+					{% if blog.all_tags.size > 0 %}
+						<h2>{{ 'blogs.sidebar.categories' | t }}</h2>
+						<ul class="blog-sidebar--categories">
+							{% for tag in blog.all_tags %}
+								{% if current_tags contains tag %}
+									<li>{{ tag }}</li>
+								{% else %}
+									<li>{{ tag | link_to_tag: tag }}</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					{% endif %}
+
+				</div>
+
+			{% endif %}
+
+			{% if section.settings.show_recent_posts %}
+
+				<div class="blog-sidebar--section">
+
+					<h2>{{ 'blogs.sidebar.latest_articles' | t }}</h2>
+					<ul class="blog-sidebar--latest-articles">
+						{% for article in blogs[blog.handle].articles limit:6 %}
+							<li class="row">
+								{% if article.image %}
+									<div class="col-md-4 blog-sidebar--article-image">
+										<img src="{{ article.image | img_url: '1024x1024' }}" class="img-responsive" />
+									</div>
+									<div class="col-md-8">
+										<p>
+											<strong><a href="{{ article.url }}">{{ article.title }}</a></strong>
+											<br />
+											<time datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: "%b %d, %Y" }}</time>
+										</p>
+									</div>
+								{% else %}
+										<p>
+											<strong><a href="{{ article.url }}">{{ article.title }}</a></strong>
+											<br />
+											<time datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: "%b %d, %Y" }}</time>
+										</p>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+				
+			{% endif %}
+
+			</div><!-- #blog-sidebar -->
+
+		</div>
+
+		{% endif %}
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-12">
+			{% if paginate.pages > 1 %}
+				<div class="pagination row">
+				  <ul>
+				    <li class="pagination-arrow pagination-arrow--previous grid__item col-sm-4 col-md-4 col-xs-4">
+				      {% unless paginate.previous.is_link %}
+				        <div class="btn btn--secondary btn--narrow btn--disabled">
+				          <i class="fa fa-chevron-left"></i>
+				          <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+				        </div>
+				      {% else %}
+				        <a href="{{ paginate.previous.url }}" class="btn btn--secondary btn--narrow">
+				          <i class="fa fa-chevron-left"></i>
+				          <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+				        </a>
+				      {% endunless %}
+				    </li>
+				    <li class="pagination-text grid__item col-sm-4 col-md-4 col-xs-4">
+				      <div class="hidden-xs">{{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}</div>
+				    </li>
+				    <li class="pagination-arrow pagination-arrow--next grid__item col-sm-4 col-md-4 col-xs-4">
+				      {% unless paginate.next.is_link %}
+				        <div class="btn btn--secondary btn--narrow btn--disabled">
+				          <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+				          <i class="fa fa-chevron-right"></i>
+				        </div>
+				      {% else %}
+				        <a href="{{ paginate.next.url }}" class="btn btn--secondary btn--narrow">
+				          <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+				          <i class="fa fa-chevron-right"></i>
+				        </a>
+				      {% endunless %}
+				    </li>
+				  </ul>
+				</div>
+			{% endif %}
+		</div>
+
+	</div>
+		
+	{% endpaginate %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Blog pages",
+  "settings": [
+      {
+        "type": "select",
+        "id": "blog-posts-per-page",
+        "label": "Posts per page",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "7",
+            "label": "7"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          }
+        ],
+        "default": "3"
+    },
+    {
+      "type": "image_picker",
+      "id": "blog-sidebar-image",
+      "label": "Sidebar image"
+    },
+    {
+      "type": "url",
+      "id": "blog-sidebar-link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "blog_sidebar_title",
+      "label": "Sidebar heading"
+    },
+    {
+      "type": "richtext",
+      "id": "blog_sidebar_desc",
+      "label": "Sidebar description"
+    },
+	{
+	  "type": "checkbox",
+	  "id": "show_author_name",
+	  "label": "Show author name",
+	  "default": false
+	},
+    {
+      "type": "checkbox",
+      "id": "show_blog_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recent_posts",
+      "label": "Show 'Latest articles'"
+    }
+  ]
+}
+{% endschema %}

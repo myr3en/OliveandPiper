@@ -1,0 +1,28 @@
+{% comment %}
+  We want control over our error text, so we'll loop through them.
+
+  Alternatively, you can use the default layout to generate a
+  <ul> wrapped with <div class="errors">
+    - {{ form.errors | default_errors }}
+{% endcomment %}
+{% if form.errors %}
+  <div class="note form-error">
+    <p>{{ 'general.forms.post_error' | t }}</p>
+
+    <ul class="disc">
+      {% for field in form.errors %}
+
+        {% if field == 'form' %}
+          <li>
+            {{ form.errors.messages[field] }}
+          </li>
+        {% else %}
+          <li>
+            The <strong>{{ field | replace: 'body', 'Message' }}</strong> field {{ form.errors.messages[field] }}
+          </li>
+        {% endif %}
+
+      {% endfor %}
+     </ul>
+  </div>
+{% endif %}

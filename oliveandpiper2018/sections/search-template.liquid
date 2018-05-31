@@ -1,0 +1,251 @@
+{% paginate search.results by 12 %}
+<section id="search_results" class="collection">
+    <header>
+        {% if settings.enable-article-results %}
+            {% assign article_search = "article," %}
+        {% endif %}
+        {% if settings.enable-product-results %}
+            {% assign product_search = "product," %}
+        {% endif %}
+        {% if settings.enable-page-results %}
+            {% assign page_search = "page," %}
+        {% endif %}
+        {% if search.performed %}
+            <div class="title-bar custom-font">
+                <h2>{{ 'general.search.search_results' | t }}</h2>
+            </div>
+            <form id="search-page-form" action="/search">
+                <div id="search-wrapper">
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ search.terms | escape }}"/>
+                    <input id="search_submit" type="submit" border="0" value="&#xf002;" />
+                </div>
+            </form>
+        {% else %}
+            <form id="search-page-form" action="/search">
+                <div id="search-wrapper">
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ 'general.search.title' | t }}"/>
+                    <input id="search_submit" type="submit" border="0" value="&#xf002;" />
+                </div>
+            </form>
+        {% endif %}
+    </header>
+
+    {% if search.results_count > 0 %}
+        <div class="row">
+            <ul class="results-grid product-grid {% if section.settings.match-height %}products--match-height{% endif %}">
+                {% for item in search.results %}
+                            {% if item.object_type == 'article' %}
+                                <li class="grid__item four_columns indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    <div class="indiv-product">
+                                        <div class="search-article-image">
+
+                                        <div class="hp-title">
+
+                                            {% if item.image %}
+                                                <div class="{% if section.settings.article-hover-effect == 'zoom' %}collection-image--zoom-effect {% endif %}">
+                                                    <div class="zoom-effect--inner">
+                                                        <a class="grid__image" href="{{item.url}}">
+                                                            <img src="{{ item.image | img_url: '1024x1024' }}" class="img-responsive" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+
+                                            <a href="{{item.url}}">
+                                                <h4 class="search_article">{{ item.title }}</h4>
+                                                <p>{{ item.content | strip_html | truncatewords: 20 | highlight: search.terms }}</p>
+                                            </a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                {% elsif item.object_type == 'page' %}
+                                <li class="grid__item four_columns indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    <div class="indiv-product">
+
+                                            <div class="hp-title">
+                                                <h4 class="search-page-title">{{ item.title }}</h4>
+                                            </div>
+                                            <div class="matched-search-terms">
+                                                <p>{{ item.content | strip_html | truncatewords: 20 | highlight: search.terms }}</p>
+                                            </div>
+                                    </div>
+                                </li>
+
+                                {% elsif item.object_type == 'product' %}
+                                <li class="grid__item four_columns wow fadeIn collection-image-anim indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    <div class="indiv-product">
+
+                                                {% case section.settings.hover-effect %}
+
+                                                {% when 'none' %}
+
+                                                <a class="grid__image" href="{{ item.url | within: collection }}" title="{{item.title}}">
+                                                    <img src="{{ item.featured_image | product_img_url: '760x' }}'" alt="{{item.title}}" class="img-responsive">
+                                                </a>
+
+                                                {% when 'second-image' %}
+
+                                                {% if item.images.size > 1 %}
+
+                                                    <div class="reveal">
+                                                        <a class="grid__image" href="{{ item.url | within: collection }}" title="{{item.title}}">
+                                                            <img src="{{ item.featured_image | product_img_url: '760x' }}'" alt="{{item.title}}" class="img-responsive wow fadeIn" id="collection-image-anim">
+                                                            <div class="hidden">
+                                                                <img src="{{ item.images[1] | product_img_url: '760x' }}" alt="{{ item.images.last.alt | escape }}" class="img-responsive" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                {% else %}
+
+                                                    <a class="grid__image" href="{{ item.url | within: collection }}" title="{{item.title}}">
+                                                        <img src="{{ item.featured_image | product_img_url: '760x' }}'" alt="{{item.title}}" class="img-responsive wow fadeIn" id="collection-image-anim">
+                                                    </a>
+
+                                                {% endif %}
+
+                                                {% when 'zoom' %}
+
+                                                <div class="collection-image--zoom-effect">
+                                                    <div class="zoom-effect--inner">
+                                                        <a class="grid__image" href="{{ item.url | within: collection }}" title="{{item.title}}">
+                                                            <img src="{{ item.featured_image | product_img_url: '760x' }}'" alt="{{item.title}}" class="img-responsive wow fadeIn" id="collection-image-anim">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                {% endcase %}
+
+                                                <div class="hp-title">
+
+                                                    {% if section.settings.show-vendor %}
+                                                        <div class="indiv-product-vendor-text">{{ item.vendor | link_to_vendor }}</div>
+                                                    {% endif %}
+
+                                                    <a href="{{ item.url | within: collection }}">
+
+                                                        <div class="indiv-product-title-text">{{ item.title }}</div>
+
+                                                        <span class="money-styling custom-font">
+
+                                                        {% if item.compare_at_price_max > item.price %}
+                                                            <h5 class="custom-font compare-at-price">
+                                                                <span class="money">{{ item.compare_at_price_max | money }}</span>
+                                                            </h5>
+                                                        {% endif %}
+
+                                                        {% if item.price_varies %}
+                                                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ item.price_min | money }}</span>
+                                                        {% else %}
+                                                            <span class="money">{{ item.price_min | money }}</span>
+                                                        {% endif %}
+
+                                                    </span>
+                                                    </a>
+                                                </div>
+                                    </div>
+                                    {% if item.compare_at_price_max > item.price and item.available %}
+                                        <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+                                    {% endif %}
+                                    {% unless item.available %}
+                                        <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
+                                    {% endunless %}
+                                </li>
+
+                            {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+
+        {% if search.performed %}
+            {% if search.terms != empty %}
+                <h3 class="no-results">{{ 'general.search.no_results_html' | t: terms: search.terms  }}</h3>
+            {% else %}
+                <h3 class="no-results">{{ 'general.search.first_search' | t }}</h3>
+            {% endif %}
+        {% endif %}
+
+    {% endif %}
+    {% if search.results_count > 12 %}
+        {% include 'pagination' %}
+    {% endif %}
+</section>
+{% endpaginate %}
+
+{% schema %}
+    {
+    "name": "Search page",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Product options"
+            },
+            {
+                "type": "checkbox",
+                "id": "show-vendor",
+                "label": "Show vendor",
+                "default": false
+            },
+            {
+            "type": "select",
+            "id": "hover-effect",
+            "label": "Hover effect",
+            "default": "zoom",
+                "options": [
+                    {
+                        "value": "none",
+                        "label": "None"
+                    },
+                    {
+                        "value": "zoom",
+                        "label": "Zoom"
+                    },
+                    {
+                        "value": "second-image",
+                        "label": "Show Second Product Image"
+                    }
+                ]
+            },
+            {
+                "type": "header",
+                "content": "Auto-height images"
+            },
+            {
+                "type": "paragraph",
+                "content": "Set all of your images to be the same height"
+            },
+            {
+                "type": "checkbox",
+                "id": "match-height",
+                "label": "Enable auto-height",
+                "default": false
+            },
+            {
+            "type": "header",
+            "content": "Article options"
+            },
+            {
+            "type": "select",
+            "id": "article-hover-effect",
+            "label": "Hover effect",
+            "default": "zoom",
+            "options": [
+                    {
+                        "value": "none",
+                        "label": "None"
+                    },
+                    {
+                        "value": "zoom",
+                        "label": "Zoom"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

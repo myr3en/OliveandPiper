@@ -1,0 +1,115 @@
+body.template-collection {
+
+
+    /* COLLECTION BANNER */
+    .collection-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        img {
+            &:first-child {
+                width: 100%;
+            }
+        }
+
+
+        .collection-hero__image {
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            @media only screen and (max-width: 1000px) {
+                display: none;
+            }
+        }
+        #collections-main {
+            position: relative !important;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @media only screen and (max-width: 1000px) {
+                position: relative;
+            }
+
+
+            .collection-header {
+                display: none;
+                h2 {
+                    /* SEMI-BOLD */
+                    text-transform: capitalize !important;
+                    font-family: raleway,sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    font-size: 33px !important;
+                    background: none;
+                }
+            }
+
+            .description-content {
+                /* Paragraph GEORGIA */
+                font-family: Georgia, Times, "Times New Roman", serif;
+                font-size: 14px;
+                font-style: italic;
+                font-variant: normal;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 1px;
+                padding:0;
+                margin: 0 auto;
+                .image-under {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    } /* END Collection banner */
+
+
+    /* PRODUCT GRID STYLES */
+    .indiv-product-title-text {
+        font-family: work-sans, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 15px;
+    }
+
+    .hp-title {
+        .money-styling {
+            padding: 5px 0;
+        }
+
+        .money {
+            font-family: work-sans, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    }
+
+
+    .pagination {
+        .pagination-arrow {
+            a {
+                background-color: #fff;
+                color: #000 !important;
+                font-family: raleway, sans-serif;
+                font-size: 12px !important;
+                 padding: 10px 20px;
+                 border-radius: 0;
+
+            }
+        }
+    }
+
+
+}

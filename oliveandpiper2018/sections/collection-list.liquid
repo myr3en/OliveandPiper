@@ -1,0 +1,133 @@
+<div class="container">
+	<div class="row">
+		<div class="page-width col-md-12">
+    {% if section.settings.title != blank %}
+      <div class="title-bar custom-font">
+      	<h2>{{ section.settings.title | escape }}</h2>
+      	<div class="clear"></div>
+      </div>
+    {% endif %}
+
+    {% case section.settings.grid %}
+      {% when 2 %}
+        {%- assign grid_item_width = 'col-sm-12 col-md-6 col-lg-6 ' -%}
+      {% when 3 %}
+        {%- assign grid_item_width = 'col-sm-4 col-md-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width = 'col-sm-6 col-md-3' -%}
+    {% endcase %}
+
+    <div class="collection-grid">
+      <div class="row">
+        {% for block in section.blocks limit: section.blocks.size %}
+          <div class="{{ grid_item_width }} indiv-collection-grid-homepage
+
+          {% case section.settings.grid %}
+            {% when 3 %}
+            	{% cycle ' alpha', '', ' omega' %}
+            {% when 4 %}
+            	{% cycle ' alpha', '', '', ' omega' %}
+          {% endcase %}
+
+          " {{ block.shopify_attributes }}>
+            {%- assign collection = collections[block.settings.collection] -%}
+
+
+					{%- assign image_size = '600x' -%}
+
+					<div class="homepage-collection-grid-inner">
+					  <div class="grid-image">
+					    <a href="{{ collection.url }}" class="grid-image--centered">
+					    {% if collection.empty? %}
+					          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+					          {{ 'collection-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+					    {% else %}
+					      {% if collection.image %}
+					        <img src="{{ collection | img_url: image_size }}" alt="{{ collection.image.alt | escape }}" class="img-responsive">
+					      {% else %}
+					        {% assign product = collection.products | first %}
+					        <img src="{{ collection.products.first | img_url: image_size }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive">
+					      {% endif %}
+					    {% endif %}
+					    </a>
+					  </div>
+					</div>
+
+					<div class="hp-title homepage-collection-link">
+					{% if collection.empty? %}
+					  <a href="#" class="collection-item__title custom-font">{{ 'general.onboarding.collection_title' | t }}</a>
+					{% else %}
+					  <a href="{{ collection.url }}" class="collection-item__title custom-font">{{ collection.title }}</a>
+					{% endif %}
+					</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.blocks.size == 0 %}
+      <div class="placeholder-noblocks">
+		  {{ 'general.onboarding.no_content' | t }}
+		</div>
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "class": "homepage-section--featured-collections-wrapper wow fadeIn",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collections"
+    },
+		{
+			"type": "range",
+			"id": "grid",
+			"min": 2,
+			"max": 4,
+			"step": 1,
+			"label": "Collections per row",
+			"default": 3
+		}
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "label": "Collection",
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "category": "Collection",
+      "settings": {
+        "grid": 3
+      },
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,186 @@
+{% if section.settings.enable_related_products %}
+
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products#finding-a-relevant-collecitons -->
+
+{% comment %}
+  Number of related items per row,
+  and number of rows.
+{% endcomment %}
+
+{% assign number_of_related_products_per_row = 4 %}
+
+{% comment %}
+  Heading.
+  Leave blank if you don't need one.
+{% endcomment %}
+
+{% assign heading = section.settings.related_products_title %}
+
+{% comment %}
+  Set either or both to true, if you want
+  to limit yourself to items with same vendor, and/or type.
+{% endcomment %}
+
+{% assign same_vendor = false %}
+{% assign same_type = false %}
+
+{% comment %}
+  Collections to ignore.
+  Never pick related items from those.
+{% endcomment %}
+
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+
+{% if product.metafields.c_f['Related Products'] %}
+  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+{% endif %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_related_products_per_row %}
+  {% assign current_product = product %}
+
+  {% case number_of_related_products_per_row %}
+    {% when 4 %}
+      {% assign grid_item_width = 'col-md-3 col-xs-6' %}
+  {% endcase %}
+
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+         {% unless same_vendor and current_product.vendor != product.vendor %}
+           {% unless same_type and current_product.type != product.type %}
+             {% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="grid__item collection-image-anim wow fadeIn {{ grid_item_width }} indiv-product-wrapper{% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}">
+
+  <div class="indiv-product">
+
+      <a href="{{ product.url | within: collection }}" title="{{product.title}}">
+        <img src="{{ product.featured_image | product_img_url: '760x' }}'" alt="{{product.title}}" class="img-responsive">
+      </a>
+
+    <div class="hp-title">
+
+{% if section.settings.show-vendor %}
+  <div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
+{% endif %}
+
+      <a href="{{ product.url | within: collection }}">
+
+        <div class="indiv-product-title-text">{{ product.title }}</div>
+
+        <span class="money-styling custom-font">
+
+          {% if product.compare_at_price_max > product.price %}
+            <h5 class="custom-font compare-at-price">
+              <span class="money">{{ product.compare_at_price_max | money }}</span>
+            </h5>
+          {% endif %}
+
+        {% if product.price_varies %}
+          <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ product.price_min | money }}</span>
+        {% else %}
+          <span class="money">{{ product.price_min | money }}</span>
+        {% endif %}
+
+        </span>
+      </a>
+    </div>
+  </div>
+
+  {% if product.compare_at_price_max > product.price and product.available %}
+    <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+  {% endif %}
+
+    {% unless product.available %}
+        <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
+    {% endunless %}
+</div>
+
+{% assign counter = counter | plus: 1 %}
+{% if counter == break_at %}
+  {% break %}
+{% endif %}
+{% endunless %}
+{% endunless %}
+{% endunless %}
+{% endfor %}
+{% endcapture %}
+
+{% assign related_items = related_items | trim %}
+
+{% unless related_items == blank %}
+
+  <div class="product-page-related-products">
+
+      {% unless heading == blank %}
+        <div class="title-bar custom-font">
+          <h2>{{ heading }}</h2>
+          <div class="clear"></div>
+        </div>
+      {% endunless %}
+      <div class="row">
+        {{ related_items }}
+      </div>
+
+  </div>
+
+  {% endunless %}
+
+{% endif %}
+
+{% endif %}
+
+{% unless product.empty? %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}

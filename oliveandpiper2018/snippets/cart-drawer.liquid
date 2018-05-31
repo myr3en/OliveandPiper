@@ -1,0 +1,20 @@
+<div id="cartSlideoutWrapper" class="envy-shopping-right slideout-panel-hidden">
+
+		<a href="#sidr" class="slide-menu sidr-close-icon cart-menu-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+		<div>
+			<h4><span class="cart-item-count item-count">{{ cart.item_count }}</span></h4>
+			<span class="cart-item-count-text">{{ 'layout.cart.item_count' | t: count: cart.item_count }}</span>	
+		</div>
+		
+		<div>
+			<h4><span class="cart-item-price" id="cart-price"><span class="money">{{ cart.total_price | money }}</span></span></h4>
+			<span class="cart-item-price-text">{{ 'layout.cart.total_cart_value' | t }}</span>
+		</div>
+		
+		<div class="slide-checkout-buttons">
+			<a href="/cart" class="btn btn-success">{{ 'cart.general.title' | t }}</a><br />
+			<a href="#sidr" class="btn btn-default cart-menu-close">{{ 'layout.cart.continue_shopping' | t }}</a><br />
+		</div>
+	
+</div>

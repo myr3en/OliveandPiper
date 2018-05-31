@@ -1,0 +1,85 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white newsletter--section">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light newsletter--section">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark newsletter--section">
+{% endcase %}
+
+  <div class="container">
+    <div class="row row--table">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 newsletter--section--grid vertical--align">
+
+        <div class="newsletter--section--grid_inner newsletter_title">
+          <h3>{{ 'general.newsletter_form.header' | t }}</h3>
+            {% if section.settings.newsletter_description != empty %}
+              <div class="rte">{{ section.settings.newsletter_description }}</div>
+            {% endif %}
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 newsletter--section--grid vertical--align">
+
+        <div class="newsletter--section--grid_inner newsletter_form">
+
+            {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+              <p class="note form-success success_section">{{ 'general.newsletter_form.thanks' | t }}</p>
+            {% else %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div id="newsletter-wrapper">
+                <input id="newsletter_text" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_text' | t }}" name="contact[email]" class="input-group-field email" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                <input id="newsletter_submit" type="submit" class="btn btn-default" name="subscribe" value="subscribe">
+              </div>
+            {% endif %}
+            {% endform %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "homepage-section--newsletter-wrapper wow fadeIn",
+  "settings": [
+  {
+      "type": "select",
+      "id": "colors",
+      "label": "Color scheme",
+      "default": "light",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+    "name": "Newsletter",
+      "category": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

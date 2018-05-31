@@ -1,0 +1,105 @@
+<div class="container">
+	<div class="row">
+
+<div class="index-section col-md-12">
+  <div class="page-width feature-row homepage-featured-content">
+    {% capture image_layout %}
+      <div class="feature-row__item col-md-6 col-xs-12">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image img-responsive' }}
+        {% else %}
+        {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
+        {% endif %}
+      </div>
+    {% endcapture %}
+
+	<div class="row">
+    <div class="feature-row">
+      {% if section.settings.layout == 'left' %}
+        {{ image_layout }}
+      {% endif %}
+
+      <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }} col-md-8 col-xs-12">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.text_block != blank %}
+          <div class="rte featured-row__subtext textarea">{{ section.settings.text_block }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="btn btn-custom">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.layout == 'right' %}
+        {{ image_layout }}
+      {% endif %}
+    </div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text and image",
+  "class": "homepage-section--text-and-image-wrapper wow fadeIn",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+			"info": "600 x 600px recommended"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Image on left"
+        },
+        {
+          "value": "right",
+          "label": "Image on right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Text and image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_block",
+      "label": "Text",
+      "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Required to show the button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text and Image",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

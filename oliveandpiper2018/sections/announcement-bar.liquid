@@ -1,0 +1,115 @@
+{% if section.settings.message_text != empty %}
+
+  <style>
+    .notification-bar{
+      background-color: {{ section.settings.notification-bar--background-colour }};
+      color: {{ section.settings.notification-bar--text-colour }};
+    }
+
+    .notification-bar a{
+      color: {{ section.settings.notification-bar--text-colour }};
+    }
+
+
+
+
+      #main-navigation-wrapper{
+        padding: {{ section.settings.menu_padding }}px 0;
+      }
+
+      {% case section.settings.logo-placement %}
+        {% when 'below-header' %}
+          #site-title{
+          	padding: {{ section.settings.logo_padding }}px;
+          }
+
+          .currency-picker--wrapper .sod_select.custom::after{
+            top: 6px;
+          }
+
+          .currency-picker--wrapper .sod_select.custom.custom{
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+        {% when 'within-header' %}
+          #site-title{
+            padding: {{ section.settings.logo_padding }}px;
+          }
+
+        {% when 'left' %}
+          #site-title{
+            padding: {{ section.settings.logo_padding }}px 0;
+          }
+
+          .currency-picker--wrapper .sod_select.custom::after{
+            top: 6px;
+          }
+
+          .currency-picker--wrapper .sod_select.custom.custom{
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+      {% endcase %}
+
+  </style>
+
+  <div class="notification-bar custom-font">
+    {% if section.settings.message_link != blank %}
+      <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+        <p>{{ section.settings.message_text | escape }}</p>
+      </a>
+    {% else %}
+      <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
+    {% endif %}
+
+    {% if settings.show_multiple_currencies %}
+      <div class="currency-picker--wrapper hidden-xs">
+        <select class="currency-picker" name="currencies" id="custom" style="visibility: hidden">
+        {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
+        {% assign supported_codes = settings.supported_currencies | split: ' ' %}
+          <option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>
+          {% for code in supported_codes %}
+            {% if code != shop.currency and codes contains code %}
+              <option value="{{ code }}">{{ code }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+  </div>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Announcement text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": "Announcement link",
+      "info": "Optional"
+    },
+    {
+      "type": "color",
+      "id": "notification-bar--background-colour",
+      "label": "Announcement background",
+      "default": "#464646"
+    },
+    {
+      "type": "color",
+      "id": "notification-bar--text-colour",
+      "label": "Announcement text",
+      "default": "#fff"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,415 @@
+{% if section.settings.slider-width == 'full-width' %}
+	<div class="container-fluid homepage-slider-container slider-section--{{ section.id }}">
+{% else %}
+	<div class="container slider-section--{{ section.id }}">
+{% endif %}
+
+		<div class="row">
+			<div class="page-width col-md-12">
+
+			{% if section.blocks.size > 0 %}
+
+            {% assign has_caption = false %}
+
+				<div class="row">
+					<div class="flexslider-container col-md-12">
+						<div class="flexslider flexslider-homepage" data-slider-id="{{ section.id }}" data-slider-slide-time="{{ section.settings.slider-slide-time }}000" data-slider-animation="{{ section.settings.slider-animation }}">
+							<ul class="slides" style="width: {{ section.blocks | size | times:100 }}%;">
+								{% assign number_of_slides_float = section.blocks | size | times:1.0 %}
+
+								{% for block in section.blocks %}
+									{%- assign slide_is_link = false -%}
+										{% if block.settings.link != blank %}
+											{%- assign slide_is_link = true -%}
+										{% endif %}
+
+										<li {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}" class="slider-block--{{ block.id }}"
+												{% comment %}Show the first slide before the slider is loaded{% endcomment %}
+												style="display: block; float: left; width: {{ 100 | divided_by: number_of_slides_float }}%">
+
+											{% if block.settings.image == blank %}
+                                                {% if slide_is_link %}
+                                                <a href="{{ block.settings.link }}" class="slideshow__link">
+                                                {% endif %}
+                                                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                                                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+                                                {% if slide_is_link %}
+                                                </a>
+                                                {% endif %}
+											{% else %}
+												{% if slide_is_link %}
+													<a href="{{ block.settings.link }}" class="slideshow__link">
+												{% endif %}
+                                                <img src="{{ block.settings.image | img_url: '2048x' }}" srcset="{{ block.settings.image | img_url: '400x' }} 400w,
+                                                              {{ block.settings.image | img_url: '790x' }} 790w,
+                                                              {{ block.settings.image | img_url: '1200x' }} 1200w,
+                                                              {{ block.settings.image | img_url: '1600x' }} 1600w"
+                                                sizes="100vw"/>
+												{% if slide_is_link %}
+													</a>
+												{% endif %}
+											{% endif %}
+
+                                            {% if block.settings.title != empty or block.settings.text != empty or block.settings.button_text != empty %}
+
+                                            {% assign has_caption = true %}
+
+                                          <div class="slider-caption horizontal-align--{{ block.settings.horizontal-alignment }} vertical-align--{{ block.settings.vertical-alignment }} custom-font background">
+
+											{% if block.settings.title != empty %}
+												{% if slide_is_link %}
+													<h4><a href="{{ block.settings.link }}">{{ block.settings.title | escape }}</a></h4>
+												{% else %}
+													<h4>{{ block.settings.title | escape }}</h4>
+												{% endif %}
+											{% endif %}
+
+                                            {% if block.settings.text != empty %}
+
+                                              {% if slide_is_link %}
+                                                <a href="{{ block.settings.link }}">
+                                                {% endif %}
+
+                                                  <div class="slider-caption--subheading">
+
+                                                    {{ block.settings.text }}
+
+                                                  </div>
+
+                                                {% if slide_is_link %}
+                                                  </a>
+                                                {% endif %}
+
+                                            {% endif %}
+
+                                            {% if block.settings.button_text != empty %}
+
+                                              {% if slide_is_link %}
+
+                                                <a class="btn btn-custom" href="{{ block.settings.link }}">{{ block.settings.button_text  }}</a>
+
+                                              {% else %}
+
+                                                <div class="btn btn-custom btn-no-link" href="{{ block.settings.link }}">{{ block.settings.button_text  }}</div>
+
+                                              {% endif %}
+
+                                            {% endif %}
+
+                                          </div>
+
+                                          {% endif %}
+
+                                        </li>
+
+                                        <style>
+                                          .slider-block--{{ block.id }} .slider-caption.background {
+                                            background-color: {{ block.settings.caption-background }} !important;
+                                            color: {{ block.settings.caption-text }} !important;
+                                          }
+
+                                          .slider-block--{{ block.id }} .slider-caption.background a{
+                                            color: {{ block.settings.caption-text }} !important;
+                                          }
+
+                                          .slider-block--{{ block.id }} .slider-caption .btn.btn-custom {
+                                            background-color: {{ block.settings.button-background }} !important;
+                                            color: {{ block.settings.button-text }} !important;
+                                          }
+
+																					@media only screen and (max-width:768px){
+
+																						.slider-block--{{ block.id }} .slider-caption.background {
+	                                            background-color: {{ settings.bg_colour }} !important;
+	                                            color: {{ settings.font-colour }} !important;
+																							text-align: center;
+	                                          }
+
+	                                          .slider-block--{{ block.id }} .slider-caption.background a{
+	                                            color: {{ settings.font-colour }} !important;
+																							vertical-align: bottom;
+	                                          }
+
+	                                          .slider-block--{{ block.id }} .slider-caption .btn.btn-custom {
+	                                            background-color: {{ settings.add-to-cart-background-colour }} !important;
+	                                            color: {{ settings.add-to-cart-text-colour }} !important;
+	                                          }
+
+																					}
+
+                                        </style>
+
+									{% endfor %}
+					      </ul>
+                            <ul class="flex-direction-nav slider--{{ section.id }}"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul>
+							</div>
+						</div>
+					</div>
+
+			{% endif %}
+
+			{% if section.blocks.size == 0 %}
+				<div class="placeholder-noblocks">
+				  {{ 'general.onboarding.no_content' | t }}
+				</div>
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+{% if section.blocks.size > 0 %}
+  <div class="slider-pagination-container slider--{{ section.id }}"></div>
+{% endif %}
+
+{% unless section.settings.show-slide-arrows %}
+  <style>
+   .slider-section--{{ section.id }} .flex-direction-nav {
+      display:none;
+    }
+  </style>
+{% endunless %}
+
+{% unless section.settings.show-slide-dots %}
+  <style>
+    .slider-pagination-container.slider--{{ section.id }} {
+      display:none;
+    }
+  </style>
+{% endunless %}
+
+<style>
+  .slider-caption h4 {
+    font-size: {{ section.settings.caption-heading-size }}px;
+  }
+  .slider-caption {
+    font-size: {{ section.settings.caption-subheading-size }}px;
+  }
+  .slider-caption .btn.btn-custom {
+    font-size: {{ section.settings.caption-button-size }}px;
+  }
+</style>
+
+{% if has_caption == false %}
+      <style>
+        @media only screen and (max-width:767px){
+          .slider-pagination-container {
+            display:none;
+          }
+        }
+      </style>
+{% endif %}
+
+<style>
+  @media only screen and (max-width:767px) {
+    .flex-direction-nav {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "class": "homepage-section--slideshow-wrapper wow fadeIn",
+  "max_blocks": 6,
+  "settings": [
+		{
+      "type": "radio",
+			"id": "slider-animation",
+			"label": "Transition effect",
+			"options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "slide"
+		},
+		{
+			"type": "radio",
+			"id": "slider-width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fixed",
+          "label": "Fixed"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "full-width"
+		},
+		{
+      "type": "range",
+      "id": "slider-slide-time",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "unit": "sec",
+      "label": "Rotation interval",
+      "default": 4
+    },
+		{
+      "type": "range",
+			"id": "caption-heading-size",
+	    "label": "Heading size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+		{
+      "type": "range",
+			"id": "caption-subheading-size",
+	    "label": "Subheading size",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+		{
+      "type": "range",
+			"id": "caption-button-size",
+      "label": "Button size",
+      "min": 12,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show-slide-dots",
+      "label": "Show slide dots",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show-slide-arrows",
+      "label": "Show slide arrows",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+					"info": "2000 x 900px recommended"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+        "type": "richtext",
+        "id": "text",
+        "label": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide link"
+        },
+        {
+          "type": "color",
+          "id": "caption-background",
+          "label": "Caption background",
+          "default": "rgba(0,0,0,0)"
+        },
+        {
+          "type": "color",
+          "id": "caption-text",
+          "label": "Caption text",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button-text",
+          "label": "Button text",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button-background",
+          "label": "Button background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "horizontal-alignment",
+          "label": "Caption horizontal alignment",
+          "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "vertical-alignment",
+          "label": "Caption vertical alignment",
+          "options": [
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "middle",
+                "label": "Middle"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              }
+            ],
+          "default": "middle"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Slideshow",
+    "category": "Image",
+    "settings": {
+      "slider-slide-time": 5
+    },
+    "blocks": [
+      {
+        "type": "image"
+      },
+      {
+        "type": "image"
+      }
+    ]
+  }]
+}
+{% endschema %}

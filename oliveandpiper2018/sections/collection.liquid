@@ -1,0 +1,299 @@
+<div class="container">
+	<div class="row">
+		<div class="page-width col-md-12">
+    {% if section.settings.title != blank %}
+
+      <div class="title-bar custom-font">
+      	<h2>{{ section.settings.title | escape }}</h2>
+      	<div class="clear"></div>
+      </div>
+
+    {% endif %}
+
+    {%- assign collection = collections[section.settings.collection] -%}
+
+    {% case section.settings.grid %}
+      {% when '3' %}
+        {%- assign grid_item_width = 'col-xs-6 col-sm-4 col-md-4 three_columns' -%}
+      {% when '4' %}
+        {%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-3 four_columns' -%}
+    {% endcase %}
+
+    {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+    <div class="row homepage-featured-products {% if section.settings.match-height %}products--match-height{% endif %}">
+
+      {% for product in collection.products limit: product_limit %}
+        <div class="grid__item {{ grid_item_width }} wow fadeIn collection-image-anim
+
+        {% case section.settings.grid %}
+          {% when '3' %}
+          	{% cycle ' alpha mobile-clear', '', ' mobile-clear omega', 'alpha', ' mobile-clear', ' omega' %}
+          {% when '4' %}
+          	{% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %}
+        {% endcase %}
+
+		{% if section.settings.rows == 1 %} no-bottom-margin{% endif %}
+
+        ">
+
+        <div class="indiv-product">
+
+					{% case section.settings.hover-effect %}
+
+						{% when 'none' %}
+
+						<a class="grid__image" href="{{ product.url | within: collection }}" title="{{product.title}}">
+							<img src="{{ product.featured_image | product_img_url: '760x' }}'"
+                                 srcset="{{ product.featured_image | product_img_url: '200x' }} 200w,
+                                          {{ product.featured_image | product_img_url: '400x' }} 400w,
+                                          {{ product.featured_image | product_img_url: '790x' }} 790w"
+                                 sizes="(min-width: 992px) 33.3vw, 50vw"
+                                 alt="{{product.title}}" class="img-responsive">
+						</a>
+
+						{% when 'second-image' %}
+
+							{% if product.images.size > 1 %}
+
+								<div class="reveal">
+									<a class="grid__image" href="{{ product.url | within: collection }}" title="{{product.title}}">
+										<img src="{{ product.featured_image | product_img_url: '760x' }}'" alt="{{product.title}}" class="img-responsive">
+										<div class="hidden">
+												<img src="{{ product.images[1] | product_img_url: '760x' }}"
+                                                     srcset="{{ product.images[1] | product_img_url: '200x' }} 200w,
+                                                      {{ product.images[1] | product_img_url: '400x' }} 400w,
+                                                      {{ product.images[1] | product_img_url: '790x' }} 790w"
+                                                     sizes="(min-width: 992px) 33.3vw, 50vw"
+                                                     alt="{{ product.images.last.alt | escape }}" class="img-responsive" />
+										</div>
+									</a>
+								</div>
+
+							{% else %}
+
+								<a class="grid__image" href="{{ product.url | within: collection }}" title="{{product.title}}">
+									<img src="{{ product.featured_image | product_img_url: '760x' }}'"
+                                         srcset="{{ product.featured_image | product_img_url: '200x' }} 200w,
+                                          {{ product.featured_image | product_img_url: '400x' }} 400w,
+                                          {{ product.featured_image | product_img_url: '790x' }} 790w"
+                                         sizes="(min-width: 992px) 33.3vw, 50vw"
+                                         alt="{{product.title}}" class="img-responsive">
+								</a>
+
+							{% endif %}
+
+						{% when 'zoom' %}
+
+						<div class="collection-image--zoom-effect">
+							<div class="zoom-effect--inner">
+								<a class="grid__image" href="{{ product.url | within: collection }}" title="{{product.title}}">
+									<img src="{{ product.featured_image | product_img_url: '760x' }}'"
+                                         srcset="{{ product.featured_image | product_img_url: '200x' }} 200w,
+                                          {{ product.featured_image | product_img_url: '400x' }} 400w,
+                                          {{ product.featured_image | product_img_url: '790x' }} 790w"
+                                         sizes="(min-width: 992px) 33.3vw, 50vw"
+                                         alt="{{product.title}}" class="img-responsive">
+								</a>
+							</div>
+						</div>
+
+						{% endcase %}
+
+        	<div class="hp-title">
+
+        		{% if section.settings.show-vendor %}
+        			<div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
+        		{% endif %}
+
+        		<a href="{{ product.url | within: collection }}">
+
+        			<div class="indiv-product-title-text">{{ product.title }}</div>
+
+        			<span class="money-styling custom-font">
+
+        				{% if product.compare_at_price_max > product.price %}
+        					<h5 class="custom-font compare-at-price"><span class="money">{{ product.compare_at_price_max | money }}</span></h5>
+        				{% endif %}
+
+                        {% if product.price_varies %}
+                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ product.price_min | money }}</span>
+                        {% else %}
+                            <span class="money">{{ product.price_min | money }}</span>
+                        {% endif %}
+
+        			</span>
+        		</a>
+        	</div>
+        </div>
+
+        {% if product.compare_at_price_max > product.price and product.available %}
+        	<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+        {% endif %}
+        {% unless product.available %}
+            <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
+        {% endunless %}
+
+        </div>
+
+      {% else %}
+
+        {% for i in (1..product_limit) %}
+          <div class="grid__item {{ grid_item_width }}
+
+          {% case section.settings.grid %}
+            {% when '3' %}
+            	{% cycle ' alpha', '', ' omega' %}
+            {% when '4' %}
+            	{% cycle ' alpha', '', '', ' omega' %}
+          {% endcase %}
+
+		  {% if section.settings.rows == 1 %} no-bottom-margin{% endif %}
+
+          ">
+
+            <div class="indiv-product">
+
+							{% case section.settings.hover-effect %}
+
+							{% when 'none' %}
+
+            	<a href="/admin/products" class="onboarding-link">
+					{% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+					{{ 'product-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+            	</a>
+
+							{% when 'second-image' %}
+
+							<a href="/admin/products" class="onboarding-link">
+					{% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+					{{ 'product-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+							</a>
+
+							{% when 'zoom' %}
+
+							<div class="collection-image--zoom-effect collection-image--zoom-effect-onboarding">
+								<div class="zoom-effect--inner">
+									<a href="/admin/products" class="onboarding-link">
+									{% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+									{{ 'product-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+									</a>
+								</div>
+							</div>
+
+							{% endcase %}
+
+            	<div class="hp-title">
+            		<a href="/admin/products">
+            			<div class="indiv-product-title-text">{{ 'general.onboarding.product_title' | t }}</div>
+            			<span class="money money-styling custom-font">£19.99</span>
+            		</a>
+            	</div>
+            </div>
+
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_view_all %}
+      <div class="text-center">
+        <a href="{{ collection.url }}" class="btn btn-custom">
+          {{ 'collections.general.view_all' | t }}
+        </a>
+      </div>
+    {% endif %}
+	</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "class": "homepage-section--featured-products-wrapper wow fadeIn",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured products"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-vendor",
+      "label": "Show vendor",
+      "default": false
+    },
+		{
+			"type": "select",
+			"id": "hover-effect",
+			"label": "Hover effect",
+			"default": "zoom",
+			"options": [
+				{
+					"value": "none",
+					"label": "None"
+				},
+				{
+					"value": "zoom",
+					"label": "Zoom"
+				},
+				{
+					"value": "second-image",
+					"label": "Show Second Product Image"
+				}
+			]
+		},
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+		{
+      "type": "radio",
+      "id": "grid",
+      "label": "Products per row",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+		},
+		{
+			"type": "range",
+			"id": "rows",
+			"min": 1,
+			"max": 5,
+			"step": 1,
+			"label": "Rows",
+			"default": 1
+		},
+    {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+    },
+    {
+        "type": "header",
+        "content": "Auto-height images"
+    },
+    {
+        "type": "paragraph",
+        "content": "Set all of your images to be the same height"
+    },
+    {
+        "type": "checkbox",
+        "id": "match-height",
+        "label": "Enable auto-height",
+        "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}
