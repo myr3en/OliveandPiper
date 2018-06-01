@@ -1,7 +1,6 @@
 /* FONTS */
 @import url("https://use.typekit.net/prt0ozm.css");
 
-
 // Colors
 // $teal: #33cccc;
 // $light-teal: #68f0e6;
@@ -9,18 +8,10 @@
 // $white: #ffffff;
 
 
-h2 {
-    text-transform: uppercase !important;
-}
 
 
-/* TEXT ADVERTS */
-.sections-wrapper {
-    border-top: 1px solid #616161;
-    border-bottom: 1px solid #616161 !important;
-}
 
-/* NAVIGATION */
+/* NOTIFICATION BAR */
 .notification-bar {
     position: relative;
     p {
@@ -54,6 +45,10 @@ h2 {
         }
     }
 }
+/* END */
+
+
+
 
 
 /* CART DRAWERS */
@@ -67,45 +62,57 @@ h2 {
         }
     }
 }
-/* END CART DRAWERS */
+/* END */
 
 
 
 
-
-.site-header__logo img {
-	width: 10em;
-}
-
-
-#main-navigation-wrapper {
+/* NAVIGATION STYLES */
+.cart-link {
     a {
-        font-family:  'Open Sans', sans-serif;
-        font-style: normal;
-        font-weight: 600;
+        i {
+            font-size: 1.5em;
+            color: #4E5254;
+        }
+        .cart-item-count-header {
+            color: #4E5254;
+            font-weight: normal;
+        }
+    }
+}
+#main-navigation-wrapper {
+    padding: 15px 0 !important;
+    a {
         letter-spacing: 1px;
-        font-size: 13px;
     }
 }
 
+
+/* END */
+
+
+
+
+/* TEXT ADVERTS */
+.sections-wrapper {
+    border-top: 1px solid #616161;
+    border-bottom: 1px solid #616161 !important;
+}
 .text-advert-section {
     .h5 {
-        /* SEMI-BOLD */
-        text-transform: uppercase;
-        font-family:  'Open Sans', sans-serif;
-        font-style: normal;
-        font-weight: 600;
         letter-spacing: 1px;
-        font-size: 13px;
-    }
-    .h6 {
-        font-family:  'Open Sans', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        opacity: 1 !important;
     }
 }
+/* END */
 
+
+
+
+
+/* GLOBAL PAGE STYLES */
+h2 {
+    text-transform: uppercase !important;
+}
 
 .btn, .btn-custom {
     border: 1px solid #000 !important;
@@ -122,13 +129,26 @@ h2 {
     }
 }
 
+.pagination {
+    .pagination-arrow {
+        a {
+            background-color: #fff;
+            color: #000 !important;
+            font-family:  'Open Sans', sans-serif;
+            font-size: 12px !important;
+             padding: 10px 20px;
+             border-radius: 0;
+
+        }
+    }
+}
+/* END */
 
 
 
 
 
-
-/* PRODUCT STYLES */
+/* FEATURE STYLES */
 .indiv-product-title-text {
     font-family: work-sans, sans-serif;
     font-style: normal;
@@ -150,14 +170,15 @@ h2 {
     font-size: 12px;
     letter-spacing: 1px;
 }
+/* END */
 
 
 
 
-/* FOOTER */
+
+
+/* FOOTER STYLES */
 footer {
-    background-color: #2b2b2b;
-    color: #fff;
     h3 {
         /* SEMI-BOLD */
         text-transform: uppercase;
@@ -222,7 +243,6 @@ footer {
         }
     }
 
-
     .bottom-footer {
         a {
             text-transform: lowercase;
@@ -231,22 +251,5 @@ footer {
             }
         }
     }
-
 }
-
-
-
-
-.pagination {
-    .pagination-arrow {
-        a {
-            background-color: #fff;
-            color: #000 !important;
-            font-family:  'Open Sans', sans-serif;
-            font-size: 12px !important;
-             padding: 10px 20px;
-             border-radius: 0;
-
-        }
-    }
-}
+/* END */
