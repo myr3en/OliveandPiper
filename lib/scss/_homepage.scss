@@ -16,7 +16,8 @@ body.template-index {
                 font-weight: 500;
                 line-height: 25px;
                 letter-spacing: 1px;
-                padding: 0;
+                padding: 0px;
+                margin: 0px;
             }
         }
         .btn-custom {
@@ -24,11 +25,11 @@ body.template-index {
             font-family: "raleway", sans-serif;
             font-size: 12px;
             font-style: normal;
-            font-weight: 600;
+            font-weight: normal;
             line-height: 25px;
-            letter-spacing: 1px;
+            letter-spacing: 0px;
             transition: .5s ease;
-            padding: 5px 15px;
+            padding: 10px 20px;
             &:hover {
                 background-color: #000 !important;
                 color: #fff !important;

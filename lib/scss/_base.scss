@@ -78,6 +78,20 @@
             color: #4E5254;
             font-weight: normal;
         }
+        .topbadge {
+            color: #4e5254 !important;
+            font-weight: 400;
+            padding: 1px 0 0 0 !important;
+            margin: 0 !important;
+            position: relative;
+            width: auto;
+            &:before {
+                content: none !important;
+            }
+            &:after {
+                content: none !important;
+            }
+        }
     }
 }
 #main-navigation-wrapper {
@@ -102,7 +116,18 @@
     .h5 {
         letter-spacing: 1px;
     }
+
+    .flex-control-paging {
+        li {
+            a {
+                width: 5px;
+                height: 5px;
+            }
+        }
+    }
 }
+
+
 /* END */
 
 
