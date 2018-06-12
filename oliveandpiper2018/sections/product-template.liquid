@@ -205,7 +205,7 @@
 				<div class="indiv-product-vendor-text">{{ product.vendor }}</div>
 			{% endif %}
 
-			<h1 class="custom-font product-description-header">{{ product.title }}</h1><div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div>
+			<h1 class="custom-font product-description-header">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1>
 
                 {% if section.settings.description_position == "above" %}
 

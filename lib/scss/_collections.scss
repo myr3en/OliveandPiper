@@ -86,6 +86,9 @@ body.template-collection {
     .hp-title {
         .money-styling {
             padding: 5px 0;
+            .compare-at-price {
+                margin-bottom: 0;
+            }
         }
 
         .money {
@@ -95,6 +98,15 @@ body.template-collection {
             font-size: 12px;
             letter-spacing: 1px;
         }
+    }
+
+    .sale-badge {
+        margin-top: 15px;
+    }
+
+    .sold-out-badge {
+        background-color: $ltgrey;
+        margin-top: 15px;
     }
 
 
