@@ -227,7 +227,7 @@
                         <h3 class="custom-font js" id="price-field"><span class="money">{{ current_variant.price | money }}</span></h3>
                     </div>
 
-  					<div class="row">
+  					<div class="row product-buttons">
   						{% if product.variants.size > 1  %}
   							{% for option in product.options_with_values %}
   								<div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
@@ -256,7 +256,7 @@
   						</select>
 
   			      {% if section.settings.show_quantity_selector %}
-  			        <div class="selector-wrapper {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
+  			        <div class="selector-wrapper {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-6 col-xs-6">
   				        <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
                         <div class="quantity-controls">
                             <button type="button" class="qty-minus">-</button>
@@ -266,7 +266,7 @@
   					    </div>
   					  {% endif %}
 
-                        <div class="col-md-12 product-page--submit-action" data-stock-email-enabled="{{ section.settings.show_out_of_stock_email }}">
+                        <div class="col-md-8 col-sm-6 col-xs-6 product-page--submit-action" data-stock-email-enabled="{{ section.settings.show_out_of_stock_email }}">
   					    <button type="submit" name="add" id="purchase" class="btn btn-success custom-font">
   					        {{ 'products.product.add_to_cart' | t }}
   					    </button>
