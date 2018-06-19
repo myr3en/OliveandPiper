@@ -173,6 +173,19 @@ h2 {
     }
 }
 
+.sale-badge {
+    margin-top: 15px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.sold-out-badge {
+    background-color: $ltgrey;
+    margin-top: 15px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
 .pagination {
     .pagination-arrow {
         a {

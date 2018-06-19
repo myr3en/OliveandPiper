@@ -1,75 +1,120 @@
 body.template-collection {
-
-
+.shopify-section-collection-template {
+    width: 100%;
+}
     /* COLLECTION BANNER */
     .collection-image-wrapper {
         position: relative;
         overflow: hidden;
-        img {
-            &:first-child {
-                width: 100%;
-            }
+        min-height: 175px;
+        max-width: 1140px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
+        @media only screen and (max-width: 1000px) {
+            display: none;
         }
 
-
-        .collection-hero__image {
-            background-size: cover;
-            background-position: 50% 50%;
-            background-repeat: no-repeat;
-            height: 100%;
-            width: 100%;
-            @media only screen and (max-width: 1000px) {
-                display: none;
-            }
-        }
-        #collections-main {
-            position: relative !important;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            @media only screen and (max-width: 1000px) {
-                position: relative;
-            }
-
-
-            .collection-header {
-                display: none;
-                h2 {
-                    /* SEMI-BOLD */
-                    text-transform: capitalize !important;
-                    font-family: raleway,sans-serif;
-                    font-style: normal;
-                    font-weight: 600;
-                    letter-spacing: 2px;
-                    font-size: 33px !important;
-                    background: none;
-                }
-            }
-
-            .description-content {
-                /* Paragraph GEORGIA */
-                font-family: Georgia, Times, "Times New Roman", serif;
-                font-size: 14px;
-                font-style: italic;
-                font-variant: normal;
-                font-weight: 500;
-                line-height: 25px;
-                letter-spacing: 1px;
-                padding: 15px 30px;
-                margin: 0 auto;
-                max-width: 800px;
-                .image-under {
-                    img {
-                        width: 100%;
-                    }
+        .collection-header {
+            margin: 0;
+            padding: 0;
+            h2 {
+                /* SEMI-BOLD */
+                text-transform: uppercase;
+                font-family: 'Open Sans', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 32px !important;
+                letter-spacing: 2px;
+                background: none;
+                font-style: normal;
+                color: $white;
+                &:after {
+                    border: none;
                 }
             }
         }
     } /* END Collection banner */
+    .no-banner-img {
+        margin-bottom: 0px;
+        h2 {
+            /* SEMI-BOLD */
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 32px !important;
+            letter-spacing: 2px;
+            background: none;
+            font-style: normal;
+            color: $black;
+            &:after {
+                border: none;
+            }
+        }
+    }
 
+    /* Collection DESCRIPTION */
+    #collections-main {
+        position: relative !important;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media only screen and (max-width: 1000px) {
+            position: relative;
+        }
+
+        .description-content {
+            /* Paragraph GEORGIA */
+            font-family: Georgia, Times, "Times New Roman", serif;
+            font-size: 14px;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 1px;
+            padding: 40px 20px 20px;
+            margin: 0 auto;
+            max-width: 1000px;
+            .image-under {
+                img {
+                    width: 100%;
+                }
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .description-no-img {
+            padding: 20px 0 0;
+        }
+
+    }
+    /* END Collection DESCRIPTION */
+
+
+
+    .breadcrumb {
+        a, span {
+            font-family: work-sans,sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #7f7f7f;
+            letter-spacing: 1px;
+        }
+    }
 
     /* PRODUCT GRID STYLES */
     .indiv-product-title-text {
