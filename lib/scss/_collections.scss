@@ -17,9 +17,9 @@ body.template-collection {
         align-items: center;
         margin: 0 auto;
         text-align: center;
-        @media only screen and (max-width: 1000px) {
-            display: none;
-        }
+        // @media only screen and (max-width: 1000px) {
+        //     display: none;
+        // }
 
         .collection-header {
             margin: 0;
@@ -31,6 +31,7 @@ body.template-collection {
                 font-style: normal;
                 font-weight: 600;
                 font-size: 32px !important;
+                line-height: 36px !important;
                 letter-spacing: 2px;
                 background: none;
                 font-style: normal;
@@ -50,6 +51,7 @@ body.template-collection {
             font-style: normal;
             font-weight: 500;
             font-size: 32px !important;
+            line-height: 36px !important;
             letter-spacing: 2px;
             background: none;
             font-style: normal;
@@ -104,6 +106,8 @@ body.template-collection {
 
 
     .breadcrumb {
+        margin: 0;
+        padding: 0;
         a, span {
             font-family: work-sans,sans-serif;
             font-style: normal;
