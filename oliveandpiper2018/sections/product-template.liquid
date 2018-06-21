@@ -230,7 +230,7 @@
   					<div class="row product-buttons">
   						{% if product.variants.size > 1  %}
   							{% for option in product.options_with_values %}
-  								<div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12">
+  								<div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12 selectors-cont">
                                     <div class="input-field col s12 m6 materialize-select">
                                         <select class="icons materialize" id="SingleOptionSelector-{{ forloop.index0 }}">
                                             {% for value in option.values %}
@@ -254,6 +254,8 @@
   								{% endif %}
   							{% endfor %}
   						</select>
+
+                        {% include 'product-customizer' %}
 
   			      {% if section.settings.show_quantity_selector %}
   			        <div class="selector-wrapper {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-6 col-xs-6">
