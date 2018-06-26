@@ -1,5 +1,9 @@
 body.template-product {
-
+    a:hover {
+        font-weight: bold;
+        text-decoration: underline;
+        color: $dustpink;
+    }
 
     /* TEXT ADVERTS */
     .sections-wrapper {
