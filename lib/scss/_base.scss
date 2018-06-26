@@ -9,6 +9,7 @@ $white: #ffffff;
 $grey: #4E5254;
 $ltgrey: #8c8c8c;
 $dustpink: #e5dad2;
+$darkpink: #BC988F;
 
 
 
@@ -170,6 +171,17 @@ h2 {
     &:hover {
         background-color: #000 !important;
         color: #fff !important;
+    }
+}
+.more-colors-btn {
+    font-size: 12px;
+    color: $darkpink;
+    center {
+        padding-bottom: 5px;
+        &:hover {
+            font-weight: bold;
+            color: $darkpink;
+        }
     }
 }
 

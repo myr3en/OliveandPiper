@@ -134,9 +134,9 @@
 			</div>
 {% endif %}
 	<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-	  <!-- <a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a> -->
+	  <a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
 		{% if collection %}
-		  <!-- <span aria-hidden="true">&rsaquo;</span> -->
+		  <span aria-hidden="true">&rsaquo;</span>
 		  {% if collection.handle %}
 			{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
 			{{ collection.title | link_to: url }}
@@ -341,7 +341,6 @@
 								{% endcase %}
 
             	<div class="hp-title">
-
 					{% if section.settings.show-vendor %}
 						<div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
 					{% endif %}
@@ -366,7 +365,12 @@
 
             			</span>
             		</a>
-					
+					<a href="{{ product.url | within: collection }}" class="more-colors-btn">
+						<!-- More Colors Snippet -->
+						{% include 'more-colors' %}
+					</a>
+					<!-- Smart Wishlist Snippet -->
+					<span class="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></span>
             	</div>
             </div>
 
