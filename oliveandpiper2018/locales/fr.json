@@ -287,8 +287,8 @@
       "add_to_cart": "Ajouter au panier",
       "sorry_stock": "Désolé, actuellement en rupture de stock",
       "quantity": "Quantité",
-      "thanks": "Merci! Nous vous informerons lorsque ce produit sera disponible!",
-      "out-stock_html": "Cliquez <a href=\"#\"><strong>ici<\/strong><\/a> pour être averti par email lorsque {{ product }} sera disponible.",
+      "thanks":"Merci! Nous vous informerons lorsque ce produit sera disponible!",
+      "out-stock_html": "Cliquez <a href=\"#\"><strong>ici</strong></a> pour être averti par email lorsque {{ product }} sera disponible.",
       "wrong-email": "Veuillez fournir une adresse email valide."
     }
   },

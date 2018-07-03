@@ -281,6 +281,7 @@
             "label": "PT Serif",
             "group": "Serif"
           },
+
           {
             "group": "Sans-serif",
             "value": "typography-heading-alegreya-sans",
@@ -361,6 +362,7 @@
             "label": "Work Sans",
             "group": "Sans-serif"
           },
+
           {
             "value": "typography-heading-abril-fatface",
             "label": "Abril Fatface",
@@ -537,6 +539,7 @@
             "value": "typography-body-source-serif-pro",
             "label": "Source Serif Pro"
           },
+
           {
             "group": "Sans-serif",
             "value": "typography-body-alegreya-sans",
@@ -959,51 +962,45 @@
           }
         ],
         "default": "7"
+        },
+        {
+          "type": "image_picker",
+          "id": "popup-newsletter-top",
+          "label": "Image",
+          "info": "160 x 160px recommended"
+        },
+        {
+          "type": "text",
+          "id": "pop-up-text-header-text",
+          "label": "Heading text",
+          "default": "Popup"
+        },
+        {
+          "type": "richtext",
+          "id": "pop-up-text-description-text",
+          "label": "Main text",
+          "default": "<p>Use this popup to embed a mailing list sign up form. Offer incentives to customers to join and build your mailing list.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "popup--show-social-icons",
+          "label": "Enable social icons"
+        },
+  	  {
+  	    "type": "checkbox",
+    		"id": "popup--show-newsletter",
+    		"label": "Enable newsletter signup",
+    		"default": true
       },
       {
-        "type": "image_picker",
-        "id": "popup-newsletter-top",
-        "label": "Image",
-        "info": "160 x 160px recommended"
-      },
-      {
-        "type": "text",
-        "id": "pop-up-text-header-text",
-        "label": "Heading text",
-        "default": "Popup"
-      },
-      {
-        "type": "richtext",
-        "id": "pop-up-text-description-text",
-        "label": "Main text",
-        "default": "<p>Use this popup to embed a mailing list sign up form. Offer incentives to customers to join and build your mailing list.<\/p>"
-      },
-      {
-        "type": "checkbox",
-        "id": "popup--show-social-icons",
-        "label": "Enable social icons"
-      },
-      {
-        "type": "checkbox",
-        "id": "popup--show-newsletter",
-        "label": "Enable newsletter signup",
-        "default": true
-      },
-      {
-        "type": "radio",
-        "id": "desktop-popup-style",
-        "label": "Popup style",
+        "type":      "radio",
+        "id":        "desktop-popup-style",
+        "label":     "Popup style",
         "options": [
-          {
-            "value": "fullscreen",
-            "label": "Fullscreen (Desktop only)"
-          },
-          {
-            "value": "slide-up",
-            "label": "Slide-up bottom"
-          }
+          { "value": "fullscreen", "label": "Fullscreen (Desktop only)" },
+          { "value": "slide-up", "label": "Slide-up bottom" }
         ],
-        "default": "fullscreen"
+        "default":   "fullscreen"
       },
       {
         "type": "range",
@@ -1015,49 +1012,49 @@
         "label": "Delay until popup appears",
         "default": 5
       }
-    ]
-  },
-  {
-    "name": "Currency",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_multiple_currencies",
-        "label": "Enable currency converter",
-        "default": false,
-        "info": "Even though prices are displayed in different currencies, orders will still be processed in your store's currency."
-      },
-      {
-        "type": "select",
-        "id": "currency_format",
-        "label": "Format",
-        "options": [
-          {
-            "value": "money_format",
-            "label": "Without currency ($10.00)"
-          },
-          {
-            "value": "money_with_currency_format",
-            "label": "With currency ($10.00 CAD)"
-          }
-        ],
-        "default": "money_format"
-      },
-      {
-        "type": "text",
-        "id": "supported_currencies",
-        "label": "Supported currencies",
-        "default": "INR GBP CAD USD AUD EUR JPY",
-        "info": "Use the country's ISO [currency code](http:\/\/www.xe.com\/iso4217.php). Separate your currency codes with a space."
-      },
-      {
-        "type": "text",
-        "id": "default_currency",
-        "label": "Default currency",
-        "default": "USD"
-      }
-    ]
-  },
+      ]
+    },
+	 {
+	   "name": "Currency",
+	   "settings": [
+	     {
+	       "type": "checkbox",
+	       "id": "show_multiple_currencies",
+	       "label": "Enable currency converter",
+	       "default": false,
+	       "info": "Even though prices are displayed in different currencies, orders will still be processed in your store's currency."
+	     },
+	     {
+	       "type": "select",
+	       "id": "currency_format",
+	       "label": "Format",
+	       "options": [
+	         {
+	           "value": "money_format",
+	           "label": "Without currency ($10.00)"
+	         },
+	         {
+	           "value": "money_with_currency_format",
+	           "label": "With currency ($10.00 CAD)"
+	         }
+	       ],
+	       "default": "money_format"
+	     },
+	     {
+	       "type": "text",
+	       "id": "supported_currencies",
+	       "label": "Supported currencies",
+	       "default": "INR GBP CAD USD AUD EUR JPY",
+	       "info": "Use the country's ISO [currency code](http://www.xe.com/iso4217.php). Separate your currency codes with a space."
+	     },
+	     {
+	       "type": "text",
+	       "id": "default_currency",
+	       "label": "Default currency",
+	       "default": "USD"
+	     }
+	   ]
+	 },
   {
     "name": "Favicon",
     "settings": [

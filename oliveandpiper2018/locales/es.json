@@ -287,8 +287,8 @@
       "add_to_cart": "Añadir a la cesta",
       "sorry_stock": "Lo sentimos, actualmente no disponible",
       "quantity": "Cantidad",
-      "thanks": "¡Gracias!. Le notificaremos cuando este producto esté disponible",
-      "out-stock_html": "Clique <a href=\"#\"><strong>here<\/strong><\/a> para notificarle por email cuando {{ product }} esté disponible.",
+      "thanks":"¡Gracias!. Le notificaremos cuando este producto esté disponible",
+      "out-stock_html": "Clique <a href=\"#\"><strong>here</strong></a> para notificarle por email cuando {{ product }} esté disponible.",
       "wrong-email": "Por favor, proporcione una dirección de email válida."
     }
   },
