@@ -33,6 +33,13 @@ body.template-product {
                 color: #7f7f7f;
             }
         }
+        @media only screen and (max-width: 767px) {
+            .quantity-controls {
+                input {
+                    width: 40% !important;
+                }
+            }
+        }
     }
 
     /* PRODUCT IMAGES SECTION */
