@@ -77,6 +77,11 @@
 
   {{ 'shopstorm-apps.scss.css' | asset_url | stylesheet_tag }}
   {% include 'shopstorm-scripttags' %}
+  <!-- START Yotpo JS Library -->
+  <script type="text/javascript">
+(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/INZVWr50bc1HjrR1H0TQXwjj1V8vfzYIcZP3kZ2L/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+</script>
+  <!-- END Yotpo JS Library -->
 </head>
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper">
 

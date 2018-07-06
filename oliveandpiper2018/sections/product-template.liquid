@@ -225,7 +225,24 @@
                             {% endif %}
                         </h5>
                         <h3 class="custom-font js" id="price-field"><span class="money">{{ current_variant.price | money }}</span></h3>
-                    </div>
+                    <!--START Yotpo Star Rating + Q&A Button-->
+                  <div class="yotpo bottomLine"
+                           data-product-id="{{ product.id }}"
+                           data-name="{{ product.title | escape }}"
+                           data-url="{{ page.url }}">
+                      </div>
+                      <div class='yotpo QABottomLine'
+                           data-product-id='{{ product.id }}'>
+                      </div>
+                      <style>
+                        .yotpo-icon-double-bubble, .yotpo-stars { margin: 0 5px 0 0 !important; }
+                        div.yotpo.bottomLine         { display: inline-block; margin: 25px 10px 1px 15px;}
+                        div.yotpo.QABottomLine     { display: inline-block; }
+                      </style>
+                  <!--END Yotpo Star Rating + Q&A Button-->  
+                      
+                  </div>
+                 
 
   					<div class="row product-buttons">
   						{% if product.variants.size > 1  %}
@@ -297,6 +314,7 @@
             </div>
 
         {% endif %}
+              
 
         {% if section.settings.description_position == "below" %}
 
@@ -352,7 +370,7 @@
           	{% endif %}
 
           </div>
-
+         
         {% endif %}
 
       </section>
@@ -361,7 +379,17 @@
 
 </div>
 
-
+   <!-- START Yotpo Reviews Widget -->
+              <div class="yotpo yotpo-main-widget" 
+                   data-product-id="{{ product.id }}"
+                   data-price="{{ variant.price | money_without_currency }}"
+                   data-currency="{{ shop.currency }}" 
+                   data-name="{{ product.title | escape }}" 
+                   data-url="{{ shop.url }}{{ product.url }}" 
+                   data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+                   data-description="{{ product.description | escape }}"> 
+              </div>
+			<!-- END Yotpo Reviews Widget -->
 {% if section.settings.show_reviews %}
 
     <div class="product-page-reviews-section">
