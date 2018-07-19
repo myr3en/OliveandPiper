@@ -239,10 +239,10 @@
                         div.yotpo.bottomLine         { display: inline-block; margin: 25px 10px 1px 15px;}
                         div.yotpo.QABottomLine     { display: inline-block; }
                       </style>
-                  <!--END Yotpo Star Rating + Q&A Button-->  
-                      
+                  <!--END Yotpo Star Rating + Q&A Button-->
+
                   </div>
-                 
+
 
   					<div class="row product-buttons">
   						{% if product.variants.size > 1  %}
@@ -314,7 +314,7 @@
             </div>
 
         {% endif %}
-              
+
 
         {% if section.settings.description_position == "below" %}
 
@@ -370,7 +370,7 @@
           	{% endif %}
 
           </div>
-         
+
         {% endif %}
 
       </section>
@@ -379,26 +379,49 @@
 
 </div>
 
-   <!-- START Yotpo Reviews Widget -->
-              <div class="yotpo yotpo-main-widget" 
-                   data-product-id="{{ product.id }}"
-                   data-price="{{ variant.price | money_without_currency }}"
-                   data-currency="{{ shop.currency }}" 
-                   data-name="{{ product.title | escape }}" 
-                   data-url="{{ shop.url }}{{ product.url }}" 
-                   data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
-                   data-description="{{ product.description | escape }}"> 
-              </div>
-			<!-- END Yotpo Reviews Widget -->
+<!-- START Yotpo Photo gallery feed Snippet -->
+<div class="yotpo yotpo-pictures-widget"
+    data-product-id="{{ product.id }}"
+    data-layout="carousel"
+    data-auto-slide="0"
+    data-title="1"
+    data-title-text="STYLED ON INSTAGRAM"
+    data-title-color="#56575f"
+    data-title-alignment="left"
+    data-title-font-size="18"
+    data-title-mobile-font-size="16"
+    data-hover-color="#ffffff"
+    data-hover-opacity="0.8"
+    data-hover-icon="true"
+    data-upload-button="1"
+    data-upload-button-text="Add Your Photo"
+    data-upload-button-background-color="#e5dad2"
+    data-upload-button-text-color="#ffffff"
+    data-upload-button-font-family="Open Sans">
+</div>
+
+
+<!-- START Yotpo Reviews Widget -->
+  <div class="yotpo yotpo-main-widget"
+       data-product-id="{{ product.id }}"
+       data-price="{{ variant.price | money_without_currency }}"
+       data-currency="{{ shop.currency }}"
+       data-name="{{ product.title | escape }}"
+       data-url="{{ shop.url }}{{ product.url }}"
+       data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+       data-description="{{ product.description | escape }}">
+  </div>
+<!-- END Yotpo Reviews Widget -->
+
+
+
 {% if section.settings.show_reviews %}
-
     <div class="product-page-reviews-section">
-
         <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-
     </div>
-
 {% endif %}
+
+
 
 {% if section.settings.enable_related_products %}
 

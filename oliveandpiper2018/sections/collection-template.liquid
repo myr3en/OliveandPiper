@@ -36,23 +36,7 @@
 	        }
 	      }
 		</style>
-		{% if collection.image %}
-		<div class="collection-image-wrapper" style=" background-image: url({{ collection.image.src | collection_img_url: '2000x' }});">
-			<div class="title-bar custom-font collection-header">
-				{% if collection.handle == 'all' %}
-					<h2>{{ 'products.general.products_title' | t }}</h2>
-				{% else %}
-					<h2>{{ collection.title }}</h2>
-				{% endif %}
-				<div class="clear"></div>
-			</div>
-		</div>
-		<div id="collections-main" class="{{ collection.handle }}">
-			{% if collection.description != empty %}
-				<div class="description-content">{{ collection.description }}</div>
-			{% endif %}
-		</div>
-		{% else %}
+
 		<div class="title-bar custom-font no-banner-img">
 			{% if collection.handle == 'all' %}
 				<h2>{{ 'products.general.products_title' | t }}</h2>
@@ -66,7 +50,7 @@
 				<div class="description-content description-no-img">{{ collection.description }}</div>
 			{% endif %}
 		</div>
-		{% endif %}
+
 {% endif %}
 
 

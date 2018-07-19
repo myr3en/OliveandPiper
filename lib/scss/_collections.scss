@@ -30,7 +30,7 @@ body.template-collection {
                 font-family: 'Open Sans', sans-serif;
                 font-style: normal;
                 font-weight: 600;
-                font-size: 32px !important;
+                font-size: 25px !important;
                 line-height: 36px !important;
                 letter-spacing: 2px;
                 background: none;
@@ -43,21 +43,28 @@ body.template-collection {
         }
     } /* END Collection banner */
     .no-banner-img {
-        margin-bottom: 0px;
+        margin-bottom: 20px;
         h2 {
             /* SEMI-BOLD */
             text-transform: uppercase;
             font-family: 'Open Sans', sans-serif;
             font-style: normal;
             font-weight: 500;
-            font-size: 32px !important;
-            line-height: 36px !important;
+            font-size: 25px !important;
             letter-spacing: 2px;
             background: none;
             font-style: normal;
             color: $black;
             &:after {
                 border: none;
+                background: none repeat scroll 0 0 #000;
+                content: "";
+                display: block;
+                height: 2px;
+                position: relative;
+                width: 50px;
+                margin: 0 auto 0;
+                top: 20px;
             }
         }
     }
