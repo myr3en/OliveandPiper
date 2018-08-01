@@ -11,6 +11,12 @@ assets/Twitter.png:
   development: 2018-07-04T13:25:58-07:00   f9f0ec89b3df77b3044d1b2ec3407112
 assets/blank.gif:
   development: 2018-03-22T08:40:05-07:00   325472601571f31e1bf00674c368d335
+assets/bold-checkout-options.js:
+  development: 2018-07-25T12:12:32-07:00   0e694faacdd2106ea586017142579c13
+assets/bold-currency-bootstrap.js:
+  development: 2018-07-25T11:13:04-07:00   0a2d0fa7c4c1d2e3e8bb89ba9961b8cd
+assets/bold-currency-picker.css:
+  development: 2018-07-25T11:13:04-07:00   878f56a29bd2e6f3d57fdefc12e92953
 assets/bold-upsell.css:
   development: 2018-05-28T21:06:07-07:00   72f6c075524eb9ba798ba7ebf21bd906
 assets/checkout.css.liquid:
@@ -31,6 +37,8 @@ assets/fancybox_sprite.png:
   development: 2018-03-22T08:40:05-07:00   a154b1f5db51e97756275501d5d4538b
 assets/fancybox_sprite_2x.png:
   development: 2018-03-22T08:40:06-07:00   4156c86f0fe11c1a6f6b051710cb15b3
+assets/flags.min.css:
+  development: 2018-07-25T11:13:03-07:00   9a85197fb9790ae9c2ae02180b18d26c
 assets/flexslider-icon.eot:
   development: 2018-03-22T08:40:06-07:00   9c9cb7a6055043933ba68854f521af45
 assets/flexslider-icon.svg:
@@ -94,17 +102,17 @@ assets/shopstorm-apps.scss.liquid:
 assets/slider-arrows.png:
   development: 2018-05-28T11:17:05-07:00   bb270470878b69acba736907cdd86494
 assets/style-main.min.css:
-  development: 2018-07-04T13:55:38-07:00   e455053af8120233dfa4b5e80d2b938b
+  development: 2018-07-18T15:38:34-07:00   571f4e32388001017c2a872699f9bf43
 assets/style.scss.liquid:
-  development: 2018-06-11T16:22:21-07:00   4b0443bb06039ca90350d73a367d5ce5
+  development: 2018-07-20T08:13:43-07:00   4b0443bb06039ca90350d73a367d5ce5
 config/settings_data.json:
-  development: 2018-07-05T00:27:44-07:00   189d0d3b078ad5629cbc1b44f9464f15
+  development: 2018-07-31T00:18:07-07:00   778ba3a65dc6b53752acd2689c8ac440
 config/settings_schema.json:
   development: 2018-07-03T13:53:08-07:00   a7e124c2e14d4e110c2e5546fa611f35
 layout/password.liquid:
   development: 2018-03-22T08:40:10-07:00   c1a29324bed566ada83710b455ba4364
 layout/theme.liquid:
-  development: 2018-07-06T04:16:20-07:00   d3ba073dcbee1d745e393e7b03863cb8
+  development: 2018-07-25T12:12:32-07:00   0159bf9064d9a0dfda4e69fb6ee469f8
 locales/de.json:
   development: 2018-07-03T13:50:03-07:00   0e33038dc5ad39ea71e36705a55861d6
 locales/en.default.json:
@@ -122,13 +130,13 @@ sections/article-template.liquid:
 sections/blog-template.liquid:
   development: 2018-03-22T08:40:03-07:00   d77579661e588df0aa65c5d83c20b643
 sections/cart-template.liquid:
-  development: 2018-07-06T05:12:51-07:00   82529ea8c7cce85ea36d9616249433e0
+  development: 2018-07-25T11:13:03-07:00   869e4e4622960390605e1281becd7df5
 sections/collection-list.liquid:
   development: 2018-07-06T09:48:58-07:00   7674383ff6660215b665b8a242afe5c1
 sections/collection-template.liquid:
-  development: 2018-06-26T11:43:29-07:00   a29313e014b4acb7121beb1cbe5c1c63
+  development: 2018-07-25T11:12:59-07:00   c6d24b9247131ce8ec6ea75819dc1078
 sections/collection.liquid:
-  development: 2018-07-03T13:35:33-07:00   77e416687d2f353b07f9cdc2f08534a3
+  development: 2018-07-25T11:13:00-07:00   707b5150db01871eaed76a531e574b7d
 sections/custom-html.liquid:
   development: 2018-03-22T08:40:03-07:00   cfbd068196dda3476525649f401e983a
 sections/feature-row.liquid:
@@ -142,11 +150,11 @@ sections/header.liquid:
 sections/image-bar.liquid:
   development: 2018-03-22T08:40:03-07:00   6d6caeb4b4deacc52e53b7ac78aa9c1d
 sections/indiv-product.liquid:
-  development: 2018-06-20T13:36:49-07:00   315be1df33463641de6e997e3dd2b6a9
+  development: 2018-07-25T11:13:00-07:00   ab5a5fec1edae52450c868bc811f3883
 sections/instagram.liquid:
   development: 2018-07-06T09:58:31-07:00   2d20fc5435ec12f3d897527b4ea0b028
 sections/list-collections.liquid:
-  development: 2018-03-22T08:40:03-07:00   bcf71a4faaf3bf6d8d32e2fb65d5d7c9
+  development: 2018-07-25T11:13:01-07:00   cccfed136870f6b3af78f83e8e851c42
 sections/logo-bar.liquid:
   development: 2018-07-06T09:57:09-07:00   31c6e164c5dc16624ec59eef6ce0b7da
 sections/map.liquid:
@@ -158,9 +166,9 @@ sections/password-template.liquid:
 sections/product-template-bottom.liquid:
   development: 2018-07-03T13:36:14-07:00   63d99b4eace71f06944f8785d024760c
 sections/product-template.liquid:
-  development: 2018-07-06T05:19:58-07:00   7d3f328078376dc8356a2a7a6f87074b
+  development: 2018-07-25T11:13:01-07:00   ad88a4d92c0b367ca2edecf5b97aa3ec
 sections/related-items.liquid:
-  development: 2018-06-20T13:40:37-07:00   3f20acf55193748dab70f26cbdf390d5
+  development: 2018-07-25T11:13:02-07:00   a9e15a762a0cb8ea23cda188395f4a2c
 sections/related-products.liquid:
   development: 2018-03-22T08:40:04-07:00   b14c15df1216a4ec6d6f2b43f02d014a
 sections/rich-text.liquid:
@@ -174,13 +182,31 @@ sections/social-media.liquid:
 sections/text-adverts.liquid:
   development: 2018-03-22T08:40:04-07:00   7da2ac15569d006948e5ff00c9c6ba69
 sections/text-over-image.liquid:
-  development: 2018-05-28T13:33:01-07:00   0b48e80e2ffe40ef83ea1d412fca3b1a
+  development: 2018-07-20T08:28:07-07:00   fec8df6a05a7d0f190093491101be6d3
 sections/video.liquid:
   development: 2018-03-22T08:40:04-07:00   089e3a3ade8ad6e22a7141f6e2002095
+sections/yotpo-instagram-gallery.liquid:
+  development: 2018-07-23T16:04:40-07:00   87ada754e6f508451fec2b874e3c28e3
+sections/yotpo-reviews-carousel.liquid:
+  development: 2018-07-23T15:47:45-07:00   1f8339644efdd3da40018b706126f4a0
+snippets/bold-checkout-customer.liquid:
+  development: 2018-07-19T19:47:41-07:00   d338cbf1826dd702d99c60fa6f179374
+snippets/bold-checkout-loader.liquid:
+  development: 2018-07-19T19:47:41-07:00   7318ebdfc551c2af1055177e7206261e
 snippets/bold-common.liquid:
-  development: 2018-05-28T21:06:07-07:00   a4e71f55fb072c2b4ab7bbccd7fb2dcc
+  development: 2018-07-25T11:13:06-07:00   bf34ac0c84538ac6df84a07e2602757c
+snippets/bold-currency-converter.liquid:
+  development: 2018-07-25T11:13:04-07:00   361484f22da8219b366bc6007550a631
+snippets/bold-currency-picker-mount.liquid:
+  development: 2018-07-25T11:13:05-07:00   3f53a4e0f41d66e5bcce3832408eb84c
+snippets/bold-currency-templates.liquid:
+  development: 2018-07-25T11:13:05-07:00   d625675cf586801d671787d92672fabe
+snippets/bold-product.liquid:
+  development: 2018-07-25T11:13:05-07:00   acc10de003a35e0f5656be6bfb6719f4
+snippets/bold-variant.liquid:
+  development: 2018-07-25T11:13:06-07:00   cc5775289782460abf0deff824ebd76a
 snippets/cart-drawer.liquid:
-  development: 2018-03-22T08:40:11-07:00   1b151baeb8d9c5c323f704a34f7d8d18
+  development: 2018-07-18T15:49:33-07:00   e1317ddf4e2e4a275b222d202e776f39
 snippets/currencies.liquid:
   development: 2018-03-22T08:40:11-07:00   d430023a5a7bccc125f2d3aab6287cd5
 snippets/font-links.liquid:
@@ -242,7 +268,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2018-03-22T08:40:12-07:00   049bf47a185d62db1b2c78aad46c5f93
 templates/index.liquid:
-  development: 2018-03-22T08:40:12-07:00   f79f45304db08806b224656bf8d56e7c
+  development: 2018-07-19T12:36:45-07:00   8ce5086a01ad0be4ea761841ab21fbd3
 templates/list-collections.liquid:
   development: 2018-03-22T08:40:12-07:00   9ec01e0ae712c2ad3593f0b75cea8a18
 templates/page.contact.liquid:

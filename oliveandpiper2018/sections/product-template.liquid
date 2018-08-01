@@ -221,19 +221,17 @@
                     <div class="row product-pricing">
                         <h5 class="custom-font compare-at-price js">
                             {% if current_variant.compare_at_price > current_variant.price %}
-                                <span class="money">{{ current_variant.compare_at_price | money }}</span>
+                                <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>{{ current_variant.compare_at_price | money }}</span>
                             {% endif %}
                         </h5>
-                        <h3 class="custom-font js" id="price-field"><span class="money">{{ current_variant.price | money }}</span></h3>
+                        <h3 class="custom-font js" id="price-field"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>{{ current_variant.price | money }}</span></h3>
                     <!--START Yotpo Star Rating + Q&A Button-->
                   <div class="yotpo bottomLine"
                            data-product-id="{{ product.id }}"
                            data-name="{{ product.title | escape }}"
                            data-url="{{ page.url }}">
                       </div>
-                      <div class='yotpo QABottomLine'
-                           data-product-id='{{ product.id }}'>
-                      </div>
+                     
                       <style>
                         .yotpo-icon-double-bubble, .yotpo-stars { margin: 0 5px 0 0 !important; }
                         div.yotpo.bottomLine         { display: inline-block; margin: 25px 10px 1px 15px;}
@@ -264,7 +262,7 @@
   							{% for variant in product.variants %}
   								{% if variant.available %}
   									<option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
-  										{{ variant.title }} - <span class="money">{{ variant.price | money }}</span>
+  										{{ variant.title }} - <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ variant.price }}" style="display:none !important;"></span>{{ variant.price | money }}</span>
   									</option>
   								{% else %}
   									<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
@@ -546,14 +544,14 @@
 
           {% if product.compare_at_price_max > product.price %}
             <h5 class="custom-font compare-at-price">
-              <span class="money">{{ product.compare_at_price_max | money }}</span>
+              <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price_2" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span>
             </h5>
           {% endif %}
 
         {% if product.price_varies %}
-          <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ product.price_min | money }}</span>
+          <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_3" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
         {% else %}
-          <span class="money">{{ product.price_min | money }}</span>
+          <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_4" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
         {% endif %}
 
         </span>

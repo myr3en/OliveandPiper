@@ -63,7 +63,7 @@
     "popup--show-newsletter": false,
     "desktop-popup-style": "fullscreen",
     "popup-delay": 3,
-    "show_multiple_currencies": true,
+    "show_multiple_currencies": false,
     "currency_format": "money_with_currency_format",
     "supported_currencies": "USD CAD GBP AUD EUR",
     "default_currency": "USD",
@@ -151,59 +151,59 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "1530772281338": {
+          "1532138852337": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/statement-earrings_1da0e75b-c39c-423d-90de-379c9aa1fea2.jpg",
+              "title": "NEW FOR SUMMER",
+              "text": "<p>Instant&nbsp;style&nbsp;for all your<\/p>\n<p>warm-weather looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/statement-earrings",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1532587471667": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/savannah.jpg",
+              "title": "WEEKEND ESSENTIALS",
+              "text": "<p>Your go-to tassel earrings<\/p>\n<p>when you're off the clock.&nbsp;<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/savannah-tassel-earrings",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1531422470016": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Hero_JewelrySets.jpg",
-              "title": "Jewelry Gift Sets",
-              "text": "<p>Perfect pairings that take the guesswork<\/p>\n<p>out of styling and gift giving.&nbsp;<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/gift-sets",
-              "caption-background": "#ffffff",
+              "title": "Back in Stock",
+              "text": "<p>Your favorite pieces are back -&nbsp;<\/p>\n<p>don't miss out again.&nbsp;<\/p>",
+              "button_text": "SHOP RESTOCKS",
+              "link": "shopify:\/\/collections\/back-in-stock",
+              "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1530772546354": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Wilfred_Necklace.jpg",
-              "title": "THE WILFRED NECKLACE",
-              "text": "<p>Our convertible 2-in-1 statement necklace<\/p>\n<p>will take you from day to night.<\/p>",
-              "button_text": "SEE MORE",
-              "link": "shopify:\/\/products\/wilfred-necklace",
-              "caption-background": "rgba(0,0,0,0)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1530775270565": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/minitassels.jpg",
-              "title": "Mini Tassel Earrings",
-              "text": "<p>The wait is finally over - our&nbsp;<span>NEW mini<\/span><\/p>\n<p><span>tassels are <\/span><span>here and they're super cute.<\/span><\/p>",
-              "button_text": "GET ONE NOW",
-              "link": "shopify:\/\/products\/mini-tassel-earrings",
-              "caption-background": "#ffffff",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1530775270565",
-          "1530772546354",
-          "1530772281338"
+          "1532138852337",
+          "1532587471667",
+          "1531422470016"
         ],
         "settings": {
           "slider-animation": "fade",
@@ -252,7 +252,7 @@
       "text-over-image-1": {
         "type": "text-over-image",
         "settings": {
-          "image": "shopify:\/\/shop_images\/feature-long-1800x900_c066b615-47e6-463b-8f31-87cd61828812.jpg",
+          "image": "shopify:\/\/shop_images\/feature-long-1800x900_77a05d6c-2281-4764-96ff-a1bc245d549e.jpg",
           "parallax": true,
           "title": "The Wedding Shop",
           "text": "<p>Jewels fit for a bride and her squad.<\/p>",
@@ -268,13 +268,13 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/OP_texturebanner3.jpg",
           "parallax": true,
-          "title": "Want to get 15% off?",
-          "text": "",
+          "title": "About olive + piper",
+          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. We love creating timeless, staple pieces for our #oandpgirls, while mixing in our favorite on-trend styles. Explore our collections of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in our studio in Vancouver, Canada. All our pieces are easy-to-wear, versatile, and affordable&hellip;all with a little bit of our <a href=\"https:\/\/www.oliveandpiper.com\/collections\/luxe-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/luxe-jewelry\">Olive + Piper luxe<\/a>! Be sure to check in regularly for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a> and&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/sale\" title=\"https:\/\/www.oliveandpiper.com\/collections\/sale\">Sale Items<\/a>.<\/p>",
           "alignment": "center",
           "hero_size": "x-small",
           "text-over-image-width": "full-width",
-          "button_label": "Sign up now",
-          "button_link": "https:\/\/oliveandpiper.us5.list-manage.com\/subscribe\/post?u=00ea1e3e19b1ab6274800f1a6&id=ee53787418"
+          "button_label": "READ MORE",
+          "button_link": "shopify:\/\/pages\/about"
         }
       },
       "logo-bar": {
@@ -285,6 +285,7 @@
       },
       "instagram": {
         "type": "instagram",
+        "disabled": true,
         "settings": {
           "title": "Tag #oliveandpiper to be featured",
           "show-title": true,
@@ -310,8 +311,8 @@
           "footer-0": {
             "type": "text",
             "settings": {
-              "title": "About Us",
-              "richtext": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and&nbsp;stylish women on the go.<\/p>\n<p><\/p>\n<p>Olive + Piper Headquarters<br>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><\/p>\n<p><\/p>\n<p><a href=\"https:\/\/calendly.com\/oliveandpiper\/appt\" title=\"https:\/\/calendly.com\/oliveandpiper\/appt\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
+              "title": "olive + piper",
+              "richtext": "<p><\/p>\n<p>Olive + Piper Headquarters<br>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><\/p>\n<p><\/p>\n<p><a href=\"https:\/\/calendly.com\/oliveandpiper\/appt\" title=\"https:\/\/calendly.com\/oliveandpiper\/appt\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
             }
           },
           "footer-1": {
@@ -502,6 +503,21 @@
           "enable_terms_conditions": false,
           "terms_conditions_link": ""
         }
+      },
+      "1532101176305": {
+        "type": "yotpo-reviews-carousel",
+        "settings": {
+          "image": "",
+          "layout": "left",
+          "title": "Text and image",
+          "text_block": "<p>Yotpo Review Carousel<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1532387026613": {
+        "type": "yotpo-instagram-gallery",
+        "settings": {}
       }
     },
     "content_for_index": [
@@ -511,10 +527,12 @@
       "text-over-image-1",
       "feature-row-2",
       "instagram",
+      "1532387026613",
       "featured-blog",
       "social-media",
       "1519623686049",
-      "text-over-image-2"
+      "text-over-image-2",
+      "1532101176305"
     ]
   },
   "presets": {

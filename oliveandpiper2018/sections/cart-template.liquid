@@ -7,6 +7,7 @@
 	<h3 class="empty-cart">{{ 'cart.general.empty' | t }}, <a href="/collections/all">{{ 'cart.general.continue_browsing_html' | t }}</a></h3>
 {% else %}
 
+<div id="bold-cart-msg"></div>
 <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
 	<table class="cart-table full table--responsive" border="0" cellspacing="0" cellpadding="0" class="hidden-xs">
 		<thead class="cart__row cart__header-labels">
@@ -52,7 +53,7 @@
 					</td>
 
 					<td class="cart-table-price col-xs-6 col-sm-4 col-md-2">
-						<span class="money">{{ item.price | money }}</span>
+						<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>{{ item.price | money }}</span>
 					</td>
 
 					<td class="cart-table-quantity col-xs-6 col-sm-4 col-md-2">
@@ -65,7 +66,7 @@
 					</td>
 
 					<td class="cart-table-line-price col-xs-12 col-sm-4 col-md-2">
-						<span class="money">{{item.line_price | money }}</span>
+						<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" style="display:none !important;"></span>{{item.line_price | money }}</span>
 					</td>
 
 				</tr>
@@ -86,7 +87,7 @@
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
 			<div id="cart-total-final-price">
-				<span class="money">{{ cart.total_price | money }}</span>
+				<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</span>
 			</div>
 		</div>
 
@@ -133,6 +134,8 @@
 	</div>
 <!--START Yotpo Reviews Carousel -->
 <div class="yotpo yotpo-reviews-carousel" 
+     data-header-customisation-enabled="1"
+     data-header-customisation-text
      data-background-color="transparent" 
      data-mode="top_rated" 
      data-type="site" 

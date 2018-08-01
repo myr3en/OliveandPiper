@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="page-width col-md-12">
+
+      <div class="yotpo yotpo-reviews-carousel" 
+           data-header-customisation-enabled="1" 
+           data-header-customisation-color="#56575f" 
+           data-header-customisation-font-size="18" 
+           data-header-customisation-text="" 
+           data-header-customisation-alignment="left" 
+           data-background-color="transparent" 
+           data-mode="top_rated" 
+           data-type="site" 
+           data-count="9" 
+           data-show-bottomline="1" 
+           data-autoplay-enabled="1" 
+           data-autoplay-speed="3000" 
+           data-show-navigation="1">&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+"name": "Yotpo Reviews Carousel",
+"class": "homepage-section--text-and-image-wrapper wow fadeIn",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image",
+"info": "600 x 600px recommended"
+},
+{
+"type": "select",
+"id": "layout",
+"label": "Layout",
+"default": "left",
+"options": [
+{
+"value": "left",
+"label": "Image on left"
+},
+{
+"value": "right",
+"label": "Image on right"
+}
+]
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading",
+"default": "Text and image"
+},
+{
+"type": "richtext",
+"id": "text_block",
+"label": "Text",
+"default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+},
+{
+"type": "text",
+"id": "button_label",
+"label": "Button label"
+},
+{
+"type": "url",
+"id": "button_link",
+"label": "Button link",
+"info": "Required to show the button"
+}
+],
+"presets": [
+{
+"name": "Yotpo Reviews Carousel",
+"category": "Yotpo"
+}
+]
+}
+{% endschema %}
+

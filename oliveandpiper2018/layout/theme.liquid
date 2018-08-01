@@ -50,7 +50,7 @@
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-	{{ content_for_header }}
+	{{ content_for_header }}{% include 'bold-checkout-loader' %}
 
   {% include 'bold-common' %}
 
@@ -67,12 +67,14 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 {% endif %}
 
+	{{ 'plugins.js' | asset_url | script_tag }}
+
 {% comment %} if template conditional statement added by Smart Wishlist {% endcomment %}
 {% if template %}
-	{{ 'plugins.js' | asset_url | script_tag }}
 	{{ 'custom.js' | asset_url | script_tag }}
-	{{ 'sections.js' | asset_url | script_tag }}
 {% endif %}
+
+	{{ 'sections.js' | asset_url | script_tag }}
 
 
   {{ 'shopstorm-apps.scss.css' | asset_url | stylesheet_tag }}
@@ -158,6 +160,7 @@
 
 </script>
 {% endunless %}
+{%- include 'bold-currency-converter' -%}
 </body>
 
 </html>
