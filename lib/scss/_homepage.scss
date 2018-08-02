@@ -137,7 +137,7 @@ body.template-index {
             letter-spacing: 1px;
             margin: 20px auto 30px;
             max-width: 50%;
-            @media only screen and (min-width:768px) {
+            @media only screen and (max-width:768px) {
                 max-width: 80%;
             }
         }
@@ -145,6 +145,9 @@ body.template-index {
     }
 
     .feature-row {
+        @media only screen and (max-width:768px) {
+            text-align: center;
+        }
         h2 {
             text-transform: capitalize !important;
             font-style: normal;

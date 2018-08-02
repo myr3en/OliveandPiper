@@ -27,6 +27,10 @@ $darkpink: #BC988F;
         font-weight: 700;
         font-size: 11px;
         letter-spacing: 1px;
+        @media only screen and (max-width:768px) {
+            text-align: left;
+            padding-left: 10px;
+        }
     }
     .currency-picker--wrapper {
         position: absolute;
@@ -107,6 +111,32 @@ $darkpink: #BC988F;
     }
 }
 
+
+/* Currency Picker */
+.BOLD-mc-picker-mnt.injected {
+    position: absolute !important;
+    .currentCurrency {
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        @media only screen and (max-width:768px) {
+            width: 70px;
+        }
+        .flag {
+            @media only screen and (max-width:768px) {
+                display: none !important;
+            }
+        }
+        .name {
+            @media only screen and (max-width:768px) {
+                font-size: 10px !important;
+            }
+        }
+    }
+     .currencyList {
+         top: 35px !important;
+     }
+}
 
 /* END */
 
