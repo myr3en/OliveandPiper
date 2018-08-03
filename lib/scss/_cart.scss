@@ -27,3 +27,22 @@ body.template-cart {
 
 
 }
+
+
+
+#cartform table tr td {
+    @media only screen and (min-width: 768px) {
+        padding: 15px 0 15px 5px;    
+    }
+}
+
+.mobile-label {
+    display: none;
+    @media only screen and (max-width: 768px) {
+        display: inline-block;
+        color: #4e5254;
+        padding-right: 10px;
+        font-weight: normal;
+        font-size: 10px;
+    }
+}
