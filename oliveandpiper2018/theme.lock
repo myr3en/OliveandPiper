@@ -102,11 +102,11 @@ assets/shopstorm-apps.scss.liquid:
 assets/slider-arrows.png:
   development: 2018-05-28T11:17:05-07:00   bb270470878b69acba736907cdd86494
 assets/style-main.min.css:
-  development: 2018-07-18T15:38:34-07:00   571f4e32388001017c2a872699f9bf43
+  development: 2018-08-03T15:12:49-07:00   ad8336e1549962ca13fe754f0358e52d
 assets/style.scss.liquid:
   development: 2018-07-20T08:13:43-07:00   4b0443bb06039ca90350d73a367d5ce5
 config/settings_data.json:
-  development: 2018-07-31T00:18:07-07:00   778ba3a65dc6b53752acd2689c8ac440
+  development: 2018-08-02T11:09:43-07:00   e17a1fba3bcd32eb28cadb12aecd0194
 config/settings_schema.json:
   development: 2018-07-03T13:53:08-07:00   a7e124c2e14d4e110c2e5546fa611f35
 layout/password.liquid:
@@ -130,7 +130,7 @@ sections/article-template.liquid:
 sections/blog-template.liquid:
   development: 2018-03-22T08:40:03-07:00   d77579661e588df0aa65c5d83c20b643
 sections/cart-template.liquid:
-  development: 2018-07-25T11:13:03-07:00   869e4e4622960390605e1281becd7df5
+  development: 2018-08-03T15:03:58-07:00   af813c8d2cb69d24a16222e557c3b9d5
 sections/collection-list.liquid:
   development: 2018-07-06T09:48:58-07:00   7674383ff6660215b665b8a242afe5c1
 sections/collection-template.liquid:

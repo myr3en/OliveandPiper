@@ -167,22 +167,6 @@
               "vertical-alignment": "middle"
             }
           },
-          "1532587471667": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/savannah.jpg",
-              "title": "WEEKEND ESSENTIALS",
-              "text": "<p>Your go-to tassel earrings<\/p>\n<p>when you're off the clock.&nbsp;<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/savannah-tassel-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
           "1531422470016": {
             "type": "image",
             "settings": {
@@ -198,11 +182,27 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1533233090845": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_organicgems_2000x800_522b1a2a-80a6-4e53-a6a3-cf861f63586f.jpg",
+              "title": "JUST IN: ORGANIC GEMS",
+              "text": "<p>Add a touch of magic with sophisticated<\/p>\n<p>and modern resin and druzy pieces.&nbsp;<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/organic-gems",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
+          "1533233090845",
           "1532138852337",
-          "1532587471667",
           "1531422470016"
         ],
         "settings": {
@@ -269,7 +269,7 @@
           "image": "shopify:\/\/shop_images\/OP_texturebanner3.jpg",
           "parallax": true,
           "title": "About olive + piper",
-          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. We love creating timeless, staple pieces for our #oandpgirls, while mixing in our favorite on-trend styles. Explore our collections of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in our studio in Vancouver, Canada. All our pieces are easy-to-wear, versatile, and affordable&hellip;all with a little bit of our <a href=\"https:\/\/www.oliveandpiper.com\/collections\/luxe-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/luxe-jewelry\">Olive + Piper luxe<\/a>! Be sure to check in regularly for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a> and&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/sale\" title=\"https:\/\/www.oliveandpiper.com\/collections\/sale\">Sale Items<\/a>.<\/p>",
+          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver, Canada. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a> and&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/sale\" title=\"https:\/\/www.oliveandpiper.com\/collections\/sale\">Sale Items<\/a>.<\/p>",
           "alignment": "center",
           "hero_size": "x-small",
           "text-over-image-width": "full-width",

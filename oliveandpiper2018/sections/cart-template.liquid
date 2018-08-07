@@ -79,7 +79,7 @@
 		<div class="col-md-6 checkout-add-note mobile">
             {% if section.settings.allow_note %}
 				<p>{{ 'cart.general.note' | t }}&hellip;</p>
-				<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+				<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
             {% endif %}
 			&nbsp;
 		</div>
@@ -96,7 +96,7 @@
 			<div class="col-md-6 checkout-add-note desktop">
 				{% if section.settings.allow_note %}
 					<p>{{ 'cart.general.note' | t }}&hellip;</p>
-					<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+					<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
 				{% endif %}
 				&nbsp;
 			</div>
@@ -200,3 +200,11 @@
   ]
 }
 {% endschema %}
+
+<!-- Bold Update Cart Notes -->
+ <script>
+ function updateCartNote(){
+ $('[name=update]').click();
+ }
+ </script>
+<!-- End update Cart Notes -->
