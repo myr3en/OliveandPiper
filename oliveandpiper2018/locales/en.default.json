@@ -86,16 +86,16 @@
   },
   "cart": {
     "general": {
-      "title": "Your Cart",
+      "title": "CHECKOUT",
       "remove": "Remove",
       "note": "Add notes about your order",
       "total": "Total",
       "price": "Price",
       "quantity": "Quantity",
       "update": "Update Cart",
-      "checkout": "Place your order",
+      "checkout": "SECURE CHECKOUT",
       "checkout_mobile": "Checkout",
-      "empty": "Your basket is empty",
+      "empty": "Ahhhh, your cart is empty! ",
       "alt_checkout": "Or checkout out using",
       "continue_browsing_html": "Continue Shopping!",
       "terms_text": "Please check this box to agree to our terms and conditions",
@@ -286,9 +286,9 @@
       "unavailable": "Unavailable",
       "add_to_cart": "Add to Cart",
       "added": "Added",
-      "sorry_stock": "Sorry, currently out of stock",
+      "sorry_stock": "You missed it! This item is out of stock.",
       "quantity": "Quantity",
-      "thanks": "Thanks! We will notify you when this product becomes available!",
+      "thanks": "Thanks! We'll notify you when this product becomes available!",
       "out-stock_html": "Click <a href=\"#\"><strong>here<\/strong><\/a> to be notified by email when {{ product }} becomes available.",
       "wrong-email": "Please provide a valid email address."
     }
@@ -316,6 +316,14 @@
       "store_owner_html": "<a href=\"\/admin\">Log in here<\/a> or <a href=\"\/admin\/online_store\/preferences?tutorial=unlock\">change your password settings<\/a>",
       "continue": "Continue",
       "powered_by_html": "This store will be powered by <a href=\"http:\/\/www.shopify.com\">Shopify<\/a>"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "title": "Order Summary",
+        "expand_order_summary": "Order Summary & Promo Codes"
+      }
     }
   }
 }

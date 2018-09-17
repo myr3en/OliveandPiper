@@ -82,8 +82,8 @@
     "checkout_sidebar_background_color": "#fff5f0",
     "checkout_heading_font": "Open Sans",
     "checkout_body_font": "Helvetica Neue",
-    "checkout_accent_color": "#f4d4c2",
-    "checkout_button_color": "#ffc7b0",
+    "checkout_accent_color": "#17969c",
+    "checkout_button_color": "#17969c",
     "checkout_error_color": "#51a5de",
     "sections": {
       "announcement-bar": {
@@ -91,8 +91,8 @@
         "settings": {
           "message_text": "Free Shipping on orders over $49.00 USD*",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#e5dad2",
-          "notification-bar--text-colour": "#4e5254"
+          "notification-bar--background-colour": "#cdc0c0",
+          "notification-bar--text-colour": "#2b2d2e"
         }
       },
       "header": {
@@ -112,14 +112,6 @@
       "text-adverts": {
         "type": "text-adverts",
         "blocks": {
-          "advert-0": {
-            "type": "text",
-            "settings": {
-              "heading": "Worldwide Shipping",
-              "subheading": "See more >",
-              "link": "https:\/\/www.oliveandpiper.com\/pages\/shipping-returns"
-            }
-          },
           "advert-1": {
             "type": "text",
             "settings": {
@@ -135,12 +127,20 @@
               "subheading": "In stock items ship in 1-2 days >",
               "link": "https:\/\/www.oliveandpiper.com\/pages\/shipping-returns"
             }
+          },
+          "advert-0": {
+            "type": "text",
+            "settings": {
+              "heading": "Meet the team",
+              "subheading": "About the #oandpgirls >",
+              "link": "shopify:\/\/pages\/about"
+            }
           }
         },
         "block_order": [
-          "advert-0",
           "advert-1",
-          "advert-2"
+          "advert-2",
+          "advert-0"
         ],
         "settings": {
           "enable": true,
@@ -151,29 +151,13 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "1532138852337": {
+          "1535233819892": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/statement-earrings_1da0e75b-c39c-423d-90de-379c9aa1fea2.jpg",
-              "title": "NEW FOR SUMMER",
-              "text": "<p>Instant&nbsp;style&nbsp;for all your<\/p>\n<p>warm-weather looks.<\/p>",
+              "image": "shopify:\/\/shop_images\/back_in_stock.jpg",
+              "title": "LUXE RESTOCKS",
+              "text": "<p>Our best selling jewels are baaack!<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/statement-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1531422470016": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_JewelrySets.jpg",
-              "title": "Back in Stock",
-              "text": "<p>Your favorite pieces are back -&nbsp;<\/p>\n<p>don't miss out again.&nbsp;<\/p>",
-              "button_text": "SHOP RESTOCKS",
               "link": "shopify:\/\/collections\/back-in-stock",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
@@ -183,11 +167,27 @@
               "vertical-alignment": "middle"
             }
           },
-          "1533233090845": {
+          "1535614391074": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_organicgems_2000x800_522b1a2a-80a6-4e53-a6a3-cf861f63586f.jpg",
-              "title": "JUST IN: ORGANIC GEMS",
+              "image": "shopify:\/\/shop_images\/White_after_labour_day.jpg",
+              "title": "WHITE ON",
+              "text": "<p>Get back to work mode into work<\/p>\n<p>mode and stand out like a boss.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/white-on",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1534744701990": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_organic-gems.jpg",
+              "title": "CLASSIC GEMS",
               "text": "<p>Add a touch of magic with sophisticated<\/p>\n<p>and modern resin and druzy pieces.&nbsp;<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/organic-gems",
@@ -195,15 +195,15 @@
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1533233090845",
-          "1532138852337",
-          "1531422470016"
+          "1535233819892",
+          "1535614391074",
+          "1534744701990"
         ],
         "settings": {
           "slider-animation": "fade",
@@ -218,6 +218,7 @@
       },
       "collection": {
         "type": "collection",
+        "disabled": true,
         "settings": {
           "title": "BEST SELLERS",
           "show-vendor": false,
@@ -232,12 +233,12 @@
       "feature-row-2": {
         "type": "feature-row",
         "settings": {
-          "image": "shopify:\/\/shop_images\/Charms-600x600.jpg",
+          "image": "shopify:\/\/shop_images\/Transition-to-Fall-600x600_a4cc80ed-1f16-4389-a7fc-39a8352538c5.jpg",
           "layout": "left",
-          "title": "We're helping empower girls.",
-          "text_block": "<p>Did you know that millions of girls in developing countries are denied their basic human rights, <strong>just because they're girls?<\/strong><\/p>\n<p><\/p>\n<p><\/p>\n<p>When you shop our <a href=\"\/collections\/charms\" title=\"Charms\">charm necklaces<\/a>, 10% of sales&nbsp;is donated to&nbsp;support Plan International&rsquo;s&nbsp;Because I am a Girl movement.<\/p>",
-          "button_label": "SHOP FOR A CAUSE",
-          "button_link": "https:\/\/www.oliveandpiper.com\/blogs\/olive-and-piper\/6-ways-to-wear-a-brooch"
+          "title": "How to wear your summer earrings in the fall.",
+          "text_block": "<p>We're not ready to put away those bold statement&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/vacation-style\" title=\"Summer vacation jewelry - Olive + Piper Vancouver\">earrings<\/a>&nbsp;just yet! With a little wardrobe change, you can transition your summer jewels to fall looks. Meaning you don't have to put away those earrings...&nbsp;maybe ever!<\/p>",
+          "button_label": "READ MORE",
+          "button_link": "shopify:\/\/blogs\/olive-and-piper\/ways-to-wear-summer-earrings-in-the-fall"
         }
       },
       "featured-blog": {
@@ -312,7 +313,7 @@
             "type": "text",
             "settings": {
               "title": "olive + piper",
-              "richtext": "<p><\/p>\n<p>Olive + Piper Headquarters<br>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><\/p>\n<p><\/p>\n<p><a href=\"https:\/\/calendly.com\/oliveandpiper\/appt\" title=\"https:\/\/calendly.com\/oliveandpiper\/appt\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
+              "richtext": "<p><\/p>\n<p>Olive + Piper Headquarters<br>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><\/p>\n<p><\/p>\n<p><a href=\"\/pages\/book-an-appointment\" title=\"Book an Appointment\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
             }
           },
           "footer-1": {
@@ -350,13 +351,13 @@
           "1519621537758-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "pearls"
+              "collection": "new-arrivals"
             }
           },
           "1519621537758-0": {
             "type": "featured_collection",
             "settings": {
-              "collection": "luxe-jewelry"
+              "collection": "silver-plated-jewelry"
             }
           }
         },
@@ -529,10 +530,10 @@
       "instagram",
       "1532387026613",
       "featured-blog",
+      "1532101176305",
       "social-media",
-      "1519623686049",
       "text-over-image-2",
-      "1532101176305"
+      "1519623686049"
     ]
   },
   "presets": {
