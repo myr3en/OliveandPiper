@@ -21,6 +21,11 @@ body.template-product {
     #main {
         .container {
             margin-top: 100px;
+
+            /* mobile */
+            @media only screen and (max-width: 767px) {
+                margin-top: 30px;
+            }
         }
         .breadcrumb {
             a, span {
@@ -35,6 +40,11 @@ body.template-product {
         }
         @media only screen and (max-width: 767px) {
             .quantity-controls {
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+
                 input {
                     width: 40% !important;
                 }
@@ -68,6 +78,12 @@ body.template-product {
         letter-spacing: 1px;
         margin-bottom: 10px;
         display: inline-block;
+
+        @media only screen and (max-width: 767px) {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
     }
 
     #smartwishlist {
@@ -107,6 +123,12 @@ body.template-product {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
+        .free-ship {
+            font-size: 11px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     }
 
     .materialize-select {
@@ -193,7 +215,10 @@ body.template-product {
     }
 
 
-
+    /* RELATED PRODUCTS */
+    .product-page-related-products {
+        margin-bottom: 50px;
+    }
 
     /* SHIPPING DETAILS */
     .shipping-details {
@@ -203,6 +228,11 @@ body.template-product {
         width: 100%;
         height: 500px;
         background-size: contain;
+
+        .container {
+            margin-top: 0 !important;
+        }
+
         .shipping-header {
             padding-top: 100px;
             /* mobile */

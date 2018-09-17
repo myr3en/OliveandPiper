@@ -1,4 +1,7 @@
 body.template-cart {
+
+
+
     a:hover {
         font-weight: bold;
         text-decoration: underline;
@@ -15,34 +18,149 @@ body.template-cart {
         }
     }
 
-}
 
 
-#cartSlideoutWrapper {
-    #cart_submit {
-        background-color: #e5dad2;
-        color: #4e5254;
+
+    #cartSlideoutWrapper {
+        #cart_submit {
+            background-color: #e5dad2;
+            color: #4e5254;
+        }
+
+        .slide-checkout-buttons {
+            .btn-success {
+                background-color: $black;
+                color: $white;
+                text-transform: uppercase;
+                border: 1px solid $black !important;
+                font-weight: 400;
+                width: 70%;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px !important;
+
+                &:hover {
+                    background-color: #E5DAD2 !important;
+                    color: $black !important;
+                    text-decoration: none;
+                    border: 1px solid $black !important;
+                }
+            }
+            .btn-default {
+                background-color: $white;
+                color: $black;
+                font-weight: 400;
+                width: 70%;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px !important;
+
+                &:hover {
+                    background-color: $white !important;
+                    color: $black !important;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    #cartform table tr td {
+        @media only screen and (min-width: 768px) {
+            padding: 15px 0 15px 5px;
+        }
+    }
+
+    .mobile-label {
+        display: none;
+        @media only screen and (max-width: 768px) {
+            display: inline-block;
+            color: #4e5254;
+            padding-right: 10px;
+            font-weight: normal;
+            font-size: 10px;
+        }
     }
 
 
 
-}
+    /* MOBILE UPDATES */
+    #checkout-buttons {
+
+        #update_quantities {
+            background-color: $white;
+            color: $black;
+            font-weight: 400;
+            text-align: center;
+            font-size: 16px !important;
+
+            &:hover {
+                background-color: $white !important;
+                color: $black !important;
+                text-decoration: none;
+            }
 
 
+            @media only screen and (max-width: 767px) {
+                background-color: $white;
+                color: $black;
+                font-weight: 400;
+                width: 70%;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px !important;
+                margin-bottom: 10px;
 
-#cartform table tr td {
-    @media only screen and (min-width: 768px) {
-        padding: 15px 0 15px 5px;    
+                &:hover {
+                    background-color: $white !important;
+                    color: $black !important;
+                    text-decoration: none;
+                }
+            }
+        }
+        #cart_submit {
+            background-color: $black;
+            color: $white;
+            text-transform: uppercase;
+            border: 1px solid $black !important;
+            font-weight: 400;
+            text-align: center;
+            font-size: 16px !important;
+
+            &:hover {
+                background-color: #E5DAD2 !important;
+                color: $black !important;
+                text-decoration: none;
+                border: 1px solid $black !important;
+            }
+
+
+            @media only screen and (max-width: 767px) {
+                background-color: $black;
+                color: $white;
+                text-transform: uppercase;
+                border: 1px solid $black !important;
+                font-weight: 400;
+                width: 70%;
+                text-align: center;
+                padding: 15px;
+                font-size: 14px !important;
+
+                &:hover {
+                    background-color: #E5DAD2 !important;
+                    color: $black !important;
+                    text-decoration: none;
+                    border: 1px solid $black !important;
+                }
+            }
+        }
     }
-}
 
-.mobile-label {
-    display: none;
-    @media only screen and (max-width: 768px) {
-        display: inline-block;
-        color: #4e5254;
-        padding-right: 10px;
-        font-weight: normal;
-        font-size: 10px;
+    #checkout-buttons {
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 40px;
+        }
     }
+
+
+
 }

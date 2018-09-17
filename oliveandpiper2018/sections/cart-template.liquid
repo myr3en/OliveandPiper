@@ -76,14 +76,6 @@
 
 	<div class="cart-bottom-box">
 
-		<div class="col-md-6 checkout-add-note mobile">
-            {% if section.settings.allow_note %}
-				<p>{{ 'cart.general.note' | t }}&hellip;</p>
-				<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
-            {% endif %}
-			&nbsp;
-		</div>
-
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
 			<div id="cart-total-final-price">
@@ -102,8 +94,6 @@
 			</div>
 
 			<div id="checkout-buttons" class="col-md-6">
-
-
 				      {% if section.settings.enable_terms_conditions %}
 							<div class="terms-conditions">
 								<p>
@@ -129,8 +119,17 @@
 						{{ content_for_additional_checkout_buttons }}
 					</div>
 				{% endif %}
+
 			</div>
 		</div>
+
+			<div class="col-md-6 checkout-add-note mobile">
+				{% if section.settings.allow_note %}
+					<p>{{ 'cart.general.note' | t }}&hellip;</p>
+					<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
+				{% endif %}
+				&nbsp;
+			</div>
 	</div>
 <!--START Yotpo Reviews Carousel -->
 <div class="yotpo yotpo-reviews-carousel"

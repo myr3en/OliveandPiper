@@ -167,6 +167,15 @@ body.template-index {
         }
     }
 
+    /* FEAUTE LOGO SECTION */
+    .homepage-section--logo-bar-wrapper {
+        @media only screen and (max-width:768px) {
+            .logo-bar__item {
+                max-width: 50%;
+            }
+        }
+    }
+
 
 
 
