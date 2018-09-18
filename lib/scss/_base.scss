@@ -301,7 +301,17 @@ footer {
         font-size: 14px;
         color: #fff;
     }
+    .content-footer {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            li {
+                a { padding-bottom: 7px; }
+            }
+        }
+    }
     .footer-article {
+        margin-bottom: 30px;
         p {
             font-style: normal;
             letter-spacing: 1px;

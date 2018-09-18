@@ -38,22 +38,28 @@
 						<div class="{{ footer_item_width }} content-footer">
 							<h3>{{ block.settings.title | escape }}</h3>
 							<div class="rte footer-article">{{ block.settings.richtext }}</div>
+							<ul>
+								{% for link in linklists.footer-about.links %}
+									  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+								{% endfor %}
+							</ul>
 						</div>
 
 					{% when 'social' %}
 
 						<div class="{{ footer_item_width }} mailing-list-footer">
+							<h3>{{ 'layout.footer.social_title' | t }}</h3>
+							<div id="footer-right">
+								{% include 'social-links' %}
+							</div>
+
+
 							<h3>{{ 'general.newsletter_form.header' | t }}</h3>
 							{% if block.settings.footer_newsletter_description != empty %}
 								<div class="rte">{{ block.settings.footer_newsletter_description }}</div>
 							{% endif %}
 
 							{% include 'newsletter-form' %}
-
-							<h3>{{ 'layout.footer.social_title' | t }}</h3>
-							<div id="footer-right">
-								{% include 'social-links' %}
-							</div>
 						</div>
 					{% when 'content' %}
 
