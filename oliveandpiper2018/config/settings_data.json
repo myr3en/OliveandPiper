@@ -49,11 +49,11 @@
     "sm_houzz_link": "",
     "sm_tumblr_link": "",
     "sm_linkedin_link": "",
-    "social_sharing_products": true,
+    "social_sharing_products": false,
     "social_sharing_blog": true,
-    "share_facebook": true,
-    "share_twitter": true,
-    "share_google": true,
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_google": false,
     "popup--enable": false,
     "pop-up-time": "0",
     "popup-newsletter-top": "shopify:\/\/shop_images\/IMG_5550.jpg",
@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Free Shipping on orders over $49.00 USD*",
+          "message_text": "Free Shipping on orders over $49 US*",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#cdc0c0",
+          "notification-bar--background-colour": "#e2d6d6",
           "notification-bar--text-colour": "#2b2d2e"
         }
       },
@@ -167,22 +167,6 @@
               "vertical-alignment": "middle"
             }
           },
-          "1535614391074": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/White_after_labour_day.jpg",
-              "title": "WHITE ON",
-              "text": "<p>Get back to work mode into work<\/p>\n<p>mode and stand out like a boss.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/white-on",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
           "1534744701990": {
             "type": "image",
             "settings": {
@@ -202,7 +186,6 @@
         },
         "block_order": [
           "1535233819892",
-          "1535614391074",
           "1534744701990"
         ],
         "settings": {
@@ -312,8 +295,8 @@
           "footer-0": {
             "type": "text",
             "settings": {
-              "title": "olive + piper",
-              "richtext": "<p><\/p>\n<p>Olive + Piper Headquarters<br>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><\/p>\n<p><\/p>\n<p><a href=\"\/pages\/book-an-appointment\" title=\"Book an Appointment\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
+              "title": "Olive + Piper Headquarters",
+              "richtext": "<p>201-318 Homer Street<br>Vancouver, BC&nbsp;<\/p>\n<p><a href=\"\/pages\/book-an-appointment\" title=\"Book an Appointment\"><em>Book an appointment<\/em><\/a><\/p>\n<p><\/p>"
             }
           },
           "footer-1": {
