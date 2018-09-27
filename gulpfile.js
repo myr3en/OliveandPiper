@@ -29,14 +29,15 @@ var neat = require('node-neat').includePaths;
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
 
-  // Send error to notification center with gulp-notify
-  notify.onError({
-    title: "Compile Error",
-    message: "<%= error %>"
-  }).apply(this, args);
+    // Send error to notification center with gulp-notify
+    notify.onError({
+      title: "Compile Error",
+      message: "<%= error %>"
+    }).apply(this, args);
 
-  // Keep gulp from hanging on this task
-  this.emit('end');
+    // Keep gulp from hanging on this task
+    this.emit('end');
+
 }
 gulp.task('images', function() {
   return gulp.src('./lib/images/**')
