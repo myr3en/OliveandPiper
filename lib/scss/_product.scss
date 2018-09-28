@@ -1,16 +1,11 @@
 body.template-product {
-    a:hover {
-        font-weight: bold;
-        text-decoration: underline;
-        color: $dustpink;
-    }
 
     /* HEADER */
-    #main-body {
-        #shopify-section-header {
-            z-index: 0 !important;
-        }
-    }
+     #main-body {
+         #shopify-section-header {
+             z-index: 1 !important;
+         }
+     }
 
     /* MODAL BOX POPUP */
     .modal-window {
@@ -20,7 +15,7 @@ body.template-product {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 999;
+        z-index: 800999 !important;
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s;
@@ -53,6 +48,12 @@ body.template-product {
             @media only screen and (max-width: 767px) {
                 flex-direction: column;
                 margin: 20px 0;
+            }
+
+            a:hover {
+                font-weight: bold;
+                text-decoration: underline;
+                color: $dustpink;
             }
 
             .popup-sections {
@@ -247,7 +248,7 @@ body.template-product {
 
             /* MODAL START BUTTON */
             .container-modal {
-                display: grid;
+                display: flex;
                 justify-content: center;
                 align-items: center;
 
@@ -255,6 +256,7 @@ body.template-product {
                 font-size: 11px;
                 text-align: center;
                 margin-bottom: 20px;
+                width: 100%;
 
                 .free-ship-btn {
                     text-decoration: underline;

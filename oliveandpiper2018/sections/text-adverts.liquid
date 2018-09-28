@@ -46,7 +46,7 @@
         {%- assign advert_has_link = true -%}
       {% endif %}
 
-      <div class="grid__item {{ column_size }}" {{ block.shopify_attributes }}>
+      <div class="text-advert-grid grid__item {{ column_size }}" {{ block.shopify_attributes }}>
 
         {% if advert_has_link %}
           <a href="{{ block.settings.link }}">

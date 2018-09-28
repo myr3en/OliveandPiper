@@ -107,10 +107,18 @@ $darkpink: #BC988F;
 }
 #main-navigation-wrapper {
     padding: 15px 0 !important;
-    a {
-        letter-spacing: 1px;
+
+    .dropdown {
+        a {
+            letter-spacing: 1px;
+        }
     }
 }
+
+
+
+
+
 
 
 /* Currency Picker */
@@ -157,6 +165,9 @@ $darkpink: #BC988F;
     border-bottom: 1px solid #616161 !important;
 }
 .text-advert-section {
+    .text-advert-grid {
+
+    }
     .h5 {
         letter-spacing: 1px;
     }
@@ -306,7 +317,15 @@ footer {
             list-style-type: none;
             padding-left: 0;
             li {
-                a { padding-bottom: 7px; }
+                padding-bottom: 7px !important;
+                a {
+                    text-decoration: none !important;
+                    padding-bottom: 0;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                 }
             }
         }
     }
