@@ -141,14 +141,13 @@ body.template-product {
 
     /* PRODUCT CONTAINER */
     #main {
-        .container {
-            margin-top: 100px;
+        margin-top: 100px;
 
-            /* mobile */
-            @media only screen and (max-width: 767px) {
-                margin-top: 30px;
-            }
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 30px;
         }
+
         .breadcrumb {
             a, span {
                 font-family: work-sans,sans-serif;
@@ -353,9 +352,37 @@ body.template-product {
     }
 
 
+
+
+    /* STYLED ON IG */
+    .product-page-styled-ig {
+        display: inline-block;
+        margin: 0px;
+        width: 100%;
+
+        .yotpo-slider-title-wrapper {
+            display: none;
+        }
+
+        .title-bar {
+            margin-bottom: 0px;
+        }
+    }
+
+
+
+
     /* RELATED PRODUCTS */
     .product-page-related-products {
-        margin-bottom: 50px;
+        margin-bottom: 0px;
+    }
+
+    /* LOGO BAR */
+    #shopify-section-logo-bar {
+
+        .container {
+            margin: 0 auto !important;
+        }
     }
 
     /* SHIPPING DETAILS */
