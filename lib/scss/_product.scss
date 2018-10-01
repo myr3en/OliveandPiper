@@ -188,7 +188,21 @@ body.template-product {
         }
     }
 
+    .mobile-product-slider {
+        .flex-control-nav {
+            padding-top: 0 !important;
+        }
+    }
+
+
+
     /* DESCRIPTION SECTION */
+    .product-description-main-wrapper {
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 0;
+        }
+    }
     .product-description-header {
         font-family: Georgia, Times, "Times New Roman", serif;
         font-size: 30px;
@@ -361,7 +375,36 @@ body.template-product {
         width: 100%;
 
         .yotpo-slider-title-wrapper {
-            display: none;
+            position: relative;
+            padding: 10px 0 0 0 !important;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+
+            .yotpo-slider-title {
+                font-size: 16px !important;
+                line-height: 20px;
+                letter-spacing: 1px;
+                padding: 0 15px;
+                display: inline-block;
+                margin: 0;
+                color: $black;
+                background: $white;
+
+                &:after {
+                    content: "";
+                    height: 2px;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 20px;
+                    z-index: -1;
+                    border-top: 1px dotted #bfbfbf;
+                }
+            }
         }
 
         .title-bar {
@@ -383,6 +426,13 @@ body.template-product {
         .container {
             margin: 0 auto !important;
         }
+
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
     }
 
     /* SHIPPING DETAILS */
