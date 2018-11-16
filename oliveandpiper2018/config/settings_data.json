@@ -89,18 +89,18 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Free Shipping on orders over $49 US*",
+          "message_text": "Free shipping on orders over $49 US*",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#e2d6d6",
-          "notification-bar--text-colour": "#2b2d2e"
+          "notification-bar--background-colour": "#681228",
+          "notification-bar--text-colour": "#ffffff"
         }
       },
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/TextLogo_500px_250x_74b653d0-7f23-4e20-ba96-d11aff153e17.jpg",
-          "logo_max_width": 300,
-          "logo_padding": 20,
+          "logo": "shopify:\/\/shop_images\/Holiday-LOGO-santa_69d85d0f-8abc-45be-90d4-2d8a7d73fa81.jpg",
+          "logo_max_width": 200,
+          "logo_padding": 5,
           "logo-placement": "within-header",
           "top_bar_linklist": "",
           "social-enable": false,
@@ -151,14 +151,14 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "1535233819892": {
+          "1540923846480": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/back_in_stock.jpg",
-              "title": "LUXE RESTOCKS",
-              "text": "<p>Our best selling jewels are baaack!<\/p>",
+              "image": "shopify:\/\/shop_images\/Hero-holiday.jpg",
+              "title": "HOLIDAY SHOP",
+              "text": "<p>Gifts for you and&nbsp;every gal&nbsp;on your list.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/back-in-stock",
+              "link": "shopify:\/\/collections\/holiday-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -167,26 +167,26 @@
               "vertical-alignment": "middle"
             }
           },
-          "1534744701990": {
+          "1542161205320": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_organic-gems.jpg",
-              "title": "CLASSIC GEMS",
-              "text": "<p>Add a touch of magic with sophisticated<\/p>\n<p>and modern resin and druzy pieces.&nbsp;<\/p>",
+              "image": "shopify:\/\/shop_images\/Hero-Noelle-Tassels.jpg",
+              "title": "Noelle Tassels",
+              "text": "<p>Flirtatious and luxurious statement<\/p>\n<p>earrings for all your festive looks.&nbsp;<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/organic-gems",
+              "link": "shopify:\/\/products\/noelle-tassel-earrings",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
+              "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1535233819892",
-          "1534744701990"
+          "1540923846480",
+          "1542161205320"
         ],
         "settings": {
           "slider-animation": "fade",
@@ -201,9 +201,8 @@
       },
       "collection": {
         "type": "collection",
-        "disabled": true,
         "settings": {
-          "title": "BEST SELLERS",
+          "title": "MUST-HAVES",
           "show-vendor": false,
           "hover-effect": "zoom",
           "collection": "homepage",
@@ -215,6 +214,7 @@
       },
       "feature-row-2": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/Transition-to-Fall-600x600_a4cc80ed-1f16-4389-a7fc-39a8352538c5.jpg",
           "layout": "left",
@@ -236,19 +236,20 @@
       "text-over-image-1": {
         "type": "text-over-image",
         "settings": {
-          "image": "shopify:\/\/shop_images\/feature-long-1800x900_77a05d6c-2281-4764-96ff-a1bc245d549e.jpg",
+          "image": "shopify:\/\/shop_images\/luxe-occasions_3282cab1-15f2-4e30-a5ee-d6b5ecec5114.jpg",
           "parallax": true,
-          "title": "The Wedding Shop",
-          "text": "<p>Jewels fit for a bride and her squad.<\/p>",
+          "title": "Luxe Jewery",
+          "text": "<p>Glamorous pieces to make you&nbsp;shine&nbsp;at every holiday fete.<\/p>",
           "alignment": "center",
           "hero_size": "medium",
           "text-over-image-width": "full-width",
           "button_label": "SHOP NOW",
-          "button_link": "shopify:\/\/collections\/wedding-jewelry"
+          "button_link": "shopify:\/\/collections\/luxe-holiday-jewelry"
         }
       },
       "text-over-image-2": {
         "type": "text-over-image",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/OP_texturebanner3.jpg",
           "parallax": true,
@@ -263,8 +264,60 @@
       },
       "logo-bar": {
         "type": "logo-bar",
+        "blocks": {
+          "1538422852019": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brides_bc45b536-6223-4191-8a2f-c6903c7100d9.jpg",
+              "link": ""
+            }
+          },
+          "1538422890914": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/People-Magazine_36709f6e-854b-4449-9015-20f8a9190dc9.jpg",
+              "link": ""
+            }
+          },
+          "1538422909315": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OMagazine_15423f7b-4099-4db3-9c5a-fdb9a7bbcd67.jpg",
+              "link": ""
+            }
+          },
+          "1538422942092": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/today_fe5c5cc3-94db-4686-b9e5-5ad9dcaaf800.jpg",
+              "link": ""
+            }
+          },
+          "1538422962240": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/the-knot.jpg",
+              "link": ""
+            }
+          },
+          "1538422976704": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/US-Weekly_5f3be0cc-ac6d-4e08-9533-e75a4f9ebf73.jpg",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1538422852019",
+          "1538422890914",
+          "1538422909315",
+          "1538422942092",
+          "1538422962240",
+          "1538422976704"
+        ],
         "settings": {
-          "title": "As seen in"
+          "title": "Featured in"
         }
       },
       "instagram": {
@@ -334,23 +387,30 @@
           "1519621537758-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "new-arrivals"
+              "collection": "jewelry-sets"
             }
           },
           "1519621537758-0": {
             "type": "featured_collection",
             "settings": {
-              "collection": "silver-plated-jewelry"
+              "collection": "stocking-stuffers"
+            }
+          },
+          "1541088914027": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "gifts-under-50"
             }
           }
         },
         "block_order": [
+          "1541088914027",
           "1519621537758-1",
           "1519621537758-0"
         ],
         "settings": {
           "title": "",
-          "grid": 2
+          "grid": 3
         }
       },
       "1519623686049": {
@@ -438,7 +498,7 @@
           "image_size": "medium",
           "thumbnail_position": "left",
           "enable_zoom": true,
-          "show_reviews": true,
+          "show_reviews": false,
           "show_out_of_stock_email": false
         }
       },
@@ -502,18 +562,48 @@
       "1532387026613": {
         "type": "yotpo-instagram-gallery",
         "settings": {}
+      },
+      "product-template-reviews": {
+        "type": "product-template-reviews",
+        "settings": {}
+      },
+      "1541088605858": {
+        "type": "collection-list",
+        "blocks": {
+          "1541088605858-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "holiday-collection"
+            }
+          },
+          "1541088605858-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "statement-earrings"
+            }
+          }
+        },
+        "block_order": [
+          "1541088605858-0",
+          "1541088605858-1"
+        ],
+        "settings": {
+          "title": "",
+          "grid": 2
+        }
       }
     },
     "content_for_index": [
       "slideshow",
-      "1519621537758",
       "collection",
+      "1541088605858",
+      "1519621537758",
       "text-over-image-1",
+      "1532101176305",
+      "1532387026613",
       "feature-row-2",
       "instagram",
-      "1532387026613",
       "featured-blog",
-      "1532101176305",
       "social-media",
       "text-over-image-2",
       "1519623686049"

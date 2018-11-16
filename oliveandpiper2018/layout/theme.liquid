@@ -50,7 +50,9 @@
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-	{{ content_for_header }}{% include 'bold-checkout-loader' %}
+	{{ content_for_header }}
+{{ 'bold-brain-widget.css' | asset_url | stylesheet_tag }}
+{% include 'bold-checkout-loader' %}
 
   {% include 'bold-common' %}
 
@@ -167,6 +169,9 @@
 </script>
 {% endunless %}
 {%- include 'bold-currency-converter' -%}
+
+
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"00ea1e3e19b1ab6274800f1a6","lid":"ee53787418","uniqueMethods":true}) })</script>
 </body>
 
 </html>

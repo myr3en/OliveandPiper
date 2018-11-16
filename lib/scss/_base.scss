@@ -14,7 +14,9 @@ $ltgreen: #d8ead0;
 
 
 
-
+#main-body {
+    border: 0;
+}
 
 
 
@@ -113,6 +115,27 @@ $ltgreen: #d8ead0;
         a {
             letter-spacing: 1px;
         }
+
+
+        /* Remove after HOLIDAYS */
+        &:first-child {
+            font-weight: bold;
+            border: 1px dashed #681228;
+            .nav-label {
+                color: #681228;
+            }
+        }
+        /* END */
+
+
+    }
+}
+
+#mobile-menu--main-menu {
+    li:nth-child(2) {
+            a {
+                font-weight: bold;
+            }
     }
 }
 
@@ -125,10 +148,12 @@ $ltgreen: #d8ead0;
 /* Currency Picker */
 .BOLD-mc-picker-mnt.injected {
     position: absolute !important;
+    z-index: 9999 !important;
     .currentCurrency {
         border: none;
         background: transparent;
         box-shadow: none;
+        color: $white;
         @media only screen and (max-width:768px) {
             width: 70px;
         }
@@ -140,6 +165,11 @@ $ltgreen: #d8ead0;
         .name {
             @media only screen and (max-width:768px) {
                 font-size: 10px !important;
+            }
+        }
+        .chevron {
+            svg {
+                color: $white;
             }
         }
     }

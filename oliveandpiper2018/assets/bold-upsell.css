@@ -29,23 +29,43 @@ In order to edit custom CSS for Bold Product Upsell you should:
     bottom: 0;
     overflow-y: auto; }
 
+    @media only screen and (max-width: 500px) {
+      .bold-modal__window {
+        height: 100%;
+        padding: 20px;
+      }
+    }
+
+  .bold-modal__window_content{
+    height: 100%;
+  }
+
   .bold-modal__btn-close {
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 900;
     width: 40px;
     height: 40px;
-    font-size: 20px;
-    line-height: 40px;
-    text-align: center;
     color: rgba(0,0,0,0.2);
     position: absolute;
     top: 0;
     right: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    z-index: 100000000; }
 
-    .bold-modal__btn-close:hover {
+    @media only screen and (max-width: 500px) {
+      .bold-modal__btn-close {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+.bold-modal__btn-close:hover {
       opacity: 0.5; }
+
+
 
 
   .bold-modal__header {
@@ -63,6 +83,14 @@ In order to edit custom CSS for Bold Product Upsell you should:
     padding: 30px;
     margin: -30px -30px 0; }
 
+    @media only screen and (max-width: 500px) {
+      .bold-modal__content {
+        padding: 20px;
+        margin: -20px -20px 0;
+        overflow: scroll;
+        height: calc(100% - 27px); }
+    }
+
     .bold-modal__header+.bold-modal__content {
       margin-top: 0; }
 
@@ -74,6 +102,15 @@ In order to edit custom CSS for Bold Product Upsell you should:
     padding: 30px;
     margin: 0px -30px -30px; }
 
+  @media only screen and (max-width: 500px) {
+    .bold-modal__footer {
+      width: 100%;
+      position: absolute;
+      margin: 0px -15px -15px;
+      padding: 15px;
+      bottom: 15px;
+      left: 15px; }
+  }
 
 /* Showing and Hiding the Modal */
 body.bold-modal--is-showing,
@@ -127,8 +164,7 @@ div.bold-modal--is-showing .bold-modal--animated {
 
 /* bold.grid.css */
 .bold-grid {
-  box-sizing: border-box;
-  margin: 0px -15px; }
+  box-sizing: border-box; }
 
 .bold-grid:after {
   box-sizing: border-box;
@@ -138,8 +174,14 @@ div.bold-modal--is-showing .bold-modal--animated {
 
 .bold-grid__column {
   box-sizing: border-box;
-  padding: 15px;
+  padding: 15px 15px 15px 0px;
   float: left;
+}
+
+@media only screen and (max-width: 500px) {
+  .bold-grid__column {
+    padding: 3px 8px 3px 0px;
+  }
 }
 
 .bold-grid__column--half{
@@ -340,10 +382,6 @@ div.bold-modal--is-showing .bold-modal--animated {
   padding-top: 20px;
 }
 
-#bold-modal-second__window .bold-modal__footer .bold-product__quantity-field  {
-  width: 75px;
-}
-
 #loader {
   position: relative;
   left: 50%;
@@ -393,9 +431,8 @@ div.bold-modal--is-showing .bold-modal--animated {
 }
 
 #bold-modal-second__window .bold-modal__footer .bold-product__quantity-field {
-  width: 75px;
+  width: 100px;
   float: right;
-  padding: 18px 18px 17px;
 }
 
 #bold-modal-second__window .scroll_visual::after{
@@ -414,7 +451,7 @@ div.bold-modal--is-showing .bold-modal--animated {
   position: relative;
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 500px){
 
   #bold-modal-second__window .bold-control-group__item{
     width: 100%;
@@ -853,8 +890,25 @@ div.bold-modal--is-showing .bold-modal--animated {
 ============================================================================= */
 
 #bold-upsell-modal-window .yotpo{
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
+
+#bold-upsell-modal-window .yotpo:empty{
+  display: none;
+}
+
+.bold-upsell__products-list {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.bold-upsell__products-list.loading {
+  transform: translate(-150%);
+  -webkit-transform: translate(-150%);
+}
+
+
 
 /* =============================================================================
   MODAL STYLES
@@ -883,11 +937,19 @@ div.bold-modal--is-showing .bold-modal--animated {
 .bold-upsell {}
 
   .bold-upsell__intro {
-    font-size: 14px;
-    line-height: 1.5; }
+    font-size: 12px;
+    line-height: 14px; }
+
+  .bold-upsell__intro p:last-child{
+    margin: 0px 0px 5px 0px; }
 
   .bold-upsell__intro-heading {
-    font-size: 24px; }
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 5px; }
+
+  .bold-upsell__intro-content{
+    margin: 0px 0px 5px 0px; }
 
 .bold-upsell__button--primary:link,
 .bold-upsell__button--primary:visited,
@@ -916,6 +978,11 @@ div.bold-modal--is-showing .bold-modal--animated {
   margin-right: 20px;
   font-size: 90%; }
 
+@media screen and (max-width: 500px){
+  .bold-upsell__button--primary {
+    padding: 5px 25px; }
+}
+
 
 /* =============================================================================
   PRODUCT STYLES
@@ -936,23 +1003,67 @@ div.bold-modal--is-showing .bold-modal--animated {
   .bold-product__actions {
     margin: 10px 0; }
 
+
+  @media only screen and (min-width: 700px) {
+    .bold-product__above_content_button_container {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 699px) {
+    .bold-product__below_content_button_container {
+      display: none;
+    }
+  }
+
   .bold-product__pricing {
-    margin: 15px 0; }
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+
+  .bold-upsell__triger-product-container .bold-product__pricing{
+    display: block;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .bold-product__pricing {
+      margin: 10px 0; }
+  }
 
   .bold-product__title {
     font-size: 15px;
     font-weight: bold;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+  .bold-upsell__triger-product-container .bold-product__title{
+    display: block;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .bold-product__title {
+      font-size: 12px; }
+  }
+
+  .bold-product__title_content {
+
+  }
 
   .bold-product__description {
-    opacity: 0.6;
-    margin-bottom: 10px; }
+    opacity: 0.6; }
 
 .bold-product__price {
   display: inline;
-  margin: 0px 3px;
   font-weight: bold;
+  line-height: 1;
   font-size: 150%; }
+
+  .bold-product__price.current_price {
+    line-height: 1.3; }
 
 .bold-product__message {
   opacity: 0.4; }
@@ -961,7 +1072,12 @@ div.bold-modal--is-showing .bold-modal--animated {
     font-weight: normal;
     font-size: 90%;
     opacity: 0.4;
+    margin: 0px 3px;
     text-decoration: line-through; }
+
+  .bold-product__price--deleted:empty{
+    margin: 0px 0px;
+  }
 
 .bold-control-group {
   box-sizing: border-box;
@@ -986,6 +1102,11 @@ div.bold-modal--is-showing .bold-modal--animated {
   -moz-appearance: none;
   appearance: none; }
 
+@media only screen and (max-width: 500px) {
+  .bold-product__control {
+    padding: 5px 15px; }
+}
+
 .bold-product__control-label {
   display: inline-block;
   margin-bottom: 3px; }
@@ -995,6 +1116,7 @@ div.bold-modal--is-showing .bold-modal--animated {
   background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="16" viewBox="0 0 26 16"><path fill="CurrentColor" d="M8.02682426,8.99999532 L11.3523243,8.99999532 C11.7765243,8.99999532 12.0080243,9.49499532 11.7360243,9.82059532 L10.2242243,11.6301953 L8.41062426,13.8032953 C8.31564065,13.9171173 8.17504521,13.9829213 8.02679765,13.9829406 C7.87855009,13.9829599 7.73793751,13.9171926 7.64292426,13.8033953 L5.82942426,11.6315953 L4.31712426,9.82049532 C4.04532426,9.49489532 4.27682426,8.99999532 4.70102426,8.99999532 L8.02702426,8.99999532 L8.02682426,8.99999532 Z M8.02652426,6.98299532 L4.70102426,6.98299532 C4.27682426,6.98299532 4.04532426,6.48799532 4.31732426,6.16229532 L5.82902426,4.35269532 L7.64262426,2.17969532 C7.73759304,2.06586091 7.8781799,2.00003864 8.02642747,2.00000002 C8.17467503,1.9999614 8.31529617,2.06571041 8.41032426,2.17949532 L10.2238243,4.35129532 L11.7361243,6.16239532 C12.0079243,6.48799532 11.7764243,6.98289532 11.3523243,6.98289532 L8.02632426,6.98289532 L8.02652426,6.98299532 Z"/></svg>');
   background-repeat: no-repeat;
   background-position: right center;
+  background-color: transparent;
   height: auto;
 }
 
@@ -1020,6 +1142,13 @@ div.bold-modal--is-showing .bold-modal--animated {
 
 .bold-product__quantity-field{
   width: 100%;
+  background-color: transparent;
+  font-size: 13px;
+  line-height: 14px;
+}
+
+#bold-modal-first__window .bold-product__quantity-field{
+  margin: 10px 0px;
 }
 
 /* custom css */

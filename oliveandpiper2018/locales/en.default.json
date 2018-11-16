@@ -322,7 +322,7 @@
     "checkout": {
       "order_summary": {
         "title": "Order Summary",
-        "expand_order_summary": "Order Summary & Promo Codes"
+        "expand_order_summary": "Order Summary & Promo Codes - ENTER DISCOUNT CODE HERE!"
       }
     }
   }

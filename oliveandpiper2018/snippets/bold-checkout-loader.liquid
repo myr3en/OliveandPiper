@@ -1,5 +1,24 @@
 {{ 'bold-checkout-options.js' | asset_url | script_tag }}
 <script type="application/javascript">
+
+    var request = new XMLHttpRequest();
+				request.open('HEAD', '/apps/checkout/isInstalled', true);
+
+				request.onload = function() {
+  					if (request.status >= 200 && request.status < 400) {
+    					// Success!
+    					cashier_installed_on_site = true;
+  					} else {
+    					cashier_installed_on_site = false;
+  					}
+				};
+
+				request.onerror = function(e) {
+  					cashier_installed_on_site = false;
+				};
+
+				request.send();
+
     if (typeof Object.assign != 'function') {
         // Must be writable: true, enumerable: false, configurable: true
         Object.defineProperty(Object, "assign", {
@@ -208,10 +227,61 @@
             return false;
         },
         isEnabled: function () {
-            return BOLD.checkout.isFeatureRequired();
+            return BOLD.checkout.isFeatureRequired() && BOLD.checkout.isInstalled();
+        },
+        isInstalled: function() {
+            if(typeof cashier_installed_on_site !== 'undefined') {
+                return cashier_installed_on_site;
+            } else {
+             	return false;
+            }
         },
         listenerFn: function listenerFn(event) {
             if (BOLD.checkout.isCheckoutButton(event.target) && BOLD.checkout.isEnabled()) {
+                BOLD.checkout.pushToCashier(event);
+            } else if(BOLD.checkout.isCheckoutButton(event.target) && typeof cashier_installed_on_site === 'undefined') {
+              var request = new XMLHttpRequest();
+                request.open('HEAD', '/apps/checkout/isInstalled', false);
+
+                request.send(null);
+
+                if(request.status >= 200 && request.status < 400) {
+                    BOLD.checkout.pushToCashier(event);
+                } else {
+                    cashier_installed_on_site = false;
+                }
+            }
+        },
+        pushToCashier: function pushToCashier(event) {
+            event.preventDefault();
+            var request = new XMLHttpRequest();
+            request.open('GET', '/cart.js?tmp=' + Date.now(), true);
+
+            request.onload = function() {
+              if (request.status >= 200 && request.status < 400) {
+                // Success!
+                var cart = JSON.parse(request.responseText);
+
+                //If items are empty redirect back to the cart
+                if(cart.items.length == 0) {
+                    return window.location.href = '/cart';
+                }
+
+                cart.items.forEach(function(element) {
+                    delete element.product_description;
+                    //Pull the DOM version for best results
+                    if(document.getElementById("updates_" + element.key)) {
+                        element.quantity = document.getElementById("updates_" + element.key).value;
+                    }
+                });
+
+                if(document.getElementById("CartSpecialInstructions")) {
+                    //If the cart note exists, grab it's value
+                    cart.note = document.getElementById("CartSpecialInstructions").value;
+                }
+
+                var cartObj = JSON.stringify(cart);
+
                 var form = BOLD.checkout.getForm(event.target);
                 form.action = '/apps/checkout/begin-checkout' + googleAnalyticsGetParamString({});
                 var cartCookie = BOLD.checkout.getCookie('cart');
@@ -221,16 +291,27 @@
                 element.value = cartCookie;
                 form.appendChild(element);
 
+                var cartElement = document.createElement('INPUT');
+                cartElement.type = 'HIDDEN';
+                cartElement.name = 'cart';
+                cartElement.value = cartObj;
+                form.appendChild(cartElement);
+
                 if (BOLD && BOLD.common && typeof BOLD.common.eventEmitter === 'object' && typeof BOLDCURRENCY !== 'undefined') {
                     BOLD.common.eventEmitter.emit('BOLD_CASHIER_checkout', {target: form});
                 }
-            }
+
+                form.submit();
+              }
+            };
+
+            request.send();
         },
         enable: function enable() {
             document.addEventListener('click', BOLD.checkout.listenerFn, {"capture":true});
         },
         disable: function disable() {
-            document.removeEventListener('click', BOLD.checkout.listenerFn);
+            document.removeEventListener('click', BOLD.checkout.listenerFn, {"capture":true});
         }
     };
     (function () {
