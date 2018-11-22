@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Free shipping on orders over $49 US*",
-          "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#681228",
+          "message_text": "BLACK FRIDAY STARTS TOMORROW",
+          "message_link": "",
+          "notification-bar--background-colour": "#333131",
           "notification-bar--text-colour": "#ffffff"
         }
       },
@@ -384,6 +384,12 @@
       "1519621537758": {
         "type": "collection-list",
         "blocks": {
+          "1541088914027": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "gifts-under-50"
+            }
+          },
           "1519621537758-1": {
             "type": "featured_collection",
             "settings": {
@@ -394,12 +400,6 @@
             "type": "featured_collection",
             "settings": {
               "collection": "stocking-stuffers"
-            }
-          },
-          "1541088914027": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "gifts-under-50"
             }
           }
         },
