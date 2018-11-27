@@ -11,6 +11,7 @@ $ltgrey: #8c8c8c;
 $dustpink: #e5dad2;
 $darkpink: #BC988F;
 $ltgreen: #d8ead0;
+$holidays: #681228;
 
 
 
@@ -120,9 +121,9 @@ $ltgreen: #d8ead0;
         /* Remove after HOLIDAYS */
         &:first-child {
             font-weight: bold;
-            border: 1px dashed #681228;
+            border: 1px dashed $holidays;
             .nav-label {
-                color: #681228;
+                color: $holidays;
             }
         }
         /* END */
