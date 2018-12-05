@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "BLACK FRIDAY STARTS TOMORROW",
+          "message_text": "Free shipping on orders over $49 US*",
           "message_link": "",
-          "notification-bar--background-colour": "#333131",
+          "notification-bar--background-colour": "#681228",
           "notification-bar--text-colour": "#ffffff"
         }
       },
@@ -148,66 +148,15 @@
           "advert-show": "all"
         }
       },
-      "slideshow": {
-        "type": "slideshow",
-        "blocks": {
-          "1540923846480": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero-holiday.jpg",
-              "title": "HOLIDAY SHOP",
-              "text": "<p>Gifts for you and&nbsp;every gal&nbsp;on your list.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/holiday-collection",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1542161205320": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero-Noelle-Tassels.jpg",
-              "title": "Noelle Tassels",
-              "text": "<p>Flirtatious and luxurious statement<\/p>\n<p>earrings for all your festive looks.&nbsp;<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/noelle-tassel-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          }
-        },
-        "block_order": [
-          "1540923846480",
-          "1542161205320"
-        ],
-        "settings": {
-          "slider-animation": "fade",
-          "slider-width": "full-width",
-          "slider-slide-time": 4,
-          "caption-heading-size": 34,
-          "caption-subheading-size": 18,
-          "caption-button-size": 16,
-          "show-slide-dots": false,
-          "show-slide-arrows": true
-        }
-      },
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "MUST-HAVES",
+          "title": "HOLIDAY FAVORITES",
           "show-vendor": false,
           "hover-effect": "zoom",
           "collection": "homepage",
           "grid": "4",
-          "rows": 1,
+          "rows": 2,
           "show_view_all": false,
           "match-height": false
         }
@@ -238,8 +187,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/luxe-occasions_3282cab1-15f2-4e30-a5ee-d6b5ecec5114.jpg",
           "parallax": true,
-          "title": "Luxe Jewery",
-          "text": "<p>Glamorous pieces to make you&nbsp;shine&nbsp;at every holiday fete.<\/p>",
+          "title": "HOLIDAY SHOP",
+          "text": "<p>Sparkly gifts for to give and keep.<\/p>",
           "alignment": "center",
           "hero_size": "medium",
           "text-over-image-width": "full-width",
@@ -591,15 +540,85 @@
           "title": "",
           "grid": 2
         }
+      },
+      "1543209232198": {
+        "type": "slideshow",
+        "blocks": {
+          "1543209232198-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero-holiday.jpg",
+              "title": "HOLIDAY SHOP",
+              "text": "<p>Gifts for you and&nbsp;every gal&nbsp;on your list.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/holiday-collection",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1543305438128": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bow-studs.jpg",
+              "title": "RESTOCKED!",
+              "text": "<p>Our most festive stud earrings are back!<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/gifted-bow-studs",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          }
+        },
+        "block_order": [
+          "1543209232198-0",
+          "1543305438128"
+        ],
+        "settings": {
+          "slider-animation": "slide",
+          "slider-width": "full-width",
+          "slider-slide-time": 5,
+          "caption-heading-size": 40,
+          "caption-subheading-size": 24,
+          "caption-button-size": 16,
+          "show-slide-dots": false,
+          "show-slide-arrows": true
+        }
+      },
+      "1543965193646": {
+        "type": "image-bar",
+        "blocks": {
+          "1543965193646-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OPHolidayShippingCalendar_6ba5a15c-3292-4f6e-9f0d-0637689df9eb.jpg",
+              "link": "shopify:\/\/pages\/orders-shipping",
+              "title": "",
+              "description": ""
+            }
+          }
+        },
+        "block_order": [
+          "1543965193646-0"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
-      "slideshow",
-      "collection",
+      "1543209232198",
       "1541088605858",
-      "1519621537758",
+      "collection",
       "text-over-image-1",
       "1532101176305",
+      "1519621537758",
+      "1543965193646",
       "1532387026613",
       "feature-row-2",
       "instagram",

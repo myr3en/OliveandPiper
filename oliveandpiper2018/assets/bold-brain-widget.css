@@ -41,9 +41,9 @@
     flex: 0 0 auto;
     padding: 0 0 0 20px;
     color: currentColor;
-    transition: opacity .4s ease-in-out !important;
+    transition: opacity .3s ease-in-out !important;
     opacity: 1;
-    cursor: pointer;
+    margin-bottom: 40px;
 }
 
 .bold-recommend__product_3{
@@ -79,12 +79,23 @@
     width: 16%;
 }
 
-.bold-recommend__product:hover{
+.bold-recommend__product:hover {
     opacity: .75;
+    cursor: pointer;
+}
+
+.bold-recommend__product.bold-recommend__updated:hover {
+    opacity: initial;
+    cursor: initial;
+}
+
+.bold-recommend__product-content:hover {
+    opacity: .75;
+    cursor: pointer;
 }
 
 .bold-recommend__product *{
-    transition: opacity .4s ease-in-out !important;
+    transition: opacity .3s ease-in-out !important;
 }
 
 
@@ -98,11 +109,6 @@
     opacity: .65;
 }
 
-.bold-recommend__product img {
-    width: 100%;
-    height: auto;
-}
-
 .bold-recommend__img{
     display: block;
     width: 100%;
@@ -111,6 +117,21 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.bold-recommend__updated .bold-recommend__img {
+    width: auto;
+    padding-bottom: unset;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bold-recommend__img-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
 }
 
 
@@ -148,6 +169,11 @@
     .bold-recommend__product img{
         margin: 0 auto;
         display: block;
+        width: 100%;
+    }
+
+    .bold-recommend__img-container {
+        height: auto;
     }
 }
 
