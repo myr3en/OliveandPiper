@@ -124,15 +124,15 @@ $holidays: #681228;
         }
 
 
-        /* Remove after HOLIDAYS */
-        &:first-child {
-            font-weight: bold;
-            border: 1px dashed $holidays;
-            .nav-label {
-                color: $holidays;
-            }
-        }
-        /* END */
+        // /* Remove after HOLIDAYS */
+        // &:first-child {
+        //     font-weight: bold;
+        //     border: 1px dashed $holidays;
+        //     .nav-label {
+        //         color: $holidays;
+        //     }
+        // }
+        // /* END */
 
 
     }
