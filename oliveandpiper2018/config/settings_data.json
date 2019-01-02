@@ -90,15 +90,15 @@
         "type": "announcement-bar",
         "settings": {
           "message_text": "Free shipping on orders over $49 US*",
-          "message_link": "",
-          "notification-bar--background-colour": "#681228",
-          "notification-bar--text-colour": "#ffffff"
+          "message_link": "shopify:\/\/pages\/orders-shipping",
+          "notification-bar--background-colour": "#b8a1ac",
+          "notification-bar--text-colour": "#252525"
         }
       },
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/Holiday-LOGO-santa_69d85d0f-8abc-45be-90d4-2d8a7d73fa81.jpg",
+          "logo": "shopify:\/\/shop_images\/TextLogo_5029d2ef-26b6-49c8-8e1e-5e38e798e680.png",
           "logo_max_width": 200,
           "logo_padding": 5,
           "logo-placement": "within-header",
@@ -125,7 +125,7 @@
             "settings": {
               "heading": "Get it fast",
               "subheading": "In stock items ship in 1-2 days >",
-              "link": "https:\/\/www.oliveandpiper.com\/pages\/shipping-returns"
+              "link": "shopify:\/\/pages\/orders-shipping"
             }
           },
           "advert-0": {
@@ -151,12 +151,12 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "HOLIDAY FAVORITES",
+          "title": "NOW TRENDING",
           "show-vendor": false,
           "hover-effect": "zoom",
           "collection": "homepage",
           "grid": "4",
-          "rows": 2,
+          "rows": 1,
           "show_view_all": false,
           "match-height": false
         }
@@ -185,15 +185,15 @@
       "text-over-image-1": {
         "type": "text-over-image",
         "settings": {
-          "image": "shopify:\/\/shop_images\/luxe-occasions_3282cab1-15f2-4e30-a5ee-d6b5ecec5114.jpg",
+          "image": "shopify:\/\/shop_images\/feature-long-1800x900_77a05d6c-2281-4764-96ff-a1bc245d549e.jpg",
           "parallax": true,
-          "title": "HOLIDAY SHOP",
-          "text": "<p>Sparkly gifts for to give and keep.<\/p>",
+          "title": "WEDDING SHOP",
+          "text": "<p>Stunning little luxuries to make your day extra special.<\/p>",
           "alignment": "center",
           "hero_size": "medium",
           "text-over-image-width": "full-width",
           "button_label": "SHOP NOW",
-          "button_link": "shopify:\/\/collections\/luxe-holiday-jewelry"
+          "button_link": "shopify:\/\/collections\/wedding-jewelry"
         }
       },
       "text-over-image-2": {
@@ -332,6 +332,7 @@
       },
       "1519621537758": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "1541088914027": {
             "type": "featured_collection",
@@ -522,7 +523,7 @@
           "1541088605858-0": {
             "type": "featured_collection",
             "settings": {
-              "collection": "holiday-collection"
+              "collection": "charm-necklace"
             }
           },
           "1541088605858-1": {
@@ -544,30 +545,30 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1543209232198-0": {
+          "1544209376191": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero-holiday.jpg",
-              "title": "HOLIDAY SHOP",
-              "text": "<p>Gifts for you and&nbsp;every gal&nbsp;on your list.<\/p>",
+              "image": "shopify:\/\/shop_images\/crystal-work.jpg",
+              "title": "Crystal Work",
+              "text": "<p>Ring in the new year in spectacular confections.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/holiday-collection",
+              "link": "shopify:\/\/collections\/crystal-work",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
-              "button-background": "#ffffff",
+              "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           },
-          "1543305438128": {
+          "1546449510744": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/bow-studs.jpg",
-              "title": "RESTOCKED!",
-              "text": "<p>Our most festive stud earrings are back!<\/p>",
+              "image": "shopify:\/\/shop_images\/OP-NewYear-HeroBanner.jpg",
+              "title": "Best of 2018",
+              "text": "<p>Stock your jewelry box with our&nbsp;best sellers of the year!<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/gifted-bow-studs",
+              "link": "shopify:\/\/collections\/best-selling-jewelry",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -578,8 +579,8 @@
           }
         },
         "block_order": [
-          "1543209232198-0",
-          "1543305438128"
+          "1546449510744",
+          "1544209376191"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -591,24 +592,6 @@
           "show-slide-dots": false,
           "show-slide-arrows": true
         }
-      },
-      "1543965193646": {
-        "type": "image-bar",
-        "blocks": {
-          "1543965193646-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OPHolidayShippingCalendar_6ba5a15c-3292-4f6e-9f0d-0637689df9eb.jpg",
-              "link": "shopify:\/\/pages\/orders-shipping",
-              "title": "",
-              "description": ""
-            }
-          }
-        },
-        "block_order": [
-          "1543965193646-0"
-        ],
-        "settings": {}
       }
     },
     "content_for_index": [
@@ -618,7 +601,6 @@
       "text-over-image-1",
       "1532101176305",
       "1519621537758",
-      "1543965193646",
       "1532387026613",
       "feature-row-2",
       "instagram",
