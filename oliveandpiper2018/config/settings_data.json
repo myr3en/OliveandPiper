@@ -369,7 +369,7 @@
           "1519623686049-2": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/brides_bc45b536-6223-4191-8a2f-c6903c7100d9.jpg",
+              "image": "shopify:\/\/shop_images\/Brides.png",
               "link": ""
             }
           },
@@ -397,7 +397,7 @@
           "1527570682027": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/the-knot.jpg",
+              "image": "shopify:\/\/shop_images\/TheKnotLogo.png",
               "link": ""
             }
           },
@@ -407,14 +407,22 @@
               "image": "shopify:\/\/shop_images\/US-Weekly_5f3be0cc-ac6d-4e08-9533-e75a4f9ebf73.jpg",
               "link": ""
             }
+          },
+          "1546984285211": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ellecanada_logo1_grey.png",
+              "link": ""
+            }
           }
         },
         "block_order": [
+          "1546984285211",
+          "1527570682027",
           "1519623686049-2",
           "1519623686049-0",
           "1519624014875",
           "1519623686049-3",
-          "1527570682027",
           "1519623686049-1"
         ],
         "settings": {
@@ -545,15 +553,31 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1544209376191": {
+          "1546966698902": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/crystal-work.jpg",
-              "title": "Crystal Work",
-              "text": "<p>Ring in the new year in spectacular confections.<\/p>",
+              "image": "shopify:\/\/shop_images\/OP-HolidayBox-Jan8--Hero1.jpg",
+              "title": "SURPRISE BOX",
+              "text": "<p>Grab 5 of the winter season's favorites for just $60.<\/p>\n<p>Limited quantities.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/crystal-work",
+              "link": "shopify:\/\/products\/surprise-box",
               "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1546539589807": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-SomethingNew-HeroBannerv2.jpg",
+              "title": "Here's $15 off!",
+              "text": "<p>Start the year off with something new.<\/p>\n<p>Get $15 off when you spend $75. Use code 15OFF.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/new-arrivals",
+              "caption-background": "rgba(0,0,0,0)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
@@ -576,9 +600,27 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1544209376191": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/crystal-work.jpg",
+              "title": "Crystal Work",
+              "text": "<p>Ring in the new year in spectacular confections.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/crystal-work",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
+          "1546966698902",
+          "1546539589807",
           "1546449510744",
           "1544209376191"
         ],
