@@ -366,6 +366,20 @@
       "1519623686049": {
         "type": "logo-bar",
         "blocks": {
+          "1546984285211": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ellecanada_logo1_grey.png",
+              "link": ""
+            }
+          },
+          "1527570682027": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/TheKnotLogo.png",
+              "link": ""
+            }
+          },
           "1519623686049-2": {
             "type": "logo_image",
             "settings": {
@@ -394,24 +408,10 @@
               "link": ""
             }
           },
-          "1527570682027": {
-            "type": "logo_image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/TheKnotLogo.png",
-              "link": ""
-            }
-          },
           "1519623686049-1": {
             "type": "logo_image",
             "settings": {
               "image": "shopify:\/\/shop_images\/US-Weekly_5f3be0cc-ac6d-4e08-9533-e75a4f9ebf73.jpg",
-              "link": ""
-            }
-          },
-          "1546984285211": {
-            "type": "logo_image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/ellecanada_logo1_grey.png",
               "link": ""
             }
           }
@@ -553,22 +553,6 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1546966698902": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OP-HolidayBox-Jan8--Hero1.jpg",
-              "title": "SURPRISE BOX",
-              "text": "<p>Grab 5 of the winter season's favorites for just $60.<\/p>\n<p>Limited quantities.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/surprise-box",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
           "1546539589807": {
             "type": "image",
             "settings": {
@@ -619,7 +603,6 @@
           }
         },
         "block_order": [
-          "1546966698902",
           "1546539589807",
           "1546449510744",
           "1544209376191"
