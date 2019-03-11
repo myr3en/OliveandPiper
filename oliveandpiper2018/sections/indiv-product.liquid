@@ -1,4 +1,5 @@
 {%- assign product = all_products[section.settings.featured_product] -%}
+{% include 'sca_freegift_price' with product %}
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 
 <div class="container">
@@ -48,11 +49,14 @@
           <div class="indiv-product-vendor-text">{{ product.vendor }}</div>
         {% endif %}
 
-        {% if product.empty? %}
-          <h2 class="custom-font product-description-header">{{ 'general.onboarding.product_title' | t }}</h2>
-        {% else %}
-          <h2 class="custom-font product-description-header">{{ product.title }}</h2>
-        {% endif %}
+        <div style="position:relative;">
+            {% if product.empty? %}
+              <h2 class="custom-font product-description-header">{{ 'general.onboarding.product_title' | t }}</h2>
+            {% else %}
+              <h2 class="custom-font product-description-header">{{ product.title }}</h2>
+            {% endif %}
+            <div id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-label" }} </div>
+        </div>
 
         {% unless product.empty? %}
 
@@ -69,13 +73,17 @@
 
               <div class="row homepage-sections--indiv-product-slider-variants">
 
-                  {% if product.variants.size > 1  %}
+                  {% if sca_product_variantCount > 1  %}
                     {% for option in product.options_with_values %}
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="input-field col s12 m6 materialize-select">
                           <select class="icons materialize" id="SingleOptionSelector-{{ forloop.index0 }}">
                             {% for value in option.values %}
+                            {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+                            {% unless value contains '% off)' %}
                               <option {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                            {% endunless %}
+                            {% endunless %}
                             {% endfor %}
                           </select>
                           <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
@@ -86,6 +94,8 @@
 
                   <select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="form-control original-select product-form__variants no-js">
                     {% for variant in product.variants %}
+                    {% unless variant.metafields.secomapp.freegifts %}
+                    {% unless variant.title contains '(Freegifts)' %}
                       {% if variant.available %}
                         <option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
                           {{ variant.title }} - <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ variant.price }}" style="display:none !important;"></span>{{ variant.price | money }}</span>
@@ -93,6 +103,8 @@
                       {% else %}
                         <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
                       {% endif %}
+                    {%endunless%}
+                    {%endunless%}
                     {% endfor %}
                   </select>
 
@@ -116,6 +128,8 @@
                   </div>
 
             </form>
+            <span class="sca-fg-cat-list" style="display: none;" id="secomapp-fg-data-{{ product.id }}"> </span>
+
 
           {% else %}
 

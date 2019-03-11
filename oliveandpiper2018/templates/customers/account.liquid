@@ -2,7 +2,8 @@
 
 	<div class="title-bar custom-font">
 		<h2>{{ 'customer.account.title' | t }}</h2>
-		<div class="clear"></div>
+{% if customer.tags != blank %} <div id="wsg-spof-link" style="text-align: center; font-size: 1.4em; margin-top:30px; margin-bottom:20px;"> </div> <div id="wsg-message" style="text-align: center; margin-bottom: 20px;"> <p id="wsg-account-message"> </p> </div> <script> wsgRunProxy = true; </script> {% endif %}
+		<div class="clear"> </div>
 	</div>
 	
 	<div class="row">
@@ -18,11 +19,11 @@
         {% if customer.default_address != nil %}
           <p>{{ customer.default_address.address1 }}
           {% if customer.default_address.address2 != "" %}
-            <br />{{ customer.default_address.address2 }}
+            <br/>{{ customer.default_address.address2 }}
           {% endif %}
-          <br />{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}
-          <br />{{ customer.default_address.zip}}
-          <br />{{ customer.default_address.phone }}</p>
+          <br/>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}
+          <br/>{{ customer.default_address.zip}}
+          <br/>{{ customer.default_address.phone }}</p>
         {% endif %}
         <a id="view_address" class="btn btn-default" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
       </div>
@@ -34,7 +35,7 @@
   
   <div class="title-bar custom-font">
   	<h2>{{ 'customer.orders.title' | t }}</h2>
-  	<div class="clear"></div>
+  	<div class="clear"> </div>
   </div>
   
     {% if customer.orders.size != 0 %}
@@ -52,10 +53,10 @@
         {% for order in customer.orders %}
         <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
           <td>{{ order.name | link_to: order.customer_url }}</td>
-          <td><span class="note">{{ order.created_at | date: format: 'long' }}</span></td>
-          <td><span class="status_{{ order.financial_status_label }}">{{ order.financial_status_label }}</span></td>
-          <td><span class="status_{{ order.fulfillment_status_label }}">{{ order.fulfillment_status_label }}</span></td>
-          <td><span class="total money">{{ order.total_price | money }}</span></td>
+          <td><span class="note">{{ order.created_at | date: format: 'long' }}</span> </td>
+          <td><span class="status_{{ order.financial_status_label }}">{{ order.financial_status_label }}</span> </td>
+          <td><span class="status_{{ order.fulfillment_status_label }}">{{ order.fulfillment_status_label }}</span> </td>
+          <td><span class="total money">{{ order.total_price | money }}</span> </td>
         </tr>
         {% endfor %}
       </tbody>

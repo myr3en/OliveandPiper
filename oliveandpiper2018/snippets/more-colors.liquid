@@ -5,6 +5,9 @@
 {% assign how_many_options = 0 %}
 {% assign current_options = '' %}
 {% for variant in product.variants %}
+{% unless variant.metafields.secomapp.freegifts %}
+{% unless variant.title contains '(Freegifts)' %}
+
 {% assign current_option = variant.options[option_index] %}
 {% unless current_options contains current_option %}
 {% if how_many_options > 0 %}
@@ -14,6 +17,9 @@
 {% assign current_options = current_options | split: '|' | sort %}
 {% assign how_many_options = current_options | size %}
 {% endunless %}
+
+{%endunless%}
+{%endunless%}
 {% endfor %}
 
 {% unless option == "Title" %}

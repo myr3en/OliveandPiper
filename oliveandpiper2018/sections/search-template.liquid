@@ -1,3 +1,5 @@
+<script> wsgRunCollection = true; </script>
+
 {% paginate search.results by 12 %}
 <section id="search_results" class="collection">
     <header>
@@ -16,17 +18,17 @@
             </div>
             <form id="search-page-form" action="/search">
                 <div id="search-wrapper">
-                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}"/>
                     <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ search.terms | escape }}"/>
-                    <input id="search_submit" type="submit" border="0" value="&#xf002;" />
+                    <input id="search_submit" type="submit" border="0" value=""/>
                 </div>
             </form>
         {% else %}
             <form id="search-page-form" action="/search">
                 <div id="search-wrapper">
-                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}"/>
                     <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ 'general.search.title' | t }}"/>
-                    <input id="search_submit" type="submit" border="0" value="&#xf002;" />
+                    <input id="search_submit" type="submit" border="0" value=""/>
                 </div>
             </form>
         {% endif %}
@@ -36,6 +38,7 @@
         <div class="row">
             <ul class="results-grid product-grid {% if section.settings.match-height %}products--match-height{% endif %}">
                 {% for item in search.results %}
+{% assign exclude = false %} {% if customer.tags != blank %} {% for tag in item.tags%} {% if shop.metafields.wsg_data.excludeTags contains tag%} {% assign exclude = true %} {% endif %} {% endfor %} {% else %} {% if item.tags contains 'wholesale-only' %} {% assign exclude = true %} {% endif %} {% endif %} {% unless exclude == true %}
                             {% if item.object_type == 'article' %}
                                 <li class="grid__item four_columns indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
                                     <div class="indiv-product">
@@ -47,7 +50,7 @@
                                                 <div class="{% if section.settings.article-hover-effect == 'zoom' %}collection-image--zoom-effect {% endif %}">
                                                     <div class="zoom-effect--inner">
                                                         <a class="grid__image" href="{{item.url}}">
-                                                            <img src="{{ item.image | img_url: '1024x1024' }}" class="img-responsive" />
+                                                            <img src="{{ item.image | img_url: '1024x1024' }}" class="img-responsive"/>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -76,9 +79,11 @@
                                 </li>
 
                                 {% elsif item.object_type == 'product' %}
+                                {% include 'sca_freegift_price' with item %}
                                 <li class="grid__item four_columns wow fadeIn collection-image-anim indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
                                     <div class="indiv-product">
-
+                                        <span id="secomapp-fg-image-{{ item.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+                                        <span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ item.id }}"> </span>
                                                 {% case section.settings.hover-effect %}
 
                                                 {% when 'none' %}
@@ -95,7 +100,7 @@
                                                         <a class="grid__image" href="{{ item.url | within: collection }}" title="{{item.title}}">
                                                             <img src="{{ item.featured_image | product_img_url: '760x' }}'" alt="{{item.title}}" class="img-responsive wow fadeIn" id="collection-image-anim">
                                                             <div class="hidden">
-                                                                <img src="{{ item.images[1] | product_img_url: '760x' }}" alt="{{ item.images.last.alt | escape }}" class="img-responsive" />
+                                                                <img src="{{ item.images[1] | product_img_url: '760x' }}" alt="{{ item.images.last.alt | escape }}" class="img-responsive"/>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -129,26 +134,27 @@
                                                     <a href="{{ item.url | within: collection }}">
 
                                                         <div class="indiv-product-title-text">{{ item.title }}</div>
+<span class="wsg-collection-item" id="wsg-prod-id-{{item.id}}"><span class="wsg-prod-data" style="display:none">{{item | json}}</span> </span> <span class="wsg-collections-data" style="display:none">{{item.collections | json}}</span>
 
                                                         <span class="money-styling custom-font">
 
-                                                        {% if item.compare_at_price_max > item.price %}
-                                                            <h5 class="custom-font compare-at-price">
-                                                                <span class="money">{{ item.compare_at_price_max | money }}</span>
+                                                        {% if sca_compare_at_price_max > sca_price %}
+                                                            <h5 class="custom-font compare-at-price hideWsg">
+                                                                <span class="money">{{ sca_compare_at_price_max | money }}</span>
                                                             </h5>
                                                         {% endif %}
-
-                                                        {% if item.price_varies %}
-                                                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ item.price_min | money }}</span>
+															<span class="wsg-price-{{item.id}}">
+                                                        {% if sca_price_varies %}
+                                                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ sca_price_min | money }}</span>
                                                         {% else %}
-                                                            <span class="money">{{ item.price_min | money }}</span>
+                                                            <span class="money">{{ sca_price_min | money }}</span>
                                                         {% endif %}
 
-                                                    </span>
+                                                    </span></span>
                                                     </a>
                                                 </div>
                                     </div>
-                                    {% if item.compare_at_price_max > item.price and item.available %}
+                                    {% if sca_compare_at_price_max > sca_price and item.available %}
                                         <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
                                     {% endif %}
                                     {% unless item.available %}
@@ -157,8 +163,9 @@
                                 </li>
 
                             {% endif %}
-                    </li>
-                {% endfor %}
+                    
+               {% endunless %}
+ {% endfor %}
             </ul>
         </div>
     {% else %}

@@ -76,6 +76,7 @@
       {% unless product.handle == current_product.handle %}
          {% unless same_vendor and current_product.vendor != product.vendor %}
            {% unless same_type and current_product.type != product.type %}
+           {% include 'sca_freegift_price' with product %}
              {% comment %}
   Set the default grid_item_width if no variable is set
 {% endcomment %}
@@ -87,7 +88,7 @@
   Check if the product is on sale and set a variable to be used below.
 {% endcomment %}
 {% assign on_sale = false %}
-{% if product.compare_at_price > product.price %}
+{% if sca_compare_at_price > sca_price %}
   {% assign on_sale = true %}
 {% endif %}
 
@@ -105,6 +106,8 @@
 
       <a href="{{ product.url | within: collection }}" title="{{product.title}}">
         <img src="{{ product.featured_image | product_img_url: '760x' }}'" alt="{{product.title}}" class="img-responsive">
+        <span id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+        <span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ product.id }}"> </span>
       </a>
 
     <div class="hp-title">
@@ -119,16 +122,16 @@
 
         <span class="money-styling custom-font">
 
-          {% if product.compare_at_price_max > product.price %}
+          {% if sca_compare_at_price_max > sca_price %}
             <h5 class="custom-font compare-at-price">
-              <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price_2" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span>
+              <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price_2" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"></span>{{ sca_compare_at_price_max | money }}</span>
             </h5>
           {% endif %}
 
-        {% if product.price_varies %}
-          <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_3" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+        {% if sca_price_varies %}
+          <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_3" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
         {% else %}
-          <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_4" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+          <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_4" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
         {% endif %}
 
         </span>
@@ -136,7 +139,7 @@
     </div>
   </div>
 
-  {% if product.compare_at_price_max > product.price and product.available %}
+  {% if sca_compare_at_price_max > sca_price and product.available %}
     <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
   {% endif %}
 

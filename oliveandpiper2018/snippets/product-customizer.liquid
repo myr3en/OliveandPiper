@@ -1,5 +1,6 @@
 {%- comment -%} version: 1.9.1 {%- endcomment -%}
 {%- comment -%} PLEASE DO NOT MODIFY THIS FILE, DOING SO MAY BREAK YOUR PRODUCT OPTIONS {%- endcomment -%}
+{% include 'sca_freegift_price' with product %}
 {%- if product.metafields.product_customizer != empty -%}
   {%- unless only_js_init -%}
   {%- comment -%}
@@ -13,7 +14,7 @@
   {%- else -%}
     {%- assign sorted_metafields = product.metafields.product_customizer -%}
   {%- endif -%}
-  <div class="product-customizer-options" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}" data-version="1.9.1">
+  <div class="product-customizer-options" data-product-id="{{ product.id }}" data-product-price="{{ sca_price }}" data-version="1.9.1">
     {%- assign option_price_found = false -%}
     {%- for option_metafield in sorted_metafields -%}
       {%- capture whitespace -%}

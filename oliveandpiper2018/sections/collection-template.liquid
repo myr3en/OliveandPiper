@@ -1,3 +1,5 @@
+<script> wsgRunCollection = true; </script>
+
 {% if section.settings.tags_enable and section.settings.sort_enable %}
 <style>
 @media only screen and (max-width: 767px) {
@@ -43,7 +45,7 @@
 			{% else %}
 				<h2>{{ collection.title }}</h2>
 			{% endif %}
-			<div class="clear"></div>
+			<div class="clear"> </div>
 		</div>
 		<div id="collections-main" class="{{ collection.handle }}">
 			{% if collection.description != empty %}
@@ -120,13 +122,13 @@
 	<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
 	  <a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
 		{% if collection %}
-		  <span aria-hidden="true">&rsaquo;</span>
+		  <span aria-hidden="true">›</span>
 		  {% if collection.handle %}
 			{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
 			{{ collection.title | link_to: url }}
 		  {% endif %}
 		{% endif %}
-		<span aria-hidden="true">&rsaquo;</span>
+		<span aria-hidden="true">›</span>
 		<span>{{ product.title }}</span>
 	</nav>
 
@@ -161,7 +163,7 @@
 									{% endfor %}
 
 									{% if its_a_match %}
-									<li class="vendor-list-item"><a href="/collections/{{ product_vendor | handleize }}">{{ product_vendor }}</a></li>
+									<li class="vendor-list-item"><a href="/collections/{{ product_vendor | handleize }}">{{ product_vendor }}</a> </li>
 									{% else %}
 									<li class="vendor-list-item">{{ product_vendor | link_to_vendor }}</li>
 									{% endif %}
@@ -244,6 +246,8 @@
       {% endcase %}
       <div class="row product-grid clearfix {% if section.settings.match-height %}products--match-height{% endif %}">
         {% for product in collection.products %}
+{% assign exclude = false %} {% if customer.tags != blank %} {% for tag in product.tags%} {% if shop.metafields.wsg_data.excludeTags contains tag%} {% assign exclude = true %} {% endif %} {% endfor %} {% else %} {% if product.tags contains 'wholesale-only' %} {% assign exclude = true %} {% endif %} {% endif %} {% unless exclude == true %}
+		  {% include 'sca_freegift_price' with product %}
           <div class="grid__item {{ grid_item_width }} indiv-product-wrapper wow fadeIn collection-image-anim
 
           {% case section.settings.grid %}
@@ -257,7 +261,8 @@
           ">
 
             <div class="indiv-product">
-
+				<span id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+				<span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ product.id }}"> </span>
 							{% case section.settings.hover-effect %}
 
 								{% when 'none' %}
@@ -333,20 +338,21 @@
 
             			<div class="indiv-product-title-text">{{ product.title }}</div>
 
+<span class='wsg-collection-item' id='wsg-prod-id-{{product.id}}' ><span class='wsg-prod-data' style='display:none'>{{product | json}}</span></span> <span class='wsg-collections-data' style='display:none'>{{product.collections | json}}</span>
             			<span class="money-styling custom-font">
 
-            				{% if product.compare_at_price_max > product.price %}
-            					<h5 class="custom-font compare-at-price">
-            						<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span>
+            				{% if sca_compare_at_price_max > sca_price %}
+            					<h5 class="custom-font compare-at-price hideWsg">
+            						<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"> </span>{{ sca_compare_at_price_max | money }}</span>
             					</h5>
             				{% endif %}
-
-							{% if product.price_varies %}
-								<small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+							<span class="wsg-price-{{product.id}}">
+							{% if sca_price_varies %}
+								<small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"> </span>{{ sca_price_min | money }}</span>
 							{% else %}
-								<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+								<span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"> </span>{{ sca_price_min | money }}</span>
 							{% endif %}
-
+                          </span>
             			</span>
             		</a>
 					<a href="{{ product.url | within: collection }}" class="more-colors-btn">
@@ -354,19 +360,20 @@
 						{% include 'more-colors' %}
 					</a>
 					<!-- Smart Wishlist Snippet -->
-					<span class="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></span>
+					<span class="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"> </span>
             	</div>
             </div>
 
 					{% if product.available %}
-						{% if product.compare_at_price_max > product.price %}
-							<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+						{% if sca_compare_at_price_max > sca_price %}
+							<div class="sale-badge hideWsg">{{ 'products.general.sale' | t }}</div>
 						{% endif %}
 					{% else %}
 						<div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
 					{% endif %}
 
 				</div>
+       {% endunless %}
 
         {% else %}
           {% comment %}
@@ -411,7 +418,7 @@
           {% else %}
             {%- assign is_empty_collection = true -%}
           {% endif %}
-        {% endfor %}
+ {% endfor %}
       </div>
 
     {% if is_empty_collection %}
@@ -430,12 +437,12 @@
 				    <li class="pagination-arrow pagination-arrow--previous grid__item col-sm-4 col-md-4 col-xs-4">
 				      {% unless paginate.previous.is_link %}
 				        <div class="btn btn--secondary btn--narrow btn--disabled">
-				          <i class="fa fa-chevron-left"></i>
+				          <i class="fa fa-chevron-left"> </i>
 				          <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
 				        </div>
 				      {% else %}
 				        <a href="{{ paginate.previous.url }}" class="btn btn--secondary btn--narrow">
-				          <i class="fa fa-chevron-left"></i>
+				          <i class="fa fa-chevron-left"> </i>
 				          <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
 				        </a>
 				      {% endunless %}
@@ -447,12 +454,12 @@
 				      {% unless paginate.next.is_link %}
 				        <div class="btn btn--secondary btn--narrow btn--disabled">
 				          <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
-				          <i class="fa fa-chevron-right"></i>
+				          <i class="fa fa-chevron-right"> </i>
 				        </div>
 				      {% else %}
 				        <a href="{{ paginate.next.url }}" class="btn btn--secondary btn--narrow">
 				          <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
-				          <i class="fa fa-chevron-right"></i>
+				          <i class="fa fa-chevron-right"> </i>
 				        </a>
 				      {% endunless %}
 				    </li>

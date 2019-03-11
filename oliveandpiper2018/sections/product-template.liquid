@@ -1,3 +1,5 @@
+<script> wsgRunProduct = true; </script>
+{% include 'sca_freegift_price' with product %}
 {%- assign product_thumb_size = '160x160' -%}
 {%- assign product_image_zoom_size = '1024x1024' -%}
 {%- assign current_variant = product.selected_or_first_available_variant -%}
@@ -42,7 +44,7 @@
             </div>
             <div class="popup-sections col-md-4 col-sm-12">
                 <h1>Satisfaction Guarantee</h1>
-                <p>If your jewels don't make you say olive it, you can return them for a full refund within 30 days. Black Friday, Cyber Monday, and personalized items are a FINAL SALE.<br /><a target="_blank" href="https://www.oliveandpiper.com/pages/return-exchange-policy">More Info <i class="fa fa-angle-right"></i></a></p>
+                <p>If your jewels don't make you say olive it, you can return them for a full refund within 60 days. Sale items and personalized items are a FINAL SALE.<br /><a target="_blank" href="https://www.oliveandpiper.com/pages/return-exchange-policy">More Info <i class="fa fa-angle-right"></i></a></p>
             </div>
             <div class="popup-sections col-md-4 col-sm-12">
                 <h1>Questions?</h1>
@@ -232,8 +234,9 @@
 				<div class="indiv-product-vendor-text">{{ product.vendor }}</div>
 			{% endif %}
 
-			<h1 class="custom-font product-description-header">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1>
+            <div style="position:relative;"> <h1 class="custom-font product-description-header">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1> <div id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-label" }} </div> </div>
 
+			<div id='wsgStockData'> {% capture wsgStockData %}{% for variant in product.variants %}"{{variant.id}}":{"stock":{{variant.inventory_quantity}},"policy":"{{variant.inventory_policy}}", "shipDate":"{{ variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %} </div> <script> var wsgStockData = {{wsgStockData | json}}; </script> <div><p id='wsg-backordered-msg'></p></div>
                 {% if section.settings.description_position == "above" %}
 
                     <div class="product-description-wrapper above">
@@ -246,14 +249,14 @@
 
   				<form action="/cart/add" method="post" id="add-to-cart-form" {% unless section.settings.show_variant_labels %}class="product-form--hide-variant-labels"{% endunless %}>
                     <div class="row product-pricing">
-                        <h5 class="custom-font compare-at-price js">
+                        <h5 class="custom-font compare-at-price js hideWsg">
                             {% if current_variant.compare_at_price > current_variant.price %}
                                 <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>{{ current_variant.compare_at_price | money }}</span>
                             {% endif %}
                         </h5>
-                        <h3 class="custom-font js" id="price-field"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>{{ current_variant.price | money }}</span></h3>
+                        <h3 class="custom-font js wsg-price-{{product.id}}" id="price-field"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>{{ current_variant.price | money }}</span></h3>
 
-                        
+
                     <!--START Yotpo Star Rating + Q&A Button-->
                   <div class="yotpo bottomLine"
                            data-product-id="{{ product.id }}"
@@ -270,15 +273,19 @@
 
                   </div>
 
-
   					<div class="row product-buttons">
-  						{% if product.variants.size > 1  %}
+
+  						{% if sca_product_variantCount > 1  %}
   							{% for option in product.options_with_values %}
   								<div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12 selectors-cont">
                                     <div class="input-field col s12 m6 materialize-select">
                                         <select class="icons materialize" id="SingleOptionSelector-{{ forloop.index0 }}">
                                             {% for value in option.values %}
+                                            {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+                                            {% unless value contains '% off)' %}
                                                 <option {% if option.selected_value == value %}selected{% endif %} value="{{ value | escape }}">{{ value }}</option>
+                                            {% endunless %}
+                                            {% endunless %}
                                             {% endfor %}
                                         </select>
                                         <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
@@ -286,9 +293,10 @@
   								</div>
   							{% endfor %}
   						{% endif %}
-
-  						<select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="form-control original-select product-form__variants no-js">
+  						<select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="form-control original-select product-form__variants no-js wsg-master-sel">
   							{% for variant in product.variants %}
+                            {% unless variant.metafields.secomapp.freegifts %}
+                            {% unless variant.title contains '(Freegifts)' %}
   								{% if variant.available %}
   									<option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
   										{{ variant.title }} - <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ variant.price }}" style="display:none !important;"></span>{{ variant.price | money }}</span>
@@ -296,6 +304,8 @@
   								{% else %}
   									<option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
   								{% endif %}
+                            {%endunless%}
+                            {%endunless%}
   							{% endfor %}
   						</select>
 
@@ -313,7 +323,7 @@
   					  {% endif %}
 
                     <div class="col-lg-9 col-md-10 product-page--submit-action" data-stock-email-enabled="{{ section.settings.show_out_of_stock_email }}">
-  					    <button type="submit" name="add" id="purchase" class="btn btn-success custom-font">
+  					    <button type="submit" name="add" id="purchase" class="wsgRedirectCart btn btn-success custom-font">
   					        {{ 'products.product.add_to_cart' | t }}
   					    </button>
 
@@ -327,6 +337,8 @@
 
 
                 </form>
+                <span class="sca-fg-cat-list" style="display: none;" id="secomapp-fg-data-{{ product.id }}"> </span>
+
 
                 {% if section.settings.show_out_of_stock_email %}
                     <div class="variant-out-of-stock" style="display:none;">
@@ -449,6 +461,7 @@
 
 
 {% if section.settings.enable_related_products %}
+<script> wsgRunCollection = true; </script>
 
 <!-- Solution brought to you by Caroline Schnapp -->
 <!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products#finding-a-relevant-collecitons -->
@@ -523,9 +536,11 @@
 
   {% capture related_items %}
     {% for product in collection.products %}
+{% assign exclude = false %} {% if customer.tags != blank %} {% for tag in product.tags%} {% if shop.metafields.wsg_data.excludeTags contains tag%} {% assign exclude = true %} {% endif %} {% endfor %} {% else %} {% if product.tags contains 'wholesale-only' %} {% assign exclude = true %} {% endif %} {% endif %} {% unless exclude == true %}
       {% unless product.handle == current_product.handle %}
          {% unless same_vendor and current_product.vendor != product.vendor %}
            {% unless same_type and current_product.type != product.type %}
+           {% include 'sca_freegift_price' with product %}
              {% comment %}
   Set the default grid_item_width if no variable is set
 {% endcomment %}
@@ -537,7 +552,7 @@
   Check if the product is on sale and set a variable to be used below.
 {% endcomment %}
 {% assign on_sale = false %}
-{% if product.compare_at_price > product.price %}
+{% if sca_compare_at_price > sca_price %}
   {% assign on_sale = true %}
 {% endif %}
 
@@ -555,6 +570,8 @@
 
       <a href="{{ product.url | within: collection }}" title="{{product.title}}">
         <img src="{{ product.featured_image | product_img_url: '760x' }}'" alt="{{product.title}}" class="img-responsive">
+        <span id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+        <span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ product.id }}"> </span>
       </a>
 
     <div class="hp-title">
@@ -567,27 +584,28 @@
 
         <div class="indiv-product-title-text">{{ product.title }}</div>
 
+<span class='wsg-collection-item' id='wsg-prod-id-{{product.id}}' ><span class='wsg-prod-data' style='display:none'>{{product | json}}</span></span> <span class='wsg-collections-data' style='display:none'>{{product.collections | json}}</span>
         <span class="money-styling custom-font">
 
-          {% if product.compare_at_price_max > product.price %}
-            <h5 class="custom-font compare-at-price">
-              <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price_2" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span>
+          {% if sca_compare_at_price_max > sca_price %}
+            <h5 class="custom-font compare-at-price hideWsg">
+              <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price_2" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"></span>{{ sca_compare_at_price_max | money }}</span>
             </h5>
           {% endif %}
-
-        {% if product.price_varies %}
-          <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_3" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+		<span class="wsg-price-{{product.id}}">
+        {% if sca_price_varies %}
+          <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_3" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
         {% else %}
-          <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_4" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+          <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_4" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
         {% endif %}
-
+          </span>
         </span>
       </a>
     </div>
   </div>
 
-  {% if product.compare_at_price_max > product.price and product.available %}
-    <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+  {% if sca_compare_at_price_max > sca_price and product.available %}
+    <div class="sale-badge hideWsg">{{ 'products.general.sale' | t }}</div>
   {% endif %}
 
     {% unless product.available %}
@@ -599,6 +617,7 @@
 {% if counter == break_at %}
   {% break %}
 {% endif %}
+{% endunless %}
 {% endunless %}
 {% endunless %}
 {% endunless %}

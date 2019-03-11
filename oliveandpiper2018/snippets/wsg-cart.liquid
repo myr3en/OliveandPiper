@@ -1,0 +1,211 @@
+<script>
+  //add stylesheet
+  function addCss(fileName) {
+
+    var head = document.head;
+    var link = document.createElement("link");
+
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = fileName;
+
+    head.appendChild(link);
+  }
+  var cssURL = wsgData.server_link; 
+  cssURL = cssURL.replace('shop_assets/wsg-index.js','style/wsg-cart.css');
+ 
+  addCss(cssURL);
+</script>
+<!-- WSG CUSTOM shipping modal -->
+<div id="wsg-ship-modal" class="wsg-shipping-modal" style="display: none">
+  <div id="wsg-modal-content" class="wsg-modal-content">
+    <div class="wsg-modal-form">
+      <div class="wsg-modal-form-head">
+      	<h4>Please confirm your Shipping Address</h4>
+        <hr>
+      </div>
+      <form id="wsg-address-conf"  novalidate>
+        <div class="wsg-two-column">
+          <div class="wsg-input-small">
+              <label for="firstname">First Name</label>
+              <input class="wsg-form-small-full" id="wsg-form-firstname" name="firstname" type="text">
+          </div>
+          <div class="wsg-input-small">
+              <label for="lastname">Last Name</label>
+              <input class="wsg-form-small-full" id="wsg-form-lastname" name="lastname" type="text">
+          </div>
+        </div>
+        <div>
+          <div>
+        	<label for="storename">Store Name</label>
+        	<input class="wsg-input" id="wsg-form-storename" name="storenamename" type="text">
+          </div>
+          <div class="wsg-hide-req" id="wsgStoreNameReq">Please enter your store name.</div>
+        </div>
+        <div>
+        	<div>
+        		<label for="address1">Address</label>
+        		<input class="wsg-input" id="wsg-form-address1" name="wsg-form-address1" type="text" placeholder="Address Line 1">
+        		<input class="wsg-input" id="wsg-form-address2" name="wsg-form-address2" type="text" placeholder="Address Line 2">
+        	</div>
+         <div class="wsg-hide-req" id="wsgAddress1Req">Please enter an address.</div>
+        </div>
+        <div class="wsg-two-column">
+          <div class="wsg-input-small">
+            <div>
+              <label for="city">City</label>
+              <input class="wsg-input" id="wsg-form-city" name="city" type="text">
+            </div>
+            <div class="wsg-hide-req" id="wsgCityReq">Please enter a city.</div>
+          </div>
+          <div class="wsg-input-small">	
+        	<label for="wsg-form-province">State/Province</label>
+        	<select id="wsg-form-province"class="wsg-input-small-full" name="contact[province]" ></select>
+        </div>
+        </div>
+        <div class="wsg-two-column">
+        <div class="wsg-input-small">
+        	<label for="wsg-form-country">Country</label>
+        	<select id="wsg-form-country" class="wsg-input-small-full" name="contact[country]" data-default="{{shop.address.country}}">{{ country_option_tags }}</select>
+        </div>
+        <div class="wsg-input-small wsg-zip">
+          <div>
+              <label for="wsg-form-zip">Zip/Postal Code</label>
+              <input id="wsg-form-zip" class="wsg-input-small-full" name="zip" type="text">
+          </div>
+          <div class="wsg-hide-req" id="wsgZipReq">Please enter a postal/zip code.</div>
+       </div>
+         
+        </div>
+          <div class="wsg-shipping-footer">
+            <a href="#" id="wsg-modal-close">Close</a>
+          <!-- take button classes from end of cart form -->          
+            <input type='submit' id="wsg-continue-checkout" name="continue" style='width:33%;' class="wsg-button-fix wsg-continue-style wsg-btn wsg-checkout-btn wsg-submit-copy" value="Continue">
+            
+
+          </div>
+      </form> 
+    </div>
+    <div class="wsg-modal-loading">
+    	<div class="wsg-loading-content">
+          <div class="wsg-loading-anim">
+            {{'wsgLoadingIcon.gif' | asset_url | img_tag}}
+            <div class="wsg-loading-text">
+              Processing order...
+            </div>
+          </div>
+      	</div>
+    </div>
+  </div>
+</div>
+<!-- END WSG CUSTOM Shipping Modal-->
+
+<!-- Backordered Modal -->
+<div id='wsg-backordered-modal' class='display-backordered'>
+  <div id='wsg-backordered-content'>
+    <h3>Backordered Items</h3>
+    <div id='backorder-items'></div>
+    <p><a id='close-backorder'>Close</a></p>
+  </div>
+</div>
+
+<style>
+/*   backordered modal style */
+  #wsg-backordered-modal {
+   	 /* Hidden by default */  
+    position: fixed;  /*Stay in place */
+    z-index: 999999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 10%;
+  }
+  #wsg-backordered-content {
+  	background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    /* MAKE MOBILE BREAKPOINT */
+    width: 40%; 
+    height: auto;
+  }
+  .display-backordered {
+   	display: none;
+  }
+  #close-backorder {
+   cursor: pointer; 
+  }
+  #backorder-items {
+   margin-bottom: 20px; 
+  }
+  .wsg-ship-partial input[type="radio"] {
+    width: 14px;
+    height: 14px;
+   }
+  #wsg-ship-modal select,
+   #wsg-ship-modal input, 
+   #wsg-ship-modal textarea{
+    height: 46px;
+    border: thin solid #d1d1d1;
+    padding: 6px 10px;
+/*     background-color: white */
+  }
+  #wsg-ship-modal select {
+    width: 100%;
+    background-color: white;
+    font: inherit;
+    line-height: 1.5em;
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+/*     padding: 12px 14px; */
+      background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat; 
+    display: block !important;
+  }
+  .wsg-modal-form hr {
+    margin: 0 auto;
+	}
+</style>
+
+<!--"shipDate":"{{ variant.next_incoming_date | date: "%m/%d" }}" -->
+
+<!-- WSG CUSTOM  create json of stock data -->
+{% capture wsgStockData %}{% for item in cart.items %}"{{item.id}}":{"stock":{{item.variant.inventory_quantity}},"policy":"{{item.variant.inventory_policy}}", "shipDate":"{{ item.variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %}
+<!-- END WSG CUSTOM -->
+
+<script>
+//declare cart specific liquid variables
+  var wsgCustomerId = {{customer.id | json}};
+  var wsgCustomerAddresses = {{customer.addresses | json}};
+  var wsgCartAttr = {{ cart.attributes | json }};  //depreciated?
+  var wsgCart = {{cart | json}};    
+  var wsgShopCountry = {{shop.address.country | json}};
+  wsgRunCart = true;
+  wsgRunProxy = true;
+  var wsgStockData = {{wsgStockData | json}};
+
+    {% if customer.tags != blank %}
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+    })    
+  {% endif %}
+</script>

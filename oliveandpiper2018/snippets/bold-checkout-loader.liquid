@@ -296,6 +296,7 @@
                 cartElement.name = 'cart';
                 cartElement.value = cartObj;
                 form.appendChild(cartElement);
+                form.method = "POST";
 
                 if (BOLD && BOLD.common && typeof BOLD.common.eventEmitter === 'object' && typeof BOLDCURRENCY !== 'undefined') {
                     BOLD.common.eventEmitter.emit('BOLD_CASHIER_checkout', {target: form});

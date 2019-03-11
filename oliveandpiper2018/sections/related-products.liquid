@@ -1,3 +1,4 @@
+<script> wsgRunCollection = true; </script>
 {% if section.settings.show_related_products == true %}
 <hr>
 <div class="product-template__container page-width" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
@@ -86,6 +87,7 @@
 
   {% capture related_items %}
     {% for product in collection.products %}
+  {% assign exclude = false %} {% if customer.tags != blank %} {% for tag in product.tags%} {% if shop.metafields.wsg_data.excludeTags contains tag%} {% assign exclude = true %} {% endif %} {% endfor %} {% else %} {% if product.tags contains 'wholesale-only' %} {% assign exclude = true %} {% endif %} {% endif %} {% unless exclude == true %}
       {% unless product.handle == current_product.handle %}
          {% unless same_vendor and current_product.vendor != product.vendor %}
            {% unless same_type and current_product.type != product.type %}
@@ -99,6 +101,7 @@
            {% endunless %}
         {% endunless %}
       {% endunless %}
+  {% endunless %}
     {% endfor %}
   {% endcapture %}
 

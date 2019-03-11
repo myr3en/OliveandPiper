@@ -33,6 +33,7 @@
             <div class="product-grid clearfix {% if section.settings.match-height %}products--match-height{% endif %}">
                 <div class="row">
                 {% for product in collection.products limit: section.settings.products-per-collection %}
+                {% include 'sca_freegift_price' with product %}
                     <div class="grid__item {{ grid_item_width }} indiv-product-wrapper collection-image-anim wow fadeIn
 
           {% case section.settings.products-per-collection %}
@@ -45,7 +46,8 @@
 	      	{% endcase %}
             ">
                         <div class="indiv-product">
-
+                            <span id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+                            <span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ product.id }}"> </span>
                             {% case section.settings.hover-effect %}
 
                             {% when 'none' %}
@@ -91,7 +93,7 @@
                                 <a href="{{ product.url | within: collection }}">
                                     <div class="indiv-product-title-text">{{product.title}}</div>
 
-                                    {% if product.compare_at_price_max > product.price %}
+                                    {% if sca_compare_at_price_max > sca_price %}
                                         <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
                                     {% endif %}
                                     {% unless product.available %}
@@ -99,13 +101,13 @@
                                     {% endunless %}
 
                                     <span class="money-styling custom-font">
-								{% if product.compare_at_price_max > product.price %}
-                                    <h5 class="custom-font compare-at-price"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span></h5>
+								{% if sca_compare_at_price_max > sca_price %}
+                                    <h5 class="custom-font compare-at-price"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"></span>{{ sca_compare_at_price_max | money }}</span></h5>
                                 {% endif %}
-                                        {% if product.price_varies %}
-                                            <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+                                        {% if sca_price_varies %}
+                                            <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
 							  {% else %}
-                                            <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+                                            <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
                                         {% endif %}
 							</span>
                                 </a>

@@ -164,3 +164,5 @@ button.sca-button.disabled span {cursor: default !important; color: #000 !import
         margin-top: 10px !important;
     }
 }
+.sca-fg-img-collect { z-index: 1; }
+.item.not-sca-qv .lazyOwl { max-width: 100%; }

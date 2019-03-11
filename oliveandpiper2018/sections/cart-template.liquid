@@ -1,17 +1,18 @@
 <div class="title-bar custom-font">
 	<h2>{{ 'cart.general.title' | t }}</h2>
-	<div class="clear"></div>
+{% if customer.tags != blank %} <div id="wsg-spof-link" style="margin-top: 20px; text-align: center; font-size: 1.2em;"> </div> {% endif %}
+	<div class="clear"> </div>
 </div>
 
 {% if cart.item_count == 0 %}
-	<h3 class="empty-cart">{{ 'cart.general.empty' | t }}, <a href="/collections/all">{{ 'cart.general.continue_browsing_html' | t }}</a></h3>
+	<h3 class="empty-cart">{{ 'cart.general.empty' | t }}, <a href="/collections/all">{{ 'cart.general.continue_browsing_html' | t }}</a> </h3>
 {% else %}
 
-<div id="bold-cart-msg"></div>
+<div id="bold-cart-msg"> </div>
 <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
-	<table class="cart-table full table--responsive" border="0" cellspacing="0" cellpadding="0" class="hidden-xs">
+	<table class="cart-table full table--responsive" border="0" cellspacing="0" cellpadding="0">
 		<thead class="cart__row cart__header-labels">
-			<th colspan="2"></th>
+			<th colspan="2"> </th>
 			<th>{{ 'cart.general.price' | t }}</th>
 			<th>{{ 'cart.general.quantity' | t }}</th>
 			<th>{{ 'cart.general.total' | t }}</th>
@@ -19,18 +20,19 @@
 
 		<tbody>
 			{% for item in cart.items %}
+<div class="wsg-collections-list-{{item.id}}" style="display:none"> {{item.product.collections | json}} </div> <div class="wsg-product-tags-{{item.id}}" style="display:none"> {{item.product.tags | json}} </div>
 				<tr class="{% cycle 'even', 'odd' %}">
 					<td class="cart-table-image col-md-2">
-						<a class="cart_thumb" href="{{item.product.url}}" title="View {{item.title}} Page">
-							<img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" />
+						<a class="cart_thumb" href="{{item.product.url}}" title="View {{item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', '' }} Page">
+							<img src="{{ item | img_url: 'small' }}" alt="{{ item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  | escape }}"/>
 						</a>
 					</td>
 
 					<td class="cart-table-title col-sm-5 col-md-3 col-xs-12">
-						<a href="{{item.url}}" title="View {{item.title | escape }}">{{ item.title }}</a>
+						<a href="  {%if item.variant.metafields.secomapp.freegifts%}{{ item.product.url }}{%else%}{{item.url}}{%endif%}" title="View {{item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  | escape }}">{{ item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  }}</a>
 						{% assign property_size = item.properties | size %}
 						{% if property_size > 0 %}
-							<br />
+							<br/>
 							{% for p in item.properties %}
 								{% unless p.last == blank %}
 									{{ p.first }}:
@@ -47,25 +49,29 @@
 							{% endfor %}
 						{% endif %}
 						<div class="cart-table-item-remove">
-							<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
+							<a href="/cart/change?line={{ forloop.index }}&quantity=0">{{ 'cart.general.remove' | t }}</a>
 						</div>
 					</td>
 
 					<td class="cart-table-price col-xs-6 col-sm-4 col-md-2">
-						<span class="mobile-label">Price</span> <span class="money">{{ item.price | money }}</span>
+						<span class="mobile-label">Price</span> <span class="money"><span class="wsg-item-price_{{item.id}}">{{ item.price | money }}</span></span>
 					</td>
 
 					<td class="cart-table-quantity col-xs-6 col-sm-4 col-md-2">
 						<div class="quantity-controls">
+							{%unless item.variant.metafields.secomapp.freegifts%}
 							<button type="button" class="qty-minus">-</button>
-							<input class="number quantity-selector" type="text" size="4" name="updates[{{item.variant.id}}]" id="updates_{{item.variant.id}}" value="{{item.quantity}}"/>
+							{% endunless %}
+							<input {%if item.variant.metafields.secomapp.freegifts%}readonly{%endif%} class="number quantity-selector" type="text" size="4" name="updates[{{item.variant.id}}]" id="updates_{{item.variant.id}}" value="{{item.quantity}}"/>
+							{%unless item.variant.metafields.secomapp.freegifts%}
 							<button type="button" class="qty-plus">+</button>
+							{% endunless %}
 						</div>
-						</div>
+						
 					</td>
 
 					<td class="cart-table-line-price col-xs-12 col-sm-4 col-md-2">
-						<span class="mobile-label">Total</span> <span class="money">{{item.line_price | money }}</span>
+                      <span class="mobile-label">Total</span> <span class ="wsg-line-price_{{item.id}}"><span class="money">{{item.line_price | money }}</span></span>
 					</td>
 
 				</tr>
@@ -74,11 +80,12 @@
 	</table>
 
 	<div class="cart-bottom-box">
+{%include 'wsg-ship-partial'%} <p id="wsg-under-ordered" style="display:none"> </p>
 
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
 			<div id="cart-total-final-price">
-				<span class="money">{{ cart.total_price | money }}</span>
+				<span class="money wsg-cart-subtotal">{{ cart.total_price | money }}</span>
 			</div>
 		</div>
 
@@ -86,17 +93,17 @@
 
 			<div class="col-md-6 checkout-add-note desktop">
 				{% if section.settings.allow_note %}
-					<p>{{ 'cart.general.note' | t }}&hellip;</p>
-					<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
+					<p>{{ 'cart.general.note' | t }}…</p>
+					<textarea id="note" name="note" class="form-control wsg-note" onblur="updateCartNote()">{{ cart.note }}</textarea>
 				{% endif %}
-				&nbsp;
+				 
 			</div>
 
 			<div id="checkout-buttons" class="col-md-6">
 				      {% if section.settings.enable_terms_conditions %}
 							<div class="terms-conditions">
 								<p>
-									<input style="float:none; vertical-align: middle;" type="checkbox" id="agree" />
+									<input style="float:none; vertical-align: middle;" type="checkbox" id="agree"/>
 									<label style="display:inline; float:none" for="agree">
 										{% if section.settings.terms_conditions_link == blank %}
 				              {{ 'cart.general.terms_text' | t }}
@@ -111,9 +118,9 @@
 				{% if section.settings.enable_continue_shopping %}
 					<a href="/" class="custom-font btn btn-default continue-shopping--cart">{{ 'layout.cart.continue_shopping' | t }}</a>
 				{% endif %}
-				<input id="update_quantities" type="submit" value="{{ 'cart.general.update' | t }}" title="{{ 'cart.general.update' | t }}" name="update" class="btn btn-default custom-font" />
-				<input id="cart_submit" type="submit" value="{{ 'cart.general.checkout' | t }}" name="checkout" class="btn btn-success custom-font" />
-				{% if additional_checkout_buttons %}
+				<input id="update_quantities" type="submit" value="{{ 'cart.general.update' | t }}" title="{{ 'cart.general.update' | t }}" name="update" class="btn btn-default custom-font"/>
+				<input id="cart_submit" type="submit" value="{{ 'cart.general.checkout' | t }}" name="checkout" class="btn btn-success custom-font wsg-checkout-main"/>
+				{% if additional_checkout_buttons and customer.tags == blank %}
 					<div id="additional-checkout-buttons">
 						{{ content_for_additional_checkout_buttons }}
 					</div>
@@ -124,24 +131,14 @@
 
 			<div class="col-md-6 checkout-add-note mobile">
 				{% if section.settings.allow_note %}
-					<p>{{ 'cart.general.note' | t }}&hellip;</p>
-					<textarea id="note" name="note" class="form-control" onblur="updateCartNote()">{{ cart.note }}</textarea>
+					<p>{{ 'cart.general.note' | t }}…</p>
+					<textarea id="note" name="note" class="form-control wsg-note" onblur="updateCartNote()">{{ cart.note }}</textarea>
 				{% endif %}
-				&nbsp;
+				 
 			</div>
 	</div>
 <!--START Yotpo Reviews Carousel -->
-<div class="yotpo yotpo-reviews-carousel"
-     data-header-customisation-enabled="1"
-     data-header-customisation-text
-     data-background-color="transparent"
-     data-mode="top_rated"
-     data-type="site"
-     data-count="9"
-     data-show-bottomline="1"
-     data-autoplay-enabled="1"
-     data-autoplay-speed="3000"
-     data-show-navigation="1">&nbsp;</div>
+<div class="yotpo yotpo-reviews-carousel" data-header-customisation-enabled="1" data-header-customisation-text data-background-color="transparent" data-mode="top_rated" data-type="site" data-count="9" data-show-bottomline="1" data-autoplay-enabled="1" data-autoplay-speed="3000" data-show-navigation="1"> </div>
 <!--END Yotpo Reviews Carousel -->
 </form>
 
@@ -206,3 +203,5 @@
  }
  </script>
 <!-- End update Cart Notes -->
+
+{%include 'wsg-cart'%}

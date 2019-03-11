@@ -1,3 +1,23 @@
+"undefined"==typeof freegifts_product_json&&(window.freegifts_product_json=function(e){if(e){for(var i=0;i<e.options.length;i++)if(option=e.options[i],option.values)for(var r=0;r<option.values.length;r++)(option.values[r].endsWith("(Freegifts)")||option.values[r].endsWith("% off)"))&&(option.values.splice(r,1),r--);for(var a=function(e){for(var i in e)if(e.hasOwnProperty(i))return!1;return!0},p=e.price,t=e.price_max,o=e.price_min,n=e.compare_at_price,_=e.compare_at_price_max,c=e.compare_at_price_min,i=0;i<e.variants.length;i++){var r=e.variants[i],s=r.option3?r.option3:r.option2?r.option2:r.option1;"undefined"!=typeof SECOMAPP&&"undefined"!=typeof SECOMAPP.gifts_list_avai&&!a(SECOMAPP.gifts_list_avai)&&"undefined"!=typeof SECOMAPP.gifts_list_avai[r.id]||s.endsWith("(Freegifts)")||s.endsWith("% off)")?(e.variants.splice(i,1),i-=1):(t>=r.price&&(t=r.price,p=r.price),o<=r.price&&(o=r.price),r.compare_at_price&&(_>=r.compare_at_price&&(_=r.compare_at_price,n=r.compare_at_price),c<=r.compare_at_price&&(c=r.compare_at_price)),1==r.available&&(e.available=!0))}e.price=p,e.price_max=o,e.price_min=t,e.compare_at_price=n,e.compare_at_price_max=c,e.compare_at_price_min=_,e.price_varies=o>t?!0:!1,e.compare_at_price_varies=c>_?!0:!1}return e});
+
+if ((typeof Shopify) === 'undefined') { Shopify = {}; }
+// Get from cart.js returns the cart in JSON
+Shopify.getCart = function(callback) {
+  jQuery.getJSON('/cart.js', function (cart, textStatus) {
+    if ((typeof callback) === 'function') {
+      callback(cart);
+    }else if(Array.isArray(callback)){
+      for(i=0; i < callback.length; i++){
+        if(typeof callback[i] === 'function'){
+          callback[i](cart);
+        }
+      }
+    } else if(typeof Shopify.onCartUpdate==='function'){
+      Shopify.onCartUpdate(cart);
+    }
+  });
+};
+
 /*
 
 Envy by WeTheme (http://www.wetheme.com)
@@ -296,7 +316,7 @@ function Product(element) {
         // Product is not loaded, there is either no product section or the product is not selected
         return;
     }
-    this.product = JSON.parse(document.querySelector('#ProductJson-' + this.sectionId).innerText);
+    this.product = freegifts_product_json(JSON.parse(document.querySelector('#ProductJson-' + this.sectionId).innerText));
     this.$selects = this.$element.find('.selector-wrapper select, .materialize-select select');
     this.$selects.on('change', this.on_select_change.bind(this));
     this.$original_select = this.$element.find('.original-select');
@@ -506,24 +526,27 @@ Product.prototype.update_cart = function () {
 };
 
 Product.prototype.updated_cart = function (data) {
-    this.enable_cart_button();
-    this.$cart_item_count.text(data.item_count);
-    this.$cart_money.html(formatMoney(data.total_price));
-    if (Currency.shopCurrency) {
-        Currency.convertAll(Currency.shopCurrency, jQuery('[name=currencies]').val());
-    }
-    if (this.$cart_slider_wrapper.length > 0) {
-        this.show_cart();
-    } else {
-        this.$cart.html(window.theme.strings.added);
-        if (this.added_text_timeout) {
-            clearTimeout(this.added_text_timeout);
-            this.added_text_timeout = null;
+    var _this = this;
+    Shopify.getCart(function(cart) {
+        _this.enable_cart_button();
+        _this.$cart_item_count.text(cart.item_count);
+        _this.$cart_money.html(formatMoney(cart.total_price));
+        if (Currency.shopCurrency) {
+            Currency.convertAll(Currency.shopCurrency, jQuery('[name=currencies]').val());
         }
-        this.added_text_timeout = setTimeout(function () {
-            this.$cart.html(window.theme.strings.addToCart);
-        }.bind(this), 2000);
-    }
+        if (_this.$cart_slider_wrapper.length > 0) {
+            _this.show_cart();
+        } else {
+            _this.$cart.html(window.theme.strings.added);
+            if (_this.added_text_timeout) {
+                clearTimeout(_this.added_text_timeout);
+                _this.added_text_timeout = null;
+            }
+            _this.added_text_timeout = setTimeout(function () {
+                _this.$cart.html(window.theme.strings.addToCart);
+            }.bind(_this), 2000);
+        }
+    }, data);
 };
 
 Product.prototype.update_cart_failed = function (response) {

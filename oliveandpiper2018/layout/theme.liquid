@@ -12,11 +12,11 @@
   <meta name="google-site-verification" content="LwtMxFwVUHuIzmlOjg7UYw0ZkdDwZDFeYwbXut_9rqE" />
 
 	<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"> </script>
 	<![endif]-->
 
 	<title>
-		{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+		{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} – {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} – {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}
 	</title>
 
 	<script type="text/javascript">
@@ -66,7 +66,7 @@
 {% if template %}
 	{{ 'jquery-1.11.0.min.js' | asset_url | script_tag }}
 {% else %}
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script>
 {% endif %}
 
 	{{ 'plugins.js' | asset_url | script_tag }}
@@ -89,16 +89,19 @@
 {% include 'sca.freegifts' %}
 
 	{% include 'magiczoomplus.headers' %}
+<!-- SHARE A SALE -->
+  <script>var shareasaleShopifySSCID=shareasaleShopifyGetParameterByName("sscid");function shareasaleShopifySetCookie(e,a,o,i,r){if(e&&a){var s,S=i?"; path="+i:"",h=r?"; domain="+r:"",t="";o&&((s=new Date).setTime(s.getTime()+o),t="; expires="+s.toUTCString()),document.cookie=e+"="+a+t+S+h}}function shareasaleShopifyGetParameterByName(e,a){a||(a=window.location.href),e=e.replace(/[\[\]]/g,"\\$&");var o=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(a);return o?o[2]?decodeURIComponent(o[2].replace(/\+/g," ")):"":null}shareasaleShopifySSCID&&shareasaleShopifySetCookie("shareasaleShopifySSCID",shareasaleShopifySSCID,94670778e4,"/");</script>
+  {% include 'wsg-header' %}
 </head>
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper">
 
-    {% if settings.cart-type == 'drawer' %}
+    {% if settings.cart-type == 'drawer' and customer.tags == blank %}
 	{% include 'cart-drawer' %}
     {% endif %}
 
 	<div id="main-body">
 
-		<div id="slideout-overlay"></div>
+		<div id="slideout-overlay"> </div>
 
 		{% section 'announcement-bar' %}
 		{% section 'header' %}
@@ -171,7 +174,7 @@
 {%- include 'bold-currency-converter' -%}
 
 <!-- MAILCHIMP POPUP
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"00ea1e3e19b1ab6274800f1a6","lid":"ee53787418","uniqueMethods":true}) })</script>
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"> </script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"00ea1e3e19b1ab6274800f1a6","lid":"ee53787418","uniqueMethods":true}) })</script>
 -->
   
 <!-- BEACON SCRIPT CODE -->

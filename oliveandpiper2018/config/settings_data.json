@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Free shipping on orders over $49 US*",
+          "message_text": "free shipping on orders over $49 us",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#b8a1ac",
+          "notification-bar--background-colour": "#e5dad2",
           "notification-bar--text-colour": "#252525"
         }
       },
@@ -151,7 +151,7 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "NOW TRENDING",
+          "title": "",
           "show-vendor": false,
           "hover-effect": "zoom",
           "collection": "homepage",
@@ -214,10 +214,24 @@
       "logo-bar": {
         "type": "logo-bar",
         "blocks": {
+          "1547862085024": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ellecanada_logo1_grey.png",
+              "link": ""
+            }
+          },
+          "1538422962240": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/TheKnotLogo-updated_376d1da7-63c1-44fd-903c-e164c038f8b9.png",
+              "link": ""
+            }
+          },
           "1538422852019": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/brides_bc45b536-6223-4191-8a2f-c6903c7100d9.jpg",
+              "image": "shopify:\/\/shop_images\/Brides.png",
               "link": ""
             }
           },
@@ -242,13 +256,6 @@
               "link": ""
             }
           },
-          "1538422962240": {
-            "type": "logo_image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/the-knot.jpg",
-              "link": ""
-            }
-          },
           "1538422976704": {
             "type": "logo_image",
             "settings": {
@@ -258,11 +265,12 @@
           }
         },
         "block_order": [
+          "1547862085024",
+          "1538422962240",
           "1538422852019",
           "1538422890914",
           "1538422909315",
           "1538422942092",
-          "1538422962240",
           "1538422976704"
         ],
         "settings": {
@@ -376,7 +384,7 @@
           "1527570682027": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/TheKnotLogo.png",
+              "image": "shopify:\/\/shop_images\/TheKnotLogo-updated_376d1da7-63c1-44fd-903c-e164c038f8b9.png",
               "link": ""
             }
           },
@@ -528,22 +536,22 @@
       "1541088605858": {
         "type": "collection-list",
         "blocks": {
-          "1541088605858-0": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "charm-necklace"
-            }
-          },
           "1541088605858-1": {
             "type": "featured_collection",
             "settings": {
               "collection": "statement-earrings"
             }
+          },
+          "1541088605858-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "womens-bracelets"
+            }
           }
         },
         "block_order": [
-          "1541088605858-0",
-          "1541088605858-1"
+          "1541088605858-1",
+          "1541088605858-0"
         ],
         "settings": {
           "title": "",
@@ -553,46 +561,30 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1546539589807": {
+          "1550776625715": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-SomethingNew-HeroBannerv2.jpg",
-              "title": "Here's $15 off!",
-              "text": "<p>Start the year off with something new.<\/p>\n<p>Get $15 off when you spend $75. Use code 15OFF.<\/p>",
+              "image": "shopify:\/\/shop_images\/OP-Littlestuds-HeroBanner.jpg",
+              "title": "Pretty Little Studs",
+              "text": "<p>Just in - everyday delicates you won't want to take off.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/new-arrivals",
-              "caption-background": "rgba(0,0,0,0)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1546449510744": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OP-NewYear-HeroBanner.jpg",
-              "title": "Best of 2018",
-              "text": "<p>Stock your jewelry box with our&nbsp;best sellers of the year!<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/best-selling-jewelry",
+              "link": "shopify:\/\/collections\/everyday-jewelry",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
+              "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
           },
-          "1544209376191": {
+          "1551932082545": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/crystal-work.jpg",
-              "title": "Crystal Work",
-              "text": "<p>Ring in the new year in spectacular confections.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/crystal-work",
+              "image": "shopify:\/\/shop_images\/OP-FinalFew-HeroBanner.jpg",
+              "title": "This is goodbye.",
+              "text": "<p>Hurry, these styles are almost gone&nbsp;for good.<\/p>",
+              "button_text": "SEE ALL",
+              "link": "shopify:\/\/collections\/final-few",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -603,9 +595,8 @@
           }
         },
         "block_order": [
-          "1546539589807",
-          "1546449510744",
-          "1544209376191"
+          "1551932082545",
+          "1550776625715"
         ],
         "settings": {
           "slider-animation": "slide",

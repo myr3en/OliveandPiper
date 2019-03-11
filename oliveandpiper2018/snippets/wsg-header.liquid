@@ -1,0 +1,147 @@
+{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+{% assign wsgActive = true %}
+
+<script>
+//==========================================
+//      Set global liquid variables
+//==========================================
+	//general variables
+  	var wsgActive = true;
+  	var wsgRunCollection;
+  	var wsgRunProduct;
+  	var wsgRunCart;
+  	var wsgRunSinglePage;
+  	var wsgRunSignup;
+  	var runProxy;
+    var hideDomElements = ["hideWsg"]; 
+  	var wsgData = {{ shop.metafields.wsg_data.discount_rules }}    
+    var wsgProdData = {{product | json}}	
+    //product variables
+  	var wsgCustomerTags = {{ customer.tags | json}}
+    var wsgCollectionsList = {{product.collections | json}} 
+
+    var moneyFormat = "{{ shop.money_format }}"
+    {% if customer.tags != blank %}
+    moneyFormat = moneyFormat.replace('<span class=money>', '');
+  	moneyFormat = moneyFormat.replace('</span>', '');
+	  Shopify.money_format = moneyFormat;
+	  {% endif %}
+    
+  	{% if product.selected_or_first_available_variant.id %}
+    	var wsgCurrentVariant = {{ product.selected_or_first_available_variant.id }};
+    {% else %}
+    	var wsgCurrentVariant = null;
+    {% endif %}
+  
+//==========================================
+//            Load WSG script
+//==========================================
+(function(){
+    var loadWsg = function(url, callback){
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    
+    // If the browser is Internet Explorer.
+    if (script.readyState){ 
+      script.onreadystatechange = function(){
+        if (script.readyState == "loaded" || script.readyState == "complete"){
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    // For any other browser.
+    } else {
+      script.onload = function(){
+        callback();
+      };
+    }
+    
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+    };
+  
+  loadWsg(wsgData.server_link, function(){
+  })
+})();
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  //update button classes
+  jQuery(".wsg-button-fix").addClass("btn btn-success custom-font")  
+  
+  {% if customer.tags != blank %}
+    //placeholder here
+  jQuery(".dropdown-content li").addClass("wsg-option-click")
+  {% endif %}
+}) 
+</script>
+
+<style>
+/*   Signup/login */
+  #wsg-signup select, 
+  #wsg-signup input, 
+  #wsg-signup textarea {
+    height: 46px;
+    border: thin solid #d1d1d1;
+    padding: 6px 10px;
+/*     background-color: white */
+  }
+  #wsg-signup textarea {
+    min-height: 100px;
+  }
+  .wsg-login-input {
+    height: 46px;
+    border: thin solid #d1d1d1;
+    padding: 6px 10px;
+    /*     background-color: white */
+  }
+/*   SPOF */
+  .wsg-table td {
+   border: none;
+  }
+  .wsg-table tr {
+   border-bottom: thin solid #d1d1d1; 
+    border-left: none;
+  }
+  .wsg-table input[type="number"] {
+    border: thin solid #d1d1d1;
+    padding: 5px 15px;
+    min-height: 42px;
+  }
+  #wsg-cart-update{
+    padding: 8px 10px !important;
+    min-height: 30px;
+  }
+  #wsg-signup select {
+	display: block !important;
+  }
+  .wsg-table {
+    
+  }
+  .wsg-spof-container-main {
+    
+  }
+  .wsg-one-half {
+    
+  }
+  {% if customer.tags != blank %}
+  .wsgPriceFix {
+    
+  }
+  {% endif %}
+  .wsg-button-fix {
+background-color: #d8ead0;
+
+color: #000;
+
+text-transform: uppercase;
+
+border: 1px solid #d8ead0 !important;
+
+font-weight: 400;
+
+text-align: center;
+
+font-size: 16px !important;    
+  }
+</style>

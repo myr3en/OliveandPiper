@@ -1,3 +1,4 @@
+<script> wsgRunCollection = true; </script>
 <div class="container">
 	<div class="row">
 		<div class="page-width col-md-12">
@@ -24,6 +25,8 @@
     <div class="row homepage-featured-products {% if section.settings.match-height %}products--match-height{% endif %}">
 
       {% for product in collection.products limit: product_limit %}
+      {% assign exclude = false %} {% if customer.tags != blank %} {% for tag in product.tags%} {% if shop.metafields.wsg_data.excludeTags contains tag%} {% assign exclude = true %} {% endif %} {% endfor %} {% else %} {% if product.tags contains 'wholesale-only' %} {% assign exclude = true %} {% endif %} {% endif %} {% unless exclude == true %}
+	  {% include 'sca_freegift_price' with product %}
         <div class="grid__item {{ grid_item_width }} wow fadeIn collection-image-anim
 
         {% case section.settings.grid %}
@@ -38,7 +41,8 @@
         ">
 
         <div class="indiv-product">
-
+			<span id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </span>
+			<span class="sca-fg-cat-list prod-show-list" style="display:none;" id="secomapp-fg-data-{{ product.id }}"> </span>
 					{% case section.settings.hover-effect %}
 
 						{% when 'none' %}
@@ -110,32 +114,33 @@
 
         			<div class="indiv-product-title-text">{{ product.title }}</div>
 
+<span class='wsg-collection-item' id='wsg-prod-id-{{product.id}}' ><span class='wsg-prod-data' style='display:none'>{{product | json}}</span></span> <span class='wsg-collections-data' style='display:none'>{{product.collections | json}}</span>
         			<span class="money-styling custom-font">
 
-        				{% if product.compare_at_price_max > product.price %}
-        					<h5 class="custom-font compare-at-price"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ product.compare_at_price_max }}" style="display:none !important;"></span>{{ product.compare_at_price_max | money }}</span></h5>
+        				{% if sca_compare_at_price_max > sca_price %}
+        					<h5 class="custom-font compare-at-price hideWsg"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"></span>{{ sca_compare_at_price_max | money }}</span></h5>
         				{% endif %}
-
-                        {% if product.price_varies %}
-                            <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+<span class="wsg-price-{{product.id}}">
+                        {% if sca_price_varies %}
+                            <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
                         {% else %}
-                            <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ product.price_min }}" style="display:none !important;"></span>{{ product.price_min | money }}</span>
+                            <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
                         {% endif %}
-
+                      </span>
         			</span>
         		</a>
         	</div>
         </div>
 
-        {% if product.compare_at_price_max > product.price and product.available %}
-        	<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+        {% if sca_compare_at_price_max > sca_price and product.available %}
+        	<div class="sale-badge hideWsg">{{ 'products.general.sale' | t }}</div>
         {% endif %}
         {% unless product.available %}
             <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
         {% endunless %}
 
         </div>
-
+{% endunless %}
       {% else %}
 
         {% for i in (1..product_limit) %}
