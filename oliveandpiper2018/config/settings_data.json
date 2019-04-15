@@ -539,7 +539,7 @@
           "1541088605858-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "statement-earrings"
+              "collection": "everyday-jewelry"
             }
           },
           "1541088605858-0": {
@@ -561,14 +561,14 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1550776625715": {
+          "1553806477938": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-Littlestuds-HeroBanner.jpg",
-              "title": "Pretty Little Studs",
-              "text": "<p>Just in - everyday delicates you won't want to take off.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/everyday-jewelry",
+              "image": "shopify:\/\/shop_images\/OP-FloraCrystal-HeroBanner.jpg",
+              "title": "Flora Crystal Collar",
+              "text": "<p>This iconic best seller is back&nbsp;in&nbsp;a special limited edition run.<\/p>",
+              "button_text": "GET ONE NOW",
+              "link": "shopify:\/\/products\/flora-crystal-necklace",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -577,14 +577,14 @@
               "vertical-alignment": "middle"
             }
           },
-          "1551932082545": {
+          "1553182051680": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-FinalFew-HeroBanner.jpg",
-              "title": "This is goodbye.",
-              "text": "<p>Hurry, these styles are almost gone&nbsp;for good.<\/p>",
-              "button_text": "SEE ALL",
-              "link": "shopify:\/\/collections\/final-few",
+              "image": "shopify:\/\/shop_images\/shades_of_silver_2.jpg",
+              "title": "Shades of Silver",
+              "text": "<p>New styles in bright rhodium plating.<\/p>",
+              "button_text": "Shop Now",
+              "link": "shopify:\/\/collections\/silver-plated-jewelry",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -592,11 +592,28 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1554228898675": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Lucy_Necklace_a39ffb13-3264-494c-9a30-07f0141db964.jpg",
+              "title": "Classic Essentials",
+              "text": "<p>A must-have in every&nbsp;girl's wardrobe.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/lucy-crystal-collar",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
-          "1551932082545",
-          "1550776625715"
+          "1553806477938",
+          "1553182051680",
+          "1554228898675"
         ],
         "settings": {
           "slider-animation": "slide",
