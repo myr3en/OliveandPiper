@@ -406,6 +406,7 @@ Product.prototype.on_variant_selected = function (variant_id) {
         this.update_variant(null);
     } else {
         var variant = matching_variants[0];
+      
         this.update_variant(matching_variants[0]);
         for (var i = 0; i < variant.options.length; i++) {
             $('#SingleOptionSelector-' + i).val(variant.options[i]).material_select();
@@ -415,6 +416,11 @@ Product.prototype.on_variant_selected = function (variant_id) {
 
 Product.prototype.update_variant = function (variant) {
     if (variant) {
+      
+if (typeof MagicZoom != 'undefined' && $('a[data-variants*="'+variant.id+'"]').length) {
+MagicZoom.switchTo($('.MagicZoomPlus').attr('id'), $('a[data-variants*="'+variant.id+'"]')[0])
+}
+      
         this.$original_select.val(variant.id);
         if (!variant.available) {
             this.$price.text(theme.strings.soldOut);

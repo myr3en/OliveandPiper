@@ -561,35 +561,19 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1553806477938": {
+          "1556028135512": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-FloraCrystal-HeroBanner.jpg",
-              "title": "Flora Crystal Collar",
-              "text": "<p>This iconic best seller is back&nbsp;in&nbsp;a special limited edition run.<\/p>",
-              "button_text": "GET ONE NOW",
-              "link": "shopify:\/\/products\/flora-crystal-necklace",
+              "image": "shopify:\/\/shop_images\/OP-Mama-HeroBanner2.jpg",
+              "title": "Just for Mom",
+              "text": "<p>The signature mama necklace is back,<\/p>\n<p>in a limited edition pave finish.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/pave-mama-pendant",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1553182051680": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/shades_of_silver_2.jpg",
-              "title": "Shades of Silver",
-              "text": "<p>New styles in bright rhodium plating.<\/p>",
-              "button_text": "Shop Now",
-              "link": "shopify:\/\/collections\/silver-plated-jewelry",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           },
@@ -608,11 +592,27 @@
               "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
+          },
+          "1556658482185": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-Personalized-HeroBanner.jpg",
+              "title": "Thoughtful Gifts",
+              "text": "<p>Take 20% off custom jewelry with code LOVEMOM.<\/p>\n<p>Valid until May 3.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/personalized-jewelry",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
-          "1553806477938",
-          "1553182051680",
+          "1556658482185",
+          "1556028135512",
           "1554228898675"
         ],
         "settings": {
