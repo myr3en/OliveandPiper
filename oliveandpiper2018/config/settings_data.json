@@ -198,12 +198,11 @@
       },
       "text-over-image-2": {
         "type": "text-over-image",
-        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/OP_texturebanner3.jpg",
           "parallax": true,
           "title": "About olive + piper",
-          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver, Canada. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a> and&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/sale\" title=\"https:\/\/www.oliveandpiper.com\/collections\/sale\">Sale Items<\/a>.<\/p>",
+          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver, Canada. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a>&nbsp;too.<\/p>",
           "alignment": "center",
           "hero_size": "x-small",
           "text-over-image-width": "full-width",
@@ -592,26 +591,9 @@
               "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
-          },
-          "1556658482185": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OP-Personalized-HeroBanner.jpg",
-              "title": "Thoughtful Gifts",
-              "text": "<p>Take 20% off custom jewelry with code LOVEMOM.<\/p>\n<p>Valid until May 3.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/personalized-jewelry",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
-          "1556658482185",
           "1556028135512",
           "1554228898675"
         ],
@@ -625,11 +607,30 @@
           "show-slide-dots": false,
           "show-slide-arrows": true
         }
+      },
+      "1556908002738": {
+        "type": "image-bar",
+        "blocks": {
+          "1556908002738-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WIDE-BANNER-RESTOCKING.jpg",
+              "link": "",
+              "title": "",
+              "description": ""
+            }
+          }
+        },
+        "block_order": [
+          "1556908002738-0"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
       "1543209232198",
       "1541088605858",
+      "1556908002738",
       "collection",
       "text-over-image-1",
       "1532101176305",
@@ -639,8 +640,8 @@
       "instagram",
       "featured-blog",
       "social-media",
-      "text-over-image-2",
-      "1519623686049"
+      "1519623686049",
+      "text-over-image-2"
     ]
   },
   "presets": {
