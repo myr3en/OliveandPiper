@@ -1,4 +1,4 @@
-{{ 'bold-checkout-options.js' | asset_url | script_tag }}
+ {{ 'bold-checkout-options.js' | asset_url | script_tag }}
 <script type="application/javascript">
 
     var request = new XMLHttpRequest();
@@ -297,6 +297,14 @@
                 cartElement.value = cartObj;
                 form.appendChild(cartElement);
                 form.method = "POST";
+
+                if(BOLD && BOLD.checkout && typeof BOLD.checkout.languageIsoCode === 'string') {
+                    var langInput = document.createElement('INPUT');
+                    langInput.type = 'HIDDEN';
+                    langInput.name = 'language_iso';
+                    langInput.value = BOLD.checkout.languageIsoCode;
+                    form.appendChild(langInput);
+                }
 
                 if (BOLD && BOLD.common && typeof BOLD.common.eventEmitter === 'object' && typeof BOLDCURRENCY !== 'undefined') {
                     BOLD.common.eventEmitter.emit('BOLD_CASHIER_checkout', {target: form});

@@ -610,6 +610,7 @@
       },
       "1556908002738": {
         "type": "image-bar",
+        "disabled": true,
         "blocks": {
           "1556908002738-0": {
             "type": "image",
