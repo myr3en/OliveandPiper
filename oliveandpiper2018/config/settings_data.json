@@ -560,42 +560,25 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1556028135512": {
+          "1558026911477": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-Mama-HeroBanner2.jpg",
-              "title": "Just for Mom",
-              "text": "<p>The signature mama necklace is back,<\/p>\n<p>in a limited edition pave finish.<\/p>",
+              "image": "shopify:\/\/shop_images\/hero_banner.jpg",
+              "title": "MAIA COLLECTION",
+              "text": "<p>Our floral collection boasts beautiful<\/p>\n<p>silhouettes with a mix of texture.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/pave-mama-pendant",
+              "link": "shopify:\/\/collections\/maia-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1554228898675": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Lucy_Necklace_a39ffb13-3264-494c-9a30-07f0141db964.jpg",
-              "title": "Classic Essentials",
-              "text": "<p>A must-have in every&nbsp;girl's wardrobe.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/lucy-crystal-collar",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1556028135512",
-          "1554228898675"
+          "1558026911477"
         ],
         "settings": {
           "slider-animation": "slide",
