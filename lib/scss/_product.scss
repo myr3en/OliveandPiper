@@ -149,6 +149,8 @@ body.template-product {
         }
 
         .breadcrumb {
+            padding-top: 0;
+            margin-top: 0;
             a, span {
                 font-family: work-sans,sans-serif;
                 font-style: normal;
@@ -176,6 +178,7 @@ body.template-product {
     /* PRODUCT IMAGES SECTION */
     .MagicToolboxSlides {
         z-index: 0 !important;
+        margin: 0;
     }
     #product-thumbnails {
         li {
@@ -307,6 +310,13 @@ body.template-product {
         }
     }
 
+    .select-wrapper {
+        input.select-dropdown {
+            padding: 5px 10px;
+        }
+    }
+
+
     /* Product customizer option */
     .product-customizer-options {
         text-align: center;
@@ -349,6 +359,7 @@ body.template-product {
                 input {
                     background: none !important;
                     border: 0;
+                    padding: 5px 10px;
                 }
 
             }
