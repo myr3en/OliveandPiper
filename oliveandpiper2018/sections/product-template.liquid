@@ -80,7 +80,7 @@
 
   {% if section.settings.thumbnail_position == 'left' %}
     {% if product.images.size > 1 %}
-    <div class="col-md-1 product-page--side-thumbnails hidden-xs" style="display:none">
+    <div class="col-md-1 product-page--side-thumbnails hidden-xs">
       <div class="row">
         <ul id="product-thumbnails">
         {% for image in product.images %}
@@ -101,11 +101,8 @@
 
 	<div class="sale-badge product-price__sale-label-{{ section.id }}{% unless current_variant.compare_at_price > current_variant.price %} hide{% endunless %}">{{ 'products.general.sale' | t }}</div>
         <input type="hidden" id="thumbnail_changes_variant" value="{% if section.settings.thumbnail_changes_variant %}true{% else %}false{% endif %}" />
-      
-      {% include 'magiczoomplus' %}
 
-		<div style="display:none">
-      <!-- The first image pulled from the product is a large image (480x480), subsequent images are "compact" which is 160x160 -->
+		<!-- The first image pulled from the product is a large image (480x480), subsequent images are "compact" which is 160x160 -->
 		<div id="product_images">
 			{% for image in product.images %}
 				{% if forloop.first %}
@@ -153,8 +150,6 @@
 				</div>
 			</div>
 		</div>
-          
-      </div>
 
 	</div>
 
