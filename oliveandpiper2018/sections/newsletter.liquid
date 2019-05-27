@@ -29,7 +29,7 @@
               <p class="note form-success success_section">{{ 'general.newsletter_form.thanks' | t }}</p>
             {% else %}
               <input type="hidden" name="contact[tags]" value="newsletter">
-              <div id="newsletter-wrapper">
+              <div id="newsletter-wrapper test">
                 <input id="newsletter_text" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_text' | t }}" name="contact[email]" class="input-group-field email" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
                 <input id="newsletter_submit" type="submit" class="btn btn-default" name="subscribe" value="subscribe">
               </div>
