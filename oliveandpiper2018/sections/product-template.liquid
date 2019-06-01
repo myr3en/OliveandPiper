@@ -323,7 +323,7 @@
   					  {% endif %}
 
                     <div class="col-lg-9 col-md-10 product-page--submit-action" data-stock-email-enabled="{{ section.settings.show_out_of_stock_email }}">
-  					    <button type="submit" name="add" id="purchase" class="wsgRedirectCart btn btn-success custom-font">
+  					    <button type="submit" name="add" id="purchase" class="wsgRedirectCart btn btn-success custom-font" onclick="pintrk('track', 'addtocart');">
   					        {{ 'products.product.add_to_cart' | t }}
   					    </button>
 
