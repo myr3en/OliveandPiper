@@ -91,8 +91,8 @@
         "settings": {
           "message_text": "free shipping on orders over $49 us",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#e5dad2",
-          "notification-bar--text-colour": "#252525"
+          "notification-bar--background-colour": "#303b4b",
+          "notification-bar--text-colour": "#ede9e9"
         }
       },
       "header": {
@@ -112,12 +112,12 @@
       "text-adverts": {
         "type": "text-adverts",
         "blocks": {
-          "advert-1": {
+          "1559181754825": {
             "type": "text",
             "settings": {
-              "heading": "15% off your first order",
-              "subheading": "Sign up for our email >",
-              "link": "https:\/\/oliveandpiper.us5.list-manage.com\/subscribe\/post?u=00ea1e3e19b1ab6274800f1a6&id=ee53787418"
+              "heading": "See What's New",
+              "subheading": "Shop the latest styles to arrive >",
+              "link": "shopify:\/\/collections\/new-arrivals"
             }
           },
           "advert-2": {
@@ -138,7 +138,7 @@
           }
         },
         "block_order": [
-          "advert-1",
+          "1559181754825",
           "advert-2",
           "advert-0"
         ],
@@ -560,10 +560,26 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
+          "1559235572887": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/HeroBanner_LuxeV2.jpg",
+              "title": "Luxe Collection",
+              "text": "<p>Elevate your everyday style with&nbsp;<span>truly versatile<\/span><\/p>\n<p><span>and timeless pieces.<\/span><\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/luxe-jewelry",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
+          },
           "1558026911477": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/hero_banner.jpg",
+              "image": "shopify:\/\/shop_images\/OP-Maia-HeroBanner-V3.jpg",
               "title": "MAIA COLLECTION",
               "text": "<p>Our floral collection boasts beautiful<\/p>\n<p>silhouettes with a mix of texture.<\/p>",
               "button_text": "SHOP NOW",
@@ -575,10 +591,28 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1559073019432": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/primrose_ce1dbade-06e2-4464-84a7-fa7722862662.jpg",
+              "title": "It's Golden",
+              "text": "<p>Our Primrose Studs, now in gold.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/primrose-studs",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
-          "1558026911477"
+          "1559235572887",
+          "1558026911477",
+          "1559073019432"
         ],
         "settings": {
           "slider-animation": "slide",
