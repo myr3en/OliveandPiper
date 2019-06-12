@@ -175,7 +175,9 @@
 
     {% capture out_of_stock_email_form %}
         <div class="sold-out-notification" id="sold-out">
-            {% form 'contact' %}
+            <p class="stock-notice">{{ 'products.product.sorry_stock' | t }}</p>
+            <button class="klaviyo-bis-trigger btn btn-success" style="display: block !important; margin: 0 auto;" href="#">Get on the Waitlist</button>
+            <!-- {% form 'contact' %}
             {% if form.posted_successfully? %}
                 <p class="accent-text">{{ 'products.product.thanks' | t }}</p>
                 <style>
@@ -207,7 +209,7 @@
                 </div>
             </div>
             {% endunless %}
-            {% endform %}
+            {% endform %} -->
         </div>
 {% endcapture %}
 
@@ -251,10 +253,18 @@
                     <div class="row product-pricing">
                         <h5 class="custom-font compare-at-price js hideWsg">
                             {% if current_variant.compare_at_price > current_variant.price %}
-                                <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>{{ current_variant.compare_at_price | money }}</span>
+                                <span class="money">
+                                    <span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>
+                                    {{ current_variant.compare_at_price | money }}
+                                </span>
                             {% endif %}
                         </h5>
-                        <h3 class="custom-font js wsg-price-{{product.id}}" id="price-field"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>{{ current_variant.price | money }}</span></h3>
+                        <h3 class="custom-font js wsg-price-{{product.id}}" id="price-field">
+                            <span class="money">
+                                <span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>
+                                {{ current_variant.price | money }}
+                            </span>
+                        </h3>
 
 
                     <!--START Yotpo Star Rating + Q&A Button-->
@@ -274,7 +284,6 @@
                   </div>
 
   					<div class="row product-buttons">
-
   						{% if sca_product_variantCount > 1  %}
   							{% for option in product.options_with_values %}
   								<div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12 selectors-cont">
@@ -311,7 +320,8 @@
 
                         {% include 'product-customizer' %}
 
-  			      {% if section.settings.show_quantity_selector %}
+
+                    {% if section.settings.show_quantity_selector %}
   			        <div class="selector-wrapper {% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-6 col-xs-6">
   				        <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
                         <div class="quantity-controls">
@@ -319,22 +329,23 @@
   				                <input type="text" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
                             <button type="button" class="qty-plus">+</button>
                         </div>
-  					    </div>
-  					  {% endif %}
+                    </div>
+                    {% endif %}
 
                     <div class="col-lg-9 col-md-10 product-page--submit-action" data-stock-email-enabled="{{ section.settings.show_out_of_stock_email }}">
   					    <button type="submit" name="add" id="purchase" class="wsgRedirectCart btn btn-success custom-font" onclick="pintrk('track', 'addtocart');">
   					        {{ 'products.product.add_to_cart' | t }}
   					    </button>
 
+
                         <div class="container-modal">
                             <p class="free-ship">*Free shipping over $49 +  Satisfaction Guarantee.
                             <a class="free-ship-btn" href="#open-modal">More Info</a></p>
                         </div>
-
                     </div>
-              </div>
 
+
+                  </div>
 
                 </form>
                 <span class="sca-fg-cat-list" style="display: none;" id="secomapp-fg-data-{{ product.id }}"> </span>
@@ -346,11 +357,11 @@
                     </div>
                 {% endif %}
 
+
         {% else %}
 
             <div>
                 <div class="product-out-of-stock {% unless section.settings.show_out_of_stock_email %}email-enabled{% endunless %}">
-                    <p class="stock-notice">{{ 'products.product.sorry_stock' | t }}</p>
                     {% if section.settings.show_out_of_stock_email %}
                     {{ out_of_stock_email_form }}
                     {% endif %}

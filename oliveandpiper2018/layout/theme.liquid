@@ -88,12 +88,12 @@
   <!-- END Yotpo JS Library -->
 {% include 'sca.freegifts' %}
 
-	
+
 <!-- SHARE A SALE -->
   <script>var shareasaleShopifySSCID=shareasaleShopifyGetParameterByName("sscid");function shareasaleShopifySetCookie(e,a,o,i,r){if(e&&a){var s,S=i?"; path="+i:"",h=r?"; domain="+r:"",t="";o&&((s=new Date).setTime(s.getTime()+o),t="; expires="+s.toUTCString()),document.cookie=e+"="+a+t+S+h}}function shareasaleShopifyGetParameterByName(e,a){a||(a=window.location.href),e=e.replace(/[\[\]]/g,"\\$&");var o=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(a);return o?o[2]?decodeURIComponent(o[2].replace(/\+/g," ")):"":null}shareasaleShopifySSCID&&shareasaleShopifySetCookie("shareasaleShopifySSCID",shareasaleShopifySSCID,94670778e4,"/");</script>
   {% include 'wsg-header' %}
 
-  
+
 <!-- Begin Pinterest Tag -->
 <script>
 !function(e){if(!window.pintrk){window.pintrk = function () {
@@ -108,8 +108,8 @@ pintrk('page');
 <noscript>
 <img height="1" width="1" style="display:none;" alt=""
 src="https://ct.pinterest.com/v3/?tid=2614325009265&noscript=1" />
-</noscript>  
-  
+</noscript>
+
 </head>
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper">
 
@@ -194,10 +194,53 @@ src="https://ct.pinterest.com/v3/?tid=2614325009265&noscript=1" />
 <!-- MAILCHIMP POPUP
 <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"> </script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us5.list-manage.com","uuid":"00ea1e3e19b1ab6274800f1a6","lid":"ee53787418","uniqueMethods":true}) })</script>
 -->
-  
+
 <!-- BEACON SCRIPT CODE -->
 <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
 <script type="text/javascript">window.Beacon('init', '22bbf8bc-e427-40b3-ad14-22b3d91f0d62')</script>
+
+
+<!-- KLAVIYO SCRIPT CODE -->
+<script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+<script>
+    var klaviyo = klaviyo || [];
+    klaviyo.init({
+      account: "LeTLiC",
+	  list: 'PLufL5',
+      platform: "shopify"
+    });
+    klaviyo.enable("backinstock",{
+    trigger: {
+      product_page_text: "Get on the Waitlist",
+      product_page_class: "btn",
+      product_page_text_align: "center",
+      product_page_margin: "0px",
+      replace_anchor: false
+    },
+    modal: {
+     headline: "Missed out?",
+     body_content: "Enter your email below and we'll let you know when this item is available for purchase.",
+     email_field_label: "Email",
+	 newsletter_subscribe_label: "Sign up for new arrivals and promotions.",
+     button_label: "GET ON THE WAITLIST",
+     subscription_success_label: "You're in! We'll let you know when it's back.",
+     footer_content: "You'll receive a one time email when this item is available for ordering. Your address will not be shared with anyone else.",
+     additional_styles: "@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');",
+	 font_family: "font-family: 'Raleway', sans-serif;",
+     drop_background_color: "#000",
+     background_color: "#fff",
+     text_color: "#222",
+     button_text_color: "#000",
+     button_background_color: "#e5dad2",
+     close_button_color: "#ccc",
+     error_background_color: "#fcd6d7",
+     error_text_color: "#C72E2F",
+     success_background_color: "#d3efcd",
+     success_text_color: "#1B9500"
+    }
+  });
+</script>
+
 
 </body>
 

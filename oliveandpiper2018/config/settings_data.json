@@ -6,7 +6,7 @@
     "sale-label-colour": "#1c2245",
     "header-background-colour": "#ffffff",
     "header-text-colour": "#000000",
-    "footer-background-colour": "#2b2b2b",
+    "footer-background-colour": "#303b4b",
     "footer-text-colour": "#ffffff",
     "main-menu-background-colour": "#ffffff",
     "main-menu-text-colour": "#000000",
@@ -76,14 +76,14 @@
     "checkout_logo_position": "center",
     "checkout_logo_size": "large",
     "checkout_body_background_image": "",
-    "checkout_body_background_color": "#fff",
+    "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
-    "checkout_sidebar_background_color": "#fff5f0",
+    "checkout_sidebar_background_color": "#e8dfde",
     "checkout_heading_font": "Open Sans",
     "checkout_body_font": "Helvetica Neue",
     "checkout_accent_color": "#17969c",
-    "checkout_button_color": "#17969c",
+    "checkout_button_color": "#166e72",
     "checkout_error_color": "#51a5de",
     "sections": {
       "announcement-bar": {
@@ -199,7 +199,7 @@
       "text-over-image-2": {
         "type": "text-over-image",
         "settings": {
-          "image": "shopify:\/\/shop_images\/OP_texturebanner3.jpg",
+          "image": "shopify:\/\/shop_images\/Untitled-1.jpg",
           "parallax": true,
           "title": "About olive + piper",
           "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver, Canada. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a>&nbsp;too.<\/p>",
@@ -464,7 +464,7 @@
           "thumbnail_position": "left",
           "enable_zoom": true,
           "show_reviews": false,
-          "show_out_of_stock_email": false
+          "show_out_of_stock_email": true
         }
       },
       "product-template-bottom": {
@@ -563,12 +563,12 @@
           "1559235572887": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/HeroBanner_LuxeV2.jpg",
+              "image": "shopify:\/\/shop_images\/HeroBanner_LuxeV2_495571cd-4775-4c25-8a14-ab090354bbba.jpg",
               "title": "Luxe Collection",
               "text": "<p>Elevate your everyday style with&nbsp;<span>truly versatile<\/span><\/p>\n<p><span>and timeless pieces.<\/span><\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/luxe-jewelry",
-              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-background": "rgba(0,0,0,0)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
@@ -579,7 +579,7 @@
           "1558026911477": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-Maia-HeroBanner-V3.jpg",
+              "image": "shopify:\/\/shop_images\/OP-Maia-HeroBanner-V3_52363c5d-771b-4b10-be5c-998a67f5ce37.jpg",
               "title": "MAIA COLLECTION",
               "text": "<p>Our floral collection boasts beautiful<\/p>\n<p>silhouettes with a mix of texture.<\/p>",
               "button_text": "SHOP NOW",
@@ -592,27 +592,27 @@
               "vertical-alignment": "middle"
             }
           },
-          "1559073019432": {
+          "1560282159233": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/primrose_ce1dbade-06e2-4464-84a7-fa7722862662.jpg",
-              "title": "It's Golden",
-              "text": "<p>Our Primrose Studs, now in gold.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/primrose-studs",
+              "image": "shopify:\/\/shop_images\/OP-EsteStuds-HeroBanner.jpg",
+              "title": "THE ESTE STUDS",
+              "text": "<p>Created by our jewelry designer for her wedding day.<\/p>",
+              "button_text": "SEE MORE",
+              "link": "shopify:\/\/products\/este-studs",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
+          "1560282159233",
           "1559235572887",
-          "1558026911477",
-          "1559073019432"
+          "1558026911477"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -643,6 +643,15 @@
           "1556908002738-0"
         ],
         "settings": {}
+      },
+      "search-template": {
+        "type": "search-template",
+        "settings": {
+          "show-vendor": false,
+          "hover-effect": "zoom",
+          "match-height": false,
+          "article-hover-effect": "zoom"
+        }
       }
     },
     "content_for_index": [

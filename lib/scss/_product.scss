@@ -208,6 +208,15 @@ body.template-product {
         @media only screen and (max-width: 767px) {
             margin-top: 0;
         }
+
+        .variant-out-of-stock {
+            text-align: center;
+            margin: 20px auto 30px !important;
+
+            .stock-notice {
+                margin-bottom: 10px;
+            }
+        }
     }
     .product-description-header {
         font-family: Georgia, Times, "Times New Roman", serif;
@@ -393,6 +402,27 @@ body.template-product {
         border: 0 !important;
         margin-bottom: 10px;
 
+    }
+
+    // klaviyo Back in stock styles //
+    .product-out-of-stock {
+        .klaviyo-bis-trigger {
+            text-transform: uppercase !important;
+            font-size: 15px !important;
+            background-color: #e5dad2;
+            border: 0 !important;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border-radius: 0;
+            color: $black;
+            font-family: Open Sans,sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 1px;
+            transition: .5s ease;
+        }
     }
 
 
