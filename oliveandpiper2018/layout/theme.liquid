@@ -50,9 +50,9 @@
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-	{{ content_for_header }}
+	{{ content_for_header }}{% include 'bold-checkout-loader' %}
 {{ 'bold-brain-widget.css' | asset_url | stylesheet_tag }}
-{% include 'bold-checkout-loader' %}
+
 
   {% include 'bold-common' %}
 
