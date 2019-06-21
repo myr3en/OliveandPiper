@@ -26,15 +26,13 @@ body.template-collection {
             padding: 0;
             h2 {
                 /* SEMI-BOLD */
-                text-transform: uppercase;
-                font-family: 'Open Sans', sans-serif;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 25px !important;
+                text-transform: capitalize;
+                font-family: 'NewParis Headline';
+                font-weight: normal;
+                font-size: 32px !important;
                 line-height: 36px !important;
                 letter-spacing: 2px;
                 background: none;
-                font-style: normal;
                 color: $white;
                 &:after {
                     border: none;
@@ -46,11 +44,10 @@ body.template-collection {
         margin-bottom: 20px;
         h2 {
             /* SEMI-BOLD */
-            text-transform: uppercase;
-            font-family: 'Open Sans', sans-serif;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 25px !important;
+            text-transform: capitalize !important;
+            font-family: 'NewParis Headline';
+            font-weight: normal;
+            font-size: 32px !important;
             letter-spacing: 2px;
             background: none;
             font-style: normal;
@@ -83,10 +80,8 @@ body.template-collection {
         }
 
         .description-content {
-            /* Paragraph GEORGIA */
-            font-family: Georgia, Times, "Times New Roman", serif;
+            font-family: 'NewParis Skyline';
             font-size: 14px;
-            font-style: italic;
             font-variant: normal;
             font-weight: 500;
             line-height: 25px;
@@ -116,9 +111,9 @@ body.template-collection {
         margin: 0;
         padding: 0;
         a, span {
-            font-family: work-sans,sans-serif;
+            font-family: 'NewParis Skyline';
             font-style: normal;
-            font-weight: 500;
+            font-weight: normal;
             font-size: 10px;
             line-height: 20px;
             text-transform: uppercase;
@@ -136,9 +131,9 @@ body.template-collection {
     }
 
     .indiv-product-title-text {
-        font-family: work-sans, sans-serif;
+        font-family: 'NewParis Skyline';
         font-style: normal;
-        font-weight: 600;
+        font-weight: bold;
         font-size: 12px;
         line-height: 14px;
         text-transform: uppercase;
@@ -148,6 +143,8 @@ body.template-collection {
 
     .hp-title {
         .money-styling {
+            font-family: 'NewParis Skyline';
+            font-weight: normal;
             padding: 5px 0;
             .compare-at-price {
                 margin-bottom: 0;
@@ -155,9 +152,9 @@ body.template-collection {
         }
 
         .money {
-            font-family: work-sans, sans-serif;
+            font-family: 'NewParis Skyline';
             font-style: normal;
-            font-weight: 400;
+            font-weight: normal;
             font-size: 12px;
             letter-spacing: 1px;
         }
@@ -183,7 +180,7 @@ body.template-collection {
             a {
                 background-color: #fff;
                 color: #000 !important;
-                font-family: raleway, sans-serif;
+                font-family: 'NewParis Skyline';
                 font-size: 12px !important;
                  padding: 10px 20px;
                  border-radius: 0;
