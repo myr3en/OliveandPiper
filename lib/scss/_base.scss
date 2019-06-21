@@ -533,10 +533,16 @@ footer {
         }
     }
 
+    .ql-font-arial {
+        font-family: 'NewParis Skyline' !important;
+        font-style: normal;
+        font-weight: normal;
+    }
+
     #sm-icons {
         i {
-            color: #8d8683;
-            font-size: 3em;
+            color: $white;
+            font-size: 2em;
         }
     }
 
