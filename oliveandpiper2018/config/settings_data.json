@@ -534,6 +534,7 @@
       },
       "1541088605858": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "1541088605858-1": {
             "type": "featured_collection",
@@ -560,14 +561,14 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1560282159233": {
+          "1560894935012": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-EsteStuds-HeroBanner.jpg",
-              "title": "THE ESTE STUDS",
-              "text": "<p>Created by our jewelry designer for her wedding day.<\/p>",
-              "button_text": "SEE MORE",
-              "link": "shopify:\/\/products\/este-studs",
+              "image": "shopify:\/\/shop_images\/hero_banner.jpg",
+              "title": "MAIA COLLECTION",
+              "text": "<p>Romantic and alluring floral silhouettes.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/maia-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -576,26 +577,43 @@
               "vertical-alignment": "middle"
             }
           },
-          "1559235572887": {
+          "1560895663428": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/HeroBanner_LuxeV2_495571cd-4775-4c25-8a14-ab090354bbba.jpg",
-              "title": "Luxe Collection",
-              "text": "<p>Elevate your everyday style with&nbsp;<span>truly versatile<\/span><\/p>\n<p><span>and timeless pieces.<\/span><\/p>",
+              "image": "shopify:\/\/shop_images\/OP-Luxe-HeroBanner.jpg",
+              "title": "EVERYDAY SHINE",
+              "text": "<p>Elevate&nbsp;your style with classic and versatile pieces.<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/luxe-jewelry",
-              "caption-background": "rgba(0,0,0,0)",
+              "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1561045953751": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/06.20.19_NecklaceSale_Hero.jpg",
+              "title": "",
+              "text": "",
+              "button_text": "",
+              "link": "shopify:\/\/collections\/necklace-stock-up",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
               "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1560282159233",
-          "1559235572887"
+          "1561045953751",
+          "1560894935012",
+          "1560895663428"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -635,6 +653,44 @@
           "match-height": false,
           "article-hover-effect": "zoom"
         }
+      },
+      "1560891981762": {
+        "type": "image-bar",
+        "blocks": {
+          "1560891981762-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-MelroseCollection1_2008b4c3-7683-4f97-af2a-6bff8640f04a.jpg",
+              "link": "",
+              "title": "",
+              "description": ""
+            }
+          },
+          "1560891981762-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-MelroseCollection2_30affcbe-9e0e-47ac-ac9b-ad19a9249edc.jpg",
+              "link": "",
+              "title": "",
+              "description": ""
+            }
+          },
+          "1560891981762-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-MelroseCollection3_b6670a42-57cb-4033-a63f-02cc747795e8.jpg",
+              "link": "",
+              "title": "",
+              "description": ""
+            }
+          }
+        },
+        "block_order": [
+          "1560891981762-1",
+          "1560891981762-2",
+          "1560891981762-0"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
@@ -642,6 +698,7 @@
       "1541088605858",
       "1556908002738",
       "collection",
+      "1560891981762",
       "text-over-image-1",
       "1532101176305",
       "1519621537758",
