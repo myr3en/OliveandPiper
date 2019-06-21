@@ -152,7 +152,7 @@ body.template-product {
             padding-top: 0;
             margin-top: 0;
             a, span {
-                font-family: work-sans,sans-serif;
+                font-family: 'NewParis Skyline';
                 font-style: normal;
                 font-weight: 500;
                 font-size: 10px;
@@ -219,9 +219,9 @@ body.template-product {
         }
     }
     .product-description-header {
-        font-family: Georgia, Times, "Times New Roman", serif;
+        font-family: 'NewParis Headline';
         font-size: 30px;
-        font-style: italic;
+        font-style: normal;
         font-variant: normal;
         font-weight: 500;
         line-height: 32px;
@@ -352,7 +352,7 @@ body.template-product {
                 margin-bottom: 20px;
 
                 select {
-                    font-family: Open Sans,Sans-serif;
+                    font-family: 'NewParis Headline';
                     cursor: pointer;
                     width: 90%;
                     margin: 13px auto;
@@ -377,7 +377,7 @@ body.template-product {
 
         label {
             text-transform: capitalize;
-            font-family: raleway,sans-serif;
+            font-family: 'NewParis Skyline';
             font-style: normal;
             font-weight: 500;
             font-size: 14px;
@@ -416,7 +416,7 @@ body.template-product {
             padding: 12px 30px;
             border-radius: 0;
             color: $black;
-            font-family: Open Sans,sans-serif;
+            font-family: 'NewParis Skyline';
             font-style: normal;
             font-weight: 600;
             line-height: 25px;
@@ -427,14 +427,14 @@ body.template-product {
 
 
     .product-description-wrapper {
-        font-family: raleway, sans-serif;
+        font-family: 'NewParis Skyline';
         font-style: normal;
         font-weight: 500;
         letter-spacing: 1px;
         h3 {
-            font-family: work-sans, sans-serif;
+            font-family: 'NewParis Skyline';
             font-style: normal;
-            font-weight: 600;
+            font-weight: bold !important;
             font-size: 14px;
             line-height: 20px;
             text-transform: uppercase;
@@ -496,6 +496,12 @@ body.template-product {
 
         .title-bar {
             margin-bottom: 0px;
+
+            h2 {
+                font-family: 'NewParis Skyline';
+                text-transform: capitalize !important;
+                font-size: 20px !important;
+            }
         }
     }
 
@@ -506,6 +512,18 @@ body.template-product {
     .product-page-related-products {
         margin-bottom: 0px;
     }
+
+    /* TITLE BAR */
+
+    .title-bar {
+
+        h2 {
+            font-family: 'NewParis Headline' !important;
+            text-transform: capitalize !important;
+            font-size: 20px !important;
+        }
+    }
+
 
     /* LOGO BAR */
     #shopify-section-logo-bar {
@@ -543,7 +561,7 @@ body.template-product {
             }
 
             h2 {
-                font-family: raleway, sans-serif;
+                font-family: 'NewParis Skyline';
                 font-style: normal;
                 font-weight: 600;
                 letter-spacing: 1px;
@@ -552,14 +570,14 @@ body.template-product {
         }
         .shipping-content {
             h3 {
-                font-family: raleway, sans-serif;
+                font-family: 'NewParis Skyline';
                 font-style: normal;
                 font-weight: 600;
                 letter-spacing: 1px;
                 font-size: 16px;
             }
             p {
-                font-family: raleway, sans-serif;
+                font-family: 'NewParis Skyline';
                 font-style: normal;
                 font-weight: 500;
                 letter-spacing: 1px;
