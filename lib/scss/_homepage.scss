@@ -5,12 +5,12 @@ body.template-index {
            h4 {
                font-family: 'NewParis Headline';
                font-weight: normal;
-               font-style: italic;
+               font-style: normal;
 
                a {
                    font-family: 'NewParis Headline';
                    font-weight: normal;
-                   font-style: italic;
+                   font-style: normal;
                }
            }
            .slider-caption--subheading {
@@ -113,7 +113,6 @@ body.template-index {
             }
         }
         .slider-caption--subheading {
-
             margin: 15px 0 0px 0;
 
         	@media only screen and (min-width:768px) {

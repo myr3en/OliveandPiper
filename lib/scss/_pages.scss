@@ -57,6 +57,21 @@ body.template-page {
         .active:after {
             content: "\2796"; /* Unicode character for "minus" sign (-) */
         }
+}
 
 
+
+body.template-blog,
+body.template-article {
+    #main {
+        margin-top: 30px;
+    }
+    .blog-title-wrapper {
+        h2 {
+            a {
+                font-family: 'NewParis Headline';
+                text-transform: capitalize;
+            }
+        }
+    }
 }

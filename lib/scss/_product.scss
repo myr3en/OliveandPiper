@@ -471,7 +471,9 @@ body.template-product {
             display: inline-block;
 
             .yotpo-slider-title {
-                font-size: 16px !important;
+                font-family: 'NewParis Headline';
+                text-transform: capitalize!important;
+                font-size: 20px !important;
                 line-height: 20px;
                 letter-spacing: 1px;
                 padding: 0 15px;
