@@ -561,14 +561,30 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1560894935012": {
+          "1562864766147": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/hero_banner.jpg",
-              "title": "MAIA COLLECTION",
-              "text": "<p>Romantic and alluring floral silhouettes.<\/p>",
+              "image": "shopify:\/\/shop_images\/OP-MiniTassels-HeroBanner.jpg",
+              "title": "Mini Tassels",
+              "text": "<p>Our signature tassels are back in new colors.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/maia-collection",
+              "link": "shopify:\/\/products\/mini-tassel-earrings",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1561990353072": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero-Banner_MelroseBeads_v1.jpg",
+              "title": "Melrose Collection",
+              "text": "<p>Made for sun-kissed days and warm-weather nights.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/melrose-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -577,43 +593,27 @@
               "vertical-alignment": "middle"
             }
           },
-          "1560895663428": {
+          "1562346372291": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/OP-Luxe-HeroBanner.jpg",
               "title": "EVERYDAY SHINE",
-              "text": "<p>Elevate&nbsp;your style with classic and versatile pieces.<\/p>",
+              "text": "<p>Elevate your style with classic and versatile pieces.<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/luxe-jewelry",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1561045953751": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/06.20.19_NecklaceSale_Hero.jpg",
-              "title": "",
-              "text": "",
-              "button_text": "",
-              "link": "shopify:\/\/collections\/necklace-stock-up",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
               "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1561045953751",
-          "1560894935012",
-          "1560895663428"
+          "1561990353072",
+          "1562864766147",
+          "1562346372291"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -656,11 +656,12 @@
       },
       "1560891981762": {
         "type": "image-bar",
+        "disabled": true,
         "blocks": {
           "1560891981762-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-MelroseCollection1_2008b4c3-7683-4f97-af2a-6bff8640f04a.jpg",
+              "image": "",
               "link": "",
               "title": "",
               "description": ""
@@ -669,7 +670,7 @@
           "1560891981762-2": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-MelroseCollection2_30affcbe-9e0e-47ac-ac9b-ad19a9249edc.jpg",
+              "image": "",
               "link": "",
               "title": "",
               "description": ""
@@ -678,7 +679,7 @@
           "1560891981762-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-MelroseCollection3_b6670a42-57cb-4033-a63f-02cc747795e8.jpg",
+              "image": "",
               "link": "",
               "title": "",
               "description": ""
@@ -698,10 +699,10 @@
       "1541088605858",
       "1556908002738",
       "collection",
-      "1560891981762",
       "text-over-image-1",
       "1532101176305",
       "1519621537758",
+      "1560891981762",
       "1532387026613",
       "feature-row-2",
       "instagram",
