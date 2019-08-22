@@ -577,22 +577,6 @@
               "vertical-alignment": "middle"
             }
           },
-          "1562864766147": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_MiniTassels.jpg",
-              "title": "Mini Tassels",
-              "text": "<p>Our signature tassel earrings go with everything.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/mini-tassel-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
-          },
           "1566495610171": {
             "type": "image",
             "settings": {
@@ -608,12 +592,28 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1566496956115": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
+              "title": "Fresh Whites",
+              "text": "<p>Bright, clean pops of white&nbsp;for all your summer looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/fresh-whites",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
+          "1566495610171",
           "1565888649343",
-          "1562864766147",
-          "1566495610171"
+          "1566496956115"
         ],
         "settings": {
           "slider-animation": "slide",
