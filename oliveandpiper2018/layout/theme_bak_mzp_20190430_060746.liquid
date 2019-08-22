@@ -7,6 +7,7 @@
 <!--<![endif]-->
 
 <head>
+{% include 'limespot' %}
 <meta name="msvalidate.01" content="21644BC0817B290FE408E78624EF720A" />
 	<meta charset="utf-8">
   <meta name="google-site-verification" content="LwtMxFwVUHuIzmlOjg7UYw0ZkdDwZDFeYwbXut_9rqE" />
@@ -114,6 +115,7 @@
 			{% endunless %}
 
 			{{ content_for_layout }}
+<limespot></limespot>
 
 			{% unless template == "index" or template == "collection" %}
 				</div>

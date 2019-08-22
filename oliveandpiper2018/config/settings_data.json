@@ -63,7 +63,7 @@
     "popup--show-newsletter": false,
     "desktop-popup-style": "fullscreen",
     "popup-delay": 3,
-    "show_multiple_currencies": false,
+    "show_multiple_currencies": true,
     "currency_format": "money_with_currency_format",
     "supported_currencies": "USD CAD GBP AUD EUR",
     "default_currency": "USD",
@@ -561,12 +561,28 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
+          "1565888649343": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V2.jpg",
+              "title": "Serene Collection",
+              "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
+              "button_text": "SHOP NEW",
+              "link": "shopify:\/\/collections\/serene-collection",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
           "1562864766147": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-MiniTassels-HeroBanner.jpg",
+              "image": "shopify:\/\/shop_images\/Hero_MiniTassels.jpg",
               "title": "Mini Tassels",
-              "text": "<p>Our signature tassels are back in new colors.<\/p>",
+              "text": "<p>Our signature tassel earrings go with everything.<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/products\/mini-tassel-earrings",
               "caption-background": "rgba(255,255,255,0.8)",
@@ -577,14 +593,14 @@
               "vertical-alignment": "middle"
             }
           },
-          "1561990353072": {
+          "1566495610171": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero-Banner_MelroseBeads_v1.jpg",
-              "title": "Melrose Collection",
-              "text": "<p>Made for sun-kissed days and warm-weather nights.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/melrose-collection",
+              "image": "shopify:\/\/shop_images\/Hero_Monaco_a3d3979c-5d39-497e-b17b-5e1675df9a63.jpg",
+              "title": "Monaco Studs",
+              "text": "<p>Let these luxe earrings sweep you off your feet.<\/p>",
+              "button_text": "Shop Now",
+              "link": "https:\/\/www.oliveandpiper.com\/products\/monaco-earrings",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -592,28 +608,12 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
-          },
-          "1562346372291": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OP-Luxe-HeroBanner.jpg",
-              "title": "EVERYDAY SHINE",
-              "text": "<p>Elevate your style with classic and versatile pieces.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/luxe-jewelry",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
-          "1561990353072",
+          "1565888649343",
           "1562864766147",
-          "1562346372291"
+          "1566495610171"
         ],
         "settings": {
           "slider-animation": "slide",

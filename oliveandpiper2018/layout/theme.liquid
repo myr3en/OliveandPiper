@@ -7,6 +7,7 @@
 <!--<![endif]-->
 
 <head>
+{% include 'limespot' %}
 <meta name="msvalidate.01" content="21644BC0817B290FE408E78624EF720A" />
 	<meta charset="utf-8">
   <meta name="google-site-verification" content="LwtMxFwVUHuIzmlOjg7UYw0ZkdDwZDFeYwbXut_9rqE" />
@@ -50,7 +51,7 @@
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-	{{ content_for_header }}{% include 'bold-checkout-loader' %}
+	{{ content_for_header }}
 {{ 'bold-brain-widget.css' | asset_url | stylesheet_tag }}
 
 
@@ -132,6 +133,7 @@ src="https://ct.pinterest.com/v3/?tid=2614325009265&noscript=1" />
 			{% endunless %}
 
 			{{ content_for_layout }}
+<limespot></limespot>
 
 			{% unless template == "index" or template == "collection" %}
 				</div>
