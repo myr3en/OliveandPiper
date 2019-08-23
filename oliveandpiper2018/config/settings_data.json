@@ -63,10 +63,10 @@
     "popup--show-newsletter": false,
     "desktop-popup-style": "fullscreen",
     "popup-delay": 3,
-    "show_multiple_currencies": true,
+    "show_multiple_currencies": false,
     "currency_format": "money_with_currency_format",
-    "supported_currencies": "USD CAD GBP AUD EUR",
-    "default_currency": "USD",
+    "supported_currencies": "USD CAD",
+    "default_currency": "",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "enable-product-results": true,
     "enable-article-results": false,
@@ -561,6 +561,22 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
+          "1566513682273": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
+              "title": "Fresh Whites",
+              "text": "<p>Bright, clean pops of&nbsp;white for all your summer looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/fresh-whites",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
           "1565888649343": {
             "type": "image",
             "settings": {
@@ -574,6 +590,22 @@
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1562864766147": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_MiniTassels.jpg",
+              "title": "Mini Tassels",
+              "text": "<p>Our signature tassel earrings go with everything.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/mini-tassel-earrings",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
           },
@@ -592,28 +624,13 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
-          },
-          "1566496956115": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
-              "title": "Fresh Whites",
-              "text": "<p>Bright, clean pops of white&nbsp;for all your summer looks.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/fresh-whites",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
           "1566495610171",
           "1565888649343",
-          "1566496956115"
+          "1566513682273",
+          "1562864766147"
         ],
         "settings": {
           "slider-animation": "slide",
