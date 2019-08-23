@@ -1,4 +1,10 @@
 <!-- /templates/collection.liquid -->
+<script> 
+{% if collection.products_count <= 20 %} 
+LimeSpot.PageInfo = { Type: "/collection20/" }  
+{% endif %} 
+</script> 
+
 {% comment %}
   The contents of the collection.liquid template can be found in /sections/collection-template.liquid
 {% endcomment %}

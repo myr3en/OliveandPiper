@@ -23,14 +23,14 @@
           	padding: {{ section.settings.logo_padding }}px;
           }
 
-          .currency-picker--wrapper .sod_select.custom::after{
+          /*.currency-picker--wrapper .sod_select.custom::after{
             top: 6px;
           }
 
           .currency-picker--wrapper .sod_select.custom.custom{
             padding-top: 0;
             padding-bottom: 0;
-          }
+          }*/
 
         {% when 'within-header' %}
           #site-title{
@@ -42,14 +42,14 @@
             padding: {{ section.settings.logo_padding }}px 0;
           }
 
-          .currency-picker--wrapper .sod_select.custom::after{
+          /*.currency-picker--wrapper .sod_select.custom::after{
             top: 6px;
           }
 
           .currency-picker--wrapper .sod_select.custom.custom{
             padding-top: 0;
             padding-bottom: 0;
-          }
+          }*/
 
       {% endcase %}
 
@@ -64,7 +64,7 @@
       <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
     {% endif %}
 
-      <div class="currency-picker--wrapper hidden-xs">
+     {% comment %} <div class="currency-picker--wrapper hidden-xs">
           {% form 'currency' %}
           <select name="currency">
             {% for currency in shop.enabled_currencies %}
@@ -76,7 +76,7 @@
             {% endfor %}
           </select>
           {% endform %}
-    </div>
+    </div>{% endcomment %}
 
   </div>
 

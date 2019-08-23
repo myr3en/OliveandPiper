@@ -458,7 +458,7 @@
           "show_variant_labels": true,
           "thumbnail_changes_variant": false,
           "description_position": "below",
-          "enable_related_products": true,
+          "enable_related_products": false,
           "related_products_title": "You might also love",
           "image_size": "medium",
           "thumbnail_position": "left",
@@ -561,19 +561,19 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1566513682273": {
+          "1566495610171": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
-              "title": "Fresh Whites",
-              "text": "<p>Bright, clean pops of&nbsp;white for all your summer looks.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/fresh-whites",
+              "image": "shopify:\/\/shop_images\/Hero_Monaco_a3d3979c-5d39-497e-b17b-5e1675df9a63.jpg",
+              "title": "Monaco Studs",
+              "text": "<p>Let these luxe earrings sweep you off your feet.<\/p>",
+              "button_text": "Shop Now",
+              "link": "https:\/\/www.oliveandpiper.com\/products\/monaco-earrings",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           },
@@ -593,6 +593,22 @@
               "vertical-alignment": "middle"
             }
           },
+          "1566513682273": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
+              "title": "Fresh Whites",
+              "text": "<p>Bright, clean pops of&nbsp;white for all your summer looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/fresh-whites",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
+          },
           "1562864766147": {
             "type": "image",
             "settings": {
@@ -606,22 +622,6 @@
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1566495610171": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Monaco_a3d3979c-5d39-497e-b17b-5e1675df9a63.jpg",
-              "title": "Monaco Studs",
-              "text": "<p>Let these luxe earrings sweep you off your feet.<\/p>",
-              "button_text": "Shop Now",
-              "link": "https:\/\/www.oliveandpiper.com\/products\/monaco-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
