@@ -54,7 +54,7 @@
 					</td>
 
 					<td class="cart-table-price col-xs-6 col-sm-4 col-md-2">
-						<span class="mobile-label">Price</span> <span class="money"><span class="wsg-item-price_{{item.id}}">{{ item.price | money }}</span></span>
+						<span class="mobile-label">Price</span> <span class="money"><span class="wsg-item-price_{{item.id}}">{{ item.price | money_with_currency }}</span></span>
 					</td>
 
 					<td class="cart-table-quantity col-xs-6 col-sm-4 col-md-2">
@@ -67,11 +67,11 @@
 							<button type="button" class="qty-plus">+</button>
 							{% endunless %}
 						</div>
-						
+
 					</td>
 
 					<td class="cart-table-line-price col-xs-12 col-sm-4 col-md-2">
-                      <span class="mobile-label">Total</span> <span class ="wsg-line-price_{{item.id}}"><span class="money">{{item.line_price | money }}</span></span>
+                      <span class="mobile-label">Total</span> <span class ="wsg-line-price_{{item.id}}"><span class="money">{{item.line_price | money_with_currency }}</span></span>
 					</td>
 
 				</tr>
@@ -85,7 +85,7 @@
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
 			<div id="cart-total-final-price">
-				<span class="money wsg-cart-subtotal">{{ cart.total_price | money }}</span>
+				<span class="money wsg-cart-subtotal">{{ cart.total_price | money_with_currency }}</span>
 			</div>
 		</div>
 
