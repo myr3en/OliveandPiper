@@ -51,9 +51,7 @@
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-	{{ content_for_header }}{% include 'bold-checkout-loader' %}
-
-  {% include 'bold-common' %}
+	{{ content_for_header }}
 
 
 	{% if template contains 'customers' %}
@@ -163,7 +161,6 @@
 
 </script>
 {% endunless %}
-{%- include 'bold-currency-converter' -%}
 </body>
 
 </html>

@@ -55,6 +55,7 @@
   </li>
 {% endif %}
 
+
   {% for link in navMobile.links %}
     <li>
       <a href="{{ link.url }}">{{ link.title | escape }}</a>
@@ -83,6 +84,22 @@
     <a href="#" class="mobile-menu-link mobile-menu-sub mobile-menu-link-currency" data-link="mobile-menu-currency">{{ 'layout.cart.currency' | t }}</a>
   </li>
   {% endif %}
+
+  <li>
+      <div class="currency-picker--wrapper">
+            {% form 'currency' %}
+            <select name="currency">
+              {% for currency in shop.enabled_currencies %}
+                {% if currency == cart.currency %}
+                  <option selected="true">{{currency.iso_code}}</option>
+                  {% else %}
+                  <option>{{currency.iso_code}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            {% endform %}
+      </div>
+  </li>
 </ul>
 
 <ul class="mobile-menu mobile-menu-child mobile-menu-hidden" id="mobile-menu">

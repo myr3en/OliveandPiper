@@ -118,13 +118,13 @@
         			<span class="money-styling custom-font">
 
         				{% if sca_compare_at_price_max > sca_price %}
-        					<h5 class="custom-font compare-at-price hideWsg"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ sca_compare_at_price_max }}" style="display:none !important;"></span>{{ sca_compare_at_price_max | money }}</span></h5>
+        					<h5 class="custom-font compare-at-price hideWsg"><span class="money">{{ sca_compare_at_price_max | money_with_currency }}</span></h5>
         				{% endif %}
 <span class="wsg-price-{{product.id}}">
                         {% if sca_price_varies %}
-                            <small>{{ 'products.general.from' | t }}</small> <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
+                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ sca_price_min | money_with_currency }}</span>
                         {% else %}
-                            <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ sca_price_min }}" style="display:none !important;"></span>{{ sca_price_min | money }}</span>
+                            <span class="money">{{ sca_price_min | money_with_currency }}</span>
                         {% endif %}
                       </span>
         			</span>

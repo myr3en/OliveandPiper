@@ -73,7 +73,7 @@
       {% for line_item in order.line_items %}
       <tr id="{{ line_item.id }}" class="{% cycle 'odd', 'even' %}">
         <td class="product">
-          {{ line_item.title | link_to: line_item.product.url }} 
+          {{ line_item.title | link_to: line_item.product.url }}
           {% if line_item.fulfillment %}
             <div class="note">
               {% assign created_at = line_item.fulfillment.created_at | date: format: 'long' %}
@@ -85,48 +85,48 @@
           {% endif %}
         </td>
         <td class="sku note">{{ line_item.sku }}</td>
-        <td class="money-styling"><span class="money">{{ line_item.price | money }}</span></td>
+        <td class="money-styling"><span class="money">{{ line_item.price | money_with_currency }}</span></td>
         <td class="quantity cente">{{ line_item.quantity }}</td>
-        <td class="total money-styling"><span class="money">{{ line_item.quantity | times: line_item.price | money }}</span></td>
+        <td class="total money-styling"><span class="money">{{ line_item.quantity | times: line_item.price | money_with_currency }}</span></td>
       </tr>
       {% endfor %}
-    </tbody>  
+    </tbody>
     <tfoot>
       <tr class="order_summary note">
         <td colspan="4">{{ 'customer.order.details.subtotal' | t }}</td>
-        <td class="total money-styling"><span class="money">{{ order.subtotal_price | money }}</span></td>
+        <td class="total money-styling"><span class="money">{{ order.subtotal_price | money_with_currency }}</span></td>
       </tr>
-      
+
       {% for discount in order.discounts %}
         <tr class="order_summary discount">
           <td colspan="4">{{ discount.code }} {{ 'customer.order.discount' | t }}</td>
-          <td class="total money-styling"><span class="money">{{ discount.savings | money }}</span></td>
+          <td class="total money-styling"><span class="money">{{ discount.savings | money_with_currency }}</span></td>
         </tr>
       {% endfor %}
-      
+
       {% for shipping_method in order.shipping_methods %}
       <tr class="order_summary note">
         <td colspan="4">{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</td>
-        <td class="total money-styling"><span class="money">{{ shipping_method.price | money }}</span></td>
+        <td class="total money-styling"><span class="money">{{ shipping_method.price | money_with_currency }}</span></td>
       </tr>
       {% endfor %}
-      
+
       {% for tax_line in order.tax_lines %}
         <tr class="order_summary note">
           <td colspan="4">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
-          <td class="total money-styling"><span class="money">{{ tax_line.price | money }}</span></td>
+          <td class="total money-styling"><span class="money">{{ tax_line.price | money_with_currency }}</span></td>
         </tr>
-      {% endfor %}    
-              
+      {% endfor %}
+
       <tr class="order_summary order_total">
         <td colspan="4">{{ 'customer.order.details.total' | t }}</td>
-        <td class="total money-styling"><span class="money">{{ order.total_price | money }}</span> {{ order.currency }}</td>
-      </tr>   
-    </tfoot>  
+        <td class="total money-styling"><span class="money">{{ order.total_price | money_with_currency }}</span> {{ order.currency }}</td>
+      </tr>
+    </tfoot>
   </table>
-  
+
   </div>
-  
+
   </div>
 
 </div><!-- /.content -->

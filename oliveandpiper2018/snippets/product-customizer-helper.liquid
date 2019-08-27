@@ -22,7 +22,7 @@
 
 {% comment %}
   Display the line item properties (default action).
-  required: item. optional: file_upload_text (defaults to 'Click to see'), 
+  required: item. optional: file_upload_text (defaults to 'Click to see'),
   file_upload_class (defaults to null), use_original_file_name (defaults to true)
   br_placement: the <br> placement, valid values are 'before', 'after', 'around', 'inner'
                 (defaults to 'before')
@@ -107,7 +107,7 @@
   {% if raw == true %}
     {{ _item_line_price }}
   {% else %}
-    {{ _item_line_price | money }}
+    {{ _item_line_price | money_with_currency }}
   {% endif %}
   {% assign _item_line_price = null %}
 {% endif %}
@@ -127,7 +127,7 @@
   {% if raw == true %}
     {{ _item_price }}
   {% else %}
-    {{ _item_price | money }}
+    {{ _item_price | money_with_currency }}
   {% endif %}
   {% assign _item_price = null %}
 {% endif %}
@@ -146,7 +146,7 @@
   {% assign _cart_item_count = null %}
 {% endif %}
 
-{% comment %} Get the count of pricing items. Useful for subtracting from the 
+{% comment %} Get the count of pricing items. Useful for subtracting from the
 total count when adding compatibility to a 3rd party app that also affects quantities
 required: cart. optional: _cart_pricing_item_count {% endcomment %}
 {% if product-customizer-helper == 'cart-pricing-item-count' %}

@@ -66,10 +66,10 @@
 
               <h5 class="custom-font compare-at-price js">
                 {% if current_variant.compare_at_price > current_variant.price %}
-                  <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>{{ current_variant.compare_at_price | money }}</span>
+                  <span class="money">{{ current_variant.compare_at_price | money_with_currency }}</span>
                 {% endif %}
               </h5>
-              <h3 class="custom-font js" id="price-field"><span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>{{ current_variant.price | money }}</span></h3>
+              <h3 class="custom-font js" id="price-field"><span class="money">{{ current_variant.price | money_with_currency }}</span></h3>
 
               <div class="row homepage-sections--indiv-product-slider-variants">
 
@@ -98,7 +98,7 @@
                     {% unless variant.title contains '(Freegifts)' %}
                       {% if variant.available %}
                         <option {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
-                          {{ variant.title }} - <span class="money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price_2" data-override-value-set="1" data-override-value="{{ variant.price }}" style="display:none !important;"></span>{{ variant.price | money }}</span>
+                          {{ variant.title }} - <span class="money">{{ variant.price | money_with_currency }}</span>
                         </option>
                       {% else %}
                         <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>

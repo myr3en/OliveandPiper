@@ -8,7 +8,6 @@
 	<h3 class="empty-cart">{{ 'cart.general.empty' | t }}, <a href="/collections/all">{{ 'cart.general.continue_browsing_html' | t }}</a> </h3>
 {% else %}
 
-<div id="bold-cart-msg"> </div>
 <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
 	<table class="cart-table full table--responsive" border="0" cellspacing="0" cellpadding="0">
 		<thead class="cart__row cart__header-labels">
@@ -195,13 +194,5 @@
   ]
 }
 {% endschema %}
-
-<!-- Bold Update Cart Notes -->
- <script>
- function updateCartNote(){
- $('[name=update]').click();
- }
- </script>
-<!-- End update Cart Notes -->
 
 {%include 'wsg-cart'%}

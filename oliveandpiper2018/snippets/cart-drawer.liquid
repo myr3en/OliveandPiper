@@ -8,7 +8,7 @@
 		</div>
 
 		<div>
-			<h4><span class="cart-item-price" id="cart-price"><span class="money">{{ cart.total_price | money }}</span></span></h4>
+			<h4><span class="cart-item-price" id="cart-price"><span class="money">{{ cart.total_price | money_with_currency }}</span></span></h4>
 			<span class="cart-item-price-text">{{ 'layout.cart.total_cart_value' | t }}</span>
 		</div>
 

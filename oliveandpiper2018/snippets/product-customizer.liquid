@@ -102,7 +102,7 @@
       {%- endcapture -%}
       <div class="product-customizer-option option-type-{{ option_type }} {%- if option_required -%}option-required{%- endif -%}" data-option-id="{{ remote_option_id }}" data-product-option-id="{{ remote_product_option_id }}" data-option-name="{{ option_name | downcase | handleize }}" {% if option_max_selections %}data-max-selections="{{ option_max_selections }}"{% endif %} {% if option_min_selections %}data-min-selections="{{ option_min_selections }}"{% endif %}>
         {%- unless option_type == 'checkbox' -%}
-          <label for="{{ option_id }}">{{ option_label }}{% if option_price and option_values == null %} <span class="option-amount">(+{{ option_price | money }})</span>{% endif %}</label>
+          <label for="{{ option_id }}">{{ option_label }}{% if option_price and option_values == null %} <span class="option-amount">(+{{ option_price | money_with_currency }})</span>{% endif %}</label>
           <div>
           {%- if option_description -%}
             <div class="product-customizer-option-description">{{ option_description }}</div>
@@ -114,7 +114,7 @@
             <select id="{{ option_id }}" name="properties[{{ option_name }}]" {% if option_required %}required="required"{% endif %}>
               {%- if option_placeholder -%}<option value="">{{ option_placeholder }}</option>{%- endif -%}
               {%- for option_value in option_values -%}
-                <option value="{{ option_value }}" data-index="{{ forloop.index0 }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} (+{{ option_price[forloop.index0] | money }}){% endif %}</option>
+                <option value="{{ option_value }}" data-index="{{ forloop.index0 }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} (+{{ option_price[forloop.index0] | money_with_currency }}){% endif %}</option>
               {%- endfor -%}
             </select>
           </span>
@@ -127,7 +127,7 @@
         {%- when 'checkbox' -%}
           <input type="checkbox" id="{{ option_id }}" value="&#x2713;" name="properties[{{ option_name }}]" {% if option_required %}required="required"{% endif %} />
           <div>
-          <label for="{{ option_id }}">{{ option_label }}{% if option_price %} <span class="option-amount">(+{{ option_price | money }})</span>{% endif %}</label>
+          <label for="{{ option_id }}">{{ option_label }}{% if option_price %} <span class="option-amount">(+{{ option_price | money_with_currency }})</span>{% endif %}</label>
           {%- if option_description -%}
             <div class="product-customizer-option-description">{{ option_description }}</div>
           {%- endif -%}
@@ -137,7 +137,7 @@
               {%- capture option_value_id -%}{{ option_id }}_{{ forloop.index0 }}{%- endcapture -%}
               <li>
                 <input type="checkbox" id="{{ option_value_id }}" value="{{ option_value }}" />
-                <label for="{{ option_value_id }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} <span class="option-amount">(+{{ option_price[forloop.index0] | money }})</span>{% endif %}</label>
+                <label for="{{ option_value_id }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} <span class="option-amount">(+{{ option_price[forloop.index0] | money_with_currency }})</span>{% endif %}</label>
               </li>
             {%- endfor -%}
           </ul>
@@ -148,7 +148,7 @@
               {%- capture option_value_id -%}{{ option_id }}_{{ forloop.index0 }}{%- endcapture -%}
               <li>
                 <input type="radio" id="{{ option_value_id }}" name="properties[{{ option_name }}]" value="{{ option_value }}" {% if option_required %}required="required"{% endif %} />
-                <label for="{{ option_value_id }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} <span class="option-amount">(+{{ option_price[forloop.index0] | money }})</span>{% endif %}</label>
+                <label for="{{ option_value_id }}">{{ option_value }}{% if option_price != null and option_price[forloop.index0] != null and option_price[forloop.index0] != empty %} <span class="option-amount">(+{{ option_price[forloop.index0] | money_with_currency }})</span>{% endif %}</label>
               </li>
             {%- endfor -%}
           </ul>
@@ -168,7 +168,7 @@
     {%- endfor -%}
   </div>
   {%- if option_price_found -%}
-    <p class="product-customizer-customizations-total" data-product-id="{{ product.id }}">Customizations Total: <span>{{ 0 | money }}</span></p>
+    <p class="product-customizer-customizations-total" data-product-id="{{ product.id }}">Customizations Total: <span>{{ 0 | money_with_currency }}</span></p>
     <noscript><input type="hidden" name="properties[_js_disabled]" value="yes" /></noscript>
     <noscript><p>NOTICE: This order won't be fulfilled because the customizations require JavaScript to be enabled. Please enable JavaScript to continue shopping.</p></noscript>
   {%- endif -%}

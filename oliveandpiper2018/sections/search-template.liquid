@@ -140,14 +140,14 @@
 
                                                         {% if sca_compare_at_price_max > sca_price %}
                                                             <h5 class="custom-font compare-at-price hideWsg">
-                                                                <span class="money">{{ sca_compare_at_price_max | money }}</span>
+                                                                <span class="money">{{ sca_compare_at_price_max | money_with_currency }}</span>
                                                             </h5>
                                                         {% endif %}
 															<span class="wsg-price-{{item.id}}">
                                                         {% if sca_price_varies %}
-                                                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ sca_price_min | money }}</span>
+                                                            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ sca_price_min | money_with_currency }}</span>
                                                         {% else %}
-                                                            <span class="money">{{ sca_price_min | money }}</span>
+                                                            <span class="money">{{ sca_price_min | money_with_currency }}</span>
                                                         {% endif %}
 
                                                     </span></span>
@@ -163,7 +163,7 @@
                                 </li>
 
                             {% endif %}
-                    
+
                {% endunless %}
  {% endfor %}
             </ul>
