@@ -150,6 +150,7 @@
       },
       "collection": {
         "type": "collection",
+        "disabled": true,
         "settings": {
           "title": "",
           "show-vendor": false,

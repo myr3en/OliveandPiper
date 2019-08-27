@@ -255,14 +255,14 @@
                             {% if current_variant.compare_at_price > current_variant.price %}
                                 <span class="money">
                                     <span class="Bold-theme-hook-DO-NOT-DELETE bold_product_compare_price" data-override-value-set="1" data-override-value="{{ current_variant.compare_at_price }}" style="display:none !important;"></span>
-                                    {{ current_variant.compare_at_price | money }}
+                                    {{ current_variant.compare_at_price | money_with_currency }}
                                 </span>
                             {% endif %}
                         </h5>
                         <h3 class="custom-font js wsg-price-{{product.id}}" id="price-field">
                             <span class="money">
                                 <span class="Bold-theme-hook-DO-NOT-DELETE bold_product_price" data-override-value-set="1" data-override-value="{{ current_variant.price }}" style="display:none !important;"></span>
-                                {{ current_variant.price | money }}
+                                {{ current_variant.price | money_with_currency }}
                             </span>
                         </h3>
 

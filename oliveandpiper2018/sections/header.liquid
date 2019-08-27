@@ -362,7 +362,7 @@
                       {% endif %}
                     {% endif %}
                     <ul class="cart-link">
-                      <!-- {% if settings.show_multiple_currencies %}
+                      {% if settings.show_multiple_currencies %}
                           <li class="currency-picker--wrapper">
                               <select class="currency-picker sod_select" name="currencies" id="custom" style="visibility: hidden">
                                   {% assign codes = 'USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,ILS,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK' | split: ',' %}
@@ -375,7 +375,7 @@
                                   {% endfor %}
                               </select>
                           </li>
-                      {% endif %} -->
+                      {% endif %}
                       {% if section.settings.search-enable %}
                           <li>
                               <a href="#" class="search-show {% if settings.show_multiple_currencies %}icon-no-padding{% endif %}" title="{{ 'layout.header.search_box_text' | t }}">
