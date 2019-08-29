@@ -251,7 +251,7 @@
 
   				<form action="/cart/add" method="post" id="add-to-cart-form" {% unless section.settings.show_variant_labels %}class="product-form--hide-variant-labels"{% endunless %}>
                     <div class="row product-pricing">
-                        <h5 class="custom-font compare-at-price js hideWsg">
+                        <h5 class="custom-font compare-at-price js hideWsg test">
                             {% if current_variant.compare_at_price > current_variant.price %}
                                 <span class="money">
                                     {{ current_variant.compare_at_price | money_with_currency }}
