@@ -64,7 +64,7 @@
       <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
     {% endif %}
 
-    <div class="currency-picker--wrapper hidden-xs">
+    <div class="currency-picker--wrapper">
           {% form 'currency' %}
           <select name="currency">
             {% for currency in shop.enabled_currencies %}

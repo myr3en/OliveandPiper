@@ -170,12 +170,36 @@ p, li, a {
 
         /* New Multicurrency by shopify - added Aug 22 2019 */
         #currency_form {
+            padding-right: 5px;
             select {
                 background-color: transparent;
                 border: none;
                 border-radius: 0;
                 display: block;
+                font-size: 12px;
             }
+
+            @media only screen
+            and (min-device-width : 375px)
+            and (max-device-width : 667px) {
+                &:after {
+                    content: "\f0dc";
+                    font-family: FontAwesome;
+                    font-style: normal;
+                    font-weight: normal;
+                    text-decoration: inherit;
+                /*--adjust as necessary--*/
+                    color: $white;
+                    font-size: 11px;
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                }
+            }
+
+
+
+
         }
     }
 }
