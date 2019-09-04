@@ -1,7 +1,15 @@
 <!-- /templates/collection.liquid -->
 <script> 
 {% if collection.products_count <= 20 %} 
-LimeSpot.PageInfo = { Type: "/collection20/" }  
+LimeSpot.PageInfo = { Type: "/collection20/" }
+{% else collection.handle === "sale" %}
+LimeSpot.PageInfo = { Type: "/sale/" }
+{% else collection.handle === "new-arrivals" %}
+LimeSpot.PageInfo = { Type: "/new-arrivals/" }
+{% else collection.handle === "back-in-stock" %}
+LimeSpot.PageInfo = { Type: "/back-in-stock/" }
+{% else collection.handle === "pre-order" %}
+LimeSpot.PageInfo = { Type: "/pre-order/" }
 {% endif %} 
 </script> 
 

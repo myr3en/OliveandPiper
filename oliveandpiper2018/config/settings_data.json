@@ -562,14 +562,14 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1566495610171": {
+          "1567525438462": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Hero_Monaco_a3d3979c-5d39-497e-b17b-5e1675df9a63.jpg",
               "title": "Monaco Studs",
-              "text": "<p>Let these luxe earrings sweep you off your feet.<\/p>",
-              "button_text": "Shop Now",
-              "link": "https:\/\/www.oliveandpiper.com\/products\/monaco-earrings",
+              "text": "<p>These luxe earrings will sweep you off your feet.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/products\/monaco-earrings",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -578,14 +578,14 @@
               "vertical-alignment": "middle"
             }
           },
-          "1565888649343": {
+          "1567525622079": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V2.jpg",
               "title": "Serene Collection",
               "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
-              "button_text": "SHOP NEW",
-              "link": "shopify:\/\/collections\/serene-collection",
+              "button_text": "SHOP NOW",
+              "link": "https:\/\/www.oliveandpiper.com\/collections\/serene-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -593,45 +593,11 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
-          },
-          "1566513682273": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Melrose_V3.jpg",
-              "title": "Fresh Whites",
-              "text": "<p>Bright, clean pops of&nbsp;white for all your summer looks.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/fresh-whites",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1562864766147": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_MiniTassels.jpg",
-              "title": "Mini Tassels",
-              "text": "<p>Our signature tassel earrings go with everything.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/mini-tassel-earrings",
-              "caption-background": "rgba(0,0,0,0)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
-          "1566495610171",
-          "1565888649343",
-          "1566513682273",
-          "1562864766147"
+          "1567525438462",
+          "1567525622079"
         ],
         "settings": {
           "slider-animation": "slide",

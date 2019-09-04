@@ -1,8 +1,16 @@
 <script> 
 {% if collection.products_count <= 20 %} 
-LimeSpot.PageInfo = { Type: "/collection20/" }  
+LimeSpot.PageInfo = { Type: "/collection20/" }
+{% else collection.handle === "sale" %}
+LimeSpot.PageInfo = { Type: "/sale/" }
+{% else collection.handle === "new-arrivals" %}
+LimeSpot.PageInfo = { Type: "/new-arrivals/" }
+{% else collection.handle === "back-in-stock" %}
+LimeSpot.PageInfo = { Type: "/back-in-stock/" }
+{% else collection.handle === "pre-order" %}
+LimeSpot.PageInfo = { Type: "/pre-order/" }
 {% endif %} 
-</script> 
+</script>  
 
 {% layout none %}{% capture results %}{% paginate collection.products by 50 %}{% capture next_page %}{% if paginate.next.is_link %}{{paginate.current_page | plus: 1}}{%else%}-1{%endif%}{% endcapture %}{% for product in collection.products %}"{{ product.id | json }}":{{ product.handle | json }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endpaginate %}{% endcapture %}{% capture script %}{"results_count":{{ collection.products_count }},"terms":"collection_id:{{collection.id}}","next_page":{{next_page}},"results":{ {{ results }} }}{% endcapture %}{{script}}
 {% comment %}
