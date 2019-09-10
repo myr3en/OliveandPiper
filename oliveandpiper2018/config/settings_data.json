@@ -562,26 +562,10 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1567525438462": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Monaco_a3d3979c-5d39-497e-b17b-5e1675df9a63.jpg",
-              "title": "Monaco Studs",
-              "text": "<p>These luxe earrings will sweep you off your feet.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/products\/monaco-earrings",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
           "1567525622079": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V2.jpg",
+              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V3.jpg",
               "title": "Serene Collection",
               "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
               "button_text": "SHOP NOW",
@@ -593,10 +577,43 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
+          },
+          "1568060149960": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_LuxeClusterStuds_f9270832-4a80-4f82-b23e-377189a3b3c1.jpg",
+              "title": "Vintage Inspired",
+              "text": "<p>A luxurious and&nbsp;easy-to-wear favorite.<\/p>",
+              "button_text": "Shop Now",
+              "link": "shopify:\/\/products\/luxe-cluster-stud-earrings",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1568137025216": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_SurpriseBox_1.jpg",
+              "title": "Surprise Box",
+              "text": "<p>Get 5 of the summer season's favorites for just $60.<\/p>\n<p>Limited quantities.<\/p>",
+              "button_text": "GET YOURS",
+              "link": "shopify:\/\/products\/surprise-box",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "right",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
-          "1567525438462",
+          "1568137025216",
+          "1568060149960",
           "1567525622079"
         ],
         "settings": {
