@@ -203,7 +203,7 @@
           "image": "shopify:\/\/shop_images\/Untitled-1.jpg",
           "parallax": true,
           "title": "About olive + piper",
-          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/charms\" title=\"https:\/\/www.oliveandpiper.com\/collections\/charms\">charms<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver, Canada. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a>&nbsp;too.<\/p>",
+          "text": "<p>Olive + Piper is an online fashion jewelry boutique for classic, on-trend and stylish women on the go. Explore our collection of <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-earrings\">women&rsquo;s earrings<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-necklaces\">necklaces<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\" title=\"https:\/\/www.oliveandpiper.com\/collections\/womens-bracelets\">bracelets<\/a>, <a href=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\" title=\"https:\/\/www.oliveandpiper.com\/collections\/personalized\">personalized jewelry<\/a>, and <a href=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\" title=\"https:\/\/www.oliveandpiper.com\/collections\/bridal-jewelry\">bridal jewelry<\/a> &ndash; designed in Vancouver. Check in&nbsp;often for&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\" title=\"https:\/\/www.oliveandpiper.com\/collections\/new-arrivals\">New Arrivals<\/a>&nbsp;too.<\/p>",
           "alignment": "center",
           "hero_size": "x-small",
           "text-over-image-width": "full-width",
@@ -562,19 +562,19 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1568888734009": {
+          "1570726293204": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Maia_Campaign_Hero.jpg",
-              "title": "Flower Delivery",
-              "text": "<p>Surprise. These just restocked.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/maia-collection",
+              "image": "shopify:\/\/shop_images\/AnniCollection_HeroBannerV2.jpg",
+              "title": "7th Anniversary",
+              "text": "<p>Best sellers in a limited edition blush pink.<\/p>\n<p>20% of sales go to support Breast Cancer Awareness.&nbsp;<\/p>",
+              "button_text": "Shop Now",
+              "link": "shopify:\/\/collections\/7th-anniversary-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           },
@@ -584,7 +584,7 @@
               "image": "shopify:\/\/shop_images\/Resin_Hero_Banner_2.jpg",
               "title": "Luxe Resin",
               "text": "<p>New-season&nbsp;shades, modern silhouettes<\/p>\n<p>and everyday style.&nbsp;<\/p>",
-              "button_text": "SHOP NEW",
+              "button_text": "Shop the Trend",
               "link": "shopify:\/\/collections\/resin-collection",
               "caption-background": "rgba(0,0,0,0)",
               "caption-text": "#000000",
@@ -594,61 +594,27 @@
               "vertical-alignment": "middle"
             }
           },
-          "1568060149960": {
+          "1571168704099": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_LuxeClusterStuds_f9270832-4a80-4f82-b23e-377189a3b3c1.jpg",
-              "title": "Vintage Inspired",
-              "text": "<p>A luxurious and&nbsp;easy-to-wear favorite.<\/p>",
-              "button_text": "Shop Now",
-              "link": "shopify:\/\/products\/luxe-cluster-stud-earrings",
-              "caption-background": "rgba(0,0,0,0)",
+              "image": "shopify:\/\/shop_images\/OP-TravelRoll-HeroBanner2.jpg",
+              "title": "Jewelry Travel Case",
+              "text": "<p>Keep your favorite jewelry safely organized while on-the-go.<\/p>",
+              "button_text": "See More",
+              "link": "shopify:\/\/products\/jewelry-travel-roll",
+              "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
-          },
-          "1567525622079": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V3.jpg",
-              "title": "Serene Collection",
-              "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "https:\/\/www.oliveandpiper.com\/collections\/serene-collection",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1569344037176": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hair_Campaign_Hero_2.jpg",
-              "title": "Hair for you.",
-              "text": "<p>NEW hair accessories to dress up your tresses.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/hair-accessories",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
-              "horizontal-alignment": "right",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
-          "1569344037176",
-          "1568888734009",
+          "1570726293204",
           "1568304606686",
-          "1568060149960",
-          "1567525622079"
+          "1571168704099"
         ],
         "settings": {
           "slider-animation": "slide",

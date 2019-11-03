@@ -166,12 +166,12 @@ src="https://ct.pinterest.com/v3/?tid=2614325009265&noscript=1" />
             showMore: {{ 'general.filters.show_more' | t | json }},
             showLess: {{ 'general.filters.show_less' | t | json }}
         },
-        moneyFormat: {{ shop.money_format | json }}
+        moneyFormat: {{ shop.money_with_currency_format | json }}
     };
 	</script>
 
 	<script type="text/javascript">
-		Shopify.money_format = "{{shop.money_format}}";
+		Shopify.money_format = "{{shop.money_with_currency_format}}";
 	</script>
 
 {% comment %} Conditional statement  added by Smart Wishlist to fix search issue on Wishlist page on June 13, 2018 {% endcomment %}
