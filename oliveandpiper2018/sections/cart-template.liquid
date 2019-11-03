@@ -79,7 +79,16 @@
 	</table>
 
 	<div class="cart-bottom-box">
-{%include 'wsg-ship-partial'%} <p id="wsg-under-ordered" style="display:none"> </p>
+
+		{%include 'wsg-ship-partial'%} <p id="wsg-under-ordered" style="display:none"> </p>
+
+		<div class="col-md-6 checkout-add-note mobile">
+			{% if section.settings.allow_note %}
+				<p>{{ 'cart.general.note' | t }}&hellip;</p>
+				<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+			{% endif %}
+			&nbsp;
+		</div>
 
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
@@ -91,12 +100,18 @@
 		<div class="row">
 
 			<div class="col-md-6 checkout-add-note desktop">
-<!-- 				{% if section.settings.allow_note %}
+				{% if section.settings.allow_note %}
+					<p>{{ 'cart.general.note' | t }}&hellip;</p>
+					<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+				{% endif %}
+				&nbsp;
+			</div>
+			<!-- <div class="col-md-6 checkout-add-note desktop">
+				{% if section.settings.allow_note %}
 					<p>{{ 'cart.general.note' | t }}…</p>
 					<textarea id="note" name="note" class="form-control wsg-note" onblur="updateCartNote()">{{ cart.note }}</textarea>
-				{% endif %} Commented out for now -->
-				 
-			</div>
+				{% endif %} Commented out for now
+			</div> ** OLD CODE WITH APP SCRIPTS -->
 
 			<div id="checkout-buttons" class="col-md-6">
 				      {% if section.settings.enable_terms_conditions %}
@@ -128,13 +143,13 @@
 			</div>
 		</div>
 
-			<div class="col-md-6 checkout-add-note mobile">
+			<!-- <div class="col-md-6 checkout-add-note mobile">
 				{% if section.settings.allow_note %}
 					<p>{{ 'cart.general.note' | t }}…</p>
 					<textarea id="note" name="note" class="form-control wsg-note" onblur="updateCartNote()">{{ cart.note }}</textarea>
 				{% endif %}
 				 
-			</div>
+			</div> -->
 	</div>
 <!--START Yotpo Reviews Carousel -->
 <div class="yotpo yotpo-reviews-carousel" data-header-customisation-enabled="1" data-header-customisation-text data-background-color="transparent" data-mode="top_rated" data-type="site" data-count="9" data-show-bottomline="1" data-autoplay-enabled="1" data-autoplay-speed="3000" data-show-navigation="1"> </div>
