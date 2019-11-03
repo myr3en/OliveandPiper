@@ -11,7 +11,7 @@
 <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
 	<table class="cart-table full table--responsive" border="0" cellspacing="0" cellpadding="0">
 		<thead class="cart__row cart__header-labels">
-			<th colspan="2"> </th>
+			<th colspan="2"></th>
 			<th>{{ 'cart.general.price' | t }}</th>
 			<th>{{ 'cart.general.quantity' | t }}</th>
 			<th>{{ 'cart.general.total' | t }}</th>
@@ -19,7 +19,7 @@
 
 		<tbody>
 			{% for item in cart.items %}
-<div class="wsg-collections-list-{{item.id}}" style="display:none"> {{item.product.collections | json}} </div> <div class="wsg-product-tags-{{item.id}}" style="display:none"> {{item.product.tags | json}} </div>
+				<div class="wsg-collections-list-{{item.id}}" style="display:none"> {{item.product.collections | json}} </div> <div class="wsg-product-tags-{{item.id}}" style="display:none"> {{item.product.tags | json}} </div>
 				<tr class="{% cycle 'even', 'odd' %}">
 					<td class="cart-table-image col-md-2">
 						<a class="cart_thumb" href="{{item.product.url}}" title="View {{item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', '' }} Page">
@@ -79,7 +79,8 @@
 	</table>
 
 	<div class="cart-bottom-box">
-{%include 'wsg-ship-partial'%} <p id="wsg-under-ordered" style="display:none"> </p>
+		{%include 'wsg-ship-partial'%}
+		<p id="wsg-under-ordered" style="display:none"></p>
 
 		<div class="title-bar custom-font cart-totals--wrapper">
 			<div id="cart-total-header">{{ 'cart.general.total' | t }}</div>
@@ -90,13 +91,19 @@
 
 		<div class="row">
 
-			<div class="col-md-6 checkout-add-note desktop">
+			<!-- <div class="col-md-6 checkout-add-note desktop">
 				{% if section.settings.allow_note %}
 					<p>{{ 'cart.general.note' | t }}…</p>
 					<textarea id="note" name="note" class="form-control wsg-note" onblur="updateCartNote()">{{ cart.note }}</textarea>
 				{% endif %}
-				 
-			</div>
+			</div> -->
+			<!-- <div class="col-md-6 checkout-add-note desktop">
+				{% if section.settings.allow_note %}
+					<p>{{ 'cart.general.note' | t }}&hellip;</p>
+					<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+				{% endif %}
+				&nbsp;
+			</div> -->
 
 			<div id="checkout-buttons" class="col-md-6">
 				      {% if section.settings.enable_terms_conditions %}

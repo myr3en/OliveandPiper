@@ -66,7 +66,7 @@
     "show_multiple_currencies": false,
     "currency_format": "money_with_currency_format",
     "supported_currencies": "USD CAD",
-    "default_currency": "",
+    "default_currency": "CAD",
     "favicon": "shopify:\/\/shop_images\/favicon.png",
     "enable-product-results": true,
     "enable-article-results": false,
@@ -562,19 +562,35 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1567525622079": {
+          "1568888734009": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V3.jpg",
-              "title": "Serene Collection",
-              "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
+              "image": "shopify:\/\/shop_images\/Maia_Campaign_Hero.jpg",
+              "title": "Flower Delivery",
+              "text": "<p>Surprise. These just restocked.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "https:\/\/www.oliveandpiper.com\/collections\/serene-collection",
+              "link": "shopify:\/\/collections\/maia-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1568304606686": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Resin_Hero_Banner_2.jpg",
+              "title": "Luxe Resin",
+              "text": "<p>New-season&nbsp;shades, modern silhouettes<\/p>\n<p>and everyday style.&nbsp;<\/p>",
+              "button_text": "SHOP NEW",
+              "link": "shopify:\/\/collections\/resin-collection",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
           },
@@ -594,25 +610,43 @@
               "vertical-alignment": "middle"
             }
           },
-          "1568137025216": {
+          "1567525622079": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_SurpriseBox_1.jpg",
-              "title": "Surprise Box",
-              "text": "<p>Get 5 of the summer season's favorites for just $60.<\/p>\n<p>Limited quantities.<\/p>",
-              "button_text": "GET YOURS",
-              "link": "shopify:\/\/products\/surprise-box",
-              "caption-background": "rgba(0,0,0,0)",
+              "image": "shopify:\/\/shop_images\/Hero_SereneCollection_V3.jpg",
+              "title": "Serene Collection",
+              "text": "<p>Sleek, sophisticated semi-precious jewelry.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "https:\/\/www.oliveandpiper.com\/collections\/serene-collection",
+              "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1569344037176": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hair_Campaign_Hero_2.jpg",
+              "title": "Hair for you.",
+              "text": "<p>NEW hair accessories to dress up your tresses.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/hair-accessories",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
               "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1568137025216",
+          "1569344037176",
+          "1568888734009",
+          "1568304606686",
           "1568060149960",
           "1567525622079"
         ],
