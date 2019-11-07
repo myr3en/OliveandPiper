@@ -143,7 +143,7 @@
           "advert-0"
         ],
         "settings": {
-          "enable": true,
+          "enable": false,
           "colors": "white",
           "advert-show": "all"
         }
@@ -186,11 +186,11 @@
       "text-over-image-1": {
         "type": "text-over-image",
         "settings": {
-          "image": "shopify:\/\/shop_images\/feature-long-1800x900_77a05d6c-2281-4764-96ff-a1bc245d549e.jpg",
+          "image": "shopify:\/\/shop_images\/WeddingShop_V3_c839d52d-4d98-4dc2-9e3c-dac4397ce363.jpg",
           "parallax": true,
           "title": "WEDDING SHOP",
           "text": "<p>Stunning little luxuries to make your day extra special.<\/p>",
-          "alignment": "center",
+          "alignment": "bottom",
           "hero_size": "medium",
           "text-over-image-width": "full-width",
           "button_label": "SHOP NOW",
