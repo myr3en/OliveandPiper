@@ -71,6 +71,14 @@ body.template-index {
            }
        }
        .feature-row {
+           .feature-row__item {
+                img {
+                    width: 100%;
+                }
+            }
+            .feature-row__text {
+                text-align: center;
+            }
            h2 {
                font-family: 'NewParis Headline' !important;
                font-weight: normal !important;
