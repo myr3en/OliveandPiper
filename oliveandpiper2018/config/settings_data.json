@@ -6,7 +6,7 @@
     "sale-label-colour": "#1c2245",
     "header-background-colour": "#ffffff",
     "header-text-colour": "#000000",
-    "footer-background-colour": "#303b4b",
+    "footer-background-colour": "#714550",
     "footer-text-colour": "#ffffff",
     "main-menu-background-colour": "#ffffff",
     "main-menu-text-colour": "#000000",
@@ -91,7 +91,7 @@
         "settings": {
           "message_text": "free shipping on orders over $49 us",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#303b4b",
+          "notification-bar--background-colour": "#65142a",
           "notification-bar--text-colour": "#ede9e9"
         }
       },
@@ -162,18 +162,6 @@
           "match-height": false
         }
       },
-      "feature-row-2": {
-        "type": "feature-row",
-        "disabled": true,
-        "settings": {
-          "image": "shopify:\/\/shop_images\/Transition-to-Fall-600x600_a4cc80ed-1f16-4389-a7fc-39a8352538c5.jpg",
-          "layout": "left",
-          "title": "How to wear your summer earrings in the fall.",
-          "text_block": "<p>We're not ready to put away those bold statement&nbsp;<a href=\"https:\/\/www.oliveandpiper.com\/collections\/vacation-style\" title=\"Summer vacation jewelry - Olive + Piper Vancouver\">earrings<\/a>&nbsp;just yet! With a little wardrobe change, you can transition your summer jewels to fall looks. Meaning you don't have to put away those earrings...&nbsp;maybe ever!<\/p>",
-          "button_label": "READ MORE",
-          "button_link": "shopify:\/\/blogs\/olive-and-piper\/ways-to-wear-summer-earrings-in-the-fall"
-        }
-      },
       "featured-blog": {
         "type": "featured-blog",
         "disabled": true,
@@ -199,6 +187,7 @@
       },
       "text-over-image-2": {
         "type": "text-over-image",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/Untitled-1.jpg",
           "parallax": true,
@@ -535,24 +524,23 @@
       },
       "1541088605858": {
         "type": "collection-list",
-        "disabled": true,
         "blocks": {
-          "1541088605858-1": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "maia-collection"
-            }
-          },
           "1541088605858-0": {
             "type": "featured_collection",
             "settings": {
               "collection": "womens-bracelets"
             }
+          },
+          "1541088605858-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "hair-accessories"
+            }
           }
         },
         "block_order": [
-          "1541088605858-1",
-          "1541088605858-0"
+          "1541088605858-0",
+          "1541088605858-1"
         ],
         "settings": {
           "title": "",
@@ -565,56 +553,22 @@
           "1570726293204": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/AnniCollection_HeroBannerV2.jpg",
-              "title": "7th Anniversary",
-              "text": "<p>Best sellers in a limited edition blush pink.<\/p>\n<p>20% of sales go to support Breast Cancer Awareness.&nbsp;<\/p>",
-              "button_text": "Shop Now",
-              "link": "shopify:\/\/collections\/7th-anniversary-collection",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "center",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1568304606686": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Resin_Hero_Banner_2.jpg",
-              "title": "Luxe Resin",
-              "text": "<p>New-season&nbsp;shades, modern silhouettes<\/p>\n<p>and everyday style.&nbsp;<\/p>",
-              "button_text": "Shop the Trend",
-              "link": "shopify:\/\/collections\/resin-collection",
+              "image": "shopify:\/\/shop_images\/Hero_Holiday_V2.jpg",
+              "title": "Holiday Glow",
+              "text": "<p>Get in the mood. The shiniest season of the year is coming.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/holiday-collection",
               "caption-background": "rgba(0,0,0,0)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
-          },
-          "1571168704099": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/OP-TravelRoll-HeroBanner2.jpg",
-              "title": "Jewelry Travel Case",
-              "text": "<p>Keep your favorite jewelry safely organized while on-the-go.<\/p>",
-              "button_text": "See More",
-              "link": "shopify:\/\/products\/jewelry-travel-roll",
-              "caption-background": "rgba(255,255,255,0.8)",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "left",
+              "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1570726293204",
-          "1568304606686",
-          "1571168704099"
+          "1570726293204"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -693,23 +647,35 @@
           "1560891981762-0"
         ],
         "settings": {}
+      },
+      "1573156617976": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/ImageText_Holiday_HairAccessories.jpg",
+          "layout": "left",
+          "title": "Happy Hair Days",
+          "text_block": "<p>Festive and stylish&nbsp;every day clips to dress up your tresses, just the way you like it.<\/p>",
+          "button_label": "SHOP NOW",
+          "button_link": "shopify:\/\/collections\/hair-accessories"
+        }
       }
     },
     "content_for_index": [
       "1543209232198",
       "1541088605858",
+      "1573156617976",
       "1556908002738",
       "collection",
       "text-over-image-1",
-      "1532101176305",
       "1519621537758",
       "1560891981762",
+      "1519623686049",
       "1532387026613",
-      "feature-row-2",
+      "1532101176305",
       "instagram",
       "featured-blog",
       "social-media",
-      "1519623686049",
       "text-over-image-2"
     ]
   },
