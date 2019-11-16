@@ -89,8 +89,8 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "free shipping on orders over $49 us",
-          "message_link": "shopify:\/\/pages\/orders-shipping",
+          "message_text": "Sign up for early access to Black Friday",
+          "message_link": "shopify:\/\/pages\/black-friday-access",
           "notification-bar--background-colour": "#65142a",
           "notification-bar--text-colour": "#ede9e9"
         }
@@ -266,28 +266,6 @@
           "title": "Featured in"
         }
       },
-      "instagram": {
-        "type": "instagram",
-        "disabled": true,
-        "settings": {
-          "title": "Tag #oliveandpiper to be featured",
-          "show-title": true,
-          "image-padding": false,
-          "instagram-access-token": "201232575.cf70533.3d93a8b27d7a44a5ba7b646eb9f0d781",
-          "instagram-homepage-width": "full-width",
-          "grid": 4,
-          "rows": 2,
-          "sort-by": "most-liked"
-        }
-      },
-      "social-media": {
-        "type": "social-media",
-        "disabled": true,
-        "settings": {
-          "title": "Follow us...",
-          "icon-colors": "color"
-        }
-      },
       "footer": {
         "type": "footer",
         "blocks": {
@@ -329,7 +307,6 @@
       },
       "1519621537758": {
         "type": "collection-list",
-        "disabled": true,
         "blocks": {
           "1541088914027": {
             "type": "featured_collection",
@@ -340,7 +317,7 @@
           "1519621537758-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "jewelry-sets"
+              "collection": "statement-earrings"
             }
           },
           "1519621537758-0": {
@@ -524,6 +501,7 @@
       },
       "1541088605858": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "1541088605858-0": {
             "type": "featured_collection",
@@ -550,25 +528,42 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1570726293204": {
+          "1573838608193": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_Holiday_V2.jpg",
-              "title": "Holiday Glow",
-              "text": "<p>Get in the mood. The shiniest season of the year is coming.<\/p>",
+              "image": "shopify:\/\/shop_images\/Hero_HairClips_V1_5ad2ffa6-dd0e-40b3-8594-27630709a900.jpg",
+              "title": "Hair for the Holidays",
+              "text": "<p>NEW hair&nbsp;clips you'll to go with all your holiday looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/hair-accessories",
+              "caption-background": "#ffffff",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
+              "horizontal-alignment": "left",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1573842182964": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_HolidayLuxe_V3.jpg",
+              "title": "Shine Bright",
+              "text": "<p>Get fancy for the&nbsp;shiniest season of the year.<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/holiday-collection",
-              "caption-background": "rgba(0,0,0,0)",
+              "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
-              "horizontal-alignment": "right",
+              "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
           }
         },
         "block_order": [
-          "1570726293204"
+          "1573842182964",
+          "1573838608193"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -580,25 +575,6 @@
           "show-slide-dots": false,
           "show-slide-arrows": true
         }
-      },
-      "1556908002738": {
-        "type": "image-bar",
-        "disabled": true,
-        "blocks": {
-          "1556908002738-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/WIDE-BANNER-RESTOCKING.jpg",
-              "link": "",
-              "title": "",
-              "description": ""
-            }
-          }
-        },
-        "block_order": [
-          "1556908002738-0"
-        ],
-        "settings": {}
       },
       "search-template": {
         "type": "search-template",
@@ -652,30 +628,69 @@
         "type": "feature-row",
         "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/ImageText_Holiday_HairAccessories.jpg",
+          "image": "",
           "layout": "left",
           "title": "Happy Hair Days",
           "text_block": "<p>Festive and stylish&nbsp;every day clips to dress up your tresses, just the way you like it.<\/p>",
           "button_label": "SHOP NOW",
           "button_link": "shopify:\/\/collections\/hair-accessories"
         }
+      },
+      "1573678640991": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_Holiday_Hair_High_stars.jpg",
+          "layout": "right",
+          "title": "Good Hair Days",
+          "text_block": "<p>Festive new hair accessories to go with all&nbsp;your holiday looks this season... and those after too.&nbsp;<\/p>",
+          "button_label": "SHOP NOW",
+          "button_link": "shopify:\/\/collections\/hair-accessories"
+        }
+      },
+      "1573680109163": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_Holiday_Gifts_copy.jpg",
+          "layout": "left",
+          "title": "Get Gifty",
+          "text_block": "<p>Holiday gifts so delightful you'll have a hard time giving them away.<\/p>",
+          "button_label": "SHOP NOW",
+          "button_link": "shopify:\/\/collections\/stocking-stuffers"
+        }
+      },
+      "1573682753767": {
+        "type": "custom-html",
+        "disabled": true,
+        "blocks": {
+          "1573682753767-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div style=\"text-align:center;\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0171\/4242\/files\/Custom_BlackFriday_SignUp_copy.jpg?2852\"><\/div>",
+              "width": "75%"
+            }
+          }
+        },
+        "block_order": [
+          "1573682753767-0"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
       "1543209232198",
       "1541088605858",
-      "1573156617976",
-      "1556908002738",
-      "collection",
-      "text-over-image-1",
       "1519621537758",
-      "1560891981762",
+      "1573680109163",
+      "1573678640991",
+      "1573156617976",
+      "collection",
+      "1573682753767",
       "1519623686049",
-      "1532387026613",
+      "text-over-image-1",
+      "1560891981762",
       "1532101176305",
-      "instagram",
+      "1532387026613",
       "featured-blog",
-      "social-media",
       "text-over-image-2"
     ]
   },
