@@ -528,22 +528,6 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1573838608193": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_HairClips_V1_5ad2ffa6-dd0e-40b3-8594-27630709a900.jpg",
-              "title": "Hair for the Holidays",
-              "text": "<p>NEW hair&nbsp;clips you'll to go with all your holiday looks.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/hair-accessories",
-              "caption-background": "#ffffff",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
-          },
           "1573842182964": {
             "type": "image",
             "settings": {
@@ -557,6 +541,22 @@
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
               "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1573838608193": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_HairClips_V1_5ad2ffa6-dd0e-40b3-8594-27630709a900.jpg",
+              "title": "Hair for the Holidays",
+              "text": "<p>NEW hair&nbsp;clips you'll to go with all your holiday looks.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/hair-accessories",
+              "caption-background": "#ffffff",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
+              "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
           }
@@ -665,7 +665,7 @@
           "1573682753767-0": {
             "type": "html",
             "settings": {
-              "code": "<div style=\"text-align:center;\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0171\/4242\/files\/Custom_BlackFriday_SignUp_copy.jpg?2852\"><\/div>",
+              "code": "<div class=\"ft-fullwidth-img\"><a href=\"\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0171\/4242\/files\/Custom_BlackFriday_SignUp_copy.jpg?2852\"><\/a><\/div>",
               "width": "75%"
             }
           }
