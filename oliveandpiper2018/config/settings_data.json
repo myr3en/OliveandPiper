@@ -559,9 +559,26 @@
               "horizontal-alignment": "left",
               "vertical-alignment": "middle"
             }
+          },
+          "1574351838979": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_HolidaySale25off_a34a6f9e-2742-4350-8e5b-8741dafb6122.jpg",
+              "title": "4 days only: 25% OFF",
+              "text": "<p>Get 25% off orders of $150US or more with HOLIDAY25.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "https:\/\/www.oliveandpiper.com\/collections\/holiday-collection",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
           }
         },
         "block_order": [
+          "1574351838979",
           "1573842182964",
           "1573838608193"
         ],
