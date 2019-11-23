@@ -236,9 +236,14 @@
 				<div class="indiv-product-vendor-text">{{ product.vendor }}</div>
 			{% endif %}
 
-            <div style="position:relative;"> <h1 class="custom-font product-description-header">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1> <div id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-label" }} </div> </div>
+            <div style="position:relative;"> <h1 class="custom-font product-description-header">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1>
 
-			<div id='wsgStockData'> {% capture wsgStockData %}{% for variant in product.variants %}"{{variant.id}}":{"stock":{{variant.inventory_quantity}},"policy":"{{variant.inventory_policy}}", "shipDate":"{{ variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %} </div> <script> var wsgStockData = {{wsgStockData | json}}; </script> <div><p id='wsg-backordered-msg'></p></div>
+            {% include 'shappify-sales-clock' %}
+
+            <div id="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-label" }} </div> </div>
+
+			<div id='wsgStockData'> {% capture wsgStockData %}{% for variant in product.variants %}"{{variant.id}}":{"stock":{{variant.inventory_quantity}},"policy":"{{variant.inventory_policy}}", "shipDate":"{{ variant.next_incoming_date | date: "%m/%d" }}" },{% endfor %}{% endcapture %} </div> <script> var wsgStockData = {{wsgStockData | json}}; </script>
+            <div><p id='wsg-backordered-msg'></p></div>
                 {% if section.settings.description_position == "above" %}
 
                     <div class="product-description-wrapper above">
