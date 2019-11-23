@@ -112,7 +112,7 @@
               <div class="corner top-right"></div>
               <div class="corner bottom-left"></div>
               <div id="gift-card">
-                <img src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="Gift card illustration">
+                <img src="{{ 'giftcard-stars.jpg' | asset_url }}" alt="Gift card illustration">
                 {% assign initial_value_size = formatted_initial_value | size %}
                 <div id="gift-card-amount" class="{% if initial_value_size > 6 %}medium{% endif %}">
                   {% if gift_card.balance != gift_card.initial_value %}
