@@ -501,6 +501,16 @@ h2 {
 /* END */
 
 
+/* Smart wishlist Styles */
+#smartwishlistfixedlink {
+    display: none;
+
+    @media only screen and (max-width:768px) {
+        display: block !important;
+    }
+
+}
+
 
 
 
