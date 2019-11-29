@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "1 day until Black Friday",
-          "message_link": "",
-          "notification-bar--background-colour": "#65142a",
+          "message_text": "Black Friday Sale - Up to 60% off",
+          "message_link": "shopify:\/\/collections\/black-friday-sale",
+          "notification-bar--background-colour": "#120510",
           "notification-bar--text-colour": "#ede9e9"
         }
       },
@@ -150,6 +150,7 @@
       },
       "text-over-image-1": {
         "type": "text-over-image",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/WeddingShop_V3_c839d52d-4d98-4dc2-9e3c-dac4397ce363.jpg",
           "parallax": true,
@@ -284,6 +285,7 @@
       },
       "1519621537758": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "1541088914027": {
             "type": "featured_collection",
@@ -478,7 +480,6 @@
       },
       "1541088605858": {
         "type": "collection-list",
-        "disabled": true,
         "blocks": {
           "1574965816696": {
             "type": "featured_collection",
@@ -518,8 +519,8 @@
           }
         },
         "block_order": [
-          "1574965816696",
           "1541088605858-1",
+          "1574965816696",
           "1574965603697",
           "1574966578367",
           "1574966446502",
@@ -532,6 +533,7 @@
       },
       "1543209232198": {
         "type": "slideshow",
+        "disabled": true,
         "blocks": {
           "1573842182964": {
             "type": "image",
@@ -592,6 +594,7 @@
       },
       "1573678640991": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_Holiday_Hair_V2.jpg",
           "layout": "right",
@@ -603,6 +606,7 @@
       },
       "1573680109163": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_Holiday_Gifts_V2.jpg",
           "layout": "left",
@@ -631,7 +635,6 @@
       },
       "1574962271541": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
           "1574962271541-1": {
             "type": "image",
@@ -683,7 +686,6 @@
       },
       "1574969201500": {
         "type": "feature-row",
-        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_StudSet_46a691b0-3606-4e2d-b44f-eeaeaf9e7c41.jpg",
           "layout": "left",
@@ -707,7 +709,6 @@
       },
       "1574971437878": {
         "type": "feature-row",
-        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_WeddingShop.jpg",
           "layout": "right",
