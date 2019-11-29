@@ -217,6 +217,12 @@ body.template-product {
                 margin-bottom: 10px;
             }
         }
+
+        #shappify_count_down {
+            @media only screen and (max-width: 767px) {
+                text-align: center;
+            }
+        }
     }
     .product-description-header {
         font-family: 'NewParis Headline';
@@ -235,6 +241,7 @@ body.template-product {
             justify-content: center;
         }
     }
+
 
     #smartwishlist {
         padding: 5px 10px !important;

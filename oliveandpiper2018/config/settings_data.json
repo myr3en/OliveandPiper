@@ -89,8 +89,8 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Sign up for early access to Black Friday",
-          "message_link": "shopify:\/\/pages\/black-friday-access",
+          "message_text": "1 day until Black Friday",
+          "message_link": "",
           "notification-bar--background-colour": "#65142a",
           "notification-bar--text-colour": "#ede9e9"
         }
@@ -146,29 +146,6 @@
           "enable": false,
           "colors": "white",
           "advert-show": "all"
-        }
-      },
-      "collection": {
-        "type": "collection",
-        "disabled": true,
-        "settings": {
-          "title": "",
-          "show-vendor": false,
-          "hover-effect": "zoom",
-          "collection": "homepage",
-          "grid": "4",
-          "rows": 1,
-          "show_view_all": false,
-          "match-height": false
-        }
-      },
-      "featured-blog": {
-        "type": "featured-blog",
-        "disabled": true,
-        "settings": {
-          "title": "From the blog",
-          "blog": "olive-and-piper",
-          "post_limit": 2
         }
       },
       "text-over-image-1": {
@@ -503,26 +480,54 @@
         "type": "collection-list",
         "disabled": true,
         "blocks": {
-          "1541088605858-0": {
+          "1574965816696": {
             "type": "featured_collection",
             "settings": {
-              "collection": "womens-bracelets"
+              "collection": "25-and-under"
             }
           },
           "1541088605858-1": {
             "type": "featured_collection",
             "settings": {
+              "collection": "stocking-stuffers"
+            }
+          },
+          "1574965603697": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "statement-earrings"
+            }
+          },
+          "1574966578367": {
+            "type": "featured_collection",
+            "settings": {
               "collection": "hair-accessories"
+            }
+          },
+          "1574966446502": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "best-selling-jewelry"
+            }
+          },
+          "1541088605858-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "50-and-under"
             }
           }
         },
         "block_order": [
-          "1541088605858-0",
-          "1541088605858-1"
+          "1574965816696",
+          "1541088605858-1",
+          "1574965603697",
+          "1574966578367",
+          "1574966446502",
+          "1541088605858-0"
         ],
         "settings": {
-          "title": "",
-          "grid": 2
+          "title": "BLACK FRIDAY DEALS",
+          "grid": 3
         }
       },
       "1543209232198": {
@@ -585,57 +590,6 @@
           "article-hover-effect": "zoom"
         }
       },
-      "1560891981762": {
-        "type": "image-bar",
-        "disabled": true,
-        "blocks": {
-          "1560891981762-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "link": "",
-              "title": "",
-              "description": ""
-            }
-          },
-          "1560891981762-2": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "link": "",
-              "title": "",
-              "description": ""
-            }
-          },
-          "1560891981762-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "link": "",
-              "title": "",
-              "description": ""
-            }
-          }
-        },
-        "block_order": [
-          "1560891981762-1",
-          "1560891981762-2",
-          "1560891981762-0"
-        ],
-        "settings": {}
-      },
-      "1573156617976": {
-        "type": "feature-row",
-        "disabled": true,
-        "settings": {
-          "image": "",
-          "layout": "left",
-          "title": "Happy Hair Days",
-          "text_block": "<p>Festive and stylish&nbsp;every day clips to dress up your tresses, just the way you like it.<\/p>",
-          "button_label": "SHOP NOW",
-          "button_link": "shopify:\/\/collections\/hair-accessories"
-        }
-      },
       "1573678640991": {
         "type": "feature-row",
         "settings": {
@@ -674,23 +628,124 @@
           "1573682753767-0"
         ],
         "settings": {}
+      },
+      "1574962271541": {
+        "type": "slideshow",
+        "disabled": true,
+        "blocks": {
+          "1574962271541-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OP-BlackFridayl-HeroBanner_V3_f9724189-d090-42ef-a92c-550078ccfc82.jpg",
+              "title": "BLACK FRIDAY SALE",
+              "text": "<p>Up to 60% off everything this weekend only.<\/p>\n<p><em>All sales are final.<\/em><\/p>",
+              "button_text": "SHOP FAST",
+              "link": "shopify:\/\/collections\/black-friday-sale",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#ffffff",
+              "button-text": "#000000",
+              "button-background": "#ffffff",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1574962271541-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_BF_StudSet.jpg",
+              "title": "TODAY'S DEAL",
+              "text": "<p>Choose 3 of our best selling luxe stud earrings for just $60!&nbsp;<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/3-stud-set",
+              "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          }
+        },
+        "block_order": [
+          "1574962271541-1",
+          "1574962271541-0"
+        ],
+        "settings": {
+          "slider-animation": "slide",
+          "slider-width": "full-width",
+          "slider-slide-time": 5,
+          "caption-heading-size": 40,
+          "caption-subheading-size": 24,
+          "caption-button-size": 16,
+          "show-slide-dots": false,
+          "show-slide-arrows": true
+        }
+      },
+      "1574969201500": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_StudSet_46a691b0-3606-4e2d-b44f-eeaeaf9e7c41.jpg",
+          "layout": "left",
+          "title": "24 HOUR DEAL",
+          "text_block": "<p>Get 3 of your favorite stud earrings from our Luxe Collection for just $60 US today.<\/p>\n<p><\/p>\n<p>Perfect for your holiday festivities and makes a great gift&nbsp;too.&nbsp;&nbsp;<\/p>\n<p><\/p>\n<p><em>This item is a final sale.&nbsp;<\/em><\/p>",
+          "button_label": "SHOP THE DEAL",
+          "button_link": "shopify:\/\/collections\/3-stud-set"
+        }
+      },
+      "1574970955943": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_MiniStuds.jpg",
+          "layout": "left",
+          "title": "24 HOUR DEAL",
+          "text_block": "<p>We took the studs you love and turned them into (super cute) minis. Grab them for only&nbsp;$22 US today.&nbsp;Perfect for gifting, and keeping for yourself too. 😉<\/p>\n<p><\/p>\n<p><em>This item is a final sale.<\/em><\/p>",
+          "button_label": "SHOP THE DEAL",
+          "button_link": "shopify:\/\/collections\/mini-stud-earrings"
+        }
+      },
+      "1574971437878": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_WeddingShop.jpg",
+          "layout": "right",
+          "title": "Getting Married?",
+          "text_block": "<p>Now's your chance to stock up on stunning little luxuries for your wedding.<\/p>\n<p><\/p>\n<p>Let us make&nbsp;your day extra special, and help you deck out your&nbsp;squad too.<\/p>",
+          "button_label": "WEDDING SHOP",
+          "button_link": "shopify:\/\/collections\/wedding-jewelry"
+        }
+      },
+      "1574973480983": {
+        "type": "feature-row",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_GiftCard.jpg",
+          "layout": "left",
+          "title": "A GIFT FOR YOU",
+          "text_block": "<p>Get up to a $100 US complimentary e-gift card with your purchase today. Shop our Black Friday Sale now, and treat yourself later.<\/p>",
+          "button_label": "MORE DETAILS",
+          "button_link": "shopify:\/\/products\/gift-card"
+        }
       }
     },
     "content_for_index": [
+      "1574962271541",
       "1543209232198",
       "1541088605858",
       "1519621537758",
+      "1574969201500",
+      "1574970955943",
+      "1574973480983",
+      "1574971437878",
       "1573678640991",
       "1573680109163",
-      "1573156617976",
-      "collection",
       "1573682753767",
       "1519623686049",
       "text-over-image-1",
-      "1560891981762",
       "1532101176305",
       "1532387026613",
-      "featured-blog",
       "text-over-image-2"
     ]
   },
