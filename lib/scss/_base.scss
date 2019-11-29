@@ -272,31 +272,31 @@ p, li, a {
 
 
         // /* HOLIDAYS NAVIGATION */
-        &:first-child {
-            font-weight: bold;
-            border: 1px dashed $holidays;
-            .nav-label {
-                color: $holidays;
-            }
-        }
-        // /* END HOLIDAYS */
-
-        // /* BLACK FRIDAY NAVIGATION */
         // &:first-child {
         //     font-weight: bold;
-        //     background-color: $black;
-        //     color: $white;
-        //     .nav-label {
-        //         color: $white;
-        //     }
-        // }
-        // &:nth-child(2) {
-        //     font-weight: bold;
-        //     // border: 1px solid $holidays;
+        //     border: 1px dashed $holidays;
         //     .nav-label {
         //         color: $holidays;
         //     }
         // }
+        // /* END HOLIDAYS */
+
+        // /* BLACK FRIDAY NAVIGATION */
+        &:first-child {
+            font-weight: bold;
+            background-color: $black;
+            color: $white;
+            .nav-label {
+                color: $white;
+            }
+        }
+        &:nth-child(2) {
+            font-weight: bold;
+            // border: 1px solid $holidays;
+            .nav-label {
+                color: $holidays;
+            }
+        }
         // /* END BLACK FRIDAY */
 
 
