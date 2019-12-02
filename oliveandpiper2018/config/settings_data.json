@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "Black Friday Sale - Up to 60% off",
-          "message_link": "shopify:\/\/collections\/black-friday-sale",
-          "notification-bar--background-colour": "#120510",
+          "message_text": "CYBER MONDAY - 30% OFF SELECT ITEMS",
+          "message_link": "shopify:\/\/collections\/cyber-monday-sale",
+          "notification-bar--background-colour": "#dcafad",
           "notification-bar--text-colour": "#ede9e9"
         }
       },
@@ -285,7 +285,6 @@
       },
       "1519621537758": {
         "type": "collection-list",
-        "disabled": true,
         "blocks": {
           "1541088914027": {
             "type": "featured_collection",
@@ -307,12 +306,12 @@
           }
         },
         "block_order": [
+          "1519621537758-0",
           "1541088914027",
-          "1519621537758-1",
-          "1519621537758-0"
+          "1519621537758-1"
         ],
         "settings": {
-          "title": "",
+          "title": "Holiday Gift Ideas",
           "grid": 3
         }
       },
@@ -480,17 +479,18 @@
       },
       "1541088605858": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
-          "1574965816696": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "25-and-under"
-            }
-          },
           "1541088605858-1": {
             "type": "featured_collection",
             "settings": {
               "collection": "stocking-stuffers"
+            }
+          },
+          "1574965816696": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "25-and-under"
             }
           },
           "1574965603697": {
@@ -533,16 +533,15 @@
       },
       "1543209232198": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
-          "1573842182964": {
+          "1575271048781": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_HolidayLuxe_V3.jpg",
-              "title": "Shine Bright",
-              "text": "<p>Get fancy for the&nbsp;shiniest season of the year.<\/p>",
+              "image": "shopify:\/\/shop_images\/Hero_CM_e98cda73-dbea-4df2-afee-e63ba923f169.jpg",
+              "title": "CYBER MONDAY",
+              "text": "<p>Take 30% off select items today with code&nbsp;<strong>BESTMONDAY.<\/strong><\/p>\n<p><em>All sales are final.&nbsp;<\/em><\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/holiday-collection",
+              "link": "shopify:\/\/collections\/cyber-monday-sale",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
@@ -550,27 +549,10 @@
               "horizontal-alignment": "center",
               "vertical-alignment": "middle"
             }
-          },
-          "1573838608193": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_HairClips_V1_5ad2ffa6-dd0e-40b3-8594-27630709a900.jpg",
-              "title": "Hair for the Holidays",
-              "text": "<p>NEW hair&nbsp;clips you'll to go with all your holiday looks.<\/p>",
-              "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/hair-accessories",
-              "caption-background": "#ffffff",
-              "caption-text": "#000000",
-              "button-text": "#000000",
-              "button-background": "#ffffff",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
-          "1573842182964",
-          "1573838608193"
+          "1575271048781"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -606,10 +588,9 @@
       },
       "1573680109163": {
         "type": "feature-row",
-        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_Holiday_Gifts_V2.jpg",
-          "layout": "left",
+          "layout": "right",
           "title": "Get Gifty",
           "text_block": "<p>Holiday gifts so delightful you'll have a hard time giving them away.<\/p>",
           "button_label": "SHOP NOW",
@@ -635,12 +616,13 @@
       },
       "1574962271541": {
         "type": "slideshow",
+        "disabled": true,
         "blocks": {
           "1574962271541-1": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/OP-BlackFridayl-HeroBanner_V3_f9724189-d090-42ef-a92c-550078ccfc82.jpg",
-              "title": "BLACK FRIDAY SALE",
+              "title": "LAST DAY FOR BLACK FRIDAY SALE",
               "text": "<p>Up to 60% off everything this weekend only.<\/p>\n<p><em>All sales are final.<\/em><\/p>",
               "button_text": "SHOP FAST",
               "link": "shopify:\/\/collections\/black-friday-sale",
@@ -686,6 +668,7 @@
       },
       "1574969201500": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_StudSet_46a691b0-3606-4e2d-b44f-eeaeaf9e7c41.jpg",
           "layout": "left",
@@ -697,18 +680,18 @@
       },
       "1574970955943": {
         "type": "feature-row",
-        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_MiniStuds.jpg",
           "layout": "left",
-          "title": "24 HOUR DEAL",
-          "text_block": "<p>We took the studs you love and turned them into (super cute) minis. Grab them for only&nbsp;$22 US today.&nbsp;Perfect for gifting, and keeping for yourself too. 😉<\/p>\n<p><\/p>\n<p><em>This item is a final sale.<\/em><\/p>",
-          "button_label": "SHOP THE DEAL",
+          "title": "NEW Minis",
+          "text_block": "<p>We took the studs you love and turned them into (super cute) minis. Perfect for gifting, and keeping for yourself too. 😉<\/p>\n<p><\/p>\n<p><em>This item is a final sale.<\/em><\/p>",
+          "button_label": "SHOP NOW",
           "button_link": "shopify:\/\/collections\/mini-stud-earrings"
         }
       },
       "1574971437878": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_WeddingShop.jpg",
           "layout": "right",
@@ -738,10 +721,10 @@
       "1519621537758",
       "1574969201500",
       "1574970955943",
+      "1573680109163",
       "1574973480983",
       "1574971437878",
       "1573678640991",
-      "1573680109163",
       "1573682753767",
       "1519623686049",
       "text-over-image-1",
