@@ -265,6 +265,31 @@ p, li, a {
 #main-navigation-wrapper {
     padding: 15px 0 !important;
 
+    // /* BLACK FRIDAY NAVIGATION */
+    .nav-pills {
+        li {
+            &:first-child {
+                font-weight: bold;
+                background-color: $black;
+                color: $white;
+                a {
+                    color: $white;
+                }
+            }
+
+            .dropdown-menu {
+                li {
+                    &:first-child {
+                        background-color: $white !important;
+                        a {
+                            color: $black !important;
+                        }
+                    }
+                }
+            }
+        }
+    } /* End BFCM */
+
     .dropdown {
         a {
             letter-spacing: 1px;

@@ -89,9 +89,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "message_text": "CYBER MONDAY - 30% OFF SELECT ITEMS",
-          "message_link": "shopify:\/\/collections\/cyber-monday-sale",
-          "notification-bar--background-colour": "#dcafad",
+          "message_text": "Free shipping on orders over $49 US",
+          "message_link": "shopify:\/\/pages\/orders-shipping",
+          "notification-bar--background-colour": "#621528",
           "notification-bar--text-colour": "#ede9e9"
         }
       },
@@ -286,6 +286,12 @@
       "1519621537758": {
         "type": "collection-list",
         "blocks": {
+          "1519621537758-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "stocking-stuffers"
+            }
+          },
           "1541088914027": {
             "type": "featured_collection",
             "settings": {
@@ -296,12 +302,6 @@
             "type": "featured_collection",
             "settings": {
               "collection": "statement-earrings"
-            }
-          },
-          "1519621537758-0": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": "stocking-stuffers"
             }
           }
         },
@@ -537,11 +537,11 @@
           "1575271048781": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_CM_e98cda73-dbea-4df2-afee-e63ba923f169.jpg",
-              "title": "CYBER MONDAY",
-              "text": "<p>Take 30% off select items today with code&nbsp;<strong>BESTMONDAY.<\/strong><\/p>\n<p><em>All sales are final.&nbsp;<\/em><\/p>",
+              "image": "shopify:\/\/shop_images\/Hero_HolidayLuxe_V3.jpg",
+              "title": "Shine Bright",
+              "text": "<p>Get fancy, the shiniest season of the year is here.<\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/cyber-monday-sale",
+              "link": "shopify:\/\/collections\/holiday-collection",
               "caption-background": "rgba(255,255,255,0.8)",
               "caption-text": "#000000",
               "button-text": "#000000",
