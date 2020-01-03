@@ -6,7 +6,7 @@
     "sale-label-colour": "#1c2245",
     "header-background-colour": "#ffffff",
     "header-text-colour": "#000000",
-    "footer-background-colour": "#714550",
+    "footer-background-colour": "#2e3b4c",
     "footer-text-colour": "#ffffff",
     "main-menu-background-colour": "#ffffff",
     "main-menu-text-colour": "#000000",
@@ -91,7 +91,7 @@
         "settings": {
           "message_text": "Free shipping on orders over $49 US",
           "message_link": "shopify:\/\/pages\/orders-shipping",
-          "notification-bar--background-colour": "#621528",
+          "notification-bar--background-colour": "#2e3b4c",
           "notification-bar--text-colour": "#ede9e9"
         }
       },
@@ -289,19 +289,19 @@
           "1519621537758-0": {
             "type": "featured_collection",
             "settings": {
-              "collection": "stocking-stuffers"
+              "collection": "best-selling-jewelry"
             }
           },
           "1541088914027": {
             "type": "featured_collection",
             "settings": {
-              "collection": "gifts-under-50"
+              "collection": "womens-earrings"
             }
           },
           "1519621537758-1": {
             "type": "featured_collection",
             "settings": {
-              "collection": "statement-earrings"
+              "collection": "womens-bracelets"
             }
           }
         },
@@ -311,7 +311,7 @@
           "1519621537758-1"
         ],
         "settings": {
-          "title": "Holiday Gift Ideas",
+          "title": "",
           "grid": 3
         }
       },
@@ -534,15 +534,31 @@
       "1543209232198": {
         "type": "slideshow",
         "blocks": {
-          "1575271048781": {
+          "1577350033747": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_HolidayLuxe_V3.jpg",
-              "title": "Shine Bright",
-              "text": "<p>Get fancy, the shiniest season of the year is here.<\/p>",
+              "image": "shopify:\/\/shop_images\/OP-YearEndSale-HeroBanner-Dec26.jpg",
+              "title": "End of Year Sale",
+              "text": "<p>Grab&nbsp;the season's favorites on special and get an extra 20% off with <strong>YEAREND20.<\/strong><\/p>",
               "button_text": "SHOP NOW",
-              "link": "shopify:\/\/collections\/holiday-collection",
+              "link": "shopify:\/\/collections\/sale",
               "caption-background": "rgba(255,255,255,0.8)",
+              "caption-text": "#000000",
+              "button-text": "#000000",
+              "button-background": "rgba(0,0,0,0)",
+              "horizontal-alignment": "center",
+              "vertical-alignment": "middle"
+            }
+          },
+          "1576036712674": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_HairBands_V2.jpg",
+              "title": "The Mane Event",
+              "text": "<p>Accessories to keep your hair under control.<\/p>",
+              "button_text": "SHOP NOW",
+              "link": "shopify:\/\/collections\/hair-accessories",
+              "caption-background": "#ecd1c8",
               "caption-text": "#000000",
               "button-text": "#000000",
               "button-background": "rgba(0,0,0,0)",
@@ -552,7 +568,8 @@
           }
         },
         "block_order": [
-          "1575271048781"
+          "1577350033747",
+          "1576036712674"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -588,13 +605,14 @@
       },
       "1573680109163": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/TextImage_Holiday_Gifts_V2.jpg",
+          "image": "shopify:\/\/shop_images\/OlivePiper_banners_1200x800_bed5f8ba-d530-4399-a0eb-24a8325238b3.jpg",
           "layout": "right",
-          "title": "Get Gifty",
-          "text_block": "<p>Holiday gifts so delightful you'll have a hard time giving them away.<\/p>",
+          "title": "Gift with Purchase",
+          "text_block": "<p>Get a Benefit Cosmetics Precisely, My Brow Pencil sample&nbsp;FREE with any $50 US purchase.<\/p>",
           "button_label": "SHOP NOW",
-          "button_link": "shopify:\/\/collections\/stocking-stuffers"
+          "button_link": "shopify:\/\/products\/benefit-cosmetics-precisely-my-brow-pencil-sample"
         }
       },
       "1573682753767": {
@@ -604,8 +622,8 @@
           "1573682753767-0": {
             "type": "html",
             "settings": {
-              "code": "<div class=\"ft-fullwidth-img\"><a href=\"\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0171\/4242\/files\/Custom_BlackFriday_SignUp_copy.jpg?2852\"><\/a><\/div>",
-              "width": "75%"
+              "code": "<div class=\"ft-fullwidth-img\"><a href=\"\"><img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0171\/4242\/files\/Custom_ShippingDeadlines.jpg?v=1575492616\"><\/a><\/div>",
+              "width": "100%"
             }
           }
         },
@@ -621,7 +639,7 @@
           "1574962271541-1": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OP-BlackFridayl-HeroBanner_V3_f9724189-d090-42ef-a92c-550078ccfc82.jpg",
+              "image": "",
               "title": "LAST DAY FOR BLACK FRIDAY SALE",
               "text": "<p>Up to 60% off everything this weekend only.<\/p>\n<p><em>All sales are final.<\/em><\/p>",
               "button_text": "SHOP FAST",
@@ -683,8 +701,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_MiniStuds.jpg",
           "layout": "left",
-          "title": "NEW Minis",
-          "text_block": "<p>We took the studs you love and turned them into (super cute) minis. Perfect for gifting, and keeping for yourself too. 😉<\/p>\n<p><\/p>\n<p><em>This item is a final sale.<\/em><\/p>",
+          "title": "Mini Collection",
+          "text_block": "<p>We took the studs you love and turned them into (super cute) minis. Perfect for every day wear. 😉<\/p>",
           "button_label": "SHOP NOW",
           "button_link": "shopify:\/\/collections\/mini-stud-earrings"
         }
@@ -718,14 +736,14 @@
       "1574962271541",
       "1543209232198",
       "1541088605858",
+      "1573680109163",
+      "1574970955943",
       "1519621537758",
       "1574969201500",
-      "1574970955943",
-      "1573680109163",
+      "1573682753767",
       "1574973480983",
       "1574971437878",
       "1573678640991",
-      "1573682753767",
       "1519623686049",
       "text-over-image-1",
       "1532101176305",
