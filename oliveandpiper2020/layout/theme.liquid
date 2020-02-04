@@ -38,7 +38,8 @@
 
 	<!-- CSS -->
 	{{ 'plugins.css' | asset_url | stylesheet_tag }} {{ 'style.scss.css' | asset_url | stylesheet_tag }}
-
+	{{ 'style.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'style-main.min.css' | asset_url | stylesheet_tag }}
 	{% include 'font-links' %}
 
 	{% if settings.favicon != blank %}

@@ -1,0 +1,39 @@
+/* FONTS */
+@import url("https://use.typekit.net/prt0ozm.css");
+
+// Fonts
+@font-face {
+    font-family: 'NewParis Skyline';
+    src: url('NewParisSkyline-Regular.eot');
+    src: url('NewParisSkyline-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NewParisSkyline-Regular.woff2') format('woff2'),
+        url('NewParisSkyline-Regular.woff') format('woff'),
+        url('NewParisSkyline-Regular.ttf') format('truetype'),
+        url('NewParisSkyline-Regular.svg#NewParisSkyline-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NewParis Headline';
+    src: url('NewParisHeadline-Medium.eot');
+    src: url('NewParisHeadline-Medium.eot?#iefix') format('embedded-opentype'),
+        url('NewParisHeadline-Medium.woff2') format('woff2'),
+        url('NewParisHeadline-Medium.woff') format('woff'),
+        url('NewParisHeadline-Medium.ttf') format('truetype'),
+        url('NewParisHeadline-Medium.svg#NewParisHeadline-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NewParis KingSize';
+    src: url('NewParisKingSize-AirItalic.eot');
+    src: url('NewParisKingSize-AirItalic.eot?#iefix') format('embedded-opentype'),
+        url('NewParisKingSize-AirItalic.woff2') format('woff2'),
+        url('NewParisKingSize-AirItalic.woff') format('woff'),
+        url('NewParisKingSize-AirItalic.ttf') format('truetype'),
+        url('NewParisKingSize-AirItalic.svg#NewParisKingSize-AirItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}

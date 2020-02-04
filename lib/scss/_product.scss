@@ -1,0 +1,604 @@
+body.template-product {
+
+    /* HEADER */
+     #main-body {
+         #shopify-section-header {
+             z-index: 1 !important;
+         }
+     }
+
+    /* MODAL BOX POPUP */
+    .modal-window {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 800999 !important;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+
+        &:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+      .modal-popup {
+        position: absolute;
+        top: 45vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2em;
+        background: #ffffff;
+        color: #333333;
+        box-shadow: 6px 6px 12px rgba(0,0,0,.3);
+
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            width: 80%;
+        }
+
+        .section-container {
+            display: flex;
+            margin: 30px 0;
+
+            /* mobile */
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+                margin: 20px 0;
+            }
+
+            a:hover {
+                font-weight: bold;
+                text-decoration: underline;
+                color: $dustpink;
+            }
+
+            .popup-sections {
+                border-right: 1px solid #aaa;
+
+                /* mobile */
+                @media only screen and (max-width: 767px) {
+                    margin-bottom: 20px;
+                    border-right: 0px;
+                    border-bottom: 1px solid #aaa;
+                }
+
+
+                h1 {
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    line-height: 20px;
+                    margin-bottom: 20px;
+                    margin-top: 0px;
+                    /* mobile */
+                    @media only screen and (max-width: 767px) {
+                        font-size: 14px;
+                        margin-bottom: 15px;
+                    }
+
+                }
+                p {
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 20px;
+                    a {
+                        font-size: 12px;
+                        line-height: 14px;
+                        text-decoration: underline;
+                    }
+                    /* mobile */
+                    @media only screen and (max-width: 767px) {
+                        font-size: 12px;
+                        margin-bottom: 20px;
+                    }
+
+                }
+                &:last-child {
+                    border: 0px;
+                }
+            }
+        } /* Section-container END */
+
+      }
+    }
+
+    .modal-close {
+        color: #aaa;
+        line-height: 50px;
+        font-size: 80%;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 70px;
+        text-decoration: none;
+
+        &:hover {
+            color: #000;
+        }
+    }
+    /* END MODAL POPUP */
+
+
+
+
+    /* TEXT ADVERTS */
+    .sections-wrapper {
+        background: #fff;
+        color: #353943;
+        border-top: 1px solid #616161;
+        border-bottom: 1px solid #616161;
+
+        .text-advert-section--sub-header {
+            color: #353943;
+        }
+    }
+
+
+    /* PRODUCT CONTAINER */
+    #main {
+        margin-top: 100px;
+
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 30px;
+        }
+
+        .breadcrumb {
+            padding-top: 0;
+            margin-top: 0;
+            a, span {
+                font-family: 'NewParis Skyline';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 10px;
+                line-height: 20px;
+                text-transform: uppercase;
+                color: #7f7f7f;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            .quantity-controls {
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+
+                input {
+                    width: 40% !important;
+                }
+            }
+        }
+    }
+
+    /* PRODUCT IMAGES SECTION */
+    .MagicToolboxSlides {
+        z-index: 0 !important;
+        margin: 0;
+    }
+    #product-thumbnails {
+        li {
+            margin-bottom: 0px;
+            padding: 0 0 10px;
+        }
+    }
+    .product-images {
+        .sale-badge {
+            margin-top: 15px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+    }
+
+    .mobile-product-slider {
+        .flex-control-nav {
+            padding-top: 0 !important;
+        }
+    }
+
+
+
+    /* DESCRIPTION SECTION */
+    .product-description-main-wrapper {
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 0;
+        }
+
+        .variant-out-of-stock {
+            text-align: center;
+            margin: 20px auto 30px !important;
+
+            .stock-notice {
+                margin-bottom: 10px;
+            }
+        }
+
+        #shappify_count_down {
+            @media only screen and (max-width: 767px) {
+                text-align: center;
+            }
+        }
+    }
+    .product-description-header {
+        font-family: 'NewParis Headline';
+        font-size: 30px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 32px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        display: inline-block;
+
+        @media only screen and (max-width: 767px) {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+
+    #smartwishlist {
+        padding: 5px 10px !important;
+    }
+    .product-pricing {
+        display: flex;
+        align-items: baseline;
+        margin: 0 0 15px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 15px;
+
+        /* mobile */
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .custom-font {
+            margin: 0 !important;
+            line-height: 20px;
+            .money {
+                font-size: 15px;
+            }
+        }
+        .compare-at-price {
+            padding-right: 15px;
+        }
+    }
+
+    .yotpo.bottomLine {
+        margin: 10px 10px 10px 15px !important;
+    }
+
+    .product-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+            /* MODAL START BUTTON */
+            .container-modal {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            .free-ship {
+                font-size: 11px;
+                text-align: center;
+                margin-bottom: 20px;
+                width: 100%;
+
+                .free-ship-btn {
+                    text-decoration: underline;
+                }
+            }
+        }
+        /* END MODAL */
+
+    }
+
+
+
+    .materialize-select {
+        label {
+            text-align: left;
+            text-transform: capitalize;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color:#7f7f7f;
+            text-align: center;
+        }
+    }
+    .selector-wrapper {
+        label {
+            text-align: center;
+            text-transform: capitalize;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color:#7f7f7f;
+        }
+    }
+
+    .select-wrapper {
+        input.select-dropdown {
+            padding: 5px 10px;
+        }
+    }
+
+
+    /* Product customizer option */
+    .product-customizer-options {
+        text-align: center;
+        margin-bottom: 15px;
+        width: 50%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+        }
+
+
+        .product-customizer-option {
+
+            .product-customizer-option-description {
+                border: none;
+            }
+            div {
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+
+                select {
+                    font-family: 'NewParis Headline';
+                    cursor: pointer;
+                    width: 90%;
+                    margin: 13px auto;
+                    color: #000;
+                    display: block;
+                    border: 0;
+
+                    option {
+                        padding: 0 16px;
+                    }
+                }
+
+                input {
+                    background: none !important;
+                    border: 0;
+                    padding: 5px 10px;
+                }
+
+            }
+        }
+
+
+        label {
+            text-transform: capitalize;
+            font-family: 'NewParis Skyline';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color: #7f7f7f;
+            text-align: center;
+        }
+    }
+
+    .product-page--submit-action {
+        button#purchase {
+            text-transform: uppercase !important;
+            font-size: 15px !important;
+            background-color: #e5dad2;
+            border: 0 !important;
+            margin-bottom: 10px;
+        }
+    }
+    .btn-success {
+        text-transform: uppercase !important;
+        font-size: 15px !important;
+        background-color: #e5dad2;
+        border: 0 !important;
+        margin-bottom: 10px;
+
+    }
+
+    // klaviyo Back in stock styles //
+    .product-out-of-stock {
+        .klaviyo-bis-trigger {
+            text-transform: uppercase !important;
+            font-size: 15px !important;
+            background-color: #e5dad2;
+            border: 0 !important;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border-radius: 0;
+            color: $black;
+            font-family: 'NewParis Skyline';
+            font-style: normal;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 1px;
+            transition: .5s ease;
+        }
+    }
+
+
+    .product-description-wrapper {
+        font-family: 'NewParis Skyline';
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 1px;
+        h3 {
+            font-family: 'NewParis Skyline';
+            font-style: normal;
+            font-weight: bold !important;
+            font-size: 14px;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
+        ul {
+            margin-top: 15px;
+            list-style-type: none;
+            padding: 0;
+            li {
+                &:before {
+                    content: "-";
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+
+
+
+
+    /* STYLED ON IG */
+    .product-page-styled-ig {
+        display: inline-block;
+        margin: 0px;
+        width: 100%;
+
+        .yotpo-slider-title-wrapper {
+            position: relative;
+            padding: 10px 0 0 0 !important;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+
+            .yotpo-slider-title {
+                font-family: 'NewParis Headline';
+                text-transform: capitalize!important;
+                font-size: 20px !important;
+                line-height: 20px;
+                letter-spacing: 1px;
+                padding: 0 15px;
+                display: inline-block;
+                margin: 0;
+                color: $black;
+                background: $white;
+
+                &:after {
+                    content: "";
+                    height: 2px;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 20px;
+                    z-index: -1;
+                    border-top: 1px dotted #bfbfbf;
+                }
+            }
+        }
+
+        .title-bar {
+            margin-bottom: 0px;
+
+            h2 {
+                font-family: 'NewParis Skyline';
+                text-transform: capitalize !important;
+                font-size: 20px !important;
+            }
+        }
+    }
+
+
+
+
+    /* RELATED PRODUCTS */
+    .product-page-related-products {
+        margin-bottom: 0px;
+    }
+
+    /* TITLE BAR */
+
+    .title-bar {
+
+        h2 {
+            font-family: 'NewParis Headline' !important;
+            text-transform: capitalize !important;
+            font-size: 20px !important;
+        }
+    }
+
+
+    /* LOGO BAR */
+    #shopify-section-logo-bar {
+
+        .container {
+            margin: 0 auto !important;
+        }
+
+        /* mobile */
+        @media only screen and (max-width: 767px) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+    }
+
+    /* SHIPPING DETAILS */
+    .shipping-details {
+        background-image: url('shipping-details-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 500px;
+        background-size: contain;
+
+        .container {
+            margin-top: 0 !important;
+        }
+
+        .shipping-header {
+            padding-top: 100px;
+            /* mobile */
+            @media only screen and (max-width: 600px) {
+                padding-top: 50px;
+            }
+
+            h2 {
+                font-family: 'NewParis Skyline';
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 18px;
+            }
+        }
+        .shipping-content {
+            h3 {
+                font-family: 'NewParis Skyline';
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-size: 16px;
+            }
+            p {
+                font-family: 'NewParis Skyline';
+                font-style: normal;
+                font-weight: 500;
+                letter-spacing: 1px;
+                font-size: 14px;
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+
+
+
+}

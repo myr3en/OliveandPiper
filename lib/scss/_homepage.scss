@@ -1,0 +1,287 @@
+body.template-index {
+    // Homepage font styles  //
+   .flexslider-homepage {
+       .slider-caption {
+           h4 {
+               font-family: 'NewParis Headline';
+               font-weight: normal;
+               font-style: normal;
+
+               a {
+                   font-family: 'NewParis Headline';
+                   font-weight: normal;
+                   font-style: normal;
+               }
+           }
+           .slider-caption--subheading {
+               p {
+                   font-family: 'NewParis Skyline' !important;
+                   font-weight: normal;
+                   font-style: normal;
+               }
+           }
+           .btn-custom {
+               font-family: 'NewParis Skyline' !important;
+               font-weight: normal;
+               font-style: normal;
+           }
+       }
+
+   }
+
+   .shopify-section {
+       .custom-font {
+           font-family: 'NewParis Skyline' !important;
+           font-weight: normal;
+           font-style: normal;
+
+           h2 {
+               font-family: 'NewParis Headline' !important;
+               font-weight: 500 !important;
+               font-style: normal;
+           }
+       }
+
+       .title-bar {
+           h2 {
+               font-family: 'NewParis Headline' !important;
+               font-weight: 500 !important;
+               font-style: normal;
+               font-size: 20px !important;
+               text-transform: capitalize !important;
+           }
+       }
+
+       .indiv-product-title-text {
+           font-family: 'NewParis Skyline' !important;
+           font-weight: bold;
+           font-style: normal;
+       }
+       .hero__title {
+           font-family: 'NewParis Headline' !important;
+           font-weight: normal !important;
+           font-style: normal;
+           text-transform: capitalize !important;
+       }
+       .hero__text, .textarea {
+           p {
+               font-family: 'NewParis Skyline' !important;
+               font-weight: normal;
+               font-style: normal;
+           }
+       }
+       .feature-row {
+           .feature-row__item {
+                img {
+                    width: 100%;
+                }
+            }
+            .feature-row__text {
+                text-align: center;
+            }
+           h2 {
+               font-family: 'NewParis Headline' !important;
+               font-weight: normal !important;
+               font-style: normal;
+           }
+       }
+       .btn-custom {
+           font-family: 'NewParis Skyline' !important;
+           font-weight: normal;
+           font-style: normal;
+           font-size: 14px !important;
+           padding: 5px 15px;
+
+       }
+
+   }
+
+
+
+     p {
+         a {
+             font-weight: bold;
+             &:hover {
+                font-weight: bold;
+                text-decoration: underline;
+                color: $darkpink;
+            }
+         }
+     }
+
+    .flexslider-homepage {
+
+        .slider-caption {
+            padding: 20px 30px;
+            h4 {
+                font-size: 24px;
+                @media only screen and (min-width:768px) {
+                    font-size: 34px;
+                }
+            }
+        }
+        .slider-caption--subheading {
+            margin: 15px 0 0px 0;
+
+        	@media only screen and (min-width:768px) {
+                margin: 15px 0 20px 0;
+            }
+            p {
+                font-family: 'NewParis Skyline';
+                font-size: 14px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 500;
+                line-height: 22px;
+                letter-spacing: 1px;
+                padding: 0px;
+                margin: 0px;
+                @media only screen and (min-width:768px) {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+            }
+        }
+        .btn-custom {
+            border: 1px solid #000;
+            font-family: 'NewParis Skyline';
+            font-size: 12px !important;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 25px;
+            letter-spacing: 0px;
+            transition: .5s ease;
+            padding: 5px 15px;
+            &:hover {
+                background-color: #000 !important;
+                color: #fff !important;
+            }
+            @media only screen and (min-width:768px) {
+                font-size: 14px !important;
+            }
+        }
+    }
+
+    .indiv-collection-grid-homepage {
+        position: relative;
+        .homepage-collection-grid-inner {
+            .grid-image {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .homepage-collection-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 85%;
+            height: 80%;
+            padding: 0;
+            transition: .2s ease;
+
+            a.collection-item__title {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'NewParis Skyline';
+                font-style: normal;
+                font-weight: normal;
+                letter-spacing: 4px;
+                font-size: 25px;
+                text-transform: uppercase;
+                transition: .2s ease;
+                backface-visibility: hidden;
+                text-transform: uppercase;
+                &:hover{
+                    opacity: 1;
+                    background: rgba(255, 255, 255, 0.5);
+                }
+            }
+        }
+    }
+
+    .title-bar {
+        h2 {
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 1px;
+            &:after {
+                border-top: 1px dotted #000;
+            }
+        }
+    }
+
+
+    .index-section {
+        .hero__title {
+            text-transform: capitalize !important;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 33px;
+        }
+        .hero__text {
+            font-family: 'NewParis Skyline';
+            font-size: 18px;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin: 20px auto 30px;
+            max-width: 50%;
+            @media only screen and (max-width:768px) {
+                max-width: 80%;
+            }
+        }
+
+        .ft-fullwidth-img {
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+
+    .feature-row {
+        @media only screen and (max-width:768px) {
+            text-align: center;
+        }
+        h2 {
+            text-transform: capitalize !important;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 33px;
+        }
+        p {
+            font-family: 'NewParis Skyline';
+            font-size: 18px;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin: 20px 0 30px;
+        }
+    }
+
+    /* FEAUTE LOGO SECTION */
+    .homepage-section--logo-bar-wrapper {
+        @media only screen and (max-width:768px) {
+            .logo-bar__item {
+                max-width: 50%;
+            }
+        }
+    }
+
+
+
+
+
+
+} // END Body
