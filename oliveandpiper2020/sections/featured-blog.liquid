@@ -1,0 +1,305 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+	<div class="container">
+		<div class="row">
+			<div class="page-width col-md-12">
+	    {% if section.settings.title != blank %}
+	      <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+	      	<h2><span>{{ section.settings.title | escape }}</span></h2>
+	      	<div class="clear"></div>
+	      </div>
+	    {% endif %}
+
+	    {%- assign blog = blogs[section.settings.blog] -%}
+	    {%- assign post_limit = section.settings.post_limit -%}
+
+	    {% unless blog.empty? %}
+	      <div class="row grid--blog">
+	        {% for article in blog.articles limit: post_limit %}
+
+	        {% case post_limit %}
+	        	{% when 1 %}
+	        		<div class="col-md-6 col-md-offset-3">
+	        	{% when 2 %}
+	        		<div class="col-md-6 col-sm-6">
+	        	{% when 3 %}
+	        		<div class="col-md-4">
+	        	{% when 4 %}
+	        		<div class="col-md-3">
+	        {% endcase %}
+            {% if section.settings.show_blog_images %}
+	            {% if article.image %}
+	            <div class="article-image">
+	              <a href="{{ article.url }}">
+	                {% include 'responsive-image' with article.image %}
+	              </a>
+	            </div>
+	            {% endif %}
+            {% endif %}
+
+	              <div class="blog-title-wrapper homepage-blog-title-wrapper{% if article.image %} article-image-in-header{% endif %}">
+
+                  {% if section.settings.show_dates or section.settings.show_author_name %}
+
+                    {% if section.settings.show_dates %}
+                    <p class="blog-publish-date">
+                      <time class="updated blog--indiv-date" datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | time_tag: format: 'month_day_year' }}</time>
+                    </p>
+                    {% endif %}
+
+                    {% if section.settings.show_author_name %}
+                    <p class="blog-publish-date">
+                      <span>{{ article.author }}</span>
+                    </p>
+                    {% endif %}
+
+                    <div class="blog-title--divider"></div>
+
+                  {% endif %}
+
+	              	<h2><a href="{{article.url}}">{{ article.title }}</a></h2>
+	              </div>
+
+	              <div class="rte home-blog-excerpt">
+	                {% if article.excerpt.size > 0 %}
+	                  {{ article.excerpt }}
+	                {% else %}
+	                  {{ article.content | strip_html | truncatewords: 25 }}
+	                {% endif %}
+	              </div>
+
+
+
+
+	          </div>
+	        {% endfor %}
+	      </div>
+	    {% else %}
+	      <div class="row">
+	        {% for i in (1..post_limit) %}
+	          {% case post_limit %}
+	          	{% when 1 %}
+	          		<div class="col-md-6 col-md-offset-3">
+	          	{% when 2 %}
+	          		<div class="col-md-6 col-sm-6">
+	          	{% when 3 %}
+	          		<div class="col-md-4">
+	          	{% when 4 %}
+	          		<div class="col-md-3">
+	          {% endcase %}
+
+            {% if section.settings.show_blog_images %}
+							<div class="placeholder-article-image">
+								{% capture current %}{% cycle 1, 2, 1 %}{% endcapture %}
+								{{ 'lifestyle-' | append: current | placeholder_svg_tag: 'icon icon--placeholder' }}
+	      			</div>
+            {% endif %}
+
+	            <div class="blog-title-wrapper{% if article.image %} article-image-in-header{% endif %}">
+
+              {% if section.settings.show_dates or section.settings.show_author_name %}
+
+                {% if section.settings.show_dates %}
+	            	  <p class="blog-publish-date"><time class="updated">{{ 'now' | date: '%B' }} 1st, {{ 'now' | date: '%Y' }}</time></p>
+                {% endif %}
+
+                {% if section.settings.show_author_name %}
+                <p class="blog-publish-date">
+                  <span>{{ 'blogs.article.author_title' | t }}</span>
+                </p>
+                {% endif %}
+
+              {% endif %}
+
+	            	<h2><a href="{{article.url}}">{{ 'general.onboarding.blog_title' | t }}</a></h2>
+
+	            </div>
+
+	            <div class="rte home-blog-excerpt">
+	              {{ 'general.onboarding.blog_excerpt' | t }}
+	            </div>
+
+	          </div>
+	        {% endfor %}
+	        </div>
+	    {% endunless %}
+	  </div>
+	</div>
+	</div>
+
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Blog posts",
+        "de": "Blogposts",
+        "es": "Publicaciones del blog",
+        "fr": "Articles de blog",
+        "pt-PT": "Publicações no blog"
+    },
+    "class": "homepage-section--blog-posts-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "From the blog",
+                "de": "Aus dem Blog",
+                "es": "Del blog",
+                "fr": "Du blog",
+                "pt-PT": "Do blog"
+            }
+        },
+        {
+            "id": "blog",
+            "type": "blog",
+            "label": {
+                "en": "Blog",
+                "de": "Blog",
+                "es": "Blog",
+                "fr": "Blog",
+                "pt-PT": "Blog"
+            }
+        },
+        {
+            "type": "range",
+            "id": "post_limit",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "label": {
+                "en": "Posts",
+                "de": "Posts",
+                "es": "Publicaciones",
+                "fr": "Messages",
+                "pt-PT": "Publicações"
+            },
+            "default": 3
+        },
+        {
+            "type": "checkbox",
+            "id": "show_blog_images",
+            "label": {
+                "en": "Show post images",
+                "de": "Postbilder anzeigen",
+                "es": "Mostrar imágenes publicadas",
+                "fr": "Afficher les images du message",
+                "pt-PT": "Mostrar imagens de publicações"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_author_name",
+            "label": {
+                "en": "Show author name",
+                "de": "Autorennamen anzeigen",
+                "es": "Mostrar el nombre de autor",
+                "fr": "Afficher le nom de l'auteur",
+                "pt-PT": "Mostrar nome do autor"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_dates",
+            "label": {
+								"en": "Show dates",
+								"de": "Daten anzeigen",
+								"es": "Mostrar fechas",
+								"fr": "Afficher les dates",
+								"pt-PT": "Mostrar datas"
+						},
+            "default": true
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog posts",
+            "category": "Blog",
+            "settings": {
+                "blog": "News",
+                "post_limit": 3
+            }
+        }
+    ]
+}
+{% endschema %}

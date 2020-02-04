@@ -1,0 +1,260 @@
+{% if section.settings.image != blank %}
+  <style>
+    {% capture selector %}.image-section--{{ section.id }} .img{% endcapture %}
+    {% if section.settings.parallax %}{% assign scale = 2 %}{% else %}{% assign scale = 1 %}{% endif %}
+    {% include 'responsive-background-image' with section.settings.image, selector: selector, scale: scale %}
+
+    .image-section--{{ section.id }} .img {
+      background-position: {{ section.settings.alignment }};
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    {% if section.settings.parallax %}
+    @media screen and (max-width: 768px) {
+      .image-section--{{ section.id }} .img {
+        min-height: 100%;
+      }
+    }
+    {% endif %}
+
+  </style>
+{% endif %}
+
+{% if section.settings.text-over-image-width == 'full-width' %}
+<div class="container-fluid homepage-slider-container">
+{% else %}
+<div class="container">
+{% endif %}
+
+<div class="row">
+  <div class="page-width col-md-12">
+  		<div class="index-section parallax-wrapper">
+  		  <div class="image-section image-section--{{ section.id }} image-section--{{ section.settings.hero_size }}{% if section.settings.parallax %} image-section-parallax parallax{% endif %}">
+  		    {% if section.settings.image == blank %}
+  		      <div class="placeholder-background img">
+  			      {{ 'lifestyle-1' | placeholder_svg_tag: 'icon icon--placeholder' }}
+  		      </div>
+          {% else %}
+            <div class="img"></div>
+  		    {% endif %}
+  		  </div>
+  		</div>
+  	</div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Image",
+        "de": "Bild",
+        "es": "Imagen",
+        "fr": "Image",
+        "pt-PT": "Imagem"
+    },
+    "class": "homepage-section--image wow fadeIn",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "info": {
+                "en": "1800 x 1200px recommended",
+                "de": "1800 x 1200 px empfohlen",
+                "es": "Recomendado 1800 x 1200 px",
+                "fr": "1800 x 1200 px recommandé",
+                "pt-PT": "1800 x 1200px, recomendado"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "parallax",
+            "label": {
+                "en": "Enable parallax effect",
+                "de": "Parallaxeneffekt aktivieren",
+                "es": "Habilitar efecto de paralaje",
+                "fr": "Activer l'effet parallaxe",
+                "pt-PT": "Ativar efeito de paralaxe"
+            },
+            "default": true,
+            "info": {
+                "en": "Landscape images will default to a set alignment to best fit screen",
+                "de": "Bilder im Querformat werden standardmäßig auf beste Anpassung an den Bildschirm ausgerichtet",
+                "es": "Las imágenes en apaisado se cambiarán por defecto a una alineación fija para ajustarse mejor a la pantalla",
+                "fr": "Les images du paysage seront alignées par défaut sur l'écran qui leur convient le mieux",
+                "pt-PT": "As imagens paisagísticas terão um alinhamento predefinido que melhor se adeque ao ecrã"
+            }
+        },
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": {
+                "en": "Image alignment",
+                "de": "Bildausrichtung",
+                "es": "Alineación de la imagen",
+                "fr": "Alignement de l'image",
+                "pt-PT": "Alinhamento da imagem"
+            },
+            "default": "center",
+            "options": [
+                {
+                    "value": "top",
+                    "label": {
+                        "en": "Top",
+                        "de": "Oben",
+                        "es": "Arriba",
+                        "fr": "En haut",
+                        "pt-PT": "Parte superior"
+                    }
+                },
+                {
+                    "value": "center",
+                    "label": {
+                        "en": "Middle",
+                        "de": "Mitte",
+                        "es": "Medio",
+                        "fr": "Au milieu",
+                        "pt-PT": "Centro"
+                    }
+                },
+                {
+                    "value": "bottom",
+                    "label": {
+                        "en": "Bottom",
+                        "de": "Unten",
+                        "es": "Abajo",
+                        "fr": "En bas",
+                        "pt-PT": "Parte inferior"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "hero_size",
+            "label": {
+                "en": "Section height",
+                "de": "Abschnitthöhe",
+                "es": "Altura de la sección",
+                "fr": "Hauteur de section",
+                "pt-PT": "Altura da secção"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "label": {
+                        "en": "Extra Small",
+                        "de": "Extra klein",
+                        "es": "Muy pequeño",
+                        "fr": "Extra petite",
+                        "pt-PT": "Extra Pequeno"
+                    },
+                    "value": "x-small"
+                },
+                {
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    },
+                    "value": "small"
+                },
+                {
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    },
+                    "value": "medium"
+                },
+                {
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    },
+                    "value": "large"
+                },
+                {
+                    "label": {
+                        "en": "Extra Large",
+                        "de": "Extra groß",
+                        "es": "Muy grande",
+                        "fr": "Extra grande",
+                        "pt-PT": "Extra Grande"
+                    },
+                    "value": "x-large"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text-over-image-width",
+            "label": {
+                "en": "Section width",
+                "de": "Abschnittbreite",
+                "es": "Ancho de la sección",
+                "fr": "Largeur de section",
+                "pt-PT": "Largura da secção"
+            },
+            "default": "full-width",
+            "options": [
+                {
+                    "label": {
+                        "en": "Fixed",
+                        "de": "Festgestellt",
+                        "es": "Fijo",
+                        "fr": "Fixe",
+                        "pt-PT": "Fixo"
+                    },
+                    "value": "fixed"
+                },
+                {
+                    "label": {
+                        "en": "Full width",
+                        "de": "Volle Breite",
+                        "es": "Ancho completo",
+                        "fr": "Pleine largeur",
+                        "pt-PT": "Largura total"
+                    },
+                    "value": "full-width"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "category": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            }
+        }
+    ]
+}
+{% endschema %}

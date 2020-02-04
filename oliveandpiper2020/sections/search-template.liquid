@@ -1,0 +1,168 @@
+{% paginate search.results by 12 %}
+<section id="search_results" class="collection">
+    <header>
+        {% if settings.enable-article-results %}
+            {% assign article_search = "article," %}
+        {% endif %}
+        {% if settings.enable-product-results %}
+            {% assign product_search = "product," %}
+        {% endif %}
+        {% if settings.enable-page-results %}
+            {% assign page_search = "page," %}
+        {% endif %}
+        {% if search.performed %}
+            <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+                <h2>{{ 'general.search.search_results' | t }}</h2>
+            </div>
+            <form id="search-page-form" action="{{ routes.search_url }}">
+                <div id="search-wrapper">
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ search.terms | escape }}"/>
+                    <button id="search_submit" type="submit">
+                      <i data-feather="search"></i>
+                    </button>
+                </div>
+            </form>
+        {% else %}
+            <form id="search-page-form" action="{{ routes.search_url }}">
+                <div id="search-wrapper">
+                    <input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+                    <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ 'general.search.title' | t }}"/>
+                    <button id="search_submit" type="submit">
+                      <i data-feather="search"></i>
+                    </button>
+                </div>
+            </form>
+        {% endif %}
+    </header>
+
+    {% if search.results_count > 0 %}
+        <div class="row">
+            <ul class="results-grid product-grid {% if settings.match-height %}products--match-height{% endif %}">
+                {% for item in search.results %}
+                            {% if item.object_type == 'article' %}
+                                <li class="grid__item four_columns indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    <div class="indiv-product">
+                                        <div class="search-article-image">
+
+                                        <div class="hp-title">
+
+                                            {% if item.image %}
+                                                <div class="{% if section.settings.article-hover-effect == 'zoom' %}collection-image--zoom-effect {% endif %}">
+                                                    <div class="zoom-effect--inner">
+                                                        <a class="grid__image" href="{{ item.url }}">
+                                                            {% include 'responsive-image' with item.image %}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+
+                                            <a href="{{item.url}}">
+                                                <h4 class="search_article">{{ item.title }}</h4>
+                                                <p>{{ item.content | strip_html | truncatewords: 20 | highlight: search.terms }}</p>
+                                            </a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                {% elsif item.object_type == 'page' %}
+                                <li class="grid__item four_columns indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    <div class="indiv-product">
+
+                                            <div class="hp-title">
+                                                <a href="{{ item.url }}"><h4 class="search-page-title">{{ item.title }}</h4></a>
+                                            </div>
+                                            <div class="matched-search-terms">
+                                                <p>{{ item.content | strip_html | truncatewords: 20 | highlight: search.terms }}</p>
+                                            </div>
+                                    </div>
+                                </li>
+
+                                {% elsif item.object_type == 'product' %}
+                                <li class="grid__item four_columns wow fadeIn collection-image-anim indiv-product-wrapper {% cycle ' alpha mobile-clear tablet-clear', '', 'mobile-clear tablet-clear', ' omega' %} {% if item.featured_image %}product{% else %}page{% endif %} col-xs-6 col-sm-6 col-md-3{% cycle ' alpha clearcolumn', '', '', ' omega' %}">
+                                    {%-
+                                      include 'product-grid--indiv-product',
+                                      liquidObject: item
+                                    -%}
+                                </li>
+
+                            {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+
+        {% if search.performed %}
+            {% if search.terms != empty %}
+                <h3 class="no-results">{{ 'general.search.no_results_html' | t: terms: search.terms  }}</h3>
+            {% else %}
+                <h3 class="no-results">{{ 'general.search.first_search' | t }}</h3>
+            {% endif %}
+        {% endif %}
+
+    {% endif %}
+    {% if search.results_count > 12 %}
+        {% include 'pagination' %}
+    {% endif %}
+</section>
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Search page",
+        "de": "Suchseite",
+        "es": "Página de búsqueda",
+        "fr": "Page de recherche",
+        "pt-PT": "Página de pesquisa"
+    },
+    "settings": [
+        {
+            "type": "header",
+            "content": {
+                "en": "Article options",
+                "de": "Artikeloptionen",
+                "es": "Opciones de artículo",
+                "fr": "Options d'article",
+                "pt-PT": "Opções de artigos"
+            }
+        },
+        {
+            "type": "select",
+            "id": "article-hover-effect",
+            "label": {
+                "en": "Hover effect",
+                "de": "Hover-Effekt",
+                "es": "Efecto al pasar el cursor por encima",
+                "fr": "Effet de survol",
+                "pt-PT": "Efeito hover"
+            },
+            "default": "zoom",
+            "options": [
+                {
+                    "value": "none",
+                    "label": {
+                        "en": "None",
+                        "de": "Keiner",
+                        "es": "Ninguno",
+                        "fr": "Aucun",
+                        "pt-PT": "Nenhum"
+                    }
+                },
+                {
+                    "value": "zoom",
+                    "label": {
+                        "en": "Zoom",
+                        "de": "Zoom",
+                        "es": "Zoom",
+                        "fr": "Zoom",
+                        "pt-PT": "Aumentar"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

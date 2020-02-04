@@ -1,0 +1,21 @@
+<div class="indiv-product">
+  <a href="{{ product.url | within: collection }}" title="{{product.title}}">
+    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+    {{ 'product-' | append: current | placeholder_svg_tag: 'icon icon--placeholder animated zoomIn img-responsive' }}
+  </a>
+  <div class="hp-title">
+    <a href="{{ product.url | within: collection }}">
+      <span class="indiv-product-title-text">{{ 'general.onboarding.product_title' | t }}</span>
+      <span class="money money-styling">
+        {% if shop.currency == 'GBP' %}£19.99
+        {% elsif shop.currency == 'EUR' %}€19.99
+        {% elsif shop.currency == 'YEN' %}¥19.99
+        {% elsif shop.currency == 'INR' %}Rs.19.99
+        {% else %}$19.99
+        {% endif %}</span>
+      {% if section.settings.show_reviews %}
+        <a href="#shopify-product-reviews"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></a>
+      {% endif %}
+    </a>
+  </div>
+</div>

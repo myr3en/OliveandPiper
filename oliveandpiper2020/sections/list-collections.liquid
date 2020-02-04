@@ -1,0 +1,98 @@
+{% case section.settings.products-per-collection %}
+  {% when 2 %}
+    {%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-6 col-lg-6 two_columns' -%}
+  {% when 3 %}
+    {%- assign grid_item_width = 'col-xs-6 col-sm-4 col-md-4 col-lg-4 three_columns' -%}
+  {% when 4 %}
+    {%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-3 col-lg-3 four_columns' -%}
+  {% when 5 %}
+    {%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-fifth col-lg-fifth five_columns' -%}
+  {% when 6 %}
+    {%- assign grid_item_width = 'col-xs-6 col-sm-4 col-md-2 col-lg-2 six_columns' -%}
+{% endcase %}
+
+<div id="collections-listing">
+
+    <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+        <h2>{{ 'collections.general.product_collections' | t }}</h2>
+        <div class="clear"></div>
+    </div>
+
+    {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' or collection.all_products_count < 1 %}
+        <div class="row">
+            {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+
+            <div class="col-md-12">
+                <h3 class="custom-font">
+                    {{ collection.title }}
+                </h3>
+                <p class="collection-listing-link">
+                    <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="all-collections-title">
+                        {{ 'collections.general.items_with_count' | t: count: collection.all_products_count }}
+                    </a>
+                </p>
+            </div>
+        </div>
+            <div class="product-grid clearfix {% if settings.match-height %}products--match-height{% endif %}">
+                <div class="row">
+
+                {% for product in collection.products limit: section.settings.products-per-collection %}
+                    <div class="grid__item {{ grid_item_width }} indiv-product-wrapper collection-image-anim wow zoomIn
+
+                      {% case section.settings.products-per-collection %}
+                        {% when 2 %}
+                          {% cycle collection.id: ' alpha mobile-clear tablet-clear', ' omega' %}
+                        {% when 3 %}
+                            {% cycle collection.id: ' alpha mobile-clear', '', ' mobile-clear omega', 'alpha', ' mobile-clear', ' omega' %}
+                        {% when 4 %}
+                            {% cycle collection.id: ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+                        {% when 5 %}
+                            {% cycle collection.id: ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', '', ' omega mobile-clear tablet-clear', ' alpha', ' mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+                        {% when 6 %}
+                            {% cycle collection.id: ' alpha mobile-clear tablet-clear', '', ' mobile-clear', ' tablet-clear', ' mobile-clear', ' omega' %}
+            	      	{% endcase %}
+                    ">
+
+                    {%-
+                      include 'product-grid--indiv-product',
+                      liquidObject: product
+                    -%}
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endunless %}
+    {% endfor %}
+
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "List collections",
+        "de": "Kollektionen auflisten",
+        "es": "Lista de colecciones",
+        "fr": "Répertorier les collections",
+        "pt-PT": "Enumerar coleções"
+    },
+    "settings": [
+        {
+            "type": "range",
+            "id": "products-per-collection",
+            "min": 2,
+            "max": 6,
+            "step": 1,
+            "label": {
+              "en": "Products per collection",
+              "de": "Produkte pro Kollektion",
+              "es": "Productos por colección",
+              "fr": "Produits par collection",
+              "pt-PT": "Produtos por coleção"
+            },
+            "default": 3
+        }
+    ]
+}
+{% endschema %}

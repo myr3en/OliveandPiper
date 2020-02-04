@@ -1,0 +1,468 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<style>
+
+  #map-container-{{ section.id }} {
+      display:block;
+      width:100%;
+      background:#eaeaea;
+      max-height: 350px;
+      height: {{ section.settings.height }};
+  }
+
+  @media only screen and (max-width: 768px){
+      #map-container-{{ section.id }} {
+          min-height: 50vw!important;
+      }
+  }
+
+</style>
+
+<script type="application/json" id="homepage-map--theme--{{ section.id }}">
+{% case section.settings.colors %}
+  {% when 'white' %}
+    [
+      { "elementType": "geometry", "stylers": [ { "color": "#f5f5f5" } ] },
+      { "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },
+      { "elementType": "labels.text.fill", "stylers": [ { "color": "#616161" } ] },
+      { "elementType": "labels.text.stroke", "stylers": [ { "color": "#f5f5f5" } ] },
+      { "featureType": "administrative.land_parcel", "elementType": "labels.text.fill", "stylers": [ { "color": "#bdbdbd" } ] },
+      { "featureType": "poi", "elementType": "geometry", "stylers": [ { "color": "#eeeeee" } ] },
+      { "featureType": "poi", "elementType": "labels.text.fill", "stylers": [ { "color": "#757575" } ] },
+      { "featureType": "poi.park", "elementType": "geometry", "stylers": [ { "color": "#e5e5e5" } ] },
+      { "featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [ { "color": "#9e9e9e" } ] },
+      { "featureType": "road", "elementType": "geometry", "stylers": [ { "color": "#ffffff" } ] },
+      { "featureType": "road.arterial", "elementType": "labels.text.fill", "stylers": [ { "color": "#757575" } ] },
+      { "featureType": "road.highway", "elementType": "geometry", "stylers": [ { "color": "#dadada" } ] },
+      { "featureType": "road.highway", "elementType": "labels.text.fill", "stylers": [ { "color": "#616161" } ] },
+      { "featureType": "road.local", "elementType": "labels.text.fill", "stylers": [ { "color": "#9e9e9e" } ] },
+      { "featureType": "transit.line", "elementType": "geometry", "stylers": [ { "color": "#e5e5e5" } ] },
+      { "featureType": "transit.station", "elementType": "geometry", "stylers": [ { "color": "#eeeeee" } ] },
+      { "featureType": "water", "elementType": "geometry", "stylers": [ { "color": "#c9c9c9" } ] },
+      { "featureType": "water", "elementType": "labels.text.fill", "stylers": [ { "color": "#9e9e9e" } ] }
+    ]
+  {% when 'dark' %}
+    [
+      { "elementType": "geometry", "stylers": [ { "color": "#212121" } ] },
+      { "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },
+      { "elementType": "labels.text.fill", "stylers": [ { "color": "#757575" } ] },
+      { "elementType": "labels.text.stroke", "stylers": [ { "color": "#212121" } ] },
+      { "featureType": "administrative", "elementType": "geometry", "stylers": [ { "color": "#757575" } ] },
+      { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [ { "color": "#9e9e9e" } ] },
+      { "featureType": "administrative.land_parcel", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "administrative.locality", "elementType": "labels.text.fill", "stylers": [ { "color": "#bdbdbd" } ] },
+      { "featureType": "poi", "elementType": "labels.text.fill", "stylers": [ { "color": "#757575" } ] },
+      { "featureType": "poi.park", "elementType": "geometry", "stylers": [ { "color": "#181818" } ] },
+      { "featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [ { "color": "#616161" } ] },
+      { "featureType": "poi.park", "elementType": "labels.text.stroke", "stylers": [ { "color": "#1b1b1b" } ] },
+      { "featureType": "road", "elementType": "geometry.fill", "stylers": [ { "color": "#2c2c2c" } ] },
+      { "featureType": "road", "elementType": "labels.text.fill", "stylers": [ { "color": "#8a8a8a" } ] },
+      { "featureType": "road.arterial", "elementType": "geometry", "stylers": [ { "color": "#373737" } ] },
+      { "featureType": "road.highway", "elementType": "geometry", "stylers": [ { "color": "#3c3c3c" } ] },
+      { "featureType": "road.highway.controlled_access", "elementType": "geometry", "stylers": [ { "color": "#4e4e4e" } ] },
+      { "featureType": "road.local", "elementType": "labels.text.fill", "stylers": [ { "color": "#616161" } ] },
+      { "featureType": "transit", "elementType": "labels.text.fill", "stylers": [ { "color": "#757575" } ] },
+      { "featureType": "water", "elementType": "geometry", "stylers": [ { "color": "#000000" } ] },
+      { "featureType": "water", "elementType": "labels.text.fill", "stylers": [ { "color": "#3d3d3d" } ] }
+    ]
+  {% else %}
+    []
+  {% endcase %}
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="index-section col-md-12">
+            <div class="page-width map-row homepage-map-content">
+                {% capture image_layout %}
+                    {% if section.settings.api_key != blank and section.settings.map_address != blank %}
+                      {% assign map_visible = true %}
+                    {% else %}
+                      {% assign map_visible = false %}
+                    {% endif %}
+                    <div class="map-row__item col-md-8 col-sm-7 col-xs-12">
+                        <div class="map-wrapper" data-id="{{ section.id }}" data-colors="{{ section.settings.colors }}">
+                            <input type="hidden" id="apikey-{{ section.id }}" value="{{ section.settings.api_key | escape }}" />
+                                {% if map_visible %}
+                                    <div id="map-container-{{ section.id }}"
+                                         class="map-section__container"
+                                         data-map
+                                         data-address-setting="{{ section.settings.map_address | escape }}"
+                                         >
+                                    </div>
+                                    <div class="map-section__overlay" data-map-overlay></div>
+                                {% endif %}
+                                {% if section.settings.background_image != blank %}
+                                    <div class="img homepage-map--fallback{% if map_visible %} hide {% endif %}">
+                                        {% include 'responsive-image' with section.settings.background_image, alt: section.settings.background_image.alt, class: 'feature-row__image' %}
+                                    </div>
+                                {% else %}
+                                    <div class="img homepage-map--fallback{% if map_visible %} hide {% endif %}">
+                                        {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
+                                    </div>
+                                {% endif %}
+
+                        </div>
+                    </div>
+              {% endcapture %}
+              <div class="row">
+                  <div class="map-row">
+                      {% if section.settings.layout == 'left' %}
+                          {{ image_layout }}
+                      {% endif %}
+                      <div class="map-row__item map-row__text map-row__text--{{ section.settings.layout }} col-md-4 col-sm-5 col-xs-12  hidden-xs">
+                          <div class="map-row__text-container">
+                              {% if section.settings.heading != blank %}
+                                  <h2>{{ section.settings.heading | escape }}</h2>
+                              {% endif %}
+                              {% if section.settings.address != blank %}
+                                  <div class="rte featured-row__subtext textarea">{{ section.settings.address }}</div>
+                              {% endif %}
+                              {% if section.settings.button_text != blank and section.settings.button_text != blank %}
+                                  <a href="https://maps.google.com?daddr={{ section.settings.map_address | escape }}" class="btn btn-custom" target="_blank">
+                                      {{ section.settings.button_text | escape }}
+                                  </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                      {% if section.settings.layout == 'right' %}
+                          {{ image_layout }}
+                      {% endif %}
+                      <div class="map-row__item map-row__text map-row__text--left col-md-4 col-sm-5 col-xs-12  hidden-sm hidden-md hidden-lg">
+                          <div class="map-row__text-container">
+                              {% if section.settings.heading != blank %}
+                                  <h2>{{ section.settings.heading | escape }}</h2>
+                              {% endif %}
+                              {% if section.settings.address != blank %}
+                                  <div class="rte featured-row__subtext textarea">{{ section.settings.address }}</div>
+                              {% endif %}
+                              {% if section.settings.button_text != blank and section.settings.button_text != blank %}
+                                  <a href="https://maps.google.com?daddr={{ section.settings.map_address | escape }}" class="btn btn-custom" target="_blank">
+                                      {{ section.settings.button_text | escape }}
+                                  </a>
+                              {% endif %}
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Map",
+        "de": "Karte",
+        "es": "Mapa",
+        "fr": "Carte",
+        "pt-PT": "Mapa"
+    },
+    "class": "homepage-section--map-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            }
+        },
+        {
+            "id": "heading",
+            "type": "text",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Our store",
+                "de": "Unser Store",
+                "es": "Nuestra tienda",
+                "fr": "Notre magasin",
+                "pt-PT": "A nossa loja"
+            }
+        },
+        {
+            "id": "address",
+            "type": "richtext",
+            "label": {
+                "en": "Address and hours",
+                "de": "Adresse und Stunden",
+                "es": "Dirección y horario",
+                "fr": "Adresse et horaires",
+                "pt-PT": "Morada e horário de funcionamento"
+            },
+            "default": {
+                "en": "<p>123 Fake St.<br>Toronto, Canada</p><p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>",
+                "de": "<p>123 Fake St.<br>Toronto, Kanada</p><p>Mo–Fr, 10–21 Uhr<br>Samstag, 11–21 Uhr<br>Sonntag, 11–17 Uhr</p>",
+                "es": "<p>Calle Inventada 123 <br>Toronto, Canada</p><p>Lunes - Viernes, 10am - 9pm<br>Sábados, 11am - 9pm<br>Domingos, 11am - 5pm</p>",
+                "fr": "<p>123 Fake St.<br>Toronto, Canada</p><p>Lundi - vendredi, 10 h à 21 h<br>Samedi, 11 h à 21 h<br>Dimanche, 11 h à 17 h</p>",
+                "pt-PT": "<p>123 Fake St.<br>Toronto, Canadá</p><p>Seg - Sex, 10h - 21h<br>Sábado, 11h - 21h<br>Domingo, 11h - 17h</p>"
+            }
+        },
+        {
+            "id": "map_address",
+            "type": "text",
+            "label": {
+                "en": "Map address",
+                "de": "Kartenadresse",
+                "es": "Dirección en el mapa",
+                "fr": "Adresse de la carte",
+                "pt-PT": "Endereço do mapa"
+            },
+            "info": {
+                "en": "Google Maps will find the exact location",
+                "de": "Google Maps wird den genauen Standort finden",
+                "es": "Google Maps encontrará la ubicación exacta",
+                "fr": "Google Maps trouvera l'emplacement exact",
+                "pt-PT": "O Google Maps irá encontrar a localização exata"
+            },
+            "default": {
+                "en": "80 Spadina Ave, Toronto",
+                "de": "80 Spadina Ave, Toronto",
+                "es": "80 Spadina Ave, Toronto",
+                "fr": "80, avenue Spadina, Toronto",
+                "pt-PT": "80 Spadina Ave, Toronto"
+            }
+        },
+        {
+            "id": "button_text",
+            "type": "text",
+            "label": {
+                "en": "Map link label",
+                "de": "Kartenlink-Bezeichnung",
+                "es": "Etiqueta enlace al mapa",
+                "fr": "Étiquette du lien de la carte",
+                "pt-PT": "Etiqueta da ligação do mapa"
+            },
+            "default": {
+                "en": "Get directions",
+                "de": "Wegbeschreibung erhalten",
+                "es": "Conseguir dirección",
+                "fr": "Obtenez les indications",
+                "pt-PT": "Obter direções"
+            }
+        },
+        {
+            "type": "select",
+            "id": "layout",
+            "label": {
+                "en": "Layout",
+                "de": "Layout",
+                "es": "Diseño",
+                "fr": "Mise en page",
+                "pt-PT": "Apresentação"
+            },
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": {
+                        "en": "Map on left",
+                        "de": "Karte links",
+                        "es": "Mapa a la izquierda",
+                        "fr": "Plan à gauche",
+                        "pt-PT": "Mapa à esquerda"
+                    }
+                },
+                {
+                    "value": "right",
+                    "label": {
+                        "en": "Map on right",
+                        "de": "Karte rechts",
+                        "es": "Mapa a la derecha",
+                        "fr": "Plan à droite",
+                        "pt-PT": "Mapa à direita"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "height",
+            "label": {
+                "en": "Map height",
+                "de": "Karte höhe",
+                "es": "Altura del mapa",
+                "fr": "Hauteur de la carte",
+                "pt-PT": "Altura do mapa"
+            },
+            "default": "30vw",
+            "options": [
+                {
+                    "value": "25vw",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "30vw",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "35vw",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Background",
+                "de": "Hintergrund",
+                "es": "Fondo",
+                "fr": "Contexte général",
+                "pt-PT": "Fundo"
+            }
+        },
+        {
+            "id": "api_key",
+            "type": "text",
+            "label": {
+                "en": "Google Maps API key",
+                "de": "Google Maps API-Schlüssel",
+                "es": "Llave API Google Maps",
+                "fr": "Clé API de Google Maps",
+                "pt-PT": "Chave API do Google Maps"
+            },
+            "info": {
+                "en": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map",
+                "de": "Sie müssen [einen Google Maps API-Schlüssel registrieren](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key), um die Karte anzuzeigen",
+                "es": "Necesita [registrar una llave API de Google Maps](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) para mostrar el mapa",
+                "fr": "Vous devrez [enregistrer une clé API de Google Maps](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) pour afficher la carte.",
+                "pt-PT": "Tem de [registar uma chave API do Google Maps](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) para visualizar o mapa"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "info": {
+                "en": "Displayed if the map isn’t loaded",
+                "de": "Angezeigt, wenn die Karte nicht lädt",
+                "es": "Se mostrará si el mapa no se carga",
+                "fr": "Affiché si la carte n'est pas chargée",
+                "pt-PT": "Exibido se o mapa não carregar"
+            }
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Map",
+                "de": "Karte",
+                "es": "Mapa",
+                "fr": "Carte",
+                "pt-PT": "Mapa"
+            },
+            "category": {
+                "en": "Store information",
+                "de": "Store-Informationen",
+                "es": "Información de la tienda",
+                "fr": "Informations sur le magasin",
+                "pt-PT": "Informação sobre a loja"
+            }
+        }
+    ]
+}
+{% endschema %}

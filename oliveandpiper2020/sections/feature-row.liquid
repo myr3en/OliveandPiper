@@ -1,0 +1,343 @@
+{% case section.settings.image-width %}
+  {% when 'extra-small' %}
+    {%- assign image_width_columns = 2 -%}
+    {%- assign content_width_columns = 10 -%}
+  {% when 'small' %}
+    {%- assign image_width_columns = 3 -%}
+    {%- assign content_width_columns = 9 -%}
+  {% when 'medium' %}
+    {%- assign image_width_columns = 4 -%}
+    {%- assign content_width_columns = 8 -%}
+  {% when 'large' %}
+    {%- assign image_width_columns = 5 -%}
+    {%- assign content_width_columns = 7 -%}
+  {% when 'extra-large' %}
+    {%- assign image_width_columns = 6 -%}
+    {%- assign content_width_columns = 6 -%}
+{% endcase %}
+
+{% case section.settings.colors %}
+  {% when 'white' %}
+  <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+  <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+  <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+  <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+    <div class="container">
+    	<div class="row">
+
+        <div class="index-section col-md-12">
+          <div class="page-width feature-row homepage-featured-content">
+
+          	<div class="feature-row__container">
+              <div class="feature-row{% if section.settings.layout == 'right' %} feature-row--image-right{% endif %}">
+                <div class="feature-row__image col-md-{{ image_width_columns }} col-xs-12">
+                  {% if section.settings.image != blank %}
+                    {% include 'responsive-image' with section.settings.image, alt: section.settings.image.alt %}
+                  {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
+                  {% endif %}
+                </div>
+
+                <div class="feature-row__text col-md-{{ content_width_columns }} col-xs-12">
+                  <div class="feature-row__text--inner">
+                    {% if section.settings.title != blank %}
+                      <h2><span>{{ section.settings.title | escape }}</span></h2>
+                    {% endif %}
+                    {% if section.settings.text_block != blank %}
+                      <div class="rte featured-row__subtext textarea">{{ section.settings.text_block }}</div>
+                    {% endif %}
+                    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+                      <a href="{{ section.settings.button_link }}" class="btn btn-custom">
+                        {{ section.settings.button_label }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Image with text",
+        "de": "Bild mit Text",
+        "es": "Imagen con texto",
+        "fr": "Image avec texte",
+        "pt-PT": "Imagem com texto"
+    },
+    "class": "homepage-section--text-and-image-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "type": "select",
+            "id": "image-width",
+            "label": {
+                "en": "Image width",
+                "de": "Bildbreite",
+                "es": "Ancho de la imagen",
+                "fr": "Largeur de l'image",
+                "pt-PT": "Largura de imagem"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "value": "extra-small",
+                    "label": {
+                        "en": "Extra small",
+                        "de": "Extra klein",
+                        "es": "Muy pequeño",
+                        "fr": "Très petite",
+                        "pt-PT": "Extra pequeno"
+                    }
+                },
+                {
+                    "value": "small",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "medium",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "large",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                },
+                {
+                    "value": "extra-large",
+                    "label": {
+                        "en": "Extra large",
+                        "de": "Extra groß",
+                        "es": "Muy grande",
+                        "fr": "Extra grande",
+                        "pt-PT": "Extra grande"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "info": {
+                "en": "600 x 600px recommended",
+                "de": "600 x 600 px empfohlen",
+                "es": "Recomendado 600 x 600 px",
+                "fr": "600 x 600 px recommandé",
+                "pt-PT": "600 x 600px, recomendado"
+            }
+        },
+        {
+            "type": "select",
+            "id": "layout",
+            "label": {
+                "en": "Layout",
+                "de": "Layout",
+                "es": "Diseño",
+                "fr": "Mise en page",
+                "pt-PT": "Apresentação"
+            },
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": {
+                        "en": "Image on left",
+                        "de": "Bild links",
+                        "es": "Imagen a la izquierda",
+                        "fr": "Image à gauche",
+                        "pt-PT": "Imagem à esquerda"
+                    }
+                },
+                {
+                    "value": "right",
+                    "label": {
+                        "en": "Image on right",
+                        "de": "Bild rechts",
+                        "es": "Imagen a la derecha",
+                        "fr": "Image à droite",
+                        "pt-PT": "Imagem à direita"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Image with text",
+                "de": "Bild mit Text",
+                "es": "Imagen con texto",
+                "fr": "Image avec texte",
+                "pt-PT": "Imagem com texto"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "text_block",
+            "label": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "default": {
+                "en": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+                "de": "<p>Fügen Sie langen Texten ein Bild hinzu, um dem Produkt, der Kollektion oder dem Blogpost Ihrer Wahl Fokus zu verleihen. Fügen Sie Details bezüglich der Verfügbarkeit oder dem Stil hinzu oder stellen Sie sogar eine Rezension zur Verfügung.</p>",
+                "es": "<p> Combine texto grande con una imagen para focalizar la atención en su producto, colección o publicación del blog. Añada detalles sobre la disponibilidad, el estilo o, incluso, un comentario. </p>",
+                "fr": "<p>Associez un texte en gros caractères à une image pour mettre en valeur le produit, la collection ou l'article de blog que vous avez choisi. Ajoutez des détails sur la disponibilité et le style ou même fournissez un commentaire.</p>",
+                "pt-PT": "<p>Associe um texto de grandes dimensões a uma imagem para destacar o seu produto, coleção ou publicação no blog de eleição. Acrescente detalhes relativos à disponibilidade, estilo, ou até mesmo uma opinião.</p>"
+            }
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": {
+                "en": "Button label",
+                "de": "Button-Bezeichnung",
+                "es": "Etiqueta del botón",
+                "fr": "Étiquette du bouton",
+                "pt-PT": "Etiqueta do botão"
+            }
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": {
+                "en": "Button link",
+                "de": "Buttonlink",
+                "es": "Enlace del botón",
+                "fr": "Lien du bouton",
+                "pt-PT": "Ligação do botão"
+            },
+            "info": {
+                "en": "Required to show the button",
+                "de": "Notwendig, den Button zu zeigen",
+                "es": "Es necesario mostrar el botón",
+                "fr": "Requis pour afficher le bouton",
+                "pt-PT": "Necessário para exibir o botão"
+            }
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Image with text",
+                "de": "Bild mit Text",
+                "es": "Imagen con texto",
+                "fr": "Image avec texte",
+                "pt-PT": "Imagem com texto"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            }
+        }
+    ]
+}
+{% endschema %}

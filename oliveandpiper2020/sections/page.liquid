@@ -1,0 +1,235 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+
+      {% if section.settings.page != blank %}
+
+        {% if section.settings.page_title %}
+          <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+            <h2><span>{{ pages[ section.settings.page ].title | escape }}</span></h2>
+            <div class="clear"></div>
+          </div>
+        {% endif %}
+
+      {% else %}
+
+        {% if section.settings.page_title %}
+          <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+            <h2><span>Your page title</span></h2>
+            <div class="clear"></div>
+          </div>
+        {% endif %}
+
+      {% endif %}
+
+    </div>
+
+    <div class="homepage-indiv-section-wrapper grid--full homepage-page-wrapper">
+      {% case section.settings.width %}
+        {% when 'small' %}
+          <div class="col-md-6 col-md-offset-3 homepage-page">
+        {% when 'medium' %}
+          <div class="col-md-8 col-md-offset-2 homepage-page">
+        {% when 'large' %}
+          <div class="col-md-10 col-md-offset-1 homepage-page">
+        {% when 'full-width' %}
+          <div class="col-md-12 homepage-page">
+      {% endcase %}
+
+          <div class="rte featured-row__subtext content">
+
+            {% if section.settings.page != blank %}
+              {{ pages[ section.settings.page ].content }}
+            {% else %}
+              Please select a page to include. Pages contain information that rarely changes or that customers will reference often, such as an "About Us" page, or a "Contact Us" page.
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Page",
+        "de": "Seite",
+        "es": "Página",
+        "fr": "Page",
+        "pt-PT": "Página"
+    },
+    "class": "homepage-section--page-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "type": "select",
+            "id": "width",
+            "label": {
+                "en": "Width",
+                "de": "Breite",
+                "es": "Ancho",
+                "fr": "Largeur",
+                "pt-PT": "Largura"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "value": "small",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "medium",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "large",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                },
+                {
+                    "value": "full-width",
+                    "label": {
+                        "en": "Full width",
+                        "de": "Volle Breite",
+                        "es": "Ancho completo",
+                        "fr": "Pleine largeur",
+                        "pt-PT": "Largura total"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "page",
+            "id": "page",
+            "label": {
+                "en": "Content Page",
+                "de": "Inhaltsseite",
+                "es": "Página de contenido",
+                "fr": "Page de contenu",
+                "pt-PT": "Página de Conteúdos"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "page_title",
+            "default": true,
+            "label": {
+                "en": "Show page title",
+                "de": "Seitentitel anzeigen",
+                "es": "Mostrar título de la página",
+                "fr": "Afficher le titre de la page",
+                "pt-PT": "Mostrar título da página"
+            }
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Page",
+                "de": "Seite",
+                "es": "Página",
+                "fr": "Page",
+                "pt-PT": "Página"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            }
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,172 @@
+<div class="container">
+	<div class="row">
+    <div class="index-section">
+      {% for block in section.blocks %}
+        {% case block.settings.width %}
+          {% when '25%' %}
+            {%- assign block_width = 'col-md-3 col-xs-12' -%}
+          {% when '33%' %}
+            {%- assign block_width = 'col-md-4 col-xs-12' -%}
+          {% when '50%' %}
+            {%- assign block_width = 'col-md-6 col-xs-12' -%}
+          {% when '66%' %}
+            {%- assign block_width = 'col-md-9 col-xs-12' -%}
+          {% when '75%' %}
+            {%- assign block_width = 'col-md-8 col-xs-12' -%}
+          {% when '100%' %}
+            {%- assign block_width = 'col-ms-12' -%}
+        {% endcase %}
+        <div class="section-block--padding grid__item {{ block_width }} {% if block.settings.alignment %}align--{{ block.settings.alignment }}{% endif %}" {{ block.shopify_attributes }}>
+          <div class="grid__item-inner grid__item-inner--{{ block.type }}">
+            <div class="rte">
+              {{ block.settings.code }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Custom HTML",
+        "de": "Kundenspezifische HTML",
+        "es": "HTML personalizada",
+        "fr": "HTML personnalisé",
+        "pt-PT": "HTML personalizado"
+    },
+    "class": "homepage-section--html-wrapper wow fadeIn",
+    "max_blocks": 9,
+    "blocks": [
+        {
+            "type": "html",
+            "name": {
+                "en": "Custom HTML",
+                "de": "Kundenspezifische HTML",
+                "es": "HTML personalizada",
+                "fr": "HTML personnalisé",
+                "pt-PT": "HTML personalizado"
+            },
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "code",
+                    "label": {
+                        "en": "HTML",
+                        "de": "HTML",
+                        "es": "HTML",
+                        "fr": "HTML",
+                        "pt-PT": "HTML personalizado"
+                    },
+                    "default": {
+                        "en": "<div style='text-align:center; padding: 50px 0;'><h2>Use HTML to format your text so it can be easily read.</h2>This text can be used to share information about your brand with customers.</div>",
+                        "de": "<div style='text-align:center; padding: 50px 0;'><h2>Verwenden Sie HTML, um Ihren Text zu formatieren, damit er leicht lesbar ist.</h2>Dieser Text kann verwendet werden, um Informationen über Ihre Marke mit Kunden zu teilen.</div>",
+                        "es": "<div style='text-align:center; padding: 50px 0;'><h2>Use HTML para dar forma a su texto para que se pueda leer fácilmente.</h2>Este texto se puede utilizar para compartir información sobre su marca con sus clientes.</div>",
+                        "fr": "<div style='text-align:center; padding: 50px 0;'><h2>Utilisez HTML pour formater votre texte afin qu'il soit facile à lire.</h2>Ce texte peut être utilisé pour partager des informations sur votre marque avec vos clients.</div>.",
+                        "pt-PT": "<div style='text-align:center; padding: 50px 0;'><h2>Utilize o HTML para formatar o seu texto para que possa ser lido com facilidade.</h2>Este texto pode ser utilizado para partilhar informação sobre a sua marca com clientes.</div>"
+                    }
+                },
+                {
+                    "type": "select",
+                    "id": "width",
+                    "label": {
+                        "en": "Container width",
+                        "de": "Containerbreite",
+                        "es": "Ancho del contenedor",
+                        "fr": "Largeur du conteneur",
+                        "pt-PT": "Largura do recipiente"
+                    },
+                    "default": "100%",
+                    "options": [
+                        {
+                            "value": "25%",
+                            "label": {
+                                "en": "25%",
+                                "de": "25 %",
+                                "es": "25%",
+                                "fr": "25 %",
+                                "pt-PT": "25 %"
+                            }
+                        },
+                        {
+                            "value": "33%",
+                            "label": {
+                                "en": "33%",
+                                "de": "33 %",
+                                "es": "33%",
+                                "fr": "33 %",
+                                "pt-PT": "33 %"
+                            }
+                        },
+                        {
+                            "value": "50%",
+                            "label": {
+                                "en": "50%",
+                                "de": "50 %",
+                                "es": "50%",
+                                "fr": "50 %",
+                                "pt-PT": "50 %"
+                            }
+                        },
+                        {
+                            "value": "66%",
+                            "label": {
+                                "en": "66%",
+                                "de": "66 %",
+                                "es": "66%",
+                                "fr": "66 %",
+                                "pt-PT": "66 %"
+                            }
+                        },
+                        {
+                            "value": "75%",
+                            "label": {
+                                "en": "75%",
+                                "de": "75 %",
+                                "es": "75%",
+                                "fr": "75 %",
+                                "pt-PT": "75 %"
+                            }
+                        },
+                        {
+                            "value": "100%",
+                            "label": {
+                                "en": "100%",
+                                "de": "100 %",
+                                "es": "100%",
+                                "fr": "100 %",
+                                "pt-PT": "100 %"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Custom HTML",
+                "de": "Kundenspezifische HTML",
+                "es": "HTML personalizada",
+                "fr": "HTML personnalisé",
+                "pt-PT": "HTML personalizado"
+            },
+            "category": {
+                "en": "Advanced layout",
+                "de": "Erweitertes Layout",
+                "es": "Diseño avanzado",
+                "fr": "Mise en page avancée",
+                "pt-PT": "Apresentação avançada"
+            },
+            "blocks": [
+                {
+                    "type": "html"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

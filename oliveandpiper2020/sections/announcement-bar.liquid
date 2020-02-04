@@ -1,0 +1,121 @@
+{% if section.settings.enable %}
+
+  {% if section.settings.message_text != empty %}
+
+    <style>
+      .notification-bar{
+        background-color: {{ section.settings.notification-bar--background-color }};
+        color: {{ section.settings.notification-bar--text-color }};
+      }
+
+      .notification-bar a{
+        color: {{ section.settings.notification-bar--text-color }};
+      }
+    </style>
+
+    <div class="notification-bar custom-font">
+      {% if section.settings.message_link != blank %}
+        <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+          <p>{{ section.settings.message_text | escape }}</p>
+        </a>
+      {% else %}
+        <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
+      {% endif %}
+    </div>
+
+  {% endif %}
+
+{% endif %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Announcement bar",
+        "de": "Ankündigungsleiste",
+        "es": "Barra de anuncios",
+        "fr": "Barre d'annonce",
+        "pt-PT": "Barra de anúncio"
+    },
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "enable",
+            "default": true,
+            "label": {
+                "en": "Show announcement",
+                "de": "Ankündigung anzeigen",
+                "es": "Mostrar anuncio",
+                "fr": "Afficher l'annonce",
+                "pt-PT": "Mostrar anúncio"
+            }
+        },
+        {
+            "type": "text",
+            "id": "message_text",
+            "label": {
+                "en": "Announcement text",
+                "de": "Ankündigungstext",
+                "es": "Texto del anuncio",
+                "fr": "Texte de l'annonce",
+                "pt-PT": "Texto do anúncio"
+            },
+            "default": {
+                "en": "Announce something here",
+                "de": "Kündigen Sie hier etwas an",
+                "es": "Anuncie algo aquí",
+                "fr": "Annoncez quelque chose ici",
+                "pt-PT": "Anunciar algo aqui"
+            },
+            "info": {
+                "en": "Text styles can be altered under Theme settings > Typography",
+                "de": "Textstile können unter Themeneinstellungen > Typographie verändert werden",
+                "es": "Los estilos del texto se pueden cambiar en «Ajustes del tema» > «Tipografía»",
+                "fr": "Les styles de texte peuvent être modifiés sous « Paramètres de thème » > Typographie",
+                "pt-PT": "Os estilos de texto podem ser alterados em Definições de tema > Tipografia"
+            }
+        },
+        {
+            "type": "url",
+            "id": "message_link",
+            "label": {
+                "en": "Announcement link",
+                "de": "Ankündigungslink",
+                "es": "Enlace del anuncio",
+                "fr": "Lien d'annonce",
+                "pt-PT": "Ligação do anúncio"
+            },
+            "info": {
+                "en": "Optional",
+                "de": "Optional",
+                "es": "Opcional",
+                "fr": "Facultatif",
+                "pt-PT": "Opcional"
+            }
+        },
+        {
+            "type": "color",
+            "id": "notification-bar--background-color",
+            "label": {
+                "en": "Announcement background",
+                "de": "Ankündigungshintergrund",
+                "es": "Fondo del anuncio",
+                "fr": "Contexte de l'annonce",
+                "pt-PT": "Fundo do anúncio"
+            },
+            "default": "#2D2D2D"
+        },
+        {
+            "type": "color",
+            "id": "notification-bar--text-color",
+            "label": {
+                "en": "Announcement text",
+                "de": "Ankündigungstext",
+                "es": "Texto del anuncio",
+                "fr": "Texte de l'annonce",
+                "pt-PT": "Texto do anúncio"
+            },
+            "default": "#ffffff"
+        }
+    ]
+}
+{% endschema %}

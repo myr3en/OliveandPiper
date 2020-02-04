@@ -1,0 +1,63 @@
+<ul class="nav {{ class }}">
+  {% for link in linklists[site-nav--mega-menu].links %}
+    {% if link.links != blank %}
+      {% assign link-title = link.title | strip %}
+
+      {% assign is-mega-menu = false %}
+      {% if section.settings.enable_mega_menu == true %}
+        {% for block in section.blocks %}
+          {% assign block-title = block.settings.mega-menu | strip %}
+          {% if block-title == link-title  %}
+            {% assign is-mega-menu = true %}
+            {% assign mega-menu-block = block %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <li class="dropdown{% if is-mega-menu %} mega-menu{% endif %}" aria-haspopup="true">
+        <a class="dropdown-envy-toggle" data-delay="200" href="{{ link.url }}">
+          <span class="nav-label">{{ link.title | escape }}</span><span class="caret" aria-hidden="true"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+          {% if is-mega-menu %}
+
+            <div class="container">
+              {% include 'mega-menu' with mega-menu-block %}
+            </div>
+
+          {% else %}
+
+            {% for sub_link in link.links %}
+              {% if sub_link.levels > 0 %}
+                <li class="dropdown-submenu" aria-haspopup="true">
+                  <a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a>
+                  <ul class="dropdown-menu">
+                    {% for sub_sub_link in sub_link.links %}
+                      <li>
+                        <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+          {% endif %}
+        </ul>
+      </li>
+
+    {% else %}
+
+      <li {% if link.active %}class="site-nav--active"{% endif %}>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+
+    {% endif %}
+
+  {% endfor %}
+</ul>

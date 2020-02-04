@@ -1,0 +1,604 @@
+{% if section.blocks.size > 0 %}
+
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="sections-wrapper sections-wrapper--white wow fadeIn">
+  {% when 'light' %}
+    <div class="sections-wrapper sections-wrapper--light wow fadeIn">
+  {% when 'dark' %}
+    <div class="sections-wrapper sections-wrapper--dark wow fadeIn">
+{% endcase %}
+
+{% case section.settings.alignment %}
+  {% when 'left' %}
+    {% assign text-advert--alignment = "left" %}
+  {% when 'center' %}
+    {% assign text-advert--alignment = "center" %}
+  {% when 'right' %}
+    {% assign text-advert--alignment = "right" %}
+{% endcase %}
+
+  <div class="container hidden-xs text-advert__container">
+
+    <div class="row text-advert-section text-adverts-alignment--{{ text-advert--alignment }}">
+      {% for block in section.blocks %}
+
+      {%- assign advert_has_link = false -%}
+      {% if block.settings.link != blank %}
+        {%- assign advert_has_link = true -%}
+      {% endif %}
+
+      <div class="text-advert-section__item{% if advert_has_link %} text-advert-section__item--link{% endif %}" {{ block.shopify_attributes }}>
+        <div class="text-advert-section__item-inner">
+          {% if advert_has_link %}<a href="{{ block.settings.link }}">{% endif %}
+
+            {% if block.settings.icon != 'none' %}
+            <div class="text-advert-section__icon-wrapper {{ section.settings.icon-size }}">
+              <i data-feather="{{ block.settings.icon }}"></i>
+            </div>
+            {% endif %}
+
+            <div class="text-advert-section__text-wrapper">
+              {% if block.settings.heading != blank %}
+                <span class="text-advert-section__header h5 custom-font">{{ block.settings.heading | escape }}</span>
+              {% endif %}
+
+              {% if block.settings.subheading != blank %}
+                <span class="text-advert-section__sub-header h6">{{ block.settings.subheading | escape }}</span>
+              {% endif %}
+            </div>
+
+          {% if advert_has_link %}</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="container visible-xs">
+    <div class="row text-advert-section mobile-homepage-text-adverts text-adverts-alignment--{{ text-advert--alignment }}">
+      <ul class="slides">
+        {% for block in section.blocks %}
+
+          {%- assign advert_has_link = false -%}
+          {% if block.settings.link != blank %}
+            {%- assign advert_has_link = true -%}
+          {% endif %}
+
+          <li {{ block.shopify_attributes }}>
+            <div class="grid__item text-advert-section__item{% if advert_has_link %} text-advert-section__item--link{% endif %}">
+              {% if advert_has_link %}<a href="{{ block.settings.link }}">{% endif %}
+
+                {% if block.settings.icon != 'none' %}
+                <div class="text-advert-section__icon-wrapper {{ section.settings.icon-size }}">
+                  <i data-feather="{{ block.settings.icon }}"></i>
+                </div>
+                {% endif %}
+
+                <div class="text-advert-section__text-wrapper">
+
+                  {% if block.settings.heading != blank %}
+                    <span class="text-advert-section__header h5 custom-font">{{ block.settings.heading | escape }}</span>
+                  {% endif %}
+
+                  {% if block.settings.subheading != blank %}
+                    <span class="text-advert-section__sub-header h6">{{ block.settings.subheading | escape }}</span>
+                  {% endif %}
+                </div>
+
+              {% if advert_has_link %}</a>{% endif %}
+            </div>
+          </li>
+
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Text adverts",
+        "de": "Textanzeigen",
+        "es": "Anuncios de texto",
+        "fr": "Annonces textuelles",
+        "pt-PT": "Anúncios de texto"
+    },
+    "class": "section--text-adverts-wrapper",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": {
+                "en": "Alignment",
+                "de": "Ausrichtung",
+                "es": "Alineación",
+                "fr": "Alignement",
+                "pt-PT": "Alinhamento"
+            },
+            "default": "center",
+            "options": [
+                {
+                    "value": "left",
+                    "label": {
+                        "en": "Left",
+                        "de": "Links",
+                        "es": "Izquierda",
+                        "fr": "Gauche",
+                        "pt-PT": "Esquerda"
+                    }
+                },
+                {
+                    "value": "center",
+                    "label": {
+                        "en": "Center",
+                        "de": "Mitte",
+                        "es": "Centro",
+                        "fr": "Centre",
+                        "pt-PT": "Centro"
+                    }
+                },
+                {
+                    "value": "right",
+                    "label": {
+                        "en": "Right",
+                        "de": "Rechts",
+                        "es": "Derecha",
+                        "fr": "Droite",
+                        "pt-PT": "Direita"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "icon-size",
+            "label": {
+                "en": "Icon size",
+                "de": "Symbolgröße",
+                "es": "Tamaño del icono",
+                "fr": "Taille de l'icône",
+                "pt-PT": "Tamanho do ícone"
+            },
+            "options": [
+                {
+                    "value": "text-adverts__icon-size--small",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "text-adverts__icon-size--medium",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "text-adverts__icon-size--large",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                }
+            ],
+            "default": "text-adverts__icon-size--medium"
+        }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+        {
+            "type": "text",
+            "name": {
+                "en": "Advert",
+                "de": "Anzeige",
+                "es": "Anuncio",
+                "fr": "Annonce",
+                "pt-PT": "Anúncio"
+            },
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "icon",
+                    "label": {
+                        "en": "Icon",
+                        "de": "Symbol",
+                        "es": "Icono",
+                        "fr": "Icône",
+                        "pt-PT": "Ícone"
+                    },
+                    "default": "none",
+                    "options": [
+                        {
+                            "value": "none",
+                            "label": {
+                                "en": "None",
+                                "de": "Keiner",
+                                "es": "Ninguno",
+                                "fr": "Aucun",
+                                "pt-PT": "Nenhum"
+                            }
+                        },
+                        {
+                            "value": "alert-circle",
+                            "label": {
+                                "en": "Alert",
+                                "de": "Benachrichtigung",
+                                "es": "Alerta",
+                                "fr": "Alerte",
+                                "pt-PT": "Alerta"
+                            }
+                        },
+                        {
+                            "value": "anchor",
+                            "label": {
+                                "en": "Anchor",
+                                "de": "Anker",
+                                "es": "Ancla",
+                                "fr": "Ancre",
+                                "pt-PT": "Âncora"
+                            }
+                        },
+                        {
+                            "value": "award",
+                            "label": {
+                                "en": "Award",
+                                "de": "Preis",
+                                "es": "Premio",
+                                "fr": "Récompense",
+                                "pt-PT": "Prémio"
+                            }
+                        },
+                        {
+                            "value": "bell",
+                            "label": {
+                                "en": "Bell",
+                                "de": "Glocke",
+                                "es": "Campana",
+                                "fr": "Cloche",
+                                "pt-PT": "Sino"
+                            }
+                        },
+                        {
+                            "value": "bookmark",
+                            "label": {
+                                "en": "Bookmark",
+                                "de": "Bookmark",
+                                "es": "Marcapáginas",
+                                "fr": "Ajouter aux favoris",
+                                "pt-PT": "Marcador de livros"
+                            }
+                        },
+                        {
+                            "value": "box",
+                            "label": {
+                                "en": "Box",
+                                "de": "Box",
+                                "es": "Caja",
+                                "fr": "Boîte",
+                                "pt-PT": "Caixa"
+                            }
+                        },
+                        {
+                            "value": "calendar",
+                            "label": {
+                                "en": "Calendar",
+                                "de": "Kalender",
+                                "es": "Calendario",
+                                "fr": "Calendrier",
+                                "pt-PT": "Calendário"
+                            }
+                        },
+                        {
+                            "value": "coffee",
+                            "label": {
+                                "en": "Coffee",
+                                "de": "Kaffee",
+                                "es": "Café",
+                                "fr": "Café",
+                                "pt-PT": "Café"
+                            }
+                        },
+                        {
+                            "value": "message-circle",
+                            "label": {
+                                "en": "Chat bubble",
+                                "de": "Chatblase",
+                                "es": "Burbuja de chat",
+                                "fr": "Bulle de discussion",
+                                "pt-PT": "Balão de conversa"
+                            }
+                        },
+                        {
+                            "value": "clock",
+                            "label": {
+                                "en": "Clock",
+                                "de": "Uhr",
+                                "es": "Reloj",
+                                "fr": "Horloge",
+                                "pt-PT": "Relógio"
+                            }
+                        },
+                        {
+                            "value": "compass",
+                            "label": {
+                                "en": "Compass",
+                                "de": "Kompass",
+                                "es": "Compás",
+                                "fr": "Boussole",
+                                "pt-PT": "Bússola"
+                            }
+                        },
+                        {
+                            "value": "truck",
+                            "label": {
+                                "en": "Delivery truck",
+                                "de": "Liefertruck",
+                                "es": "Camión de reparto",
+                                "fr": "Camion de livraison",
+                                "pt-PT": "Camião de distribuição"
+                            }
+                        },
+                        {
+                            "value": "dollar-sign",
+                            "label": {
+                                "en": "Dollar",
+                                "de": "Dollar",
+                                "es": "Dólar",
+                                "fr": "Dollar",
+                                "pt-PT": "Dólar"
+                            }
+                        },
+                        {
+                            "value": "film",
+                            "label": {
+                                "en": "Film",
+                                "de": "Film",
+                                "es": "Película",
+                                "fr": "Film",
+                                "pt-PT": "Filme"
+                            }
+                        },
+                        {
+                            "value": "smile",
+                            "label": {
+                                "en": "Happy face",
+                                "de": "Glückliches Gesicht",
+                                "es": "Cara feliz",
+                                "fr": "Visage heureux",
+                                "pt-PT": "Rosto alegre"
+                            }
+                        },
+                        {
+                            "value": "heart",
+                            "label": {
+                                "en": "Heart",
+                                "de": "Herz",
+                                "es": "Corazón",
+                                "fr": "Cœur",
+                                "pt-PT": "Coração"
+                            }
+                        },
+                        {
+                            "value": "key",
+                            "label": {
+                                "en": "Key",
+                                "de": "Schlüssel",
+                                "es": "Llave",
+                                "fr": "Clé",
+                                "pt-PT": "Chave"
+                            }
+                        },
+                        {
+                            "value": "cloud-lightning",
+                            "label": {
+                                "en": "Lightning bolt",
+                                "de": "Blitzschlag",
+                                "es": "Relámpago",
+                                "fr": "Éclair",
+                                "pt-PT": "Relâmpago"
+                            }
+                        },
+                        {
+                            "value": "map-pin",
+                            "label": {
+                                "en": "Map marker",
+                                "de": "Kartenmarkierer",
+                                "es": "Marcador de mapa",
+                                "fr": "Marqueur de carte",
+                                "pt-PT": "Marcador de mapa"
+                            }
+                        },
+                        {
+                            "value": "music",
+                            "label": {
+                                "en": "Music",
+                                "de": "Musik",
+                                "es": "Música",
+                                "fr": "Musique",
+                                "pt-PT": "Música"
+                            }
+                        },
+                        {
+                            "value": "phone",
+                            "label": {
+                                "en": "Phone",
+                                "de": "Telefon",
+                                "es": "Teléfono",
+                                "fr": "Téléphone",
+                                "pt-PT": "Telemóvel"
+                            }
+                        },
+                        {
+                            "value": "play",
+                            "label": {
+                                "en": "Play icon",
+                                "de": "Spielsymbol",
+                                "es": "Icono de reproducir",
+                                "fr": "Icône de lecture",
+                                "pt-PT": "Ícone de reprodução"
+                            }
+                        },
+                        {
+                            "value": "trending-up",
+                            "label": {
+                                "en": "Trending",
+                                "de": "Im Trend",
+                                "es": "Popular",
+                                "fr": "Tendances",
+                                "pt-PT": "Na moda"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": {
+                        "en": "Heading",
+                        "de": "Überschrift",
+                        "es": "Encabezado",
+                        "fr": "Rubrique",
+                        "pt-PT": "Título"
+                    }
+                },
+                {
+                    "type": "text",
+                    "id": "subheading",
+                    "label": {
+                        "en": "Subheading",
+                        "de": "Unterüberschrift",
+                        "es": "Subencabezado",
+                        "fr": "Sous-rubrique",
+                        "pt-PT": "Subtítulo"
+                    }
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": {
+                        "en": "Link",
+                        "de": "Link",
+                        "es": "Enlace",
+                        "fr": "Lien",
+                        "pt-PT": "Ligação"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    }
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Text adverts",
+                "de": "Textanzeigen",
+                "es": "Anuncios de texto",
+                "fr": "Annonces textuelles",
+                "pt-PT": "Anúncios de texto"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "blocks": [
+                {
+                    "type": "text",
+                    "settings": {
+                        "icon": "truck",
+                        "heading": "Text Advert Header",
+                        "subheading": "Optional subheading",
+                        "link": ""
+                    }
+                },
+                {
+                    "type": "text",
+                    "settings": {
+                        "icon": "trending-up",
+                        "heading": "Text Advert Header",
+                        "subheading": "Optional subheading",
+                        "link": ""
+                    }
+                },
+                {
+                    "type": "text",
+                    "settings": {
+                        "icon": "smile",
+                        "heading": "Text Advert Header",
+                        "subheading": "Optional subheading",
+                        "link": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

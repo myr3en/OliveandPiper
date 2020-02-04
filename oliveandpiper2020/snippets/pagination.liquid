@@ -1,0 +1,39 @@
+{% if paginate.pages > 1 %}
+
+    <div class="pagination row">
+
+      <ul>
+        <li class="pagination-arrow pagination-arrow--previous grid__item col-sm-4 col-md-4 col-xs-4">
+          {% unless paginate.previous.is_link %}
+            <div class="btn btn--secondary btn--narrow btn--disabled">
+              <i data-feather="chevron-left" aria-hidden="true"></i>
+              <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+            </div>
+          {% else %}
+            <a href="{{ paginate.previous.url }}" class="btn btn--secondary btn--narrow">
+              <i data-feather="chevron-left" aria-hidden="true"></i>
+              <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+            </a>
+          {% endunless %}
+        </li>
+        <li class="pagination-text grid__item col-sm-4 col-md-4 col-xs-4">
+          <div class="hidden-xs">{{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}</div>
+        </li>
+        <li class="pagination-arrow pagination-arrow--next grid__item col-sm-4 col-md-4 col-xs-4">
+          {% unless paginate.next.is_link %}
+            <div class="btn btn--secondary btn--narrow btn--disabled">
+              <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+              <i data-feather="chevron-right" aria-hidden="true"></i>
+            </div>
+          {% else %}
+            <a href="{{ paginate.next.url }}" class="btn btn--secondary btn--narrow">
+              <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+              <i data-feather="chevron-right" aria-hidden="true"></i>
+            </a>
+          {% endunless %}
+        </li>
+      </ul>
+
+    </div>
+
+{% endif %}

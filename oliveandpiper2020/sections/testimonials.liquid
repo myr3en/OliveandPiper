@@ -1,0 +1,409 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<div class="container testimonial-section--{{ section.id }}">
+<div class="row">
+  <div class="page-width col-md-12">
+    {% if section.settings.heading != blank %}
+      <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+        <h2><span>{{ section.settings.heading }}</span></h2>
+        <div class="clear"></div>
+      </div>
+    {% endif %}
+    {% case section.blocks.size %}
+      {% when 0 %}
+        <div class="placeholder-noblocks">
+          {{ 'general.onboarding.no_content' | t }}
+        </div>
+      {% when 1 %}
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="slides testimonial-slides" style="width: {{ section.blocks | size | times:100 }}%;">
+              {% for block in section.blocks %}
+                <li {{ block.shopify_attributes }} class="slider-block--{{ block.id }}">
+                  <div class="testimonial-container">
+                    <div class="testimonial-content">
+                      <figure>
+                        {% if block.settings.testimonial != blank %}
+                          <div class="testimonial-text">
+                            <blockquote>
+                              {{ block.settings.testimonial }}
+                            </blockquote>
+                          </div>
+                        {% endif %}
+                        {% if block.settings.link != blank and block.settings.author != blank %}
+                          <a href="{{ block.settings.link }}" target="_blank">
+                            <div class="testimonial-name">- <cite class="author">{{ block.settings.author | escape }}</cite></div>
+                          </a>
+                        {% elsif block.settings.author != blank %}
+                          <div class="testimonial-name">- <cite class="author">{{ block.settings.author | escape }}</cite></div>
+                        {% endif %}
+                      </figure>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% else %}
+        <div class="row">
+          <div class="flexslider-container flexslider-container-testimonial col-md-12">
+            <div class="flexslider flexslider-homepage-testimonial" data-slider-id="{{ section.id }}" data-slider-slide-time="{{ section.settings.slider-slide-time }}000" data-slider-animation="{{ section.settings.slider-animation }}">
+              <ul class="slides testimonial-slides" style="width: {{ section.blocks | size | times:100 }}%;">
+                {% assign number_of_slides_float = section.blocks | size | times:1.0 %}
+                {% for block in section.blocks %}
+                  <li {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}" class="slider-block--{{ block.id }}">
+                    <div class="testimonial-container">
+                      <div class="testimonial-content {% if section.settings.show-slide-arrows %}testimonial--arrow-padding{% else %}testimonial--no-arrow-padding{% endif %}">
+                        <figure>
+                          {% if block.settings.testimonial != blank %}
+                            <div class="testimonial-text">
+                              <blockquote>
+                                {{ block.settings.testimonial }}
+                              </blockquote>
+                            </div>
+                          {% endif %}
+                          {% if block.settings.link != blank and block.settings.author != blank %}
+                            <a href="{{ block.settings.link }}" target="_blank">
+                              <div class="testimonial-name">- <cite class="author">{{ block.settings.author }}</cite></div>
+                            </a>
+                          {% elsif block.settings.author != blank %}
+                            <div class="testimonial-name">- <cite class="author">{{ block.settings.author }}</cite></div>
+                          {% endif %}
+                        </figure>
+                      </div>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+              {% if section.settings.show-slide-arrows %}
+							<ul class="flex-direction-nav slider--{{ section.id }}">
+                <li class="flex-nav-prev"><a class="flex-prev" href="#"><i data-feather="arrow-left-circle" aria-hidden="true"></i></a></li>
+                <li class="flex-nav-next"><a class="flex-next" href="#"><i data-feather="arrow-right-circle" aria-hidden="true"></i></a></li>
+							</ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endcase %}
+    </div>
+  </div>
+</div>
+
+{% if section.blocks.size > 1 and section.settings.show-slide-dots %}
+  <div class="slider-pagination-container testimonial-pagination slider--{{ section.id }}"></div>
+{% endif %}
+
+</div>
+
+<style>
+  .testimonial-pagination .flex-control-nav li a {
+    background: {{ section.settings.slider-arrow--color | color_modify: 'alpha', 0.5 }}
+  }
+  .testimonial-pagination .flex-control-nav li a.flex-active {
+    background: {{ section.settings.slider-arrow--color }}
+  }
+
+  .flexslider-container-testimonial .flex-direction-nav svg {
+    stroke: {{ section.settings.slider-arrow--color }}
+  }
+</style>
+
+{% schema %}
+{
+    "name": {
+        "en": "Testimonials",
+        "de": "Erfahrungsberichte",
+        "es": "Testimonios",
+        "fr": "Témoignages",
+        "pt-PT": "Testemunhos"
+    },
+    "class": "homepage-section--testimonials-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "default": {
+                "en": "Testimonials",
+                "de": "Erfahrungsberichte",
+                "es": "Testimonios",
+                "fr": "Témoignages",
+                "pt-PT": "Testemunhos"
+            },
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            }
+        },
+        {
+            "type": "radio",
+            "id": "slider-animation",
+            "label": {
+                "en": "Transition effect",
+                "de": "Übergangseffekt",
+                "es": "Efectos de transición",
+                "fr": "Effet de transition",
+                "pt-PT": "Efeito de transição"
+            },
+            "options": [
+                {
+                    "value": "slide",
+                    "label": {
+                        "en": "Slide",
+                        "de": "Dia",
+                        "es": "Deslizarse",
+                        "fr": "Diapositive",
+                        "pt-PT": "Diapositivo"
+                    }
+                },
+                {
+                    "value": "fade",
+                    "label": {
+                        "en": "Fade",
+                        "de": "Ausblenden",
+                        "es": "Desvanecerse",
+                        "fr": "Fondu",
+                        "pt-PT": "Desvanecer"
+                    }
+                }
+            ],
+            "default": "slide"
+        },
+        {
+            "type": "range",
+            "id": "slider-slide-time",
+            "min": 3,
+            "max": 8,
+            "step": 1,
+            "unit": {
+                "en": "sec",
+                "de": "Sek.",
+                "es": "seg",
+                "fr": "sec.",
+                "pt-PT": "seg"
+            },
+            "label": {
+                "en": "Rotation interval",
+                "de": "Rotationsintervall",
+                "es": "Intervalo de rotación",
+                "fr": "Intervalle de rotation",
+                "pt-PT": "Intervalo de rotação"
+            },
+            "default": 4
+        },
+        {
+            "type": "checkbox",
+            "id": "show-slide-dots",
+            "label": {
+                "en": "Show slide dots",
+                "de": "Diapunkte anzeigen",
+                "es": "Mostrar puntos para deslizamiento",
+                "fr": "Montrer les points des diapositives",
+                "pt-PT": "Mostrar pontos do diapositivo"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show-slide-arrows",
+            "label": {
+                "en": "Show slide arrows",
+                "de": "Diapfeile anzeigen",
+                "es": "Mostrar flechas para deslizamiento",
+                "fr": "Afficher les flèches de diapositives",
+                "pt-PT": "Mostrar setas do diapositivo"
+            },
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "slider-arrow--color",
+            "label": {
+                "en": "Slider arrow color",
+                "de": "Schieberpfeil-Farbe",
+                "es": "Color de la flecha de deslizamiento",
+                "fr": "Couleur de la flèche du curseur",
+                "pt-PT": "Cor da seta do cursor"
+            },
+            "default": "#606161"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "textarea",
+            "name": {
+                "en": "Testimonial",
+                "de": "Erfahrungsbericht",
+                "es": "Testimonio",
+                "fr": "Témoignage",
+                "pt-PT": "Testemunho"
+            },
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "testimonial",
+                    "label": {
+                        "en": "Testimonial",
+                        "de": "Erfahrungsbericht",
+                        "es": "Testimonio",
+                        "fr": "Témoignage",
+                        "pt-PT": "Testemunho"
+                    },
+                    "default": {
+                        "en": "\"Add customer reviews and testimonials to showcase your store’s happy customers.\"",
+                        "de": "„Fügen Sie Kundenbewertungen und Erfahrungsberichte hinzu, um die glücklichen Kunden Ihres Stores zu präsentieren“",
+                        "es": "«Añada comentarios y testimonios de los clientes para enseñar a los clientes satisfechos de su tienda».",
+                        "fr": "Ajoutez des commentaires et des témoignages de clients pour mettre en valeur les clients satisfaits de votre magasin.",
+                        "pt-PT": "\"Adicionar avaliações e testemunhos de clientes para exibir a clientela feliz da sua loja.\""
+                    }
+                },
+                {
+                    "type": "text",
+                    "id": "author",
+                    "label": {
+                        "en": "Author",
+                        "de": "Autor",
+                        "es": "Autor",
+                        "fr": "Auteur",
+                        "pt-PT": "Autor"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    },
+                    "default": {
+                        "en": "Author's name",
+                        "de": "Autorenname",
+                        "es": "Nombre del autor",
+                        "fr": "Nom de l'auteur",
+                        "pt-PT": "Nome do autor"
+                    }
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": {
+                        "en": "Link",
+                        "de": "Link",
+                        "es": "Enlace",
+                        "fr": "Lien",
+                        "pt-PT": "Ligação"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    }
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Testimonials",
+                "de": "Erfahrungsberichte",
+                "es": "Testimonios",
+                "fr": "Témoignages",
+                "pt-PT": "Testemunhos"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "blocks": [
+                {
+                    "type": "textarea"
+                },
+                {
+                    "type": "textarea"
+                },
+                {
+                    "type": "textarea"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

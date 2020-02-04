@@ -1,0 +1,81 @@
+{%- if section.settings.show_product_recommendations %}
+    <div class="product-recommendations" data-product-id="{{ product.id }}" data-limit="4">
+
+        {%- if recommendations.products_count > 0 -%}
+            {% unless section.settings.product_recommendations_heading == blank %}
+                <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+                <h2>{{ section.settings.product_recommendations_heading }}</h2>
+                <div class="clear"></div>
+                </div>
+            {% endunless %}
+
+            <div class="row{% if settings.match-height %} products--match-height{% endif %}" data-section-id="{{ section.id }}">
+                {%- for product in recommendations.products -%}
+                    {% assign sold_out = true %}
+                    {% if product.available %}
+                        {% assign sold_out = false %}
+                    {% endif %}
+                    <div class="grid__item collection-image-anim wow zoomIn col-md-3 col-xs-6 indiv-product-wrapper{% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}">
+
+                      {%-
+                        include 'product-grid--indiv-product',
+                        liquidObject: product
+                      -%}
+
+                    </div>
+                {%- endfor -%}
+            </ul>
+        {%- endif -%}
+    </div>
+{%- endif -%}
+
+{% schema %}
+{
+    "name": {
+        "en": "Product recommendations",
+        "de": "Produktempfehlungen",
+        "es": "Recomendaciones de productos",
+        "fr": "Recommandations de produits",
+        "pt-PT": "Recomendações de produtos"
+    },
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_product_recommendations",
+            "label": {
+                "en": "Show dynamic recommendations",
+                "de": "Dynamische Empfehlungen anzeigen",
+                "es": "Mostrar recomendaciones dinámicas",
+                "fr": "Montrer des recommandations dynamiques",
+                "pt-PT": "Mostrar recomendações dinâmicas"
+            },
+            "info": {
+                "en": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+                "de": "Dynamische Empfehlungen verändern und verbessern sich mit der Zeit. [Mehr erfahren](https://help.shopify.com/en/themes/development/recommended-products)",
+                "es": "Las recomendaciones dinámicas cambian y mejoran con el tiempo. [Aprenda más](https://help.shopify.com/en/themes/development/recommended-products)",
+                "fr": "Les recommandations dynamiques changent et s'améliorent avec le temps. [En savoir plus](https://help.shopify.com/en/themes/development/recommended-products)",
+                "pt-PT": "As recomendações dinâmicas mudam e melhoram com o tempo. [Saber mais](https://help.shopify.com/en/themes/development/recommended-products)"
+            },
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_recommendations_heading",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "You may also like",
+                "de": "Ihnen könnte auch gefallen",
+                "es": "También podría gustarle",
+                "fr": "Vous aimerez peut-être aussi",
+                "pt-PT": "Também poderá gostar de"
+            }
+        }
+    ]
+}
+{% endschema %}

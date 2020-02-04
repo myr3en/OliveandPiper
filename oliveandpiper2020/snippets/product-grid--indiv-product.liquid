@@ -1,0 +1,83 @@
+<div class="indiv-product">
+
+  {% case settings.hover-effect %}
+
+  {% when 'none' %}
+
+    <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ liquidObject.title | escape }}">
+      {% include 'responsive-image' with liquidObject.featured_image, alt: liquidObject.title %}
+    </a>
+
+  {% when 'second-image' %}
+
+    {% if liquidObject.images.size > 1 %}
+      <div class="reveal">
+        <a class="grid__image" href="{{ liquidObject.url | within: collection }}" title="{{ liquidObject.title | escape }}">
+          {% include 'responsive-image' with liquidObject.featured_image, alt: liquidObject.title %}
+          <div class="hidden">
+            {% include 'responsive-image' with liquidObject.images[1], alt: liquidObject.images.last.alt %}
+          </div>
+        </a>
+      </div>
+    {% else %}
+      <a class="grid__image" href="{{ liquidObject.url | within: collection }}" title="{{ liquidObject.title | escape }}">
+        {% include 'responsive-image' with liquidObject.featured_image, alt: liquidObject.title %}
+      </a>
+    {% endif %}
+
+  {% when 'zoom' %}
+
+    <div class="collection-image--zoom-effect">
+      <div class="zoom-effect--inner">
+        <a class="grid__image" href="{{ liquidObject.url | within: collection }}" title="{{ liquidObject.title | escape }}">
+          {% include 'responsive-image' with liquidObject.featured_image, alt: liquidObject.title %}
+        </a>
+      </div>
+    </div>
+
+  {% endcase %}
+
+  <div class="hp-title">
+
+  {% if settings.product-grid--show-vendor %}
+    <div class="indiv-product-vendor-text">{{ liquidObject.vendor | link_to_vendor }}</div>
+  {% endif %}
+
+    <a href="{{ liquidObject.url | within: collection }}">
+
+      <span class="indiv-product-title-text">{{ liquidObject.title }}</span>
+
+      <span class="money-styling">
+
+        {% if liquidObject.compare_at_price_max > liquidObject.price %}
+          <span class="compare-at-price">
+            <span class="money">{{ liquidObject.compare_at_price_max | money }}</span>
+          </span>
+        {% endif %}
+
+        {% if liquidObject.price_varies %}
+          <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ liquidObject.price_min | money }}</span>
+        {% else %}
+          <span class="money">{{ liquidObject.price_min | money }}</span>
+        {% endif %}
+
+        {% assign first_variant = liquidObject.variants[0] %}
+        {% include 'unit-price-measurement-grid', variant: first_variant %}
+
+      </span>
+
+      {% if settings.show_reviews %}
+        <span class="shopify-product-reviews-badge" data-id="{{ liquidObject.id }}"></span>
+      {% endif %}
+
+    </a>
+  </div>
+</div>
+
+{% if liquidObject.available %}
+  {% if liquidObject.compare_at_price_max > liquidObject.price and settings.sale_badge %}
+    <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+  {% endif %}
+{% elsif settings.sold_out_badge %}
+  <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
+{% endif %}

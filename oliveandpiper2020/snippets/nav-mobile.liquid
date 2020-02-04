@@ -1,0 +1,110 @@
+{% if section.settings.main_linklist == blank and section.settings.top_bar_linklist != blank %}
+  {% assign navMobile = linklists[section.settings.top_bar_linklist] %}
+{% else %}
+  {% assign navMobile = linklists[section.settings.main_linklist] %}
+{% endif %}
+
+<script type="application/json" id="mobile-menu-data">
+{
+    {% for link in navMobile.links %}
+        {% unless forloop.first %},{% endunless %}
+        "{{ link.handle }}": {
+            "level": 0,
+            "url": "{{ link.url }}",
+            "title": "{{ link.title | escape }}",
+            "links": [
+                {% for sublink in link.links %}
+                    "{{ link.handle }}--{{ sublink.handle }}"{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+            ]
+        }
+        {% for sublink in link.links %}
+        , "{{ link.handle }}--{{ sublink.handle }}": {
+            "level": 1,
+            "url": "{{ sublink.url }}",
+            "title": "{{ sublink.title | escape }}",
+            "links": [
+                {% for subsublink in sublink.links %}
+                    "{{ link.handle }}--{{ sublink.handle }}--{{ subsublink.handle }}"{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+            ]
+        }
+        {% for subsublink in sublink.links %}
+        , "{{ link.handle }}--{{ sublink.handle }}--{{ subsublink.handle }}": {
+            "level": 2,
+            "url": "{{ subsublink.url }}",
+            "title": "{{ subsublink.title | escape }}",
+            "links": []
+        }
+        {% endfor %}
+        {% endfor %}
+    {% endfor %}
+}
+</script>
+
+<ul class="mobile-menu mobile-menu-main{% if section.settings.search-enable %} search-enabled{% else %} search-disabled{% endif %}" id="mobile-menu--{{ navMobile.handle }}">
+  <a href="#" class="slide-menu menu-close-icon mobile-menu-close"><i data-feather="x" aria-hidden="true"></i></a>
+
+{% if section.settings.search-enable %}
+  <li class="mobile-search">
+    <form id="search" action="{{ routes.search_url }}">
+    <div id="search-wrapper">
+      <input id="search_text" name="q" type="text" size="20" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" value="{{ 'layout.header.search' | t }}"/>
+    </div>
+    </form>
+  </li>
+{% endif %}
+
+  {% for link in navMobile.links %}
+    <li>
+      <a href="{{ link.url }}" class="custom-font">{{ link.title | escape }}</a>
+      {% if link.links != blank %}
+        <a href="#" class="mobile-menu-sub mobile-menu-right mobile-menu-link" data-link="{{ link.handle }}">
+          <i data-feather="chevron-right"></i>
+        </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <li class="mobile-customer-link custom-font"><a href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a></li>
+      <li class="mobile-customer-link custom-font">{{ 'layout.customer.log_out' | t | customer_logout_link }}</li>
+    {% else %}
+      <li class="mobile-customer-link custom-font">{{ 'layout.customer.log_in' | t | customer_login_link }}</li>
+      {% if shop.customer_accounts_optional %}
+        <li class="mobile-customer-link custom-font">{{ 'customer.register.title' | t | customer_register_link }}</li>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% if settings.show_multiple_currencies %}
+  <li>
+    <a href="#" class="mobile-menu-link mobile-menu-sub mobile-menu-link-currency" data-link="mobile-menu-currency">{{ 'layout.cart.currency' | t }}</a>
+    <a href="#" class="mobile-menu-sub mobile-menu-right mobile-menu-link" data-link="mobile-menu-currency">
+      <i data-feather="chevron-right"></i>
+    </a>
+  </li>
+  {% endif %}
+  {% include 'social-links' %}
+</ul>
+
+<ul class="mobile-menu mobile-menu-child mobile-menu-hidden" id="mobile-menu">
+    <a href="#" class="slide-menu menu-close-icon mobile-menu-close"><i data-feather="x" aria-hidden="true"></i></a>
+    <li aria-haspopup="true">
+        <a href="#" class="mobile-menu-back mobile-menu-link">
+            <i data-feather="chevron-left" aria-hidden="true"></i>
+            <div class="mobile-menu-title custom-font"></div>
+        </a>
+    </li>
+</ul>
+
+<ul class="mobile-menu mobile-menu-grandchild mobile-menu-hidden" id="mobile-submenu">
+    <a href="#" class="slide-menu menu-close-icon mobile-menu-close"><i data-feather="x" aria-hidden="true"></i></a>
+    <li aria-haspopup="true">
+        <a href="#" class="mobile-menu-back mobile-menu-link">
+            <i data-feather="chevron-left" aria-hidden="true"></i>
+            <div class="mobile-menu-title custom-font"></div>
+        </a>
+    </li>
+</ul>

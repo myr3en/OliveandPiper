@@ -1,0 +1,110 @@
+<form action="{{ routes.cart_url }}" method="post" novalidate="" class="cart-drawer-form">
+	<div id="cartSlideoutWrapper" class="envy-shopping-right slideout-panel-hidden cart-drawer-right">
+
+		<a href="#" class="slide-menu cart-close-icon cart-menu-close"><i data-feather="x"></i></a>
+		<span class="h3">{{ 'cart.general.title' | t }}</span>
+
+		<div class="cart-error-box"></div>
+
+		<div class="cart-empty-box">
+			{{ 'cart.general.empty' | t }}
+		</div>
+
+		<script type="application/template" id="cart-item-template">
+			<div class="cart-item">
+				<div class="cart-item-image--wrapper">
+					<a class="cart-item-link" href="/product">
+						<img
+							class="cart-item-image"
+							src="/product/image.jpg"
+							alt=""
+						/>
+					</a>
+				</div>
+				<div class="cart-item-details--wrapper">
+					<a href="/product" class="cart-item-link cart-item-details--product-title-wrapper">
+						<span class="cart-item-product-title"></span>
+						<span class="cart-item-variant-title"></span>
+					</a>
+
+					<div class="cart-item--quantity-price-wrapper">
+						<div class="cart-item--quantity-wrapper">
+							<button type="button" class="cart-item-quantity-button cart-item-decrease" data-amount="-1" aria-label="Reduce item quantity by one">-</button>
+							<input type="text" class="cart-item-quantity" min="1" pattern="[0-9]*" aria-label="quantity" />
+							<button type="button" class="cart-item-quantity-button cart-item-increase" data-amount="1" aria-label="Increase item quantity by one">+</button>
+						</div>
+
+						<div class="cart-item-price-wrapper">
+							<span class="cart-item-price-original"></span>
+							<span class="cart-item-price"></span>
+							<span class="cart-item-price-per-unit"></span>
+						</div>
+
+						<ul class="order-discount--cart-list" aria-label="{{ 'customer.order.discount' | t }}"></ul>
+					</div>
+				</div>
+			</div>
+		</script>
+		<script type="application/json" id="initial-cart">
+			{{ cart | json }}
+		</script>
+
+		<div class="cart-items"></div>
+
+		<div class="ajax-cart--bottom-wrapper">
+
+		{% if settings.allow_note %}
+		<div class="ajax-cart--checkout-add-note">
+				<p>{{ 'cart.general.note' | t }}&hellip;</p>
+				<textarea id="note" name="note" class="form-control">{{ cart.note }}</textarea>
+		</div>
+		{% endif %}
+
+		{% if settings.enable_terms_conditions %}
+		<div class="ajax-cart--terms-conditions">
+				<div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="agree" />
+										{% if settings.terms_conditions_link == blank %}
+											{{ 'cart.general.terms_text' | t }}
+										{% else %}
+											{{ 'cart.general.terms_text_html' | t | replace: '#', settings.terms_conditions_link }}
+										{% endif %}
+                </label>
+            </div>
+        </div>
+		</div>
+		{% endif %}
+
+		<div class="ajax-cart--cart-discount">
+			<div class="cart--order-discount-wrapper custom-font ajax-cart-discount-wrapper"></div>
+		</div>
+
+		<div class="ajax-cart--cart-original-price">
+			<h5><span class="cart-item-original-total-price"><span class="money">{{ cart.original_total_price | money }}</span></span></h5>
+		</div>
+
+		<div class="ajax-cart--total-price">
+			<h4><span class="cart-item-total-price" id="cart-price"><span class="money">{{ cart.total_price | money }}</span></span></h4>
+			<span class="cart-item-price-text">{{ 'layout.cart.total_cart_value' | t }}</span>
+		</div>
+
+		<div class="slide-checkout-buttons">
+			<button type="submit" name="checkout" class="btn btn-success cart-button-checkout">
+				<span class="cart-button-checkout-text">{{ 'cart.general.checkout' | t }}</span>
+				<div class="cart-button-checkout-spinner lds-dual-ring hide"></div>
+			</button>
+			{% if additional_checkout_buttons and settings.enable-additional-checkout-buttons %}
+				<div class="additional-checkout-buttons">
+					{{ content_for_additional_checkout_buttons }}
+				</div>
+			{% endif %}
+			<a href="#" class="btn btn-default cart-menu-close">{{ 'layout.cart.continue_shopping' | t }}</a><br />
+		</div>
+
+
+		</div>
+
+	</div>
+</form>

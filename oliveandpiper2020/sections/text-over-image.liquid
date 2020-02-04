@@ -1,0 +1,343 @@
+{% if section.settings.image != blank %}
+  <style>
+    {% capture selector %}.hero--{{ section.id }} .img{% endcapture %}
+    {% if section.settings.parallax %}{% assign scale = 2 %}{% else %}{% assign scale = 1 %}{% endif %}
+    {% include 'responsive-background-image' with section.settings.image, selector: selector, scale: scale %}
+
+    .hero--{{ section.id }} .img {
+      background-position: {{ section.settings.alignment }};
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    {% if section.settings.parallax %}
+    @media screen and (max-width: 768px) {
+      .hero--{{ section.id }} .img {
+        min-height: 100%;
+      }
+    }
+    {% endif %}
+
+  </style>
+{% endif %}
+
+{% if section.settings.text-over-image-width == 'full-width' %}
+	<div class="container-fluid homepage-slider-container">
+		<div class="row">
+			<div class="page-width col-md-12">
+{% else %}
+	<div class="container">
+		<div class="row">
+			<div class="page-width col-md-12">
+{% endif %}
+
+    		<div class="index-section index-section--flush parallax-wrapper">
+    		  <div class="hero hero--{{ section.id }} hero--{{ section.settings.hero_size }}{% if section.settings.parallax %} parallax{% endif %}">
+    		    {% if section.settings.image == blank %}
+    		      <div class="placeholder-background img">
+    			      {{ 'lifestyle-1' | placeholder_svg_tag: 'icon icon--placeholder' }}
+    		      </div>
+            {% else %}
+              <div class="img"></div>
+    		    {% endif %}
+
+    		    <div class="hero__inner">
+    		      <div class="page-width text-center">
+    		        {% if section.settings.title != blank %}
+    		          <h2 class="h1 hero__title custom-font">{{ section.settings.title | escape }}</h2>
+    		        {% endif %}
+    		        {% if section.settings.text != blank %}
+    		          <div class="hero__text textarea rte">{{ section.settings.text }}</div>
+    		        {% endif %}
+    		        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+    		          <a href="{{ section.settings.button_link }}" class="btn btn-custom">
+    		            {{ section.settings.button_label }}
+    		          </a>
+    		        {% endif %}
+    		      </div>
+    		    </div>
+    		  </div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Image with text overlay",
+        "de": "Bild mit Textüberlagerung",
+        "es": "Imagen con texto superpuesto",
+        "fr": "Image avec texte superposé",
+        "pt-PT": "Imagem com sobreposição de texto"
+    },
+    "class": "homepage-section--text-over-image-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "info": {
+                "en": "1800 x 1200px recommended",
+                "de": "1800 x 1200 px empfohlen",
+                "es": "Recomendado 1800 x 1200 px",
+                "fr": "1800 x 1200 px recommandé",
+                "pt-PT": "1800 x 1200px, recomendado"
+            }
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Highlight brand information",
+                "de": "Markeninformation hervorheben",
+                "es": "Destacar la información de la marca",
+                "fr": "Mettre en valeur les informations sur la marque",
+                "pt-PT": "Realçar informação da marcar"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "default": {
+                "en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+                "de": "<p>Verwenden Sie Überlagerungstext, um Kunden Einblicke in Ihre Marke zu geben. Wählen Sie Bildmaterial und Text aus, das sich auf Ihren Stil und Ihre Geschichte bezieht.</p>",
+                "es": "<p>Utilice el texto superpuesto para ofrecerles a sus clientes la información de su marca en un vistazo. Selecione la imagen y el texto que mejor describen su estilo e historia. </p>",
+                "fr": "<p>Utilisez le texte superposé pour donner à vos clients un aperçu de votre marque. Sélectionnez l'imagerie et le texte qui correspondent à votre style et à votre histoire.</p>",
+                "pt-PT": "<p>Utilize texto de sobreposição para dar a conhecer a sua marca aos seus clientes. Selecione imagens e texto que corresponda ao seu estilo e trajetória.</p>"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "parallax",
+            "label": {
+                "en": "Enable parallax effect",
+                "de": "Parallaxeneffekt aktivieren",
+                "es": "Habilitar efecto de paralaje",
+                "fr": "Activer l'effet parallaxe",
+                "pt-PT": "Ativar efeito de paralaxe"
+            },
+            "default": true,
+            "info": {
+                "en": "Landscape images will default to a set alignment to best fit screen",
+                "de": "Bilder im Querformat werden standardmäßig auf beste Anpassung an den Bildschirm ausgerichtet",
+                "es": "Las imágenes en apaisado se cambiarán por defecto a una alineación fija para ajustarse mejor a la pantalla",
+                "fr": "Les images du paysage seront alignées par défaut sur l'écran qui leur convient le mieux",
+                "pt-PT": "As imagens paisagísticas terão um alinhamento predefinido que melhor se adeque ao ecrã"
+            }
+        },
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": {
+                "en": "Image alignment",
+                "de": "Bildausrichtung",
+                "es": "Alineación de la imagen",
+                "fr": "Alignement de l'image",
+                "pt-PT": "Alinhamento da imagem"
+            },
+            "default": "center",
+            "options": [
+                {
+                    "value": "top",
+                    "label": {
+                        "en": "Top",
+                        "de": "Oben",
+                        "es": "Arriba",
+                        "fr": "En haut",
+                        "pt-PT": "Parte superior"
+                    }
+                },
+                {
+                    "value": "center",
+                    "label": {
+                        "en": "Middle",
+                        "de": "Mitte",
+                        "es": "Medio",
+                        "fr": "Au milieu",
+                        "pt-PT": "Centro"
+                    }
+                },
+                {
+                    "value": "bottom",
+                    "label": {
+                        "en": "Bottom",
+                        "de": "Unten",
+                        "es": "Abajo",
+                        "fr": "En bas",
+                        "pt-PT": "Parte inferior"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "hero_size",
+            "label": {
+                "en": "Section height",
+                "de": "Abschnitthöhe",
+                "es": "Altura de la sección",
+                "fr": "Hauteur de section",
+                "pt-PT": "Altura da secção"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "label": {
+                        "en": "Extra Small",
+                        "de": "Extra klein",
+                        "es": "Muy pequeño",
+                        "fr": "Extra petite",
+                        "pt-PT": "Extra Pequeno"
+                    },
+                    "value": "x-small"
+                },
+                {
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    },
+                    "value": "small"
+                },
+                {
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    },
+                    "value": "medium"
+                },
+                {
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    },
+                    "value": "large"
+                },
+                {
+                    "label": {
+                        "en": "Extra Large",
+                        "de": "Extra groß",
+                        "es": "Muy grande",
+                        "fr": "Extra grande",
+                        "pt-PT": "Extra Grande"
+                    },
+                    "value": "x-large"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text-over-image-width",
+            "label": {
+                "en": "Section width",
+                "de": "Abschnittbreite",
+                "es": "Ancho de la sección",
+                "fr": "Largeur de section",
+                "pt-PT": "Largura da secção"
+            },
+            "default": "full-width",
+            "options": [
+                {
+                    "label": {
+                        "en": "Fixed",
+                        "de": "Festgestellt",
+                        "es": "Fijo",
+                        "fr": "Fixe",
+                        "pt-PT": "Fixo"
+                    },
+                    "value": "fixed"
+                },
+                {
+                    "label": {
+                        "en": "Full width",
+                        "de": "Volle Breite",
+                        "es": "Ancho completo",
+                        "fr": "Pleine largeur",
+                        "pt-PT": "Largura total"
+                    },
+                    "value": "full-width"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": {
+                "en": "Button label",
+                "de": "Button-Bezeichnung",
+                "es": "Etiqueta del botón",
+                "fr": "Étiquette du bouton",
+                "pt-PT": "Etiqueta do botão"
+            }
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": {
+                "en": "Button link",
+                "de": "Buttonlink",
+                "es": "Enlace del botón",
+                "fr": "Lien du bouton",
+                "pt-PT": "Ligação do botão"
+            },
+            "info": {
+                "en": "Required to show the button",
+                "de": "Notwendig, den Button zu zeigen",
+                "es": "Es necesario mostrar el botón",
+                "fr": "Requis pour afficher le bouton",
+                "pt-PT": "Necessário para exibir o botão"
+            }
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Image with text overlay",
+                "de": "Bild mit Textüberlagerung",
+                "es": "Imagen con texto superpuesto",
+                "fr": "Image avec texte superposé",
+                "pt-PT": "Imagem com sobreposição de texto"
+            },
+            "category": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            }
+        }
+    ]
+}
+{% endschema %}

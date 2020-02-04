@@ -1,0 +1,89 @@
+{% comment %}
+    Use this snippet to add a responsive image to page.
+
+    Specify Shopify image you want to make responsive in the "with" parameter (see examples below).
+
+    You can use following variables to customize the image
+    * default_size: size of placeholder image until full image is loaded (default: '150x')
+    * class: additional classes to be applied to an image
+    * alt: alt text for the image
+    * blur: set to false to disable blurring image when loading (default: true), or set to "center" if the image is centered
+    * props: additional properties for the <img /> tag (data-, styles, id, etc.)
+    * crop: use crop to specify how the image should be cropped when it's too big
+
+    Usage:
+    * Define variables inside the include tag (preferred):
+    {% include 'responsive-image' with product.image, class: 'product-image', alt: 'A simple product', default_size: '300x', props: 'data-id="1"' %}
+
+    * Define variables before including this snippet
+    {% assign class = "product-image" %}
+    {% assign alt = "A simple product" %}
+    {% assign default_size = '300x' %}
+    {% assign crop = 'center' %}
+    {% capture props %}
+        data-id="1"
+    {% endcapture %}
+    {% include 'responsive-image' with product.image %}
+
+{% endcomment %}
+
+{% if default_size == blank %}
+    {% assign default_size = '150x' %}
+{% endif %}
+
+{% if blur == blank %}
+    {% assign blur = true %}
+{% endif %}
+
+{% if crop == blank %}
+  {% assign default_src = responsive-image | img_url: '1000x1000' %}
+  {% assign responsive_img_url = default_src | replace: '_1000x1000.', '_{width}.' %}
+  {% assign src = responsive-image | img_url: default_size %}
+{% else %}
+  {% assign default_src = responsive-image | img_url: '1000x1000', crop: crop %}
+  {% assign responsive_img_url = default_src | replace: '_1000x1000_', '_{width}_' %}
+  {% assign src = responsive-image | img_url: default_size, crop: crop %}
+{% endif %}
+
+{% assign responsive_img_url = responsive-image | img_url: '1000x1000' | replace: '_1000x1000.', '_{width}x.' %}
+{% assign src = responsive-image | img_url: default_size %}
+
+{% if blur %}
+<div style="position: relative" class="lazyload-blur-wrapper{% if blur == 'center' %} lazyload-blur-wrapper-center{% endif %}{% if class != blank %} {{ class }}--ll-wrapper{% endif %}">
+{% endif %}
+
+<noscript>
+    <img
+        class="{{ class }}"
+        src="{{ responsive-image | img_url: '1000x1000' }}"
+        data-sizes="auto"
+        {% if alt %}
+            alt="{{ alt | escape }}"
+        {% else %}
+            alt=""
+        {% endif %}
+        {{ props }}
+    />
+</noscript>
+
+<img
+    class="lazyload {{ class }} {% if crop %}lazyload-crop-{{ crop }}{% endif %}"
+    src="{{ src }}"
+    data-src="{{ responsive_img_url }}"
+    data-sizes="auto"
+    data-aspectratio="{{ responsive-image.aspect_ratio }}"
+    {% if blur %}
+        data-lowsrc="{{ src }}"
+        data-blur="true"
+    {% endif %}
+    {% if alt %}
+        alt="{{ alt | escape }}"
+    {% else %}
+        alt=""
+    {% endif %}
+    {{ props }}
+/>
+
+{% if blur %}
+</div>
+{% endif %}

@@ -41,9 +41,9 @@ function handleErrors() {
 }
 gulp.task('images', function() {
   return gulp.src('./lib/images/**')
-    .pipe(changed('./oliveandpiper2018/assets/')) // Ignore unchanged files
+    .pipe(changed('./oliveandpiper2020/assets/')) // Ignore unchanged files
     .pipe(imagemin()) // Optimize
-    .pipe(gulp.dest('./oliveandpiper2018/assets/'))
+    .pipe(gulp.dest('./oliveandpiper2020/assets/'))
 });
 
 
@@ -61,7 +61,7 @@ gulp.task('sass', function() {
     }))
     .pipe(cssnano())
     .pipe(concat('style-main.min.css'))
-    .pipe(gulp.dest('./oliveandpiper2018/assets'))
+    .pipe(gulp.dest('./oliveandpiper2020/assets'))
     .pipe(notify({
       message: 'SCSS task complete'
     }))
@@ -91,12 +91,12 @@ gulp.task('scripts', function() {
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('./oliveandpiper2018/assets'))
+    .pipe(gulp.dest('./oliveandpiper2020/assets'))
     .pipe(rename({
       suffix: '.min'
     }))
     .pipe(uglify())
-    .pipe(gulp.dest('./oliveandpiper2018/assets'))
+    .pipe(gulp.dest('./oliveandpiper2020/assets'))
     .pipe(notify({
       message: 'Scripts task complete'
     }));
@@ -105,10 +105,10 @@ gulp.task('scripts', function() {
 
 gulp.task('shopifywatch', function() {
   var options = {
-    "basePath": "./oliveandpiper2018/"
+    "basePath": "./oliveandpiper2020/"
   };
   console.log(config)
-  return watch('./oliveandpiper2018/+(assets|layout|config|snippets|sections|templates|locales)/**')
+  return watch('./oliveandpiper2020/+(assets|layout|config|snippets|sections|templates|locales)/**')
     .pipe(gulpShopify(config.shopify_api_key, config.shopify_api_password, config.shopify_url, config.theme_id, options));
 });
 

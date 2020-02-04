@@ -1,0 +1,576 @@
+{% if section.settings.tags_enable and section.settings.sort_enable %}
+<style>
+@media only screen and (max-width: 767px) {
+	.collection-page--sort-by{
+		margin-top: 20px;
+	}
+}
+</style>
+{% endif %}
+
+{% if section.settings.collection_image_enable %}
+	<style>
+	#main-navigation-wrapper{
+		margin-bottom: 0px;
+	}
+	</style>
+
+	{% if collection.image %}
+		<div class="collection-image-wrapper">
+			{% include 'responsive-image' with collection.image, alt: collection.title %}
+		</div>
+	{% endif %}
+{% endif %}
+
+<div class="container">
+
+{%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% paginate collection.products by limit %}
+
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+
+<div id="collections-main" class="{{ collection.handle }}">
+
+<div class="title-bar custom-font collection-header">
+	{% if collection.handle == 'all' %}
+		<h2>{{ 'products.general.products_title' | t }}</h2>
+	{% else %}
+		<h2>{{ collection.title }}</h2>
+	{% endif %}
+	<div class="clear"></div>
+</div>
+
+	{% if collection.description != empty %}
+		<div class="description-content">{{ collection.description }}</div>
+	{% endif %}
+</div>
+
+{% if section.settings.tags_enable or section.settings.sort_enable %}
+			<div class="filters-toolbar row">
+				{% if section.settings.tags_enable %}
+					<div class="col-md-3 col-sm-6">
+
+						<div class="clearfix filter">
+						  <label for="sort-by">{{ 'collections.filters.title_tags' | t }}</label>
+						  <select class="coll-filter">
+						    <option value="">{{ 'collections.filters.all_tags' | t }}</option>
+						    {% for tag in collection.all_tags %}
+						    {% if current_tags contains tag %}
+						    <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+						    {% else %}
+						    <option value="{{ tag | handle }}">{{ tag }}</option>
+						    {% endif %}
+						    {% endfor %}
+						  </select>
+						</div>
+
+						<div id="link-to-tag-generic" style="display: none; visibility: hidden;">
+						  {{ 'tag' | link_to_tag: 'tag' }}"
+						</div>
+						{% if collection.handle %}
+						  <input type="hidden" id="link-to-collection" value="{{ collection.url }}" />
+						{% elsif collection.products.first.type == collection.title %}
+						  <input type="hidden" id="link-to-collection" value="{{ collection.title | url_for_type }}" />
+						{% elsif collection.products.first.vendor == collection.title %}
+						  <input type="hidden" id="link-to-collection" value="{{ collection.title | url_for_vendor }}" />
+						{% endif %}
+					</div>
+				{% endif %}
+
+				{% if section.settings.sort_enable %}
+					<div class="collection-page--sort-by col-md-3 col-sm-6 {% if section.settings.tags_enable %}col-md-offset-6{% endif %}">
+						{%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+						<label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
+  					<select id="sort-by">
+							<option value="manual">{{ 'collections.sorting.featured' | t }}</option>
+					    <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+					    <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+					    <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+					    <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+					    <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+					    <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+					    <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+						</select>
+						<input class="collection-header__default-sort" type="hidden" value="{{ collection.default_sort_by }}">
+					</div>
+
+					<input type="hidden" id="collection-sort-by" value="{{ collection.sort_by | default: collection.default_sort_by | escape }}" />
+				{% endif %}
+			</div>
+{% endif %}
+
+  <div class="page-width row" id="Collection">
+
+{% if section.settings.enable_collection_sidebar %}
+
+		{% if section.blocks.size > 0 %}
+
+			<div class="col-md-3" id="collection-sidebar">
+
+				{% for block in section.blocks %}
+
+					{% case block.type %}
+
+						{% when 'vendors' %}
+
+							<div class="collection-sidebar--section" {{ block.shopify_attributes }}>
+								<h2>{{ block.settings.title }}</h2>
+
+								<ul>
+									{% for product_vendor in shop.vendors %}
+									{% assign its_a_match = false %}
+									{% capture my_collection_handle %} {{ product_vendor | handleize | strip | escape  }} {% endcapture %}
+									{% assign my_collection_handle_stripped = my_collection_handle | strip | escape %}
+
+									{% for collection in collections %}
+									{% if my_collection_handle_stripped == collection.handle %}
+									{% assign its_a_match = true %}
+									{% endif %}
+									{% endfor %}
+
+									{% if its_a_match %}
+									<li class="vendor-list-item"><a href="{{ routes.collections_url }}/{{ product_vendor | handleize }}">{{ product_vendor }}</a></li>
+									{% else %}
+									<li class="vendor-list-item">{{ product_vendor | link_to_vendor }}</li>
+									{% endif %}
+									{% endfor %}
+								</ul>
+
+							</div>
+
+						{% when 'text' %}
+
+							<div class="collection-sidebar--section" {{ block.shopify_attributes }}>
+
+								<h2>{{ block.settings.title }}</h2>
+
+								<div class="colletion--sidebar--text--richtext">
+									{{ block.settings.richtext }}
+								</div>
+
+							</div>
+
+						{% when 'menu' %}
+
+							{%- assign collection_linklist = block.settings.collection_linklist -%}
+							{% if linklists[collection_linklist].links.size > 0 %}
+							<div class="collection-sidebar--section" {{ block.shopify_attributes }}>
+								<h2>{{ block.settings.menu_title | escape }}</h2>
+								<ul>
+									{% for link in linklists[collection_linklist].links %}
+										<li {% if link.object.tags and link.object.tags.size > 0 %} class="children"{% endif %}>
+											<a href="{{link.url}}">{{link.title}}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+							{% endif %}
+
+						{% when 'image' %}
+
+						{% if block.settings.collection-sidebar-image %}
+							<div class="collection-sidebar--section" {{ block.shopify_attributes }}>
+								{% if block.settings.collection-sidebar-link %}
+									<a href="{{ block.settings.collection-sidebar-link }}" itemprop="url">
+								{% endif %}
+								<div>
+									{% assign alt = block.settings.collection-sidebar-image.alt | default: shop.name %}
+									{% include 'responsive-image' with block.settings.collection-sidebar-image, alt: alt %}
+								</div>
+								{% if block.settings.collection-sidebar-link %}
+									</a>
+								{% endif %}
+							</div>
+						{% endif %}
+
+						{% endcase %}
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
+
+{% endif %}
+
+{% if section.settings.enable_collection_sidebar and section.blocks.size > 0 %}
+	<div class="col-md-9">
+{% else %}
+	<div class="col-md-12">
+{% endif %}
+
+      {% case section.settings.grid %}
+			{% when 2 %}
+			{%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-6 two_columns' -%}
+			{%- assign grid_image_width = '600x600' -%}
+      {% when 3 %}
+      {%- assign grid_item_width = 'col-xs-6 col-sm-4 col-md-4 three_columns' -%}
+      {%- assign grid_image_width = '600x600' -%}
+      {% when 4 %}
+      {%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-3 four_columns' -%}
+      {%- assign grid_image_width = '600x600' -%}
+			{% when 5 %}
+			{%- assign grid_item_width = 'col-xs-6 col-sm-6 col-md-fifth five_columns' -%}
+      {%- assign grid_image_width = '600x600' -%}
+			{% when 6 %}
+      {%- assign grid_item_width = 'col-xs-6 col-sm-4 col-md-2 six_columns' -%}
+      {%- assign grid_image_width = '600x600' -%}
+      {% endcase %}
+
+      <div class="row product-grid clearfix {% if settings.match-height %}products--match-height{% endif %}">
+        {% for product in collection.products %}
+          <div class="grid__item {{ grid_item_width }} indiv-product-wrapper wow zoomIn collection-image-anim
+					{% case section.settings.grid %}
+            {% when 2 %}
+	          	{% cycle ' alpha mobile-clear tablet-clear', ' omega' %}
+            {% when 3 %}
+                {% cycle ' alpha mobile-clear', '', ' mobile-clear omega', 'alpha', ' mobile-clear', ' omega' %}
+            {% when 4 %}
+                {% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+            {% when 5 %}
+								{% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', '', ' omega mobile-clear tablet-clear', ' alpha', ' mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+            {% when 6 %}
+                {% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear', ' tablet-clear', ' mobile-clear', ' omega' %}
+            {% endcase %}
+          ">
+
+					{%-
+						include 'product-grid--indiv-product',
+						liquidObject: product
+					-%}
+
+				</div>
+
+        {% else %}
+          {% comment %}
+          Add default products to help with onboarding for collections/all only.
+
+          The onboarding styles and products are only loaded if the
+          store has no products.
+          {% endcomment %}
+          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+
+            {% for i in (1..8) %}
+
+            <div class="grid__item {{ grid_item_width }} indiv-product-wrapper
+
+            {% case section.settings.grid %}
+							{% when 2 %}
+								{% cycle 'alpha', 'omega' %}
+	            {% when 3 %}
+	            	{% cycle ' alpha', '', ' omega' %}
+	            {% when 4 %}
+	            	{% cycle ' alpha', '', '', ' omega' %}
+							{% when 5 %}
+		            {% cycle ' alpha', '', '', '', ' omega' %}
+							{% when 6 %}
+			           {% cycle ' alpha', '', '', '', '', ' omega' %}
+						{% endcase %}
+
+            ">
+
+							{% include 'product-grid--onboarding' %}
+
+            </div>
+            {% endfor %}
+
+          {% else %}
+            {%- assign is_empty_collection = true -%}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+    {% endif %}
+
+    {% include 'pagination' %}
+
+  	</div>
+	</div>
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Collection pages",
+        "de": "Kollektionsseiten",
+        "es": "Páginas de colecciones",
+        "fr": "Pages de collection",
+        "pt-PT": "Páginas de coleções"
+    },
+    "max_blocks": 6,
+    "settings": [
+				{
+						"type": "range",
+						"id": "grid",
+						"min": 2,
+						"max": 6,
+						"step": 1,
+						"label": {
+	            "en": "Products per row",
+	            "de": "Produkte pro Zeile",
+	            "es": "Productos por fila",
+	            "fr": "Produits par ligne",
+	            "pt-PT": "Produtos por linha"
+            },
+						"default": 4
+				},
+				{
+						"type": "range",
+						"id": "rows",
+						"min": 3,
+						"max": 8,
+						"step": 1,
+						"label": {
+							"en": "Rows per page",
+							"de": "Zeilen pro Seite",
+							"es": "Filas por página",
+							"fr": "Nombre de lignes par page",
+							"pt-PT": "Linhas por página"
+						},
+						"default": 6
+				},
+        {
+            "type": "checkbox",
+            "id": "collection_image_enable",
+            "label": {
+                "en": "Show collection image",
+                "de": "Kollektionsbild anzeigen",
+                "es": "Mostar la imagen de la colección",
+                "fr": "Afficher l'image de la collection",
+                "pt-PT": "Mostrar imagem da coleção"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "sort_enable",
+            "label": {
+                "en": "Enable sorting",
+                "de": "Sortieren aktivieren",
+                "es": "Habilitar ordenado",
+                "fr": "Activer le tri",
+                "pt-PT": "Ativar seleção"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "tags_enable",
+            "label": {
+                "en": "Enable tag filtering",
+                "de": "Tag-Filtern aktivieren",
+                "es": "Habilitar el filtrado por etiquetas",
+                "fr": "Activer le filtrage des balises",
+                "pt-PT": "Ativar filtro de etiquetas"
+            },
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Sidebar",
+                "de": "Seitenleiste",
+                "es": "Barra lateral",
+                "fr": "Barre latérale",
+                "pt-PT": "Barra lateral"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_collection_sidebar",
+            "label": {
+                "en": "Enable sidebar content",
+                "de": "Inhalte der Seitenleiste aktivieren",
+                "es": "Activar el contenido de la barra lateral",
+                "fr": "Activer le contenu de la barre latérale",
+                "pt-PT": "Permitir conteúdo na barra lateral"
+            },
+            "default": false,
+            "info": {
+                "en": "Create a sidebar by adding content blocks below.",
+                "de": "Erstellen Sie eine Seitenleiste, indem Sie unten Inhaltsblocks hinzufügen.",
+                "es": "Cree una barra lateral añadiendo los bloques de contenido más abajo.",
+                "fr": "Créez une barre latérale en ajoutant des blocs de contenu ci-dessous.",
+                "pt-PT": "Crie uma barra lateral adicionando blocos de conteúdo abaixo."
+            }
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": {
+                        "en": "Heading",
+                        "de": "Überschrift",
+                        "es": "Encabezado",
+                        "fr": "Rubrique",
+                        "pt-PT": "Título"
+                    },
+                    "default": {
+                        "en": "Collection Sidebar Header Text",
+                        "de": "Kollektion-Seitenleisten-Überschrift-Text",
+                        "es": "Texto del encabezado de la barra lateral de colección",
+                        "fr": "Texte de l'en-tête de la barre latérale de la collection",
+                        "pt-PT": "Texto do Cabeçalho da Barra Lateral da Coleção"
+                    }
+                },
+                {
+                    "type": "richtext",
+                    "id": "richtext",
+                    "label": {
+                        "en": "Text",
+                        "de": "Text",
+                        "es": "Texto",
+                        "fr": "Texte",
+                        "pt-PT": "Texto"
+                    },
+                    "default": {
+                        "en": "<p>Share details about promotions or important messages with your customers.</p>",
+                        "de": "<p>Teilen Sie Einzelheiten über Werbeaktionen oder wichtige Nachrichten mit Ihren Kunden.</p>",
+                        "es": "<p>Comparta detalles sobre promociones o mensajes importantes con sus clientes.</p>",
+                        "fr": "<p>Partagez les détails des promotions ou des messages importants avec vos clients.</p>",
+                        "pt-PT": "<p>Partilhe detalhes sobre promoções ou mensagens importantes com os seus clientes.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "vendors",
+            "name": {
+                "en": "Vendors",
+                "de": "Verkäufer",
+                "es": "Vendedores",
+                "fr": "Vendeurs",
+                "pt-PT": "Vendedores"
+            },
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": {
+                        "en": "Heading",
+                        "de": "Überschrift",
+                        "es": "Encabezado",
+                        "fr": "Rubrique",
+                        "pt-PT": "Título"
+                    },
+                    "default": {
+                        "en": "Vendors",
+                        "de": "Verkäufer",
+                        "es": "Vendedores",
+                        "fr": "Vendeurs",
+                        "pt-PT": "Vendedores"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "menu",
+            "name": {
+                "en": "Menu",
+                "de": "Menü",
+                "es": "Menú",
+                "fr": "Menu",
+                "pt-PT": "Menu"
+            },
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "menu_title",
+                    "label": {
+                        "en": "Heading",
+                        "de": "Überschrift",
+                        "es": "Encabezado",
+                        "fr": "Rubrique",
+                        "pt-PT": "Título"
+                    },
+                    "default": {
+                        "en": "Links",
+                        "de": "Links",
+                        "es": "Enlaces",
+                        "fr": "Liens",
+                        "pt-PT": "Ligações"
+                    }
+                },
+                {
+                    "type": "link_list",
+                    "id": "collection_linklist",
+                    "label": {
+                        "en": "Menu",
+                        "de": "Menü",
+                        "es": "Menú",
+                        "fr": "Menu",
+                        "pt-PT": "Menu"
+                    },
+                    "default": "main-menu"
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "name": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "collection-sidebar-image",
+                    "label": {
+                        "en": "Image",
+                        "de": "Bild",
+                        "es": "Imagen",
+                        "fr": "Image",
+                        "pt-PT": "Imagem"
+                    },
+                    "info": {
+                        "en": "300 x 150px recommended",
+                        "de": "300 x 150 px empfohlen",
+                        "es": "Recomendado 300 x 150 px",
+                        "fr": "300 x 150 px recommandé",
+                        "pt-PT": "300 x 150px, recomendado"
+                    }
+                },
+                {
+                    "type": "url",
+                    "id": "collection-sidebar-link",
+                    "label": {
+                        "en": "Link",
+                        "de": "Link",
+                        "es": "Enlace",
+                        "fr": "Lien",
+                        "pt-PT": "Ligação"
+                    },
+                    "info": {
+                        "en": "Optional",
+                        "de": "Optional",
+                        "es": "Opcional",
+                        "fr": "Facultatif",
+                        "pt-PT": "Opcional"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

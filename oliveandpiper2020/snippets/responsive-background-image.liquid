@@ -1,0 +1,42 @@
+{% comment %}
+    Use this snippet to add a responsive background image to page.
+
+    Specify Shopify image you want to make responsive in the "with" parameter (see examples below).
+
+    This snippet should be included inside a <style /> tag.
+
+    You have to specify "selector" property that will be used as CSS selector inside the styles.
+
+    Usage:
+    * Define variables inside the include tag (preferred):
+    {% include 'responsive-background-image' with product.image, selector: '.product-bg-image', sizes: '600, 1200, 2000', scale: 1 %}
+
+    * Define variables before including this snippet
+    {% assign selector = '.product-bg-image' %}
+    {% assign sizes = '600, 1200, 2000' %}
+    {% assign scale = 1 %}
+    {% include 'responsive-background-image' %}
+{% endcomment %}
+
+{% if sizes == blank %}
+    {% assign sizes = '900, 1200, 1500, 2000, 4000' %}
+{% endif %}
+
+{% assign sizes_array = sizes | split: ', ' %}
+{% assign last_size = sizes_array.first %}
+{% capture scale %}{{ scale | default: 1 }}{% endcapture %}
+
+{% capture url_size %}{{ last_size | times: scale }}x{% endcapture %}
+{{ selector }} {
+  background-image: url('{{ responsive-background-image | img_url: url_size, format: 'jpg' }}');
+}
+
+{% for size in sizes_array offset: 1 %}
+  {% capture url_size %}{{ size | times: scale }}x{% endcapture %}
+@media (min-width: {{ last_size | plus: 1 }}px){% if size != sizes_array.last %} and (max-width: {{ size }}px){% endif %} {
+  {{ selector }} {
+    background-image: url('{{ responsive-background-image | img_url: url_size, format: 'jpg' }}');
+  }
+}
+  {% assign last_size = size %}
+{% endfor %}

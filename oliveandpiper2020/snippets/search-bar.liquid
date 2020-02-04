@@ -1,0 +1,27 @@
+{% if settings.enable-article-results %}
+    {% assign article_search = "article," %}
+{% endif %}
+{% if settings.enable-product-results %}
+    {% assign product_search = "product," %}
+{% endif %}
+{% if settings.enable-page-results %}
+    {% assign page_search = "page," %}
+{% endif %}
+<div id="top-search-wrapper">
+		<div class="top-search">
+			<form id="search-page-form" action="{{ routes.search_url }}">
+				<div id="search-wrapper">
+          <div class="search_bar--controls">
+            <button id="search_submit" type="submit">
+              <i data-feather="search"></i>
+            </button>
+          </div>
+					<input type="hidden" name="type" value="{{ article_search }}{{ product_search }}{{  page_search }}" />
+					<input id="search_text" name="q" type="text" size="20" placeholder="{{ 'layout.header.search' | t }}..."/>
+          <a href="#" class="search-show" title="Search">
+            <i data-feather="x"></i>
+          </a>
+				</div>
+			</form>
+		</div>
+</div>

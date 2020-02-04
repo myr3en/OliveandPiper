@@ -1,0 +1,494 @@
+<article id="{{page.handle}}" class="post hentry">
+
+	<div class="row">
+
+	{% if section.settings.blog-sidebar-image or section.settings.blog_sidebar_title != empty or section.settings.blog_sidebar_desc != empty or section.settings.show_blog_tags or section.settings.show_recent_posts %}
+		<div class="col-md-8">
+	{% else %}
+		<div class="col-md-10 col-md-offset-1">
+	{% endif %}
+
+				<section class="entry-content" id="article_content">
+
+					<div class="article-image">
+						{% if article.image %}
+							{% include 'responsive-image' with article.image %}
+						{% endif %}
+					</div>
+
+					<div class="blog-title-wrapper{% if article.image %} article-image-header{% endif %}">
+						{% if section.settings.show_dates or section.settings.show_author_name %}
+						<p class="blog-publish-date">
+							{% if section.settings.show_dates %}<time class="updated blog--indiv-date" datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | time_tag: format: 'month_day_year' }}</time>{% endif %}
+							{% if section.settings.show_author_name %}<span>{{ article.author }}</span>{% endif %}
+						</p>
+						<div class="blog-title--divider"></div>
+						{% endif %}
+						<h2><a href="{{article.url}}">{{ article.title }}</a></h2>
+					</div>
+
+					<div class="article--body-content">
+						{{ article.content }}
+					</div>
+
+					{% if article.tags.size > 0 %}
+						<div id="blog-tags-wrapper">
+							<span>{{ 'blogs.article.tags' | t }}:</span>
+							{% for tag in article.tags %}
+								<a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+							{% endfor %}
+						</div>
+					{% endif %}
+
+				</section>
+
+				{% if section.settings.social_sharing_facebook or
+					section.settings.social_sharing_twitter or
+					section.settings.social_sharing_pinterest %}
+
+					{% capture permalinkURL %}{{ shop.url }}{{ article.url }}{% endcapture %}
+					{% capture shareTitle %}{{ article.title }}{% endcapture %}
+					{% capture shareImage %}{{ article | img_url: '1024x1024' }}{% endcapture %}
+
+					<div id="sharing" class="social-sharing" data-permalink="{{ permalinkURL }}">
+
+	        	{% if section.settings.social_sharing_facebook %}
+	        	<!-- https://developers.facebook.com/docs/plugins/share-button/ -->
+	        	<a target="_blank" href="//www.facebook.com/sharer.php?u={{ permalinkURL }}" class="share-facebook">
+	        	<span class="icon icon-facebook" aria-hidden="true"></span>
+	        	<span class="share-title">Share</span>
+	        	</a>
+	        	{% endif %}
+
+	        	{% if section.settings.social_sharing_twitter %}
+	        	<!-- https://dev.twitter.com/docs/intents -->
+	        	<a target="_blank" href="//twitter.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle }}" class="share-twitter">
+	        	<span class="icon icon-twitter" aria-hidden="true"></span>
+	        	<span class="share-title">Tweet</span>
+	        	</a>
+	        	{% endif %}
+
+	        	{% if section.settings.social_sharing_pinterest %}
+	        	<!--
+	        	https://developers.pinterest.com/pin_it/
+	        	Pinterest get data from the same Open Graph meta tags Facebook uses
+	        	-->
+	        	<a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ shareImage }}&amp;description={{ product.title | escape }}" class="share-pinterest">
+	        	<span class="icon icon-pinterest" aria-hidden="true"></span>
+	        	<span class="share-title">Pin it</span>
+	        	</a>
+	        	{% endif %}
+
+	        </div>
+
+				{% endif %}
+
+				{% if blog.previous_article or blog.next_article %}
+					<div id="paginate">
+						{% if blog.previous_article %}
+							<div class="article-previous-article">
+							<a href="{{ blog.previous_article }}" class="btn btn-default">{{ 'blogs.article.previous_post' | t }}</a>
+							</div>
+						{% endif %}
+
+						{% if blog.next_article %}
+							<div class="article-next-article">
+							<a href="{{ blog.next_article }}" class="btn btn-default">{{ 'blogs.article.next_post' | t }}</a>
+							</div>
+						{% endif %}
+						<div class="clear"></div>
+					</div>
+				{% endif %}
+
+			  {% if blog.comments_enabled? %}
+
+					{% paginate article.comments by 3 %}
+
+						{% if article.comments != blank %}
+
+							<div id="comments" class="comments">
+
+								<div class="title-bar {{ settings.title-bar-styling }} custom-font">
+									<h2>{{ 'blogs.article.comments_title' | t }}</h2>
+									<div class="clear"></div>
+								</div>
+
+								<ul>
+
+									{% for comment in article.comments reversed %}
+										<li class="comment clearfix">
+											<div class="col-md-2">
+												<img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" class="img-responsive" />
+											</div>
+											<div class="col-md-10">
+												<div class="comment-author">
+													{% capture author %}<strong>{{ comment.author }}</strong>{% endcapture %}
+													{% capture date %}<strong><time datetime="{{ comment.created_at | date: format: 'long' }}">{{ comment.created_at | date: format: 'long' }}</time></strong>{% endcapture %}
+													{{ 'blogs.article.comment_meta_html' | t: author: author, date: date }}
+												</div>
+												<div class="comment-content">
+													{{ comment.content }}
+												</div>
+											</div>
+										</li>
+			        		{% endfor %}
+
+		        			{% if comment and comment.created_at %}
+										<li class="comment clearfix">
+											<div class="col-md-2">
+												<img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" class="img-responsive" />
+											</div>
+
+											<div class="col-md-10">
+												<div class="comment-author">
+													{% capture author %}<strong>{{ comment.author }}</strong>{% endcapture %}
+													{% capture date %}<strong><time datetime="{{ comment.created_at | date: format: 'long' }}">{{ comment.created_at | date: format: 'long' }}</time></strong>{% endcapture %}
+													{{ 'blogs.article.comment_meta_html' | t: author: author, date: date }}
+												</div>
+
+												<div class="comment-content">
+													{{ comment.content }}
+												</div>
+											</div>
+										</li>
+		        			{% endif %}
+
+								</ul>
+
+								{% if paginate.pages > 1 %}
+
+								<div class="pagination row">
+								<ul>
+									<li class="pagination-arrow pagination-arrow--previous grid__item col-sm-4 col-md-4 col-xs-4">
+										{% unless paginate.previous.is_link %}
+											<div class="btn btn--secondary btn--narrow btn--disabled">
+												<span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+											</div>
+										{% else %}
+											<a href="{{ paginate.previous.url }}" class="btn btn--secondary btn--narrow">
+												<span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+											</a>
+										{% endunless %}
+									</li>
+
+									<li class="pagination-text grid__item col-sm-4 col-md-4 col-xs-4">
+										<div class="hidden-xs">{{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}</div>
+									</li>
+
+									<li class="pagination-arrow pagination-arrow--next grid__item col-sm-4 col-md-4 col-xs-4">
+										{% unless paginate.next.is_link %}
+											<div class="btn btn--secondary btn--narrow btn--disabled">
+												<span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+											</div>
+										{% else %}
+											<a href="{{ paginate.next.url }}" class="btn btn--secondary btn--narrow">
+												<span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+											</a>
+										{% endunless %}
+									</li>
+								</ul>
+								</div>
+
+								{% endif %}
+
+			    		</div>
+
+						{% endif %}
+
+					{% endpaginate %}
+
+					{% form article %}
+
+						<div class="comment_form" id="comment-form">
+
+							<div class="title-bar {{ settings.title-bar-styling }} custom-font">
+								<h2>{{ 'blogs.comments.title' | t }}</h2>
+								<div class="clear"></div>
+							</div>
+
+							{% if form.posted_successfully? %}
+								{% if blog.moderated? %}
+									<div class="success-msg">{{ 'blogs.comments.moderated' | t }}</div>
+								{% else %}
+									<div class="success-msg">{{ 'blogs.comments.success' | t }}</div>
+								{% endif %}
+							{% endif %}
+
+				      {% if form.errors %}
+				        <p class="notice error-msg">{{ 'blogs.comments.field_error' | t }}</p>
+				      {% endif %}
+
+				      <div class="form-group clearfix{% if form.errors contains 'author' %} has-error{% endif %}">
+				        <label for="comment_author">{{ 'blogs.comments.name' | t }} <strong class="req">*</strong></label>
+				        <input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="text form-control {% if form.errors contains 'author' %}input-error{% endif %}" />
+				      </div>
+
+				      <div class="form-group clearfix{% if form.errors contains 'email' %} has-error{% endif %}">
+				        <label for="comment_email">{{ 'blogs.comments.email' | t }} <strong class="req">*</strong></label>
+				        <input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="text form-control {% if form.errors contains 'email' %}input-error{% endif %}" />
+				      </div>
+
+				      <div class="form-group clearfix{% if form.errors contains 'body' %} has-error{% endif %}">
+				        <label for="comment_body">{{ 'blogs.comments.comment' | t }} <strong class="req">*</strong></label>
+				        <textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="text form-control {% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea>
+				      </div>
+
+    					<input type="submit" value="{{ 'blogs.comments.post' | t }}" id="comment-submit" class="btn btn-default" />
+
+  					</div>
+
+  				{% endform %}
+
+				{% endif %}
+
+			</div>
+
+			{% if section.settings.blog-sidebar-image or section.settings.blog_sidebar_title != empty or section.settings.blog_sidebar_desc != empty or section.settings.show_blog_tags or section.settings.show_recent_posts %}
+
+			<div class="col-md-4">
+
+				<div id="blog-sidebar">
+
+					<div class="blog-sidebar--section">
+
+						{% if section.settings.blog-sidebar-image %}
+							<a href="{{ section.settings.blog-sidebar-image.link }}" itemprop="url">
+								{% capture props %}
+									alt="{{ section.settings.blog-sidebar-image.alt | default: shop.name }}"
+									style="max-width: {{ section.settings.blog-sidebar-image.width }}px"
+								{% endcapture %}
+								{% include 'responsive-image' with section.settings.blog-sidebar-image, props: props %}
+							</a>
+						{% endif %}
+
+						{% if section.settings.blog_sidebar_title != empty %}
+							<h2>{{ section.settings.blog_sidebar_title | escape }}</h2>
+						{% endif %}
+
+						{% if section.settings.blog_sidebar_desc != empty %}
+							<div class="blog-sidebar--description">{{ section.settings.blog_sidebar_desc }}</div>
+						{% endif %}
+
+					</div>
+
+					{% if section.settings.show_blog_tags %}
+					<div class="blog-sidebar--section">
+						{% if blog.all_tags.size > 0 %}
+							<h2>{{ 'blogs.sidebar.categories' | t }}</h2>
+							<ul class="blog-sidebar--categories">
+								{% for tag in blog.all_tags %}
+									{% if current_tags contains tag %}
+										<li>{{ tag }}</li>
+									{% else %}
+										<li>{{ tag | link_to_tag: tag }}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+					{% endif %}
+
+					{% if section.settings.show_recent_posts %}
+						<div class="blog-sidebar--section">
+							<h2>{{ 'blogs.sidebar.latest_articles' | t }}</h2>
+							<ul class="blog-sidebar--latest-articles">
+								{% for article in blogs[blog.handle].articles limit:6 %}
+									<li class="row">
+										{% if article.image %}
+											<div class="col-md-4 blog-sidebar--article-image">
+												{% include 'responsive-image' with article.image, props: '' %}
+											</div>
+											<div class="col-md-8">
+												<p>
+													<strong><a href="{{ article.url }}">{{ article.title }}</a></strong>
+													{% if section.settings.show_dates %}
+														<br />
+														<time datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: "%b %d, %Y" }}</time>
+													{% endif %}
+												</p>
+											</div>
+										{% else %}
+											<p>
+												<strong><a href="{{ article.url }}">{{ article.title }}</a></strong>
+												{% if section.settings.show_dates %}
+													<br />
+													<time datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at | date: "%b %d, %Y" }}</time>
+												{% endif %}
+											</p>
+										{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+
+				</div>
+
+			</div>
+
+			{% endif %}
+
+	</div>
+
+</article>
+
+{% schema %}
+{
+    "name": {
+        "en": "Article pages",
+        "de": "Artikelseiten",
+        "es": "Páginas de artículos",
+        "fr": "Pages d'articles",
+        "pt-PT": "Páginas de artigos"
+    },
+    "settings": [
+				{
+						"type": "checkbox",
+						"id": "show_author_name",
+						"label": {
+								"en": "Show author name",
+								"de": "Autorennamen anzeigen",
+								"es": "Mostrar el nombre de autor",
+								"fr": "Afficher le nom de l'auteur",
+								"pt-PT": "Mostrar nome do autor"
+						},
+						"default": false
+				},
+				{
+						"type": "checkbox",
+						"id": "show_dates",
+						"label": {
+								"en": "Show dates",
+								"de": "Daten anzeigen",
+								"es": "Mostrar fechas",
+								"fr": "Afficher les dates",
+								"pt-PT": "Mostrar datas"
+						},
+						"default": true
+				},
+        {
+            "type": "header",
+            "content": {
+                "en": "Social sharing",
+                "de": "Soziales Teilen",
+                "es": "Compartir en redes sociales",
+                "fr": "Partager sur les réseaux sociaux",
+                "pt-PT": "Partilha social"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "social_sharing_facebook",
+            "label": {
+                "en": "Facebook",
+                "de": "Facebook",
+                "es": "Facebook",
+                "fr": "Facebook",
+                "pt-PT": "Facebook"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "social_sharing_twitter",
+            "label": {
+                "en": "Twitter",
+                "de": "Twitter",
+                "es": "Twitter",
+                "fr": "Twitter",
+                "pt-PT": "Twitter"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "social_sharing_pinterest",
+            "label": {
+                "en": "Pinterest",
+                "de": "Pinterest",
+                "es": "Pinterest",
+                "fr": "Pinterest",
+                "pt-PT": "Pinterest"
+            },
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Sidebar",
+                "de": "Seitenleiste",
+                "es": "Barra lateral",
+                "fr": "Barre latérale",
+                "pt-PT": "Barra lateral"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "blog-sidebar-image",
+            "label": {
+                "en": "Image",
+                "de": "Seitenleisten-Bild",
+                "es": "Imagen de la barra lateral",
+                "fr": "Image de la barre latérale",
+                "pt-PT": "Imagem da barra lateral"
+            }
+        },
+        {
+            "type": "url",
+            "id": "blog-sidebar-link",
+            "label": {
+                "en": "Link",
+                "de": "Link",
+                "es": "Enlace",
+                "fr": "Lien",
+                "pt-PT": "Ligação"
+            }
+        },
+        {
+            "type": "text",
+            "id": "blog_sidebar_title",
+            "label": {
+                "en": "Heading",
+                "de": "Seitenleisten-Überschrift",
+                "es": "Encabezado de la barra lateral",
+                "fr": "Titre de la barre latérale",
+                "pt-PT": "Título da barra lateral"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "blog_sidebar_desc",
+            "label": {
+                "en": "Description",
+                "de": "Seitenleisten-Beschreibung",
+                "es": "Descripción de la barra lateral",
+                "fr": "Description de la barre latérale",
+                "pt-PT": "Descrição da barra lateral"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "show_blog_tags",
+            "label": {
+                "en": "Show 'Tags'",
+                "de": "Tags anzeigen",
+                "es": "Mostrar etiquetas",
+                "fr": "Afficher les étiquettes",
+                "pt-PT": "Mostrar etiquetas"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_recent_posts",
+            "label": {
+                "en": "Show 'Latest articles'",
+                "de": "„Neueste Artikel“ anzeigen",
+                "es": "Mostar «Últimos artículos»",
+                "fr": "Afficher les « Derniers articles »",
+                "pt-PT": "Mostrar \"Artigos mais recentes\""
+            }
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,117 @@
+{% assign block = mega-menu %}
+
+<div class="mega-menu-block" data-mega-menu-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+  {% assign mega = block.settings.mega-menu %}
+  {% assign mega_nav_column_count = 5 %}
+  {% assign mega_column_width = link.links.size %}
+  {% if block.settings.mega_image_1 %}
+    {% assign mega_nav_column_count = mega_nav_column_count | minus: 1 %}
+    {% assign mega_column_width = mega_column_width | plus: 1 %}
+  {% endif %}
+
+  {% if block.settings.mega_image_2 %}
+    {% assign mega_nav_column_count = mega_nav_column_count | minus: 1 %}
+    {% assign mega_column_width = mega_column_width | plus: 1 %}
+  {% endif %}
+
+  {% assign mega_column_width = mega_column_width | limit: 5 %}
+  {% for sub_link in link.links limit: mega_nav_column_count %}
+    {% if mega_column_width <= 3 %}
+      {% assign grid_item_width = 'three_columns'  %}
+    {% elsif mega_column_width == 4 %}
+      {% assign grid_item_width = 'four_columns'  %}
+    {% else %}
+      {% assign grid_item_width = 'five_columns'  %}
+    {% endif %}
+    <li class="dropdown-submenu {{ grid_item_width }}" aria-haspopup="true">
+      <div class="inner">
+        <p class="h4"><a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a></p>
+        <ul class="menu-link">
+          {% for sub_sub_link in sub_link.links %}
+            <li>
+              <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+  {% endfor %}
+
+  {% if block.settings.mega_image_1 %}
+    <li class="dropdown-submenu {{ grid_item_width }}" aria-haspopup="true">
+      <div class="inner mega-menu--image-wrapper">
+        <div class="mega-menu--image">
+          {% if block.settings.mega_image_link_1 %}
+            <a href="{{ block.settings.mega_image_link_1 }}">
+          {% endif %}
+          {% include 'responsive-image' with block.settings.mega_image_1, default_size: '335x500' %}
+          {% if block.settings.mega_image_link_1 %}
+            </a>
+          {% endif %}
+
+          {% if block.settings.mega_image_header_1 %}
+            <p class="h4 mega-menu--image-title">
+              {% if block.settings.mega_image_link_1 %}
+                <a href="{{ block.settings.mega_image_link_1 }}">
+              {% endif %}
+              {{ block.settings.mega_image_header_1 }}
+              {% if block.settings.mega_image_link_1 %}
+                </a>
+              {% endif %}
+            </p>
+          {% endif %}
+          {% if block.settings.mega_image_subheader_1 %}
+            <p class="h5">
+              {% if block.settings.mega_image_link_1 %}
+                <a href="{{ block.settings.mega_image_link_1 }}">
+              {% endif %}
+              {{ block.settings.mega_image_subheader_1 }}
+              {% if block.settings.mega_image_link_1 %}
+                </a>
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endif %}
+
+  {% if block.settings.mega_image_2 %}
+    <li class="dropdown-submenu {{ grid_item_width }}" aria-haspopup="true">
+      <div class="inner mega-menu--image-wrapper">
+        <div class="mega-menu--image">
+          {% if block.settings.mega_image_link_2 %}
+            <a href="{{ block.settings.mega_image_link_2 }}">
+          {% endif %}
+          {% include 'responsive-image' with block.settings.mega_image_2, default_size: '335x500' %}
+          {% if block.settings.mega_image_link_2 %}
+            </a>
+          {% endif %}
+          {% if block.settings.mega_image_header_2 %}
+            <p class="h4 mega-menu--image-title">
+              {% if block.settings.mega_image_link_2 %}
+                <a href="{{ block.settings.mega_image_link_2 }}">
+              {% endif %}
+              {{ block.settings.mega_image_header_2 }}
+              {% if block.settings.mega_image_link_2 %}
+                </a>
+              {% endif %}
+            </p>
+          {% endif %}
+          {% if block.settings.mega_image_subheader_2 %}
+            <p class="h5">
+              {% if block.settings.mega_image_link_2 %}
+                <a href="{{ block.settings.mega_image_link_2 }}">
+              {% endif %}
+              {{ block.settings.mega_image_subheader_2 }}
+              {% if block.settings.mega_image_link_2 %}
+                </a>
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endif %}
+
+</div>

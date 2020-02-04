@@ -1,0 +1,48 @@
+<div id="template">
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+	    <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+	      <h2 class="title">{{ 'customer.register.title' | t }}</h2>
+	      <div class="clear"></div>
+	    </div>
+
+<div class="row">
+
+<div class="col-lg-4 col-lg-offset-4">
+
+	    {% form 'create_customer' %}
+	      {{ form.errors | default_errors }}
+
+	      <div id="first_name" class="clearfix large_form">
+	        <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}</label>
+	        <input type="text" class="form-control"  name="customer[first_name]" id="first_name" class="large" size="30" />
+	      </div>
+
+	      <div id="last_name" class="clearfix large_form">
+	        <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}</label>
+	        <input type="text" class="form-control"  name="customer[last_name]" id="last_name" class="large" size="30" />
+	      </div>
+
+	      <div id="email" class="clearfix large_form">
+	        <label for="email" class="login">{{ 'customer.register.email' | t }}</label>
+	        <input type="email" class="form-control"  name="customer[email]" id="email" class="large" size="30" />
+	      </div>
+
+	      <div id="password" class="clearfix large_form">
+	        <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
+	        <input type="password" class="form-control" name="customer[password]" id="password" size="30" />
+	      </div>
+
+	      <div class="action_bottom">
+	        <input class="btn btn-success" type="submit" value="{{ 'customer.register.submit' | t }}" />
+	      </div>
+	    {% endform %}
+	    
+	    
+	    </div>
+	    </div>
+	    
+	  </div><!-- /#create-customer -->
+  </div>
+</div>

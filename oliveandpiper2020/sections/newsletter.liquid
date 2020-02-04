@@ -1,0 +1,156 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 newsletter__item">
+        <div class="newsletter_title">
+            {% if section.settings.newsletter_heading %}
+            <h3>{{ section.settings.newsletter_heading }}</h3>
+            {% endif %}
+            {% if section.settings.newsletter_description %}
+              <div class="rte">{{ section.settings.newsletter_description }}</div>
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1 newsletter__item">
+        <div class="newsletter_form">
+          {% include 'newsletter-form' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Newsletter",
+        "de": "Newsletter",
+        "es": "Boletín de noticias",
+        "fr": "Bulletin d'information",
+        "pt-PT": "Newsletter"
+    },
+    "class": "homepage-section--newsletter-wrapper wow fadeIn",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "The colors in each 'scheme' can be changed in the 'Theme settings' > 'Colors' section of your admin",
+                "de": "Die Farben in jedem 'Schema' können in den 'Theme-Einstellungen' geändert werden > in Ihrem Admin die Sektion 'Farben'",
+                "es": "Los colores en cada 'esquema' se pueden cambiar en la sección 'Configuración del tema' > 'Colores' del administrador",
+                "fr": "Les couleurs de chaque « modèle » peuvent être modifiées dans la section « Paramètres du thème » > « Couleurs » de votre administrateur.",
+                "pt-PT": "As cores em cada \"esquema\" podem ser alteradas na secção \"Definições de tema\" > \"Cores\" da sua página de administrador."
+            }
+        },
+        {
+            "id": "newsletter_heading",
+            "type": "text",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Join our Mailing List",
+                "de": "Melden Sie sich bei unserer Mailingliste an",
+                "es": "Únase a nuestra lista de correo electrónico",
+                "fr": "Inscrivez-vous à notre liste d'envoi",
+                "pt-PT": "Aderir à nossa Lista de E-mails"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "newsletter_description",
+            "label": {
+                "en": "Subheading",
+                "de": "Unterüberschrift",
+                "es": "Subencabezado",
+                "fr": "Sous-rubrique",
+                "pt-PT": "Subtítulo"
+            }
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Newsletter",
+                "de": "Newsletter",
+                "es": "Boletín de noticias",
+                "fr": "Bulletin d'information",
+                "pt-PT": "Newsletter"
+            },
+            "category": {
+                "en": "Newsletter",
+                "de": "Newsletter",
+                "es": "Boletín de noticias",
+                "fr": "Bulletin d'information",
+                "pt-PT": "Newsletter"
+            }
+        }
+    ]
+}
+{% endschema %}

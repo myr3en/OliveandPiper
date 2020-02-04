@@ -1,0 +1,10 @@
+<li class="product-page--pricing--price-per-unit">
+  {%- if current_variant.unit_price_measurement -%}
+    {{ current_variant.unit_price | money }}
+    <span> / </span>
+    {%- if current_variant.unit_price_measurement.reference_value != 1 -%}
+      {{- current_variant.unit_price_measurement.reference_value -}}
+    {%- endif -%}
+    {{ current_variant.unit_price_measurement.reference_unit }}
+  {%- endif -%}
+</li>
