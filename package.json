@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:myr3en/OliveandPiper2020.git"
+    "url": "git+https://github.com/myr3en/OliveandPiper.git"
   },
   "keywords": [
     "Jewelry"
@@ -19,7 +19,7 @@
   "author": "Myreen Lacsamana [contact@myreen.co]",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/myr3en/OliveandPiper2020/issues"
+    "url": "https://github.com/myr3en/OliveandPiper/issues"
   },
   "homepage": "https://www.oliveandpiper.com",
   "devDependencies": {
