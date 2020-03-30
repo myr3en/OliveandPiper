@@ -35,7 +35,8 @@
 
           	<div class="feature-row__container">
               <div class="feature-row{% if section.settings.layout == 'right' %} feature-row--image-right{% endif %}">
-                <div class="feature-row__image col-md-{{ image_width_columns }} col-xs-12">
+                <!-- <div class="feature-row__image col-md-{{ image_width_columns }} col-xs-12"> -->
+                <div class="feature-row__image col-md-8 col-xs-12">
                   {% if section.settings.image != blank %}
                     {% include 'responsive-image' with section.settings.image, alt: section.settings.image.alt %}
                   {% else %}
@@ -43,7 +44,8 @@
                   {% endif %}
                 </div>
 
-                <div class="feature-row__text col-md-{{ content_width_columns }} col-xs-12">
+                <!-- <div class="feature-row__text col-md-{{ content_width_columns }} col-xs-12"> -->
+                <div class="feature-row__text col-md-5 col-xs-12">
                   <div class="feature-row__text--inner">
                     {% if section.settings.title != blank %}
                       <h2><span>{{ section.settings.title | escape }}</span></h2>

@@ -45,11 +45,16 @@
 						<div class="{{ footer_item_width }} content-footer footer-block--wrapper">
 							<h3>{{ block.settings.title | escape }}</h3>
 							<div class="rte footer-article">{{ block.settings.richtext }}</div>
+							<ul>
+								{% for link in linklists.footer-about.links %}
+									  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+								{% endfor %}
+							</ul>
 						</div>
 
 					{% when 'newsletter' %}
 
-						<div class="{{ footer_item_width }} mailing-list-footer footer-block--wrapper">
+						<!-- <div class="{{ footer_item_width }} mailing-list-footer footer-block--wrapper">
 							<h3>{{ 'general.newsletter_form.header' | t }}</h3>
 							{% if block.settings.footer_newsletter_description != empty %}
 								<div class="rte">{{ block.settings.footer_newsletter_description }}</div>
@@ -57,15 +62,27 @@
 
 							{% include 'newsletter-form' %}
 
+						</div> -->
+						<!-- SECOND MENU -->
+						<div class="{{ footer_item_width }} links-footer footer-block--wrapper">
+							<h3>Jewelry Collections</h3>
+							<ul>
+								{% for link in linklists.jewelry-menu.links %}
+									  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+								{% endfor %}
+							</ul>
 						</div>
 
 					{% when 'social' %}
 
 						<div class="{{ footer_item_width }} footer-block--wrapper">
-							<h3>{{ 'layout.footer.social_title' | t }}</h3>
+							<!-- <h3>{{ 'layout.footer.social_title' | t }}</h3> -->
+							<h3>GET IN TOUCH!</h3>
 							<div id="footer-right">
 								{% include 'social-links' %}
 							</div>
+
+							<div class="klaviyo-form-PbKVDN"></div>
 						</div>
 
 					{% when 'content' %}

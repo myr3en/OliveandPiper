@@ -198,6 +198,17 @@ p, li, a {
 
 
 /* NAVIGATION STYLES */
+
+ .sticky-header-menu {
+
+     #main-navigation-wrapper {
+         background-color: rgba(255, 255, 255, 0.5);
+         .dropdown-menu {
+
+         }
+     }
+ }
+
 .cart-link {
     a {
         i {
