@@ -1,5 +1,5 @@
 {
-  "name": "dev-oliveandpiper",
+  "name": "prod-oliveandpiper2",
   "version": "1.0.0",
   "description": "Olive and Piper Shopify Site",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myr3en/OliveandPiper.git"
+    "url": "git+https://github.com/myr3en/OliveandPiper2020.git"
   },
   "keywords": [
     "Jewelry"
@@ -19,7 +19,7 @@
   "author": "Myreen Lacsamana [contact@myreen.co]",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/myr3en/OliveandPiper/issues"
+    "url": "https://github.com/myr3en/OliveandPiper2020/issues"
   },
   "homepage": "https://www.oliveandpiper.com",
   "devDependencies": {
