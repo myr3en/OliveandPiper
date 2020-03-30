@@ -65,7 +65,7 @@
 {% assign product_image_width = product_image_width | minus:1 %}
 {% endif %}
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
 
   	<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
@@ -84,7 +84,32 @@
   	</nav>
 
   </div>
+</div> -->
+
+
+<!-- MODAL BOX -->
+<div id="open-modal" class="modal-window">
+    <div class="modal-popup">
+        <a href="#modal-close" title="Close" class="modal-close"><i class="fa fa-times"></i></a>
+
+        <div class="section-container">
+            <div class="popup-sections col-md-4 col-sm-12">
+                <h1>Free Shipping</h1>
+                <p>Free standard shipping on all CA and US orders over $49 US after discounts and promotions are applied. Orders shipping to CA and US always arrive duty free.<br /><a target="_blank" href="https://www.oliveandpiper.com/pages/orders-shipping">More Info <i class="fa fa-angle-right"></i></a></p>
+            </div>
+            <div class="popup-sections col-md-4 col-sm-12">
+                <h1>Satisfaction Guarantee</h1>
+              <p>We accept returns within 60 days of purchase. Exceptions apply. <b>Black Friday and Cyber Monday sales are FINAL.</b><br /><a target="_blank" href="https://www.oliveandpiper.com/pages/return-exchange-policy">More Info <i class="fa fa-angle-right"></i></a></p>
+            </div>
+            <div class="popup-sections col-md-4 col-sm-12">
+                <h1>Questions?</h1>
+                <p>Visit our <a target="_blank" href="https://www.oliveandpiper.com/pages/faqs">FAQs</a>. <a target="_blank" href="https://www.oliveandpiper.com/pages/orders-shipping">Shipping</a> or <a target="_blank" href="">Returns</a> page or get in touch at <br /><a href="mailto:info@oliveandpiper.com">info@oliveandpiper.com</a></p>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- END MODAL BOX -->
+
 
 <div class="row" id="product-box" data-section-id="{{ section.id }}">
 
@@ -273,6 +298,20 @@
   <div class="col-sm-12 {{ product_description_width }}">
   	<section class="entry-content product-description-main-wrapper{% unless section.settings.show_variant_labels %} hide-variant-labels{% endunless %}{% if section.settings.product_variant_style == 'dropdowns' %} variant-dropdown-enabled{% else %} variant-swatches-enabled{% endif %}">
 
+    <!-- Added Breadcrumb to top -->
+    <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+      <!-- <a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a> -->
+        {% if collection %}
+          <!-- <span aria-hidden="true">&rsaquo;</span> -->
+          {% if collection.handle %}
+            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+            {{ collection.title | link_to: url }}
+          {% endif %}
+        {% endif %}
+        <span aria-hidden="true">&rsaquo;</span>
+        <span>{{ product.title }}</span>
+    </nav>
+
       <div class="row">
         {% if section.settings.show-vendor %}
         <div class="indiv-product-vendor-text col-xs-{% if section.settings.show_sku %}6{% else %}12{% endif %}">{{ product.vendor }}</div>
@@ -432,10 +471,16 @@
   					    <button type="submit" name="add" id="purchase" class="btn btn-success custom-font{% if section.settings.show_smart_checkout %} add-to-cart--secondary{% endif %}"{% if disabled %} disabled="disabled"{% endif %} data-cart-action="{{ section.settings.cart-action }}">
   					      {% if pick_an_option or current_variant.available %}
   					        {{ 'products.product.add_to_cart' | t }}
-                  {% else %}
-                    {{ 'products.product.sold_out' | t }}
-                  {% endif %}
+                          {% else %}
+                            {{ 'products.product.sold_out' | t }}
+                          {% endif %}
   					    </button>
+
+                        <!-- Shipping pop up -->
+                        <div class="container-modal">
+                            <p class="free-ship">*Free shipping over $49 +  Satisfaction Guarantee.
+                            <a class="free-ship-btn" href="#open-modal">More Info</a></p>
+                        </div>
 
                 {% if section.settings.show_smart_checkout %}
                   {{ form | payment_button }}

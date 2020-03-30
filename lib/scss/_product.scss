@@ -159,6 +159,7 @@ body.template-product {
                 line-height: 20px;
                 text-transform: uppercase;
                 color: #7f7f7f;
+                letter-spacing: 1px;
             }
         }
         @media only screen and (max-width: 767px) {
@@ -246,10 +247,10 @@ body.template-product {
     #smartwishlist {
         padding: 5px 10px !important;
     }
-    .product-pricing {
+    .product-page--pricing {
         display: flex;
         align-items: baseline;
-        margin: 0 0 15px;
+        margin: 15px 0;
         border-bottom: 1px solid #000;
         padding-bottom: 15px;
 
@@ -262,8 +263,9 @@ body.template-product {
         .custom-font {
             margin: 0 !important;
             line-height: 20px;
+
             .money {
-                font-size: 15px;
+                font-size: 15px !important;
             }
         }
         .compare-at-price {
@@ -400,6 +402,7 @@ body.template-product {
             background-color: #e5dad2;
             border: 0 !important;
             margin-bottom: 10px;
+            color: #000;
         }
     }
     .btn-success {
