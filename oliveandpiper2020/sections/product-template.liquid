@@ -321,7 +321,7 @@
         {% endif %}
       </div>
 
-  		<h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }}</h1>
+  		<h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }} <div id="smartwishlist" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></div></h1>
 
       {% if section.settings.show_reviews %}
       <a class="product-template--reviews-header" href="#shopify-product-reviews"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></a>
@@ -379,6 +379,22 @@
               </li>
 
               {% endcase %}
+
+              <li>
+                  <!--START Yotpo Star Rating + Q&A Button-->
+                  <div class="yotpo bottomLine"
+                       data-product-id="{{ product.id }}"
+                       data-name="{{ product.title | escape }}"
+                       data-url="{{ page.url }}">
+                  </div>
+
+                  <style>
+                    .yotpo-icon-double-bubble, .yotpo-stars { margin: 0 5px 0 0 !important; }
+                    div.yotpo.bottomLine         { display: inline-block; margin: 25px 10px 1px 15px;}
+                    div.yotpo.QABottomLine     { display: inline-block; }
+                  </style>
+                <!--END Yotpo Star Rating + Q&A Button-->
+              </li>
 
             </ul>
 

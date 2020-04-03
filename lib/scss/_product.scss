@@ -277,7 +277,7 @@ body.template-product {
         margin: 10px 10px 10px 15px !important;
     }
 
-    .product-buttons {
+    .product-page--submit-action {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -300,6 +300,8 @@ body.template-product {
                 }
             }
         }
+
+
         /* END MODAL */
 
     }
