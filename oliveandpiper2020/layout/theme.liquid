@@ -37,7 +37,7 @@
 	<link rel="canonical" href="{{ canonical_url }}" />
 
 	<!-- CSS -->
-	{{ 'plugins.css' | asset_url | stylesheet_tag }} {{ 'style.scss.css' | asset_url | stylesheet_tag }}
+	{{ 'plugins.css' | asset_url | stylesheet_tag }}
 	{{ 'style.scss.css' | asset_url | stylesheet_tag }}
 	{{ 'style-main.min.css' | asset_url | stylesheet_tag }}
 	{% include 'font-links' %}
@@ -68,10 +68,71 @@
 	{{ 'custom.js' | asset_url | script_tag }}
 	{{ 'sections.js' | asset_url | script_tag }}
 
+	{% comment %} if template conditional statement added by Smart Wishlist {% endcomment %}
+	<!-- {% if template %}
+		{{ 'jquery-1.11.0.min.js' | asset_url | script_tag }}
+	{% else %}
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script>
+	{% endif %}
+
+		{{ 'plugins.js' | asset_url | script_tag }}
+
+	{% comment %} if template conditional statement added by Smart Wishlist {% endcomment %}
+	{% if template %}
+		{{ 'custom.js' | asset_url | script_tag }}
+	{% endif %}
+
+		{{ 'sections.js' | asset_url | script_tag }}
+		{{ 'shopstorm-apps.scss.css' | asset_url | stylesheet_tag }}
+		{% include 'shopstorm-scripttags' %} -->
+
+
+	<!-- START Yotpo JS Library -->
+	<script type="text/javascript">
+		(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/INZVWr50bc1HjrR1H0TQXwjj1V8vfzYIcZP3kZ2L/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+	</script>
+
+		{%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+		{%- assign time_now = 'now' | date: '%s' %}
+		{%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+		{%- assign diffSeconds = time_now | minus: yotpo_live_time %}
+		{%- if yotpo_offload_content == 'yes' and diffSeconds < 86400 -%}
+		{{ 'yotpo-full-css.css' | asset_url | stylesheet_tag }}
+		{%- endif -%}
+	<!-- END Yotpo JS Library -->
+
+	<!-- {% include 'sca.freegifts' %} -->
+
+
+	<!-- SHARE A SALE -->
+	<!-- <script>var shareasaleShopifySSCID=shareasaleShopifyGetParameterByName("sscid");function shareasaleShopifySetCookie(e,a,o,i,r){if(e&&a){var s,S=i?"; path="+i:"",h=r?"; domain="+r:"",t="";o&&((s=new Date).setTime(s.getTime()+o),t="; expires="+s.toUTCString()),document.cookie=e+"="+a+t+S+h}}function shareasaleShopifyGetParameterByName(e,a){a||(a=window.location.href),e=e.replace(/[\[\]]/g,"\\$&");var o=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(a);return o?o[2]?decodeURIComponent(o[2].replace(/\+/g," ")):"":null}shareasaleShopifySSCID&&shareasaleShopifySetCookie("shareasaleShopifySSCID",shareasaleShopifySSCID,94670778e4,"/");</script>
+	{% include 'wsg-header' %} -->
+	<!-- END SHARE A SALE -->
+
+	<!-- Begin Pinterest Tag -->
+	<script>
+		!function(e){if(!window.pintrk){window.pintrk = function () {
+		window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+		n=window.pintrk;n.queue=[],n.version="3.0";var
+		t=document.createElement("script");t.async=!0,t.src=e;var
+		r=document.getElementsByTagName("script")[0];
+		r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+		pintrk('load', '2614325009265', { em: '{{ email }}',});
+		pintrk('page');
+		</script>
+		<noscript>
+		<img height="1" width="1" style="display:none;" alt=""
+		src="https://ct.pinterest.com/v3/?tid=2614325009265&noscript=1" />
+	</noscript>
+	<!-- END Pinterest Tag -->
+
+
 	<!-- Excluding products from SEO -->
 	{% if handle contains 'birthday-gift-2020' %}
 	<meta name="robots" content="noindex">
 	{% endif %}
+	<!-- END Excluding products from SEO -->
+
 
 </head>
 
@@ -96,10 +157,19 @@
 			{% endunless %}
 
 			{{ content_for_layout }}
+			<limespot></limespot>
 
 			{% unless template == "index" or template == "collection" %}
 				</div>
 			{% endunless %}
+
+			<!-- Product page Reviews -->
+			{% if template == "product" %}
+				{% section 'logo-bar' %}
+				{% section 'product-template-reviews' %}
+				{% section 'product-template-bottom' %}
+			{% endif %}
+			<!-- END Product page Reviews -->
 
 		</div>
 
@@ -126,8 +196,71 @@
             showMore: {{ 'general.filters.show_more' | t | json }},
             showLess: {{ 'general.filters.show_less' | t | json }}
         },
-        moneyFormat: {{ shop.money_format | json }}
+        moneyFormat: {{ shop.money_with_currency_format | json }}
     };
+	</script>
+
+
+
+	{% comment %} Conditional statement  added by Smart Wishlist to fix search issue on Wishlist page on June 13, 2018 {% endcomment %}
+	{% unless template %}
+	<script>
+	  $(document).ready(function(){
+
+	      $(".search-show").off('click').on('click', function(){
+	          $("#top-search-wrapper").toggleClass('expanded');
+	          $("#top-search-wrapper #search_text").focus();
+	      });
+
+	      if($(window).width() < 767){
+	          $('.mobile-menu-close').trigger('click');
+	      }
+	  });
+	</script>
+	{% endunless %}
+
+
+
+
+	<!-- KLAVIYO SCRIPT CODE -->
+	<script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+	<script>
+	    var klaviyo = klaviyo || [];
+	    klaviyo.init({
+	      account: "LeTLiC",
+		  list: 'PLufL5',
+	      platform: "shopify"
+	    });
+	    klaviyo.enable("backinstock",{
+	    trigger: {
+	      product_page_text: "Get on the Waitlist",
+	      product_page_class: "btn",
+	      product_page_text_align: "center",
+	      product_page_margin: "0px",
+	      replace_anchor: false
+	    },
+	    modal: {
+	     headline: "Missed out?",
+	     body_content: "Enter your email below and we'll let you know when this item is available for purchase.",
+	     email_field_label: "Email",
+		 newsletter_subscribe_label: "Sign up for new arrivals and promotions.",
+	     button_label: "GET ON THE WAITLIST",
+	     subscription_success_label: "You're in! We'll let you know when it's back.",
+	     footer_content: "You'll receive a one time email when this item is available for ordering. Your address will not be shared with anyone else.",
+	     additional_styles: "@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');",
+		 font_family: "font-family: 'Raleway', sans-serif;",
+	     drop_background_color: "#000",
+	     background_color: "#fff",
+	     text_color: "#222",
+	     button_text_color: "#000",
+	     button_background_color: "#e5dad2",
+	     close_button_color: "#ccc",
+	     error_background_color: "#fcd6d7",
+	     error_text_color: "#C72E2F",
+	     success_background_color: "#d3efcd",
+	     success_text_color: "#1B9500"
+	    }
+	  });
 	</script>
 
 </body>

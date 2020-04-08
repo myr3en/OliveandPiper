@@ -572,7 +572,7 @@
           "1582598048781": {
             "type": "menu",
             "settings": {
-              "menu_title": "Links",
+              "menu_title": "Collections",
               "collection_linklist": "main-menu"
             }
           },
@@ -586,7 +586,7 @@
           "1582598282291": {
             "type": "image",
             "settings": {
-              "collection-sidebar-image": "",
+              "collection-sidebar-image": "shopify:\/\/shop_images\/Launch_4_products.jpg",
               "collection-sidebar-link": ""
             }
           }
@@ -599,7 +599,7 @@
         "settings": {
           "grid": 3,
           "rows": 6,
-          "collection_image_enable": true,
+          "collection_image_enable": false,
           "sort_enable": true,
           "tags_enable": false,
           "enable_collection_sidebar": true

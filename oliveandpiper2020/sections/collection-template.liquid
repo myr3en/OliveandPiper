@@ -99,13 +99,28 @@
 			</div>
 {% endif %}
 
+<!-- Breadcrumbs -->
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+	{% if collection %}
+	  <span aria-hidden="true">›</span>
+	  {% if collection.handle %}
+		{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+		{{ collection.title | link_to: url }}
+	  {% endif %}
+	{% endif %}
+	<span aria-hidden="true">›</span>
+	<span>{{ product.title }}</span>
+</nav>
+
+
   <div class="page-width row" id="Collection">
 
 {% if section.settings.enable_collection_sidebar %}
 
 		{% if section.blocks.size > 0 %}
 
-			<div class="col-md-3" id="collection-sidebar">
+			<div class="col-md-2" id="collection-sidebar">
 
 				{% for block in section.blocks %}
 
@@ -194,7 +209,7 @@
 {% endif %}
 
 {% if section.settings.enable_collection_sidebar and section.blocks.size > 0 %}
-	<div class="col-md-9">
+	<div class="col-md-10">
 {% else %}
 	<div class="col-md-12">
 {% endif %}

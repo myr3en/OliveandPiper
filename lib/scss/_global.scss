@@ -108,67 +108,32 @@ p, li, a {
             padding-left: 10px;
         }
     }
-    .currency-picker--wrapper {
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        #custom {
-            background-color: transparent;
-            width: 70px;
-            .sod_label {
-                text-transform: uppercase;
-                font-family: 'NewParis Skyline';
-                font-style: normal;
-                font-weight: 700;
-                font-size: 11px;
-                letter-spacing: 1px;
-                color: $black;
-            }
-        }
+}
 
-        /* New Multicurrency by shopify - added Aug 22 2019 */
-        #currency_form {
-            padding-right: 5px;
-            select {
-                background-color: transparent;
-                border: none;
-                border-radius: 0;
-                display: block;
-                font-size: 12px;
-            }
-
-            @media only screen
-            and (min-device-width : 375px)
-            and (max-device-width : 667px) {
-                &:after {
-                    content: "\f0dc";
-                    font-family: FontAwesome;
-                    font-style: normal;
-                    font-weight: normal;
-                    text-decoration: inherit;
-                /*--adjust as necessary--*/
-                    color: $white;
-                    font-size: 11px;
-                    position: absolute;
-                    top: 10px;
-                    right: 0;
-                }
-            }
+/* END NOTIFICATION BAR */
 
 
 
 
+// CURRENCY PICKER //
+.currency-picker--wrapper {
+    .currency-picker {
+        background-color: transparent !important;
+        width: 50px !important;
+    }
+    #custom {
+        option {
+            // text-transform: uppercase;
+            // font-family: 'NewParis Skyline';
+            // font-style: normal;
+            // font-weight: 700;
+            // font-size: 11px;
+            // letter-spacing: 1px;
+            // color: $white !important;
         }
     }
 }
-
-/* END */
-
-
+// END CURRENCY PICKER //
 
 
 
@@ -198,42 +163,38 @@ p, li, a {
 
 
 /* NAVIGATION STYLES */
-
  .sticky-header-menu {
 
      #main-navigation-wrapper {
          background-color: rgba(255, 255, 255, 0.5);
-         .dropdown-menu {
-
-         }
      }
  }
 
 .cart-link {
-    a {
-        i {
-            font-size: 1.5em;
-            color: #4E5254;
-        }
-        .cart-item-count-header {
-            color: #4E5254;
-            font-weight: normal;
-        }
-        .topbadge {
-            color: #4e5254 !important;
-            font-weight: 400;
-            padding: 1px 0 0 0 !important;
-            margin: 0 !important;
-            position: relative;
-            width: auto;
-            &:before {
-                content: none !important;
-            }
-            &:after {
-                content: none !important;
-            }
-        }
+    .cart-item-count-header--quantity {
+        font-family: 'NewParis Skyline';
     }
+    // a {
+    //     i {
+    //         font-size: 1.5em;
+    //         color: #4E5254;
+    //     }
+    //
+    //     .topbadge {
+    //         color: #4e5254 !important;
+    //         font-weight: 400;
+    //         padding: 1px 0 0 0 !important;
+    //         margin: 0 !important;
+    //         position: relative;
+    //         width: auto;
+    //         &:before {
+    //             content: none !important;
+    //         }
+    //         &:after {
+    //             content: none !important;
+    //         }
+    //     }
+    // }
 }
 
 #main-navigation-wrapper {
@@ -312,10 +273,6 @@ p, li, a {
 
 
 
-
-
-
-
 /* Currency Picker */
 .BOLD-mc-picker-mnt.injected {
     position: absolute !important;
@@ -349,7 +306,17 @@ p, li, a {
      }
 }
 
-/* END */
+/* END CURRENCY PICKER */
+
+
+
+// FLEXSLIDER //
+.homepage-slider-container {
+    .slider-caption.background {
+        opacity: 0.8;
+    }
+}
+// END FLEXSLIDER //
 
 
 
@@ -391,11 +358,6 @@ p, li, a {
     }
 
 }
-
-
-
-
-
 
 /* END */
 

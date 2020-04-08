@@ -1,17 +1,33 @@
 body.template-collection {
 
     /* TITLE BAR */
-
     .title-bar {
 
         h2 {
-            font-family: 'NewParis Headline' !important;
+            font-family: 'NewParis Headline';
             text-transform: capitalize !important;
-            font-size: 20px !important;
+            font-weight: normal;
+            font-size: 32px !important;
+            letter-spacing: 2px;
+            background: none;
+            font-style: normal;
+            color: $black;
+            &:after {
+                border: none;
+                background: none repeat scroll 0 0 #000;
+                content: "";
+                display: block;
+                height: 2px;
+                position: relative;
+                width: 50px;
+                margin: 0 auto 0;
+                top: 20px;
+            }
+
         }
     }
 
-    
+
 .shopify-section-collection-template {
     width: 100%;
 }
