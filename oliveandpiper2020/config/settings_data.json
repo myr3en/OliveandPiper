@@ -151,10 +151,10 @@
           "slideshow-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Hero_HairClips.jpg",
+              "image": "shopify:\/\/shop_images\/Hero_PearlCollection_V4.jpg",
               "mobile_image": "",
-              "title": "Clip it Back",
-              "text": "<p>Popular hair clips and accessories back in stock.&nbsp;<\/p>",
+              "title": "Our Kinda Pears",
+              "text": "<p>A modern refresh on your classic pearls.<\/p>",
               "button_text": "SHOP NOW",
               "link": "shopify:\/\/collections\/hair-accessories",
               "caption-background": "#ffffff",
@@ -181,29 +181,11 @@
               "horizontal-alignment": "right",
               "vertical-alignment": "middle"
             }
-          },
-          "1582599096512": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "mobile_image": "",
-              "title": "",
-              "text": "",
-              "button_text": "",
-              "link": "",
-              "caption-background": "rgba(0,0,0,0)",
-              "caption-text": "#ffffff",
-              "button-text": "#ffffff",
-              "button-background": "#000000",
-              "horizontal-alignment": "left",
-              "vertical-alignment": "middle"
-            }
           }
         },
         "block_order": [
           "slideshow-0",
-          "slideshow-1",
-          "1582599096512"
+          "slideshow-1"
         ],
         "settings": {
           "slider-animation": "slide",
@@ -433,12 +415,12 @@
         "settings": {
           "colors": "white",
           "image-width": "extra-large",
-          "image": "shopify:\/\/shop_images\/TextImage_24HourDeal_MiniStuds.jpg",
+          "image": "shopify:\/\/shop_images\/WebFeature_WFH.jpg",
           "layout": "left",
           "title": "#OANDPATHOME",
-          "text_block": "<p>Share your WFH looks in&nbsp;your favorite #oliveandpiper jewelry and you could win a $50 gift card!<\/p>",
-          "button_label": "SHOP NOW",
-          "button_link": "shopify:\/\/collections\/mini-stud-earrings"
+          "text_block": "<p>Share your WFH looks in&nbsp;your favorite #oliveandpiper jewelry!<\/p>",
+          "button_label": "SUBMIT YOUR PHOTO",
+          "button_link": "https:\/\/www.oliveandpiper.com\/pages\/oandpathome"
         }
       },
       "1579554024083": {
@@ -624,12 +606,26 @@
           "show_blog_tags": true,
           "show_recent_posts": false
         }
+      },
+      "1586369026863": {
+        "type": "feature-row",
+        "settings": {
+          "colors": "white",
+          "image-width": "medium",
+          "image": "shopify:\/\/shop_images\/TextImage_JewelryRoll.jpg",
+          "layout": "right",
+          "title": "Jewelry Case",
+          "text_block": "<p><span style=\"text-decoration: none;\">Our compact and easy-to-pack jewelry roll keeps your favorite gems smartly organized and tangle-free.&nbsp;<\/span><\/p>",
+          "button_label": "SHOP NOW",
+          "button_link": "shopify:\/\/products\/jewelry-travel-roll"
+        }
       }
     },
     "content_for_index": [
       "slideshow",
       "collection",
       "1579553473789",
+      "1586369026863",
       "1579554024083",
       "1579554194950",
       "indiv-product",
