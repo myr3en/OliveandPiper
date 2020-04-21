@@ -55,7 +55,6 @@ body.template-collection {
             padding: 0;
             h2 {
                 /* SEMI-BOLD */
-                text-transform: capitalize;
                 font-family: 'NewParis Headline';
                 font-weight: normal;
                 font-size: 32px !important;
@@ -150,6 +149,30 @@ body.template-collection {
             letter-spacing: 1px;
         }
     }
+
+
+    // COLLECTION SIDEBAR //
+    #collection-sidebar {
+        h2 {
+            font-family: 'NewParis Skyline';
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        .collection-sidebar--section {
+            ul li {
+                border-bottom: 0;
+                padding: 0 0 5px 0;
+
+                a {
+                    letter-spacing: 1px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
 
     /* PRODUCT GRID STYLES */
     .indiv-product {

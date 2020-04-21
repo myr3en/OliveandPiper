@@ -78,7 +78,7 @@
 				{% endif %}
 
 				{% if section.settings.sort_enable %}
-					<div class="collection-page--sort-by col-md-3 col-sm-6 {% if section.settings.tags_enable %}col-md-offset-6{% endif %}">
+					<div class="collection-page--sort-by col-md-2 col-sm-6 {% if section.settings.tags_enable %}col-md-offset-6{% endif %}">
 						{%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
 						<label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
   					<select id="sort-by">
